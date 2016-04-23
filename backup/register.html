@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BPPTIK - Balai Pelatihan dan Pengembangan Teknologi Informasi dan Komunikasi</title>
+    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+    <script src="js/jquery.js"></script>
+    <script src="js/superfish.js"></script>
+    <script src="js/jquery.flexslider.js"></script>
+    <script src="js/hoverIntent.js"></script>
+    <script src="js/engine.js" charset="utf-8"></script>
+  </head>
+  <body class="custom-background">
+    <div id="container">
+      <!-- header nanti dipisah ya van-->
+        <header>
+          <div class="wrapper">
+            <div id="logo">
+              <a href="#" title="Balai Pelatihan dan Pengembangan Teknologi Informasi dan Komunikasi">
+                <img src="images/logo.png" alt="BPPTIK">
+              </a>
+            </div>
+            <nav id="top-menu">
+              <ul>
+                <li class="menu-item">
+                  <a href="#">FAQ</a>
+                </li>
+                <li class="menu-item">
+                  <a href="#">Kontak</a>
+                </li>
+                <li class="menu-item ">
+                  <a href="#">Lokasi</a>
+                </li>
+                <li class="social-icons">
+                  <a href="mailto:bpptik@gmail.com" rel="nofollow">
+                    <img src="images/social/email_small.png" width="16" height="16" alt="">
+                  </a>
+                  <a href="#" rel="nofollow">
+                    <img src="images/social/facebook_small.png" width="16" height="16" alt="">
+                  </a>
+                  <a href="#" rel="nofollow">
+                    <img src="images/social/twitter_small.png" width="16" height="16" alt="">
+                  </a>
+                  <a href="#" rel="nofollow"><img src="images/social/youtube_small.png" width="16" height="16" alt="">
+                  </a>
+                  <a href="#" rel="nofollow">
+                    <img src="images/social/feed_small.png" width="16" height="16" alt="">
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div id="header-helpful">
+              <div class="search-form">
+                <form method="get" id="searchform" action="http://bpptik.kominfo.go.id/">
+                  <fieldset>
+                    <input type="text" onblur="if (this.value == '') {this.value = 'Search';}" onfocus="if (this.value == 'Search') {this.value = '';}" value="Search" name="s" id="setop">
+                    <input type="submit" id="searchsubmit" value="Search">
+                  </fieldset>
+                </form>
+              </div>
+              <span class="action">
+                <span class="value">
+                </span>
+              </span>
+            </div>
+            <div class="cleaner">&nbsp;</div>
+          </div>
+        </header>
+        <!-- end header -->
+
+        <!-- navmenu nanti dipisah ya van-->
+        <nav id="nav-main-menu">
+          <a class="btn_menu" id="toggle" href="#"></a>
+          <div class="wrapper wrapper-menu">
+            <ul id="menu-main" class="dropdown">
+              <li class="menu-item">
+                <a href="#">Home</a>
+              </li>
+              <li class="menu-item menu-item-has-children">
+                <a href="#" class="sf-with-ul">Profil<span class="sf-sub-indicator"> »</span>
+                </a>
+                <ul class="sub-menu">
+                  <li class="menu-item ">
+                    <a href="#">Profil Singkat</a>
+                  </li>
+                  <li class="menu-item ">
+                    <a href="#">Sejarah</a>
+                  </li>
+                  <li class="menu-item ">
+                    <a href="#">Tugas dan Fungsi</a>
+                  </li>
+                  <li class="menu-item ">
+                    <a href="#">Struktur Organisasi</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Aparatur</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item menu-item-has-children">
+                <a href="#" class="sf-with-ul">Layanan<span class="sf-sub-indicator"> »</span>
+                </a>
+                <ul class="sub-menu">
+                  <li class="menu-item">
+                    <a href="#">Pelatihan</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Uji Kompetensi dan Sertifikasi</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Layanan Jasa TIK Lainnya</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item menu-item-has-children">
+                <a href="#" class="sf-with-ul">Fasilitas<span class="sf-sub-indicator"> »</span></a>
+                <ul class="sub-menu">
+                  <li class="menu-item ">
+                    <a href="#">Gedung Utama</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Gedung Asrama</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Gedung Serbaguna</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Fasilitas Lainnya</a>
+                  </li>
+                </ul>
+              </li>
+              <li  class="menu-item">
+                <a href="#">Agenda</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Berita</a>
+              </li>
+              <li class="menu-item">
+                <a href="#">Artikel</a>
+              </li>
+              <li class="menu-item menu-item-has-children">
+                <a href="#" class="sf-with-ul">Galeri<span class="sf-sub-indicator"> »</span>
+                </a>
+                <ul class="sub-menu">
+                  <li class="menu-item">
+                    <a href="#">Foto</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Video</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item menu-item-has-children">
+                <a href="#" class="sf-with-ul">Download<span class="sf-sub-indicator"> »</span></a>
+                <ul class="sub-menu">
+                  <li class="menu-item ">
+                    <a href="#">Laporan Pelatihan</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Laporan Sertifikat</a>
+                  </li>
+                  <li class="menu-item">
+                    <a href="#">Laporan Sertifikasi</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item right-menu">
+                <a href="login.html">Login</a>
+              </li>
+              <li class="cleaner">&nbsp;</li>
+            </ul>
+          </div>
+        </nav>
+        <!-- end navmenu -->
+        <!-- main container -->
+        <div id="main">
+          <div class="wrapper">
+            <div class="column column-wide">
+              <form class="login-form" action="#" method="post">
+              <div class="widget" style="display:inline-block;">
+                <div class="step-content">
+                  <h2>Register I</h2>
+                  <fieldset>
+                    <div class="input-form">
+                        <label for="jenis_sek">Jenis Sekolah <em>*</em></label>
+                        <select name="jenis_sek" id="jenis_sek" class="input-text">
+                          <option value="1">Reguler</option>
+                          <option value="3">Paket</option>
+                        </select>
+                    </div>
+                    <div class="input-form">
+                        <label for="jenis_peg">Kelompok Pegawai <em>*</em></label>
+                        <select name="jenis_peg" class="input-text">
+                          <option value="G">Tenaga Pendidik</option>
+                          <option value="P">Tenaga Kependidikan</option>
+                        </select>
+                    </div>
+                    <div class="input-form">
+                      <label for="keyword">Kata Kunci</label>
+                      <div class="keyword-content" style="width:100%;display:inline-block;">
+                        <input type="text" name="keyword" value="" class="input-text" style="width:45%; margin-right:10px;">
+                        <select name="berdasarkan" class="input-text" style="width:40%;">
+                          <option value="">-- Pilih Kriteria --</option>
+                          <option value="nama">Nama</option>
+                          <option value="nip">NIP</option>
+                          <option value="nik">NIK</option>
+                          <option value="nip">NRK</option>
+                          <option value="nip">NIGB</option>
+                          <option value="nuptk">NUPTK</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="input-form">
+                        <label for="kec">Kecamatan <em>*</em></label>
+                        <select name="kec" class="input-text">
+                          <option value="">-- Pilih Kecamatan --</option>
+                          <option value="6408">Cakung</option>
+                          <option value="6403">Cipayung</option>
+                          <option value="6402">Ciracas</option>
+                          <option value="6407">Duren Sawit</option>
+                          <option value="6406">Jatinegara</option>
+                          <option value="6405">Kramat Jati</option>
+                          <option value="6404">Makasar</option>
+                          <option value="6410">Matraman</option>
+                          <option value="6401">Pasar Rebo</option>
+                          <option value="6409">Pulo Gadung</option>
+                        </select>
+                    </div>
+                    <div class="input-form">
+                        <label for="tingkat_sekolah">Tingkat Sekolah <em>*</em></label>
+                        <select name="tingkat_sekolah" class="input-text" id="tingkat_sekolah">
+                          <option value="">-- Pilih Tingkat Sekolah --</option>
+                          <option value="">TK</option>
+                          <option value="">SD</option>
+                          <option value="">SMP</option>
+                          <option value="">SMA</option>
+                          <option value="">SMK</option>
+                        </select>
+                    </div>
+                    <div class="input-form">
+                        <label for="nama_sekolah">Nama Sekolah <em>*</em></label>
+                        <select name="nama_sekolah" class="input-text" id="nama_sekolah">
+                          <option value="">-- Pilih Tingkat Sekolah Dahulu--</option>
+                        </select>
+                    </div>
+                    <div class="input-form">
+                      <div class="form-wide">
+                        <label for="umur">Umur <em>*</em></label>
+                        <input type="text" name="umur" id="umur" value="" class="input-text">
+                      </div>
+                      <div class="form-wide">
+                        <label for="masa_kerja">Masa Kerja <em>*</em></label>
+                        <input type="text" name="masa_kerja" id="masa_kerja" value="" class="input-text">
+                      </div>
+                    </div>
+                    <div class="input-form">
+                        <label for="jkelamin">Jenis Kelamin <em>*</em></label>
+                        <select name="jkelamin" class="input-text" id="jkelamin">
+                          <option value="">-- Pilih --</option>
+                          <option value="L">Laki-laki</option>
+  			                  <option value="P">Perempuan</option>
+  	                     </select>
+                    </div>
+                    <div class="input-form">
+                        <label for="mapel">Mata Pelajaran <em>*</em></label>
+                        <select name="mapel" class="input-text" id="mapel">
+                          <option value="">-- Pilih --</option>
+  	                     </select>
+                    </div>
+                    <div class="input-form">
+                        <label for="status">Status Sekolah <em>*</em></label>
+                        <select name="status" class="input-text" id="status">
+                          <option value="">-- Pilih --</option>
+                          <option value="1">Negeri</option>
+    		                  <option value="2">Swasta</option>
+                        </select>
+                    </div>
+                    <div class="input-form">
+                        <label for="stat_peg">Status Kepegawaian <em>*</em></label>
+                        <select name="stat_peg" class="input-text" id="stat_peg">
+                          <option value="">-- Pilih --</option>
+                          <option value="G01">PNS</option>
+                          <option value="G00">CPNS</option>
+                          <option value="G04">Honor K-1 / PTT</option>
+                          <option value="G13">Honor K-2</option>
+                          <option value="G03">Honor Murni Negeri 2005+</option>
+                          <option value="G06">PHL (K-2)</option>
+                          <option value="G07">PHL (Honor Murni)</option>
+                          <option value="G05">Guru Bantu</option>
+                          <option value="G11">Guru DPK</option>
+                          <option value="G12">Guru Depag</option>
+                          <option value="G02">Guru Tetap Yayasan</option>
+                          <option value="G14">Guru Tidak Tetap Yayasan</option>
+                        </select>
+                    </div>
+                    <div class="input-form">
+                      <div class="form-wide">
+                        <label for="gol_ruang">Golongan <em>*</em></label>
+                        <select name="gol_ruang" class="input-text" id="gol_ruang">
+                          <option value="">-- Pilih --</option>
+                          <option value="01">Gol I</option>
+                          <option value="02">Gol II</option>
+                          <option value="03">Gol III</option>
+                          <option value="04">Gol IV</option>
+                        </select>
+                      </div>
+                      <div class="form-wide">
+                        <label for="ruang">Ruang <em>*</em></label>
+                        <select name="ruang" class="input-text" id="ruang">
+                          <option value="">-- Pilih --</option>
+                          <option value="a">a</option>
+                          <option value="b">b</option>
+                          <option value="c">c</option>
+                          <option value="d">d</option>
+                          <option value="e">e</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="input-form">
+                        <label for="jabatan">Jabatan <em>*</em></label>
+                        <select name="jabatan" class="input-text" id="jabatan">
+                          <option value="">-- Pilih Jabatan --</option>
+                        </select>
+                    </div>
+                    <div class="input-form">
+                      <div class="form-wide">
+                        <label for="sertifikasi">Sertifikasi <em>*</em></label>
+                        <select name="sertifikasi" class="input-text" id="sertifikasi">
+                          <option value="">-- Pilih --</option>
+                          <option value="1">Ya</option>
+                          <option value="0">Tidak</option>
+                        </select>
+                     </div>
+                     <div class="form-wide">
+                       <label for="thn_sertifikasi">Tahun <em>*</em></label>
+                       <input type="text" name="thn_sertifikasi" id="thn_sertifikasi" value="" class="input-text">
+                     </div>
+                    </div>
+                    <div class="input-form">
+                      <div class="form-wide">
+                        <label for="pendidikan">Ijazah Terakhir <em>*</em></label>
+                        <select name="pendidikan" id="pendidikan" class="input-text">
+                          <option value="">-- Pilih --</option>
+                          <option value="S13">SLTA</option>
+                          <option value="S21">PGSLP/D-1</option>
+                          <option value="S22">PGSLA/D-2</option>
+                          <option value="S23">Sarmud/D-3</option>
+                          <option value="S31">Sarjana/S-1</option>
+                          <option value="S32">Pasca Sarjana/S-2</option>
+                          <option value="S33">Doktor/S-3</option>
+                        </select>
+                      </div>
+                      <div class="form-wide">
+                        <label for="thn_pendidikan">Tahun <em>*</em></label>
+                        <input type="text" name="thn_pendidikan" id="thn_pendidikan" value="" class="input-text">
+                      </div>
+                    </div>
+                    <div class="input-form">
+                        <label for="domisili">Domisili Sekarang <em>*</em></label>
+                        <select name="domisili" id="domisili" class="input-text">
+                          <option value="">-- Pilih --</option>
+                          <option value="0">DKI Jakarta</option>
+                          <option value="1">Luar DKI Jakarta</option>
+                        </select>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="step-content">
+                  <h2>Register II</h2>
+                      <fieldset>
+                        <div class="input-form">
+                            <label for="nip">NIP <em>*</em></label>
+                            <input type="text" name="nip" id="nip" value="" class="input-text">
+                        </div>
+                        <div class="input-form">
+                            <label for="nama">Nama Lengkap <em>*</em></label>
+                            <input type="text" name="nama" id="nama" value="" class="input-text">
+                        </div>
+                        <div class="input-form">
+                            <label for="tlp">No Telepon/Handphone <em>*</em></label>
+                            <input type="text" name="tlp" id="tlp" value="" class="input-text">
+                        </div>
+                        <div class="input-form">
+                            <label for="alamat">Alamat <em>*</em></label>
+                            <textarea name="alamat" rows="8" cols="40" class="input-text"></textarea>
+                        </div>
+                        <div class="input-form">
+                            <label for="email">Email <em>*</em></label>
+                            <input type="text" name="email" id="email" value="" class="input-text">
+                        </div>
+                        <div class="input-form">
+                            <label for="password">Password <em>*</em></label>
+                            <input type="password" name="password" id="password" value="" class="input-text">
+                        </div>
+                        <div class="input-form">
+                            <label for="confirm">Confrim Password <em>*</em></label>
+                            <input type="password" name="confirm" id="confirm" value="" class="input-text">
+                        </div>
+                        <div class="input-form">
+                            <label for="foto">Upload Foto <em>*</em></label>
+                            <input type="file" name="foto" id="foto" class="input-text">
+                        </div>
+                        <div class="input-form">
+                            <div class="required">
+                                * Wajib Di isi!
+                            </div>
+                        </div>
+                        <div class="button-set">
+                            <input type="submit" name="submit" value="Register" class="button gold">
+                        </div>
+                    </fieldset>
+                </div>
+              </div>
+            </form>
+              <div class="cleaner">&nbsp;</div>
+            </div>
+
+            <div class="column column-narrow column-last">
+
+              <div class="widget-blue widget wpzoom-text" id="wpzoom-text-widget-2">
+                <p class="title">Link Terkait</p>
+                <div class="textwidget">
+                  <a href="#" target="_blank">
+                    <img class="aligncenter wp-image-152 " src="http://202.89.117.94/wp-content/uploads/2014/11/koica2.png" title="KOICA">
+                  </a>
+                  <a href="http://www.lan.go.id/index.php" target="_blank">
+                    <img class="aligncenter wp-image-152 " src="http://202.89.117.94/wp-content/uploads/2014/10/lan-kecil.png" title="Lembaga Administrasi Negara">
+                  </a>
+                  <a href="http://kominfo.go.id/" target="_blank">
+                    <img class="aligncenter wp-image-152 " src="http://202.89.117.94/wp-content/uploads/2014/10/kominfo-kecil.png" title="Kominfo">
+                  </a>
+                  <a href="http://bnsp.go.id/" target="_blank">
+                    <img class="aligncenter wp-image-152 " src="http://202.89.117.94/wp-content/uploads/2014/11/bnsp-kcl.png" title="BNSP">
+                  </a>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+              </div>
+
+              <div class="cleaner">&nbsp;</div>
+            </div>
+          </div>
+          <div class="cleaner">&nbsp;</div>
+        </div>
+        <!-- end main container -->
+        <!-- footer ntar di pisah ya van -->
+        <footer>
+          <div class="wrapper">
+            <div class="column column-first">
+              <div class="widget wpzoom-custom-menu">
+                <p class="title">Info Lainnya</p>
+                <div class="menu-menu-lainnya-footer-container">
+                  <ul id="menu-menu-lainnya-footer" class="menu">
+                    <li class="menu-item">
+                      <a href="http://bpptik.kominfo.go.id/hiburan/">Lokasi Hiburan</a>
+                    </li>
+                    <li class="menu-item">
+                      <a target="_blank" href="http://statistik.kominfo.go.id/">Statistik Kominfo</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+              </div>
+              <div class="cleaner">&nbsp;</div>
+            </div>
+            <div class="column column-second">
+              <div class="widget wpzoom-text" >
+                <p class="title">Google+</p>
+                <div class="textwidget">
+                  <div id="___page_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 212px; height: 290px; background: transparent;">
+                    <iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 212px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 290px;" tabindex="0" vspace="0" width="100%" id="I0_1460635320754" name="I0_1460635320754" src="https://apis.google.com/u/0/_/widget/render/page?usegapi=1&amp;width=212&amp;href=https%3A%2F%2Fplus.google.com%2F102248684657330843363&amp;theme=dark&amp;rel=publisher&amp;hl=id&amp;origin=http%3A%2F%2Fbpptik.kominfo.go.id&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en.sB8E5NJ_eLs.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOVjod4lvOV6JQ1QFKyK9l1Dzn_Dg#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I0_1460635320754&amp;parent=http%3A%2F%2Fbpptik.kominfo.go.id&amp;pfname=&amp;rpctoken=34426705" data-gapiattached="true" title="+Badge"></iframe>
+                  </div>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+              </div>
+              <div class="cleaner">&nbsp;</div>
+            </div>
+            <div class="column column-third">
+              <div class="widget wpzoom-text">
+                <p class="title">Facebook</p>
+                <div class="textwidget">
+                  <div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/bpptik" data-width="212" data-height="291" data-colorscheme="dark" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=232718666751996&amp;color_scheme=dark&amp;container_width=211&amp;header=false&amp;height=291&amp;href=https%3A%2F%2Fwww.facebook.com%2Fbpptik&amp;locale=en_US&amp;sdk=joey&amp;show_border=true&amp;show_faces=true&amp;stream=false&amp;width=212">
+                    <span style="vertical-align: bottom; width: 212px; height: 214px;">
+                      <iframe name="f2675a392156fb4" width="212px" height="291px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="http://www.facebook.com/v2.0/plugins/like_box.php?app_id=232718666751996&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D42%23cb%3Df189f39d0d03ae%26domain%3Dbpptik.kominfo.go.id%26origin%3Dhttp%253A%252F%252Fbpptik.kominfo.go.id%252Ffe1425debbc458%26relation%3Dparent.parent&amp;color_scheme=dark&amp;container_width=211&amp;header=false&amp;height=291&amp;href=https%3A%2F%2Fwww.facebook.com%2Fbpptik&amp;locale=en_US&amp;sdk=joey&amp;show_border=true&amp;show_faces=true&amp;stream=false&amp;width=212" style="border: none; visibility: visible; width: 212px; height: 214px;" class=""></iframe>
+                    </span>
+                  </div>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+              </div>
+              <div class="cleaner">&nbsp;</div>
+            </div>
+            <div class="column column-last">
+              <div class="widget widget_text" id="text-3">
+                <p class="title">Twitter</p>
+                <div class="textwidget">
+                  <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-timeline twitter-timeline-rendered" style="position: static; visibility: visible; display: inline-block; width: 520px; height: 250px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;" data-widget-id="534250354649477120"></iframe>
+                  <script>
+                  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                  </script>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+              </div>
+              <div class="cleaner">&nbsp;</div>
+            </div>
+            <div class="cleaner">&nbsp;</div>
+          </div>
+        </footer>
+        <div id="footer-copy">
+          <div class="wrapper wrapper-copy">
+            <p class="copyright">Copyright © 2016 BPPTIK. All Rights Reserved</p>
+            <div class="cleaner">&nbsp;</div>
+          </div>
+        </div>
+        <!-- end footer -->
+    </div>
+  </body>
+</html>
