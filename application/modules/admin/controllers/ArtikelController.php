@@ -1,10 +1,10 @@
 <?php
-class Admin_ProfileController extends Zend_Controller_Action {
+class Admin_ArtikelController extends Zend_Controller_Action {
 	
 	public function indexAction() {
 		$this->_helper->layout->setLayout('layoutadmin');
-		$model = new Admin_Model_ProfileModel();
-		$list = $model->getAllProfile();
+		$model = new Admin_Model_ArtikelModel();
+		$list = $model->getAllArtikel();
 		$this->view->detail = $list;
 		if ($this->_request->isPost()) {
 			$Dataform = $this->_request->getPost();
@@ -23,7 +23,7 @@ class Admin_ProfileController extends Zend_Controller_Action {
 	public function addAction() {
 		$this->_helper->layout->setLayout('layoutadmin');
 		if ($this->_request->isPost()) {
-			$model = new Admin_Model_ProfileModel();
+			$model = new Admin_Model_ArtikelModel();
 			$Dataform = $this->_request->getPost();
 			$upload = new Zend_File_Transfer();
 			$info = $upload->getFileInfo('file');
@@ -35,18 +35,16 @@ class Admin_ProfileController extends Zend_Controller_Action {
 				} else if($size>=600000) {
 					$this->view->message = 'Image Maximum 600Kb';
 				} else {
-
-						$iddesc = $model->getAllProfiledesc();
+						$iddesc = $model->getAllArtikeldesc();
 						if($iddesc!=null){
-							$newid = $iddesc[0]['id_profil']+1;
+							$newid = $iddesc[0]['id_artikel']+1;
 						} else {
 							$newid = 1;
 						}
-						//Zend_Debug::dump($newid);die();
-						
+						//Zend_Debug::dump($info);die();
 						if($file!="") {
-								$filename = 'Profile-'.$newid.'.jpg';
-								$path = realpath(APPLICATION_PATH . '/../public/img/Profile');
+								$filename = 'Artikel-'.$newid.'.jpg';
+								$path = realpath(APPLICATION_PATH . '/../public/img/Artikel');
 								if (file_exists($path.$filename))
 								{
 									unlink($path.$filename);
@@ -58,7 +56,7 @@ class Admin_ProfileController extends Zend_Controller_Action {
 						} else {
 							$filename = null;
 						}
-						$insert = $model->insertProfile($Dataform, $filename, $newid);
+						$insert = $model->insertArtikel($Dataform, $filename, $newid);
 						if($insert===true) {
 							$this->view->msg = 'Insert Success';
 						} else {
@@ -71,11 +69,11 @@ class Admin_ProfileController extends Zend_Controller_Action {
 	
 	public function editAction() {
 		$this->_helper->layout->setLayout('layoutadmin');
-		$model = new Admin_Model_ProfileModel();
+		$model = new Admin_Model_ArtikelModel();
 		$req = $this->getRequest();
 		$id = $req->getParam('p');
 	
-		$det = $model->getAllProfileDet($id);
+		$det = $model->getAllArtikelDet($id);
 		$this->view->det = $det;
 		if ($this->_request->isPost()) {
 			$Dataform = $this->_request->getPost();
@@ -91,28 +89,22 @@ class Admin_ProfileController extends Zend_Controller_Action {
 			} else {
 				if($file!="") {
 					$filename = $Dataform['image'];
-					
-					$path = realpath(APPLICATION_PATH . '/../public/img/Profile/');
-					
-					if (file_exists($path.'/'.$filename) && $filename!='')
+					$path = realpath(APPLICATION_PATH . '/../public/img/Artikel/');
+					//Zend_Debug::dump($path.'/'.$filename);die();
+					if (file_exists($path.'/'.$filename)&&$filename!='')
 					{
-
 						unlink($path.'/'.$filename);
-						
 						$a =  move_uploaded_file($info['file']['tmp_name'],$path.'/'.$filename);
-						
 					} else {
-						$filename = 'Profile-'.$Dataform['id'].'.jpg';
-						//Zend_Debug::dump($filename);die();
+						$filename = 'Artikel-'.$Dataform['id'].'.jpg';
 						$a =  move_uploaded_file($info['file']['tmp_name'],$path.'/'.$filename);
 					}
-					//Zend_Debug::dump(file_exists($path.'/'.$filename));die();
 				} else {
 					$filename = $Dataform['image'];
 				}
 				$time = new Zend_Date();
 				$tgl = $time->get('YYYY-MM-dd HH:mm:ss');
-				$insert = $model->upProfile($Dataform, $tgl, $filename);
+				$insert = $model->upArtikel($Dataform, $tgl, $filename);
 				if($insert===true) {
 					$this->view->msg = 'Insert Success';
 				} else {
@@ -124,7 +116,7 @@ class Admin_ProfileController extends Zend_Controller_Action {
 	
 		$id = $req->getParam('p');
 		if($id!='') {
-			$det = $model->getAllProfileDet($id);
+			$det = $model->getAllArtikelDet($id);
 			$this->view->det = $det;
 		}
 	}
