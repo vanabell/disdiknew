@@ -1,0 +1,33 @@
+<div class="column column-wide">
+  <div class="widget">
+    <h2>Login</h2>
+      <form class="login-form" action="#" method="post">
+        <fieldset style="width:55%;">
+          <div class="input-form">
+              <label for="email">Email <em>*</em></label>
+              <input type="text" name="email" id="email" value="" class="input-text">
+          </div>
+          <div class="input-form">
+              <label for="password">Password <em>*</em></label>
+              <input type="password" name="password" id="password" value="" class="input-text">
+          </div>
+          <div class="input-form">
+              <div class="required">
+                  * Wajib Di isi!
+              </div>
+          </div>
+          <div class="button-set">
+              <input type="submit" name="submit" value="Login" class="button gold">
+          </div>
+      </fieldset>
+      </form>
+  </div>
+  <div class="widget">
+      <div class="link-regis">
+          <div class="text-link">
+              Belum punya akun?  <a href="<?php echo $this->baseUrl();?>/register/" class="link-daftar">Daftar Disini!</a>
+          </div>
+      </div>
+  </div>
+  <div class="cleaner">&nbsp;</div>
+</div>
