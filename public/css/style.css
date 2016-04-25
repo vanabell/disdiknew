@@ -592,9 +592,30 @@ div.divider {
     width: auto;
     height: auto;
 }
+/*news and article*/
+.archives-columns-one .loop-post-single {
+    font-size: 13px;
+    line-height: 1.5em;
+    margin-bottom: 10px;
+}
+.posts-archive .post-cover {
+    margin-bottom: 15px;
+}
+.archives-columns-one .post-cover {
+    display: inline;
+    float: left;
+    margin-right: 4.3280%;
+    width: 47.8359%;
+}
+.archives-columns-one .post-excerpt {
+    display: inline;
+    float: left;
+    overflow: hidden;
+    width: 47.8359%;
+}
 /*login page*/
 .login-form fieldset {
-    width: 55%;
+    width: 100%;
 }
 .login-form .step-content {
     width: 46%;
