@@ -1,6 +1,6 @@
 <?php
 
-class LoginController extends Zend_Controller_Action
+class ContactController extends Zend_Controller_Action
 {
 
     public function init()
@@ -13,4 +13,8 @@ class LoginController extends Zend_Controller_Action
         // action body
     }
 
+    public function locationAction()
+    {
+        // action body
+    }
 }
