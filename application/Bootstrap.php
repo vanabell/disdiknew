@@ -27,8 +27,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$this->bootstrap('frontcontroller');
 		$frontController = $this->getResource('frontcontroller');
 		/* @var $frontController Zend_Controller_Front */
-	
+		
+		$frontController->registerPlugin(new Application_Plugin_Userauth());
 		$frontController->registerPlugin(new Application_Plugin_Adminauth());
+
 	}
 }
 
