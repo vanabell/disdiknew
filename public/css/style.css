@@ -592,9 +592,50 @@ div.divider {
     width: auto;
     height: auto;
 }
+/*kontak*/
+.kontaknya {
+    width: 100%;
+    display: inline-block;
+    margin-top: 30px;
+}
+.kontaknya .kontak {
+    width: 100%;
+    display: inline-block;
+}
+.kontaknya .kontak img {
+    float: left;
+    width: auto;
+}
+.kontaknya .kontak span {
+    float: left;
+    width: auto;
+    margin-left: 10px;
+    line-height: 30px;
+}
+/*news and article*/
+.archives-columns-one .loop-post-single {
+    font-size: 13px;
+    line-height: 1.5em;
+    margin-bottom: 10px;
+}
+.posts-archive .post-cover {
+    margin-bottom: 15px;
+}
+.archives-columns-one .post-cover {
+    display: inline;
+    float: left;
+    margin-right: 4.3280%;
+    width: 47.8359%;
+}
+.archives-columns-one .post-excerpt {
+    display: inline;
+    float: left;
+    overflow: hidden;
+    width: 47.8359%;
+}
 /*login page*/
 .login-form fieldset {
-    width: 55%;
+    width: 100%;
 }
 .login-form .step-content {
     width: 46%;

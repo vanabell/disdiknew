@@ -30,7 +30,7 @@
   </ul>
   </div>
   <!-- nampilin berita sama article -->
-  <?php 
+  <?php
     $modelberita = new Application_Model_DbTables_NewsModel();
     $berita = $modelberita->getAllnewslimit();
     $modelartikel = new Application_Model_DbTables_ArtikelModel();
@@ -41,9 +41,28 @@
   <div class="cleaner">&nbsp;</div>
   <div class="column column-wide column-wide-child">
     <div class="widget wpzoom">
-      Berita
+      <span class="read-more">
+        <a class="invert" href="<?php echo $this->baseUrl();?>/news/" rel="nofollow">view more posts</a>
+      </span>
+      <p class="title">
+        <a href="<?php echo $this->baseUrl();?>/news/">Berita</a>
+      </p>
       <?php foreach ($berita as $news ) {?>
-        <b><?php echo $news['judul'];?></b>
+        <b></b>
+        <div class="post-main posts-archive">
+          <div class="post-cover">
+            <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" title="<?php echo $news['judul'];?>">
+              <img src="<?php echo $this->baseUrl();?>/img/News/<?php echo $news['gambar'];?>" alt="<?php echo $news['judul'];?>" class="Thumbnail thumbnail loop-main " width="210" height="100">
+            </a>
+          </div>
+          <p class="post-meta">
+            <time datetime="2016-04-11" pubdate=""><?php echo $news['waktu'];?></time>
+          </p>
+          <h2>
+            <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" title="<?php echo $news['judul'];?>"><?php echo $news['judul'];?></a>
+          </h2>
+          <p>&nbsp; Dalam rangka meningkatkan kompetensi Aparatur Sipil Negara (ASN) di bidang TIK, Balai Pelatihan dan […]</p>
+        </div>
       <?php }?>
     </div>
 
@@ -53,28 +72,15 @@
         <b><?php echo $art['judul'];?></b>
       <?php }?>
     </div>
+    <div class="cleaner">&nbsp;</div>
+
+  </div>
 
 
   <div class="column column-narrow column-narrow-child column-last">
 
-    <div class="widget-blue widget wpzoom-text" id="wpzoom-text-widget-2">
-      <p class="title">Link Terkait</p>
-      <div class="textwidget">
-        <a href="#" target="_blank">
-          <img class="aligncenter wp-image-152 " src="http://202.89.117.94/wp-content/uploads/2014/11/koica2.png" title="KOICA">
-        </a>
-        <a href="http://www.lan.go.id/index.php" target="_blank">
-          <img class="aligncenter wp-image-152 " src="http://202.89.117.94/wp-content/uploads/2014/10/lan-kecil.png" title="Lembaga Administrasi Negara">
-        </a>
-        <a href="http://kominfo.go.id/" target="_blank">
-          <img class="aligncenter wp-image-152 " src="http://202.89.117.94/wp-content/uploads/2014/10/kominfo-kecil.png" title="Kominfo">
-        </a>
-        <a href="http://bnsp.go.id/" target="_blank">
-          <img class="aligncenter wp-image-152 " src="http://202.89.117.94/wp-content/uploads/2014/11/bnsp-kcl.png" title="BNSP">
-        </a>
-      </div>
-      <div class="cleaner">&nbsp;</div>
-    </div>
+    <?php include("../application/views/scripts/include/sidebarhomepage.phtml"); ?>
+
 
     <div class="cleaner">&nbsp;</div>
   </div>
