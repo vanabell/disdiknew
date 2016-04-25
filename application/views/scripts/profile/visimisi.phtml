@@ -1,17 +1,16 @@
 <div class="column column-wide">
   <div class="widget">
-    <!-- isi profile -->
-    <?php
+    <!-- isi structure -->
+     <?php
     	//Zend_Debug::dump($this->data);die();
     	if ($this->data!=null) {
-        echo '<h1>'.$this->data[0]['nama_profil'].'</h1>';
     		if($this->data[0]['gambar']!='') {
     			/* disini kalo mo ngasih style jak buat picturenya...src nya $this->baseUrl()/img/Profile/thisdatanya */
-    			echo '<img src="'.$this->baseUrl().'/img/Profile/'.$this->data[0]['gambar'].'"/>';
+    			echo $this->data[0]['gambar'];
     		}
     		echo $this->data[0]['konten'];
     	} else {
-    		echo 'content empty!';
+    		echo 'konten kosong hubungi admin lah moso saya';
     	}
     ?>
   </div>
