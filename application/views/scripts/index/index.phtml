@@ -41,9 +41,28 @@
   <div class="cleaner">&nbsp;</div>
   <div class="column column-wide column-wide-child">
     <div class="widget wpzoom">
-      Berita
+      <span class="read-more">
+        <a class="invert" href="<?php echo $this->baseUrl();?>/news/" rel="nofollow">view more posts</a>
+      </span>
+      <p class="title">
+        <a href="<?php echo $this->baseUrl();?>/news/">Berita</a>
+      </p>
       <?php foreach ($berita as $news ) {?>
-        <b><?php echo $news['judul'];?></b>
+        <b></b>
+        <div class="post-main posts-archive">
+          <div class="post-cover">
+            <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" title="<?php echo $news['judul'];?>">
+              <img src="<?php echo $this->baseUrl();?>/img/News/<?php echo $news['gambar'];?>" alt="<?php echo $news['judul'];?>" class="Thumbnail thumbnail loop-main " width="210" height="100">
+            </a>
+          </div>
+          <p class="post-meta">
+            <time datetime="2016-04-11" pubdate=""><?php echo $news['waktu'];?></time>
+          </p>
+          <h2>
+            <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" title="<?php echo $news['judul'];?>"><?php echo $news['judul'];?></a>
+          </h2>
+          <p>&nbsp; Dalam rangka meningkatkan kompetensi Aparatur Sipil Negara (ASN) di bidang TIK, Balai Pelatihan dan […]</p>
+        </div>
       <?php }?>
     </div>
 
