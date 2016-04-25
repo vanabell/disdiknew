@@ -1,9 +1,9 @@
 <?php
-class Admin_Model_DbTables_ArtikelModel extends Zend_Db_Table_Abstract {
+class Application_Model_DbTables_NewsModel extends Zend_Db_Table_Abstract {
 
-	public function getAllartikellimit() {
+	public function getAllnewslimit() {
 		try {
-			$select="SELECT * FROM artikel order by id_artikel desc limit 3";
+			$select="SELECT * FROM news order by id_berita desc limit 3";
 			$rows=$this->_db->fetchAll($select);
 			return $rows;
 		} catch (Zend_Exception $e) {
@@ -11,9 +11,9 @@ class Admin_Model_DbTables_ArtikelModel extends Zend_Db_Table_Abstract {
 		}
 	}
 
-	public function getAllartikel() {
+	public function getAllNews() {
 		try {
-			$select="SELECT * FROM artikel";
+			$select="SELECT * FROM news";
 			$rows=$this->_db->fetchAll($select);
 			return $rows;
 		} catch (Zend_Exception $e) {
@@ -21,9 +21,9 @@ class Admin_Model_DbTables_ArtikelModel extends Zend_Db_Table_Abstract {
 		}
 	}
 	
-	public function getAllartikeldesc() {
+	public function getAllNewsdesc() {
 		try {
-			$select="SELECT * FROM artikel order by id_artikel desc";
+			$select="SELECT * FROM news order by id_berita desc";
 			$rows=$this->_db->fetchAll($select);
 			return $rows;
 		} catch (Zend_Exception $e) {
@@ -31,9 +31,9 @@ class Admin_Model_DbTables_ArtikelModel extends Zend_Db_Table_Abstract {
 		}
 	}
 	
-	public function getAllartikelDet($id) {
+	public function getAllNewsDet($id) {
 		try {
-			$select="SELECT * FROM artikel where id_artikel='".$id."'";
+			$select="SELECT * FROM news where id_berita='".$id."'";
 			$rows=$this->_db->fetchAll($select);
 			return $rows;
 		} catch (Zend_Exception $e) {
@@ -41,11 +41,11 @@ class Admin_Model_DbTables_ArtikelModel extends Zend_Db_Table_Abstract {
 		}
 	}
 	
-	public function insertartikel($data, $filename, $newid) {
+	public function insertNews($data, $filename, $newid) {
 		try {
-			$stmt=$this->_db->prepare("INSERT INTO artikel
+			$stmt=$this->_db->prepare("INSERT INTO news
 													(
-														id_artikel,
+														id_berita,
 														isi,
 														judul,
 														gambar
@@ -71,14 +71,14 @@ class Admin_Model_DbTables_ArtikelModel extends Zend_Db_Table_Abstract {
 		}
 	}
 	
-	public function upartikel($data, $tgl, $filename) {
+	public function upNews($data, $tgl, $filename) {
 		try {
-			$stmt=$this->_db->prepare("UPDATE artikel SET
+			$stmt=$this->_db->prepare("UPDATE news SET
 										judul=:title,
 										edit_time=:sub,
 										isi=:tos,
 										gambar=:image
-									   WHERE id_artikel=:id" );
+									   WHERE id_berita=:id" );
 	
 			$stmt->bindParam(':id', $data['id']);
 			$stmt->bindParam(':title', $data['nama']);

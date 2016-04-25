@@ -1,6 +1,16 @@
 <?php
 class Admin_Model_DbTables_NewsModel extends Zend_Db_Table_Abstract {
 
+	public function getAllnewslimit() {
+		try {
+			$select="SELECT * FROM news order by id_berita desc limit 3";
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
 	public function getAllNews() {
 		try {
 			$select="SELECT * FROM news";

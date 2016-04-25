@@ -1,5 +1,5 @@
 <?php
-class Admin_Model_DbTables_ArtikelModel extends Zend_Db_Table_Abstract {
+class Application_Model_DbTables_ArtikelModel extends Zend_Db_Table_Abstract {
 
 	public function getAllartikellimit() {
 		try {
@@ -10,7 +10,7 @@ class Admin_Model_DbTables_ArtikelModel extends Zend_Db_Table_Abstract {
 			return $e->getMessage();
 		}
 	}
-
+	
 	public function getAllartikel() {
 		try {
 			$select="SELECT * FROM artikel";

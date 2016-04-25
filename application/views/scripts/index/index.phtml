@@ -29,88 +29,29 @@
     </li>
   </ul>
   </div>
+  <!-- nampilin berita sama article -->
+  <?php 
+    $modelberita = new Application_Model_DbTables_NewsModel();
+    $berita = $modelberita->getAllnewslimit();
+    $modelartikel = new Application_Model_DbTables_ArtikelModel();
+    $artikel = $modelartikel->getAllartikellimit();
+
+  ?>
+
   <div class="cleaner">&nbsp;</div>
   <div class="column column-wide column-wide-child">
     <div class="widget wpzoom">
-      <span class="read-more">
-        <a class="invert" href="#" rel="nofollow">view more posts</a>
-      </span>
-      <p class="title">
-        <a href="#">Berita</a>
-      </p>
-      <div class="featured-category-widget">
-        <div class="post-main posts-archive">
-          <div class="post-cover">
-            <a href="#" title="Sekretaris Badang Litbang SDM Kominfo Membuka Diklat CIO, ToT, dan Desain Grafis">
-              <img src="http://bpptik.kominfo.go.id/wp-content/uploads/2016/04/KKP-210x100.jpg" alt="Sekretaris Badang Litbang SDM Kominfo Membuka Diklat CIO, ToT, dan Desain Grafis" class="Thumbnail thumbnail loop-main " width="210" height="100">
-            </a>
-          </div>
-          <p class="post-meta">
-            <time datetime="2016-04-11" pubdate="">11 April 2016</time>
-          </p>
-          <h2>
-            <a href="#" title="Sekretaris Badang Litbang SDM Kominfo Membuka Diklat CIO, ToT, dan Desain Grafis">Sekretaris Badang Litbang SDM Kominfo Membuka Diklat CIO, ToT, dan Desain Grafis</a>
-          </h2>
-          <p>&nbsp; Dalam rangka meningkatkan kompetensi Aparatur Sipil Negara (ASN) di bidang TIK, Balai Pelatihan dan […]</p>
-        </div>
-        <ul class="posts-archive posts-list">
-          <li class="post-secondary">
-            <h2>
-              <a href="#" title="Kembali Dibuka Kesempatan Diklat Teknis bidang TIK untuk PNS Pusat dan Daerah">Kembali Dibuka Kesempatan Diklat Teknis bidang TIK untuk PNS Pusat dan Daerah</a>
-            </h2>
-            <p>Pada tahun anggaran 2016 ini kembali dibuka kesempatan Pendidikan dan Pelatihan (Diklat) Teknis bidang Teknologi Informasi dan Komunikasi (TIK) untuk para Pegawai Negeri Sipil (PNS) pusat dan daerah di seluruh Indonesia.</p>
-          </li>
-          <li class="post-secondary">
-            <h2>
-              <a href="#" title="BPPTIK Terima Penghargaan Peringkat ke-2 Capaian Realisasi Anggaran Tahun Anggaran 2015">BPPTIK Terima Penghargaan Peringkat ke-2 Capaian Realisasi Anggaran Tahun Anggaran 2015</a>
-            </h2>
-            <p>BPPTIK menerima piagam penghargaan sebagai unit kerja terbaik ke-2 atas capaian kinerja realisasi anggaran pada Tahun Anggaran 2015 di lingkungan Badan Penelitian dan Pengembangan Sumber Daya Manusia (Balitbang SDM) Kementerian Komunikasi dan Informatika.</p>
-          </li>
-        </ul>
-        <div class="cleaner">&nbsp;</div>
-      </div>
-      <div class="cleaner">&nbsp;</div>
+      Berita
+      <?php foreach ($berita as $news ) {?>
+        <b><?php echo $news['judul'];?></b>
+      <?php }?>
     </div>
 
     <div class="widget wpzoom">
-    <span class="read-more">
-      <a class="invert" href="#" rel="nofollow">view more posts</a>
-    </span>
-    <p class="title">
-      <a href="#">Artikel</a>
-    </p>
-    <div class="featured-category-widget">
-      <div class="post-main posts-archive">
-        <div class="post-cover">
-          <a href="#" title="Ancaman Peretas terhadap “Internet Of Things”">
-            <img src="http://bpptik.kominfo.go.id/wp-content/uploads/2015/04/m2m-png-210x100.png" alt="Ancaman Peretas terhadap “Internet Of Things”" class="Thumbnail thumbnail loop-main " width="210" height="100"></a>
-          </div>
-          <p class="post-meta">
-            <time datetime="2015-04-24" pubdate="">24 April 2015</time>
-          </p>
-          <h2>
-            <a href="#" title="Ancaman Peretas terhadap “Internet Of Things”">Ancaman Peretas terhadap “Internet Of Things”</a>
-          </h2>
-          <p>BPPTIK – Mayoritas masyarakat sekarang ini, memiliki perangkat digital yang terintegrasi antar perangkat ataupun sistem […]</p>
-        </div>
-        <ul class="posts-archive posts-list">
-          <li class="post-secondary">
-            <h2>
-              <a href="#" title="Komputer Terkecil di Dunia">Komputer Terkecil di Dunia</a>
-            </h2>
-            <p>BPPTIK – Pembaca tahu komputer, kan? Sekarang komputer sudah bisa ditemukan hampir di setiap rumah, […]</p>
-          </li>
-          <li class="post-secondary">
-            <h2>
-              <a href="#" title="Sejarah Singkat ATM">Sejarah Singkat ATM</a>
-            </h2>
-            <p>Tak ada catatan pasti, siapa penemu dan kapan tepatnya ATM hadir di dunia, ATM muncul pada era 1950-1960 di Amerika, Eropa dan Jepang.</p>
-          </li>
-        </ul>
-        <div class="cleaner">&nbsp;</div>
-      </div>
-      <div class="cleaner">&nbsp;</div>
-    </div>
+      Artikel
+      <?php foreach ($artikel as $art ) {?>
+        <b><?php echo $art['judul'];?></b>
+      <?php }?>
     </div>
 
 
