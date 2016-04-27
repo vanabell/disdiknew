@@ -1,0 +1,20 @@
+<?php include("../application/views/scripts/include/head.phtml"); ?>
+
+<body class="custom-background">
+  <div id="container">
+    <?php include("../application/views/scripts/include/header.phtml"); ?>
+    <?php include("../application/views/scripts/include/menu.phtml"); ?>
+
+    <div id="main">
+      <div class="wrapper">
+        <?php include("../application/views/scripts/include/sidebar3.phtml"); ?>
+        <?php echo $this->layout()->content; ?>
+        <div class="cleaner">&nbsp;</div>
+      </div>
+    </div>
+
+  </div>
+<?php include("../application/views/scripts/include/footer.phtml"); ?>
+
+</body>
+</html>
