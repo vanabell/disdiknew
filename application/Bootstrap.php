@@ -31,6 +31,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$frontController->registerPlugin(new Application_Plugin_Userauth());
 		$frontController->registerPlugin(new Application_Plugin_Adminauth());
 
+		$acl = new Application_Model_LibraryAcl;
+		$auth = Zend_Auth::getInstance();
+		$frontController->registerPlugin(new Application_Plugin_AccessAdmin($acl, $auth));
+		$frontController->registerPlugin(new Application_Plugin_Adminauth());
 	}
 }
 
