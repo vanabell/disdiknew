@@ -6,10 +6,7 @@
         <div class="menu-menu-lainnya-footer-container">
           <ul id="menu-menu-lainnya-footer" class="menu">
             <li class="menu-item">
-              <a href="http://bpptik.kominfo.go.id/hiburan/">Lokasi Hiburan</a>
-            </li>
-            <li class="menu-item">
-              <a target="_blank" href="http://statistik.kominfo.go.id/">Statistik Kominfo</a>
+              <a target="_blank" href="<?php echo $this->baseUrl();?>/statistik/">Statistik P2KGK</a>
             </li>
           </ul>
         </div>
@@ -21,9 +18,13 @@
       <div class="widget wpzoom-text" >
         <p class="title">Google+</p>
         <div class="textwidget">
-          <div id="___page_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 212px; height: 290px; background: transparent;">
-            <iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 212px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 290px;" tabindex="0" vspace="0" width="100%" id="I0_1460635320754" name="I0_1460635320754" src="https://apis.google.com/u/0/_/widget/render/page?usegapi=1&amp;width=212&amp;href=https%3A%2F%2Fplus.google.com%2F102248684657330843363&amp;theme=dark&amp;rel=publisher&amp;hl=id&amp;origin=http%3A%2F%2Fbpptik.kominfo.go.id&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en.sB8E5NJ_eLs.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOVjod4lvOV6JQ1QFKyK9l1Dzn_Dg#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I0_1460635320754&amp;parent=http%3A%2F%2Fbpptik.kominfo.go.id&amp;pfname=&amp;rpctoken=34426705" data-gapiattached="true" title="+Badge"></iframe>
-          </div>
+          <!-- Tempatkan tag ini di head atau tepat sebelum tag body penutup. -->
+          <script src="https://apis.google.com/js/platform.js" async defer>
+            {lang: 'id'}
+          </script>
+
+          <!-- Tempatkan tag ini di mana pun Anda ingin widget ditampilkan. -->
+          <div class="g-person" data-width="212" data-href="https://plus.google.com/110983658397925793542" data-theme="dark" data-rel="author"></div>
         </div>
         <div class="cleaner">&nbsp;</div>
       </div>
@@ -33,11 +34,15 @@
       <div class="widget wpzoom-text">
         <p class="title">Facebook</p>
         <div class="textwidget">
-          <div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/bpptik" data-width="212" data-height="291" data-colorscheme="dark" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=232718666751996&amp;color_scheme=dark&amp;container_width=211&amp;header=false&amp;height=291&amp;href=https%3A%2F%2Fwww.facebook.com%2Fbpptik&amp;locale=en_US&amp;sdk=joey&amp;show_border=true&amp;show_faces=true&amp;stream=false&amp;width=212">
-            <span style="vertical-align: bottom; width: 212px; height: 214px;">
-              <iframe name="f2675a392156fb4" width="212px" height="291px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="http://www.facebook.com/v2.0/plugins/like_box.php?app_id=232718666751996&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D42%23cb%3Df189f39d0d03ae%26domain%3Dbpptik.kominfo.go.id%26origin%3Dhttp%253A%252F%252Fbpptik.kominfo.go.id%252Ffe1425debbc458%26relation%3Dparent.parent&amp;color_scheme=dark&amp;container_width=211&amp;header=false&amp;height=291&amp;href=https%3A%2F%2Fwww.facebook.com%2Fbpptik&amp;locale=en_US&amp;sdk=joey&amp;show_border=true&amp;show_faces=true&amp;stream=false&amp;width=212" style="border: none; visibility: visible; width: 212px; height: 214px;" class=""></iframe>
-            </span>
-          </div>
+          <div class="fb-page" data-href="https://www.facebook.com/P2KGK-Jakarta-Timur-204466053220728" data-width="212" data-height="291" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+          <div id="fb-root"></div>
+          <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=126278130727907";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));</script>
         </div>
         <div class="cleaner">&nbsp;</div>
       </div>
@@ -47,10 +52,8 @@
       <div class="widget widget_text" id="text-3">
         <p class="title">Twitter</p>
         <div class="textwidget">
-          <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-timeline twitter-timeline-rendered" style="position: static; visibility: visible; display: inline-block; width: 520px; height: 250px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;" data-widget-id="534250354649477120"></iframe>
-          <script>
-          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-          </script>
+          <a class="twitter-timeline" href="https://twitter.com/p2kgkjaktim" data-widget-id="724216557786660864">Tweets by @p2kgkjaktim</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
         </div>
         <div class="cleaner">&nbsp;</div>
       </div>
@@ -61,7 +64,7 @@
 </footer>
 <div id="footer-copy">
   <div class="wrapper wrapper-copy">
-    <p class="copyright">Copyright © 2016 P2KGK. All Rights Reserved</p>
+    <p class="copyright">Copyright © 2016 P2KGK Jakarta Timur. All Rights Reserved</p>
     <div class="cleaner">&nbsp;</div>
   </div>
 </div>

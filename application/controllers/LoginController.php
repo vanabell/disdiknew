@@ -13,5 +13,4 @@ class LoginController extends Zend_Controller_Action
         // action body
     }
 
-
 }

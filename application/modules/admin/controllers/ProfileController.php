@@ -35,9 +35,15 @@ class Admin_ProfileController extends Zend_Controller_Action {
 				} else if($size>=600000) {
 					$this->view->message = 'Image Maximum 600Kb';
 				} else {
+
 						$iddesc = $model->getAllProfiledesc();
-						$newid = $iddesc[0]['id_profil']+1;
-						//Zend_Debug::dump($info);die();
+						if($iddesc!=null){
+							$newid = $iddesc[0]['id_profil']+1;
+						} else {
+							$newid = 1;
+						}
+						//Zend_Debug::dump($newid);die();
+						
 						if($file!="") {
 								$filename = 'Profile-'.$newid.'.jpg';
 								$path = realpath(APPLICATION_PATH . '/../public/img/Profile');
@@ -85,16 +91,22 @@ class Admin_ProfileController extends Zend_Controller_Action {
 			} else {
 				if($file!="") {
 					$filename = $Dataform['image'];
+					
 					$path = realpath(APPLICATION_PATH . '/../public/img/Profile/');
-					//Zend_Debug::dump($path.'/'.$filename);die();
-					if (file_exists($path.'/'.$filename))
+					
+					if (file_exists($path.'/'.$filename) && $filename!='')
 					{
+
 						unlink($path.'/'.$filename);
+						
 						$a =  move_uploaded_file($info['file']['tmp_name'],$path.'/'.$filename);
+						
 					} else {
 						$filename = 'Profile-'.$Dataform['id'].'.jpg';
+						//Zend_Debug::dump($filename);die();
 						$a =  move_uploaded_file($info['file']['tmp_name'],$path.'/'.$filename);
 					}
+					//Zend_Debug::dump(file_exists($path.'/'.$filename));die();
 				} else {
 					$filename = $Dataform['image'];
 				}

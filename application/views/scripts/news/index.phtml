@@ -1,6 +1,30 @@
 <div class="column column-wide">
   <div class="widget">
-    <!-- isi list berita -->
+    <h1 class="post-title">Berita</h1>
+    <div class="divider">&nbsp;</div>
+    <ul class="posts-archive archives-columns-one">
+      <?php foreach ($this->data as $news) { ?>
+      <li class="loop-post-single">
+        <div class="post-cover">
+          <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" title="<?php echo $news['judul'];?>">
+            <img src="<?php echo $this->baseUrl();?>/img/News/<?php echo $news['gambar'];?>" alt="<?php echo $news['judul'];?>" width="210" height="100">
+          </a>
+        </div>
+        <div class="post-excerpt">
+          <p class="post-meta">
+            <time datetime="<?php echo $news['waktu'];?>" pubdate=""><?php echo $news['waktu'];?></time>
+          </p>
+        <h2>
+          <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" title="<?php echo $news['judul'];?>"><?php echo $news['judul'];?></a>
+        </h2>
+        <p><?php echo $news['isi'];  ?></p>
+      </div>
+      <div class="cleaner">&nbsp;</div>
+    </li>
+    <li class="divider">&nbsp;</li>
+    <?php } ?>
+
+  </ul>
   </div>
   <div class="cleaner">&nbsp;</div>
 </div>
