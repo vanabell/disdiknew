@@ -21,8 +21,12 @@ class Admin_LoginadminController extends Zend_Controller_Action {
 				$sessionadmin->user_id = $data[0]['ua_firstname'];
 				$sessionadmin->noreg = $data[0]['ua_admin_id'];
 				$sessionadmin->roles = $data[0]['ua_akses'];
-
-				$this->_helper->redirector('index','admin','admin');
+				if($sessionadmin->roles=='merchant'){
+					$this->_helper->redirector('index','lembaga','admin');
+				} else {
+					$this->_helper->redirector('index','admin','admin');
+				}
+				
 			} else {
 				$this->view->message = 'Wrong Password or Email, Please Try Again..';
 			}
