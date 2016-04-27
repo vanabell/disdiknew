@@ -61,6 +61,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse bs-example-masthead-collapse-1">
+      <?php if($session_editor->roles!='merchant') {?>
       <ul class="nav navbar-nav">
        <li><a href="<?php echo $this->baseUrl()?>/admin/admin/index"><i class="glyphicon glyphicon-dashboard"></i>&nbsp;Dashboard</a></li>
         <li class="dropdown1">
@@ -87,6 +88,16 @@
             <li><a href="<?php echo $this->baseUrl()?>/admin/artikel/add">Add New Artikel</a></li>
           </ul>
         </li>
+      </ul>
+        <?php } else {?>
+        <ul class="nav navbar-nav">
+         <li class="dropdown1">
+          <a href="<?php echo $this->baseUrl()?>/admin/lembaga/index" class="dropdown-toggle1"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;Lembaga</a>
+          <ul class="dropdown-menu">
+            <li><a href="<?php echo $this->baseUrl()?>/admin/lembaga/add">Add Nilai</a></li>
+          </ul>
+        </li>
+
         <!-- <li class="dropdown1">
           <a href="<?php echo $this->baseUrl()?>/admin/iklan/index" class="dropdown-toggle1"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;Iklan</a>
           <ul class="dropdown-menu">
@@ -121,7 +132,7 @@
           </ul>
         </li> -->
       </ul>
-     
+      <?php }?>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i>&nbsp;
