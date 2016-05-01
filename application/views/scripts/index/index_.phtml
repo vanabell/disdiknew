@@ -1,0 +1,109 @@
+<div class="column column-wide column-wide-parent column-last">
+  <div id="featured-posts" class="flexslider">
+  <ul class="slides wpzoom-featured-posts">
+    <li class="wpzoom-featured-post">
+      <div class="post-cover">
+        <a href="#" title="">
+          <img src="<?php echo $this->baseUrl();?>/images/kegiatan/2.jpg" alt="Pelatihan komputer" class="Thumbnail thumbnail homepage-slider " width="715" height="300">
+        </a>
+      </div>
+      <div class="post-excerpt">
+        <h2>
+          <a href="#" title="Pelatihan komputer">Pelatihan komputer</a>
+        </h2>
+        <p>Pelatihan Guru SMK se jakarta timur di kantor P2KGK</p>
+      </div>
+    </li>
+    <li class="wpzoom-featured-post">
+      <div class="post-cover">
+        <a href="#" title="">
+          <img src="<?php echo $this->baseUrl();?>/images/kegiatan/1.jpg" alt="Pengenalan mesin indusri" class="Thumbnail thumbnail homepage-slider " width="715" height="300">
+        </a>
+      </div>
+      <div class="post-excerpt">
+        <h2>
+          <a href="#" title="Pengenalan mesin indusri">Pengenalan mesin indusri</a>
+        </h2>
+        <p>Pelatihan Guru SMK se jakarta timur di kantor P2KGK</p>
+      </div>
+    </li>
+  </ul>
+  </div>
+  <!-- nampilin berita sama article -->
+  <?php
+    $modelberita = new Application_Model_DbTables_NewsModel();
+    $berita = $modelberita->getAllnewslimit();
+    $modelartikel = new Application_Model_DbTables_ArtikelModel();
+    $artikel = $modelartikel->getAllartikellimit();
+
+  ?>
+
+  <div class="cleaner">&nbsp;</div>
+  <div class="column column-wide column-wide-child">
+    <div class="widget wpzoom">
+      <span class="read-more">
+        <a class="invert" href="<?php echo $this->baseUrl();?>/news/" rel="nofollow">view more posts</a>
+      </span>
+      <p class="title">
+        <a href="<?php echo $this->baseUrl();?>/news/">Berita</a>
+      </p>
+      <?php foreach ($berita as $news ) {?>
+        <div class="post-main posts-archive" style="border-bottom:1px solid #ccc; margin-bottom:10px;">
+          <div class="post-cover">
+            <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" title="<?php echo $news['judul'];?>">
+              <img src="<?php echo $this->baseUrl();?>/img/News/<?php echo $news['gambar'];?>" alt="<?php echo $news['judul'];?>" class="Thumbnail thumbnail loop-main " width="210" height="100">
+            </a>
+          </div>
+          <p class="post-meta">
+            <time datetime="<?php echo $news['waktu'];?>" pubdate=""><?php echo $news['waktu'];?></time>
+          </p>
+          <h2>
+            <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" title="<?php echo $news['judul'];?>"><?php echo $news['judul'];?></a>
+          </h2>
+          <p>
+            Pada anggaran 2016 ini kembali dibuka kesempatan Pendidikan dan Pelatihan...
+          </p>
+        </div>
+      <?php }?>
+    </div>
+
+    <div class="widget wpzoom">
+      <span class="read-more">
+        <a class="invert" href="<?php echo $this->baseUrl();?>/article/" rel="nofollow">view more posts</a>
+      </span>
+      <p class="title">
+        <a href="<?php echo $this->baseUrl();?>/article/">Artikel</a>
+      </p>
+      <?php foreach ($artikel as $art ) {?>
+        <div class="post-main posts-archive" style="border-bottom:1px solid #ccc; margin-bottom:10px;">
+          <div class="post-cover">
+            <a href="<?php echo $this->baseUrl();?>/article/detail/p/<?php echo $art['id_artikel'];?>" title="<?php echo $art['judul'];?>">
+              <img src="<?php echo $this->baseUrl();?>/img/Artikel/<?php echo $art['gambar'];?>" alt="<?php echo $art['judul'];?>" class="Thumbnail thumbnail loop-main " width="210" height="100">
+            </a>
+          </div>
+          <p class="post-meta">
+            <time datetime="<?php echo $art['waktu'];?>" pubdate=""><?php echo $art['waktu'];?></time>
+          </p>
+          <h2>
+            <a href="<?php echo $this->baseUrl();?>/article/detail/p/<?php echo $art['id_artikel']?>" title="<?php echo $art['judul'];?>"><?php echo $art['judul'];?></a>
+          </h2>
+          <p>
+            Pada anggaran 2016 ini kembali dibuka kesempatan Pendidikan dan Pelatihan...
+          </p>
+        </div>
+      <?php }?>
+    </div>
+    <div class="cleaner">&nbsp;</div>
+
+  </div>
+
+
+  <div class="column column-narrow column-narrow-child column-last">
+
+    <?php include("../application/views/scripts/include/sidebarhomepage.phtml"); ?>
+
+
+    <div class="cleaner">&nbsp;</div>
+  </div>
+</div>
+<div class="cleaner">&nbsp;</div>

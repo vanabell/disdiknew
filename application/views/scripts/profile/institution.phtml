@@ -1,19 +1,54 @@
-<div class="column column-wide">
-  <div class="widget">
-    <!-- isi profile -->
-    <?php
-    	//Zend_Debug::dump($this->data);die();
-    	if ($this->data!=null) {
-        echo '<h1>'.$this->data[0]['nama_profil'].'</h1>';
-    		if($this->data[0]['gambar']!='') {
-    			/* disini kalo mo ngasih style jak buat picturenya...src nya $this->baseUrl()/img/Profile/thisdatanya */
-    			echo '<img src="'.$this->baseUrl().'/img/Profile/'.$this->data[0]['gambar'].'"/>';
-    		}
-    		echo $this->data[0]['konten'];
-    	} else {
-    		echo 'content empty!';
-    	}
-    ?>
+<div class="page-title-style01 pt-bkg11">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+              <li>You are here:</li>
+              <li>
+                <a href="<?php echo $this->baseUrl() ?>/index">Home</a>
+              </li>
+              <li>
+                Aparatur
+              </li>
+            </ul><!-- .breadcrumb end -->
+          </div><!-- .breadcrumb-container end -->
+        </div>
+      </div>
   </div>
-  <div class="cleaner">&nbsp;</div>
 </div>
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+
+          <?php
+          //Zend_Debug::dump($this->data);die();
+          if ($this->data!=null) {
+
+          ?>
+          <?php if(($this->data[0]['gambar']) == null ) {
+            echo '<div class="col-md-12">';
+          } else  {?>
+            <div class="col-md-6">
+              <?php }?>
+                <div class="custom-heading">
+                    <h2><?php echo $this->data[0]['nama_profil'] ?></h2>
+                </div><!-- .custom-heading end -->
+
+                <p>
+                  <?php echo $this->data[0]['konten'] ?>
+                </p>
+            </div><!-- .col-md-6 end -->
+            <?php if(($this->data[0]['gambar']) == null ) {
+              echo "";
+            } else  {?>
+            <div class="col-md-6 animated triggerAnimation" data-animate="zoomIn">
+                <img src="<?php echo $this->baseUrl() ?>/img/Profile/<?php echo $this->data[0]['gambar']; ?>" alt="<?php echo $this->data[0]['nama_profil'] ?>"/>
+            </div><!-- .col-md-6 end -->
+            <?php } 	} else {
+                echo 'content empty!';
+              }
+            ?>
+        </div><!-- .row end -->
+    </div><!-- .container end -->
+</div><!-- .page-content end -->

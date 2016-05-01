@@ -1,32 +1,32 @@
-<div class="column column-narrow">
-  <div class="widget-blue widget feature-posts">
-    <p class="title" style="text-align:center;">My Account</p>
-    <div class="fotoprofil">
-      <img src="<?php echo $this->baseUrl();?>/images/profil.jpg" alt="" width="100" height="100" style="margin:10px auto; display:block;"/>
+<aside class="col-md-3 aside aside-left">
+  <div class="service-icon-center">
+    <div class="icon-container">
+        <img src="<?php echo $this->baseUrl();?>/images/profil.jpg" alt="" width="100" height="100"/>
     </div>
-    <ul class="posts posts-archive posts-side">
-      <li>
-        <a href="<?php echo $this->baseUrl();?>/guru/edit/">Edit My Account</a>
-        <div class="cleaner">&nbsp;</div>
-      </li>
-      <li>
-        <a href="<?php echo $this->baseUrl();?>/guru/training/">Daftar Pelatihan</a>
-        <div class="cleaner">&nbsp;</div>
-      </li>
-      <li>
-        <a href="<?php echo $this->baseUrl();?>/guru/certification/">Daftar Pelatihan & Sertifikasi</a>
-        <div class="cleaner">&nbsp;</div>
-      </li>
-      <li>
-        <a href="<?php echo $this->baseUrl();?>/guru/nilai/">Hasil Nilai</a>
-        <div class="cleaner">&nbsp;</div>
-      </li>
-      <li>
-        <a href="<?php echo $this->baseUrl();?>/guru/history/">History</a>
-        <div class="cleaner">&nbsp;</div>
-      </li>
-    </ul>
-    <div class="cleaner">&nbsp;</div>
   </div>
-  <div class="cleaner">&nbsp;</div>
-</div>
+    <ul class="aside-widgets">
+        <li class="widget widget_nav_menu clearfix">
+            <div class="title">
+                <h3>My Account</h3>
+            </div>
+            <ul class="menu">
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/guru/edit/">Edit My Account</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/guru/training/">Daftar Pelatihan</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/guru/certification/">Daftar Pelatihan & Sertifikasi</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/guru/nilai/">Hasil Nilai</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/guru/history/">History</a>
+              </li>
+            </ul><!-- .menu end -->
+        </li><!-- .widget.widget_nav_menu end -->
+
+    </ul><!-- .aside-widgets end -->
+</aside><!-- .aside.aside-left end -->
