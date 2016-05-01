@@ -1,109 +1,433 @@
-<div class="column column-wide column-wide-parent column-last">
-  <div id="featured-posts" class="flexslider">
-  <ul class="slides wpzoom-featured-posts">
-    <li class="wpzoom-featured-post">
-      <div class="post-cover">
-        <a href="#" title="">
-          <img src="<?php echo $this->baseUrl();?>/images/kegiatan/2.jpg" alt="Pelatihan komputer" class="Thumbnail thumbnail homepage-slider " width="715" height="300">
-        </a>
-      </div>
-      <div class="post-excerpt">
-        <h2>
-          <a href="#" title="Pelatihan komputer">Pelatihan komputer</a>
+<div id="masterslider" class="master-slider ms-skin-default mb-0">
+    <!-- first slide -->
+    <div class="ms-slide">
+        <!-- slide background -->
+        <img src="masterslider/blank.gif" data-src="<?php echo $this->baseUrl();?>/images/kegiatan/2.jpg" alt="Strongest distribution network"/>
+
+        <img class="ms-layer" src="masterslider/blank.gif" data-src="img/slider/slider-line.jpg" alt=""
+             style="left: 30px; top: 310px;"
+             data-type="image"
+             data-effect="left(short)"
+             data-duration="300"
+             data-hide-effect="fade"
+             data-delay="0"
+             />
+        <h2 class="ms-layer pi-caption01"
+            style="left: 30px; top: 340px; font-size:30px"
+            data-type="text"
+            data-effect="left(short)"
+            data-duration="300"
+            data-hide-effect="fade"
+            data-delay="300"
+            >
+            Pelatihan komputer
         </h2>
-        <p>Pelatihan Guru SMK se jakarta timur di kantor P2KGK</p>
-      </div>
-    </li>
-    <li class="wpzoom-featured-post">
-      <div class="post-cover">
-        <a href="#" title="">
-          <img src="<?php echo $this->baseUrl();?>/images/kegiatan/1.jpg" alt="Pengenalan mesin indusri" class="Thumbnail thumbnail homepage-slider " width="715" height="300">
-        </a>
-      </div>
-      <div class="post-excerpt">
-        <h2>
-          <a href="#" title="Pengenalan mesin indusri">Pengenalan mesin indusri</a>
+        <p class="ms-layer pi-text"
+           style="left: 375px; top: 470px; font-size:25px"
+           data-type="text"
+           data-effect="top(short)"
+           data-duration="300"
+           data-hide-effect="fade"
+           data-delay="600"
+           >
+            Pelatihan Guru SMK se jakarta timur di kantor P2KGK
+        </p>
+    </div><!-- .ms-slide end -->
+
+    <div class="ms-slide">
+        <!-- slide background -->
+        <img src="masterslider/blank.gif" data-src="<?php echo $this->baseUrl();?>/images/kegiatan/1.jpg" alt="Strongest distribution network"/>
+
+        <img class="ms-layer" src="masterslider/blank.gif" data-src="img/slider/slider-line.jpg" alt=""
+             style="left: 30px; top: 310px;"
+             data-type="image"
+             data-effect="left(short)"
+             data-duration="300"
+             data-hide-effect="fade"
+             data-delay="0"
+             />
+        <h2 class="ms-layer pi-caption01"
+            style="left: 30px; top: 340px; font-size:30px"
+            data-type="text"
+            data-effect="left(short)"
+            data-duration="300"
+            data-hide-effect="fade"
+            data-delay="300"
+            >
+            Pengenalan Mesin Industri
         </h2>
-        <p>Pelatihan Guru SMK se jakarta timur di kantor P2KGK</p>
-      </div>
-    </li>
-  </ul>
-  </div>
-  <!-- nampilin berita sama article -->
-  <?php
-    $modelberita = new Application_Model_DbTables_NewsModel();
-    $berita = $modelberita->getAllnewslimit();
-    $modelartikel = new Application_Model_DbTables_ArtikelModel();
-    $artikel = $modelartikel->getAllartikellimit();
+        <p class="ms-layer pi-text"
+           style="left: 375px; top: 470px; font-size:25px"
+           data-type="text"
+           data-effect="top(short)"
+           data-duration="300"
+           data-hide-effect="fade"
+           data-delay="600"
+           >
+          Pelatihan Guru SMK se jakarta timur di kantor P2KGK
+        </p>
+    </div><!-- .ms-slide end -->
 
-  ?>
+</div><!-- #masterslider end -->
 
-  <div class="cleaner">&nbsp;</div>
-  <div class="column column-wide column-wide-child">
-    <div class="widget wpzoom">
-      <span class="read-more">
-        <a class="invert" href="<?php echo $this->baseUrl();?>/news/" rel="nofollow">view more posts</a>
-      </span>
-      <p class="title">
-        <a href="<?php echo $this->baseUrl();?>/news/">Berita</a>
-      </p>
-      <?php foreach ($berita as $news ) {?>
-        <div class="post-main posts-archive" style="border-bottom:1px solid #ccc; margin-bottom:10px;">
-          <div class="post-cover">
-            <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" title="<?php echo $news['judul'];?>">
-              <img src="<?php echo $this->baseUrl();?>/img/News/<?php echo $news['gambar'];?>" alt="<?php echo $news['judul'];?>" class="Thumbnail thumbnail loop-main " width="210" height="100">
-            </a>
+<div class="clear"></div>
+
+<!-- content -->
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="custom-heading02">
+                    <h2 style="padding-bottom:20px;">Selamat datang di halaman resmi website P2KGK Jakarta Timur</h2>
+                </div><!-- .custom-heading02 end -->
+            </div><!-- .col-md-12 end -->
+        </div><!-- .row end -->
+
+        <div class="row mb-30">
+            <div class="col-md-6 col-sm-6">
+                <div class="service-icon-left-boxed">
+                    <div class="icon-container animated triggerAnimation" data-animate="zoomIn">
+                        <img src="img/svg/pi-checklist-2.svg" alt="checklist icon"/>
+                    </div><!-- .icon-container end -->
+
+                    <div class="service-details">
+                        <h3>Contract logistics</h3>
+
+                        <p>
+                            Need custom logistic service? We got it
+                            covered. From overland, air, rail and sea
+                            transportation. Fast, safe and accurate
+                            shipment provided all over the globe.
+                        </p>
+                    </div><!-- .service-details end -->
+                </div><!-- .service-icon-left-boxed end -->
+            </div><!-- .col-md-6 end -->
+
+            <div class="col-md-6 col-sm-6">
+                <div class="service-icon-left-boxed">
+                    <div class="icon-container animated triggerAnimation" data-animate="zoomIn">
+                        <img src="img/svg/pi-globe-5.svg" alt="globe icon"/>
+                    </div><!-- .icon-container end -->
+
+                    <div class="service-details">
+                        <h3>Overland, Ocean and Air Freight</h3>
+
+                        <p>
+                            Trucking company offers the best logistics
+                            services using all mens of supply chain. Use
+                            our overland, ocean and air freight solutions
+                            for shipment of your goods.
+                        </p>
+                    </div><!-- .service-details end -->
+                </div><!-- .service-icon-left-boxed end -->
+            </div><!-- .col-md-6 end -->
+        </div><!-- .row.mb-30 end -->
+
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="service-icon-left-boxed">
+                    <div class="icon-container animated triggerAnimation" data-animate="zoomIn">
+                        <img src="img/svg/pi-forklift-truck-5.svg" alt="forktruck icon"/>
+                    </div><!-- .icon-container end -->
+
+                    <div class="service-details">
+                        <h3>Warehousing and Storage</h3>
+
+                        <p>
+                            Trucking offers intelligent warehouse solution.
+                            Lower your storage and good maintenance by
+                            using our modern and intelligent warehouses.
+                            You can see all locations on location page.
+                        </p>
+                    </div><!-- .service-details end -->
+                </div><!-- .service-icon-left-boxed end -->
+            </div><!-- .col-md-6 end -->
+
+            <div class="col-md-6 col-sm-6">
+                <div class="service-icon-left-boxed">
+                    <div class="icon-container animated triggerAnimation" data-animate="zoomIn">
+                        <img src="img/svg/pi-touch-desktop.svg" alt="touch icon"/>
+                    </div><!-- .icon-container end -->
+
+                    <div class="service-details">
+                        <h3>Consulting Services</h3>
+
+                        <p>
+                            Don't know what mean of transportation
+                            would be right for you, or you need someone
+                            for full supply chain management? Please contact
+                            us. Our team of professionals will be happy to help.
+                        </p>
+                    </div><!-- .service-details end -->
+                </div><!-- .service-icon-left-boxed end -->
+            </div><!-- .col-md-6 end -->
+        </div><!-- .row.mb-30 end -->
+    </div><!-- .container end -->
+</div><!-- .page-content end -->
+
+<div class="page-content p2kgkinfo">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6">
+            <div class="custom-heading">
+                <h3>P2KGK New Training</h3>
+                <span>
+                  <a class="invert" href="<?php echo $this->baseUrl();?>/service/training/" rel="nofollow">view more</a>
+                </span>
+            </div><!-- .custom-heading end -->
+            <div class="table-responsive">
+                <table class="events-table">
+                    <thead>
+                        <tr>
+                            <th>tanggal</th>
+                            <th>program</th>
+                            <th>peserta</th>
+                            <th>status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #e6e6e6;">
+                            <td class="event-date p2kgkdate">
+                              25/05/2016 s.d 29/05/2016
+                            </td>
+                            <td>
+                                <ol>
+                                  <li>Pelatihan Junior Network Administration dan Sertifikasi Junior Network Administrator</li>
+                                  <li>Pelatihan Junior Programmer dan Sertifikasi Junior Programmer</li>
+                                </ol>
+                            </td>
+                            <td>
+                                Guru TIK SMA
+                            </td>
+                            <td>
+                                Pendaftaran masih buka
+                            </td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #e6e6e6;">
+                            <td class="event-date p2kgkdate">
+                                25/05/2016 s.d 29/05/2016
+                            </td>
+                            <td>
+                                <ol>
+                                  <li>Pelatihan Junior Network Administration dan Sertifikasi Junior Network Administrator</li>
+                                  <li>Pelatihan Junior Programmer dan Sertifikasi Junior Programmer</li>
+                                </ol>
+                            </td>
+                            <td>
+                                Guru TIK SMA
+                            </td>
+                            <td>
+                                Pendaftaran masih buka
+                            </td>
+                        </tr>
+                    </tbody>
+                </table><!-- .events-table end -->
+              </div>
           </div>
-          <p class="post-meta">
-            <time datetime="<?php echo $news['waktu'];?>" pubdate=""><?php echo $news['waktu'];?></time>
-          </p>
-          <h2>
-            <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" title="<?php echo $news['judul'];?>"><?php echo $news['judul'];?></a>
-          </h2>
-          <p>
-            Pada anggaran 2016 ini kembali dibuka kesempatan Pendidikan dan Pelatihan...
-          </p>
-        </div>
-      <?php }?>
-    </div>
+          <div class="col-md-4 col-sm-6 custom-bkg bkg-dark-blue dark">
+            <div class="custom-heading">
+                <h3 style="width:100%;">P2KGK Jaktim</h3>
+            </div><!-- .custom-heading end -->
+            <div class="row">
+            <div class="col-md-6 col-sm-4">
+                <div class="team-member">
+                    <img src="<?php echo $this->baseUrl();?>/img/Pimpinan/endang.jpg" alt="">
+                    <div class="team-details">
+                        <h5>Hj. dr Endang Wahyu Sinar Matahari. MM</h5>
+                        <p class="position">
+                            Kepala P2kGK
+                        </p>
+                    </div><!-- .team-details end -->
+                </div><!-- .member end -->
+            </div><!-- .col-md-4 end -->
 
-    <div class="widget wpzoom">
-      <span class="read-more">
-        <a class="invert" href="<?php echo $this->baseUrl();?>/article/" rel="nofollow">view more posts</a>
-      </span>
-      <p class="title">
-        <a href="<?php echo $this->baseUrl();?>/article/">Artikel</a>
-      </p>
-      <?php foreach ($artikel as $art ) {?>
-        <div class="post-main posts-archive" style="border-bottom:1px solid #ccc; margin-bottom:10px;">
-          <div class="post-cover">
-            <a href="<?php echo $this->baseUrl();?>/article/detail/p/<?php echo $art['id_artikel'];?>" title="<?php echo $art['judul'];?>">
-              <img src="<?php echo $this->baseUrl();?>/img/Artikel/<?php echo $art['gambar'];?>" alt="<?php echo $art['judul'];?>" class="Thumbnail thumbnail loop-main " width="210" height="100">
-            </a>
+            <div class="col-md-6 col-sm-4">
+                <div class="team-member">
+                    <img src="<?php echo $this->baseUrl();?>/img/Pimpinan/Suraji.jpg" alt="">
+                    <div class="team-details">
+                        <h5>Suraji</h5>
+                        <p class="position">
+                            Kepala Sub Bag TU
+                        </p>
+                    </div><!-- .team-details end -->
+                </div><!-- .member end -->
+            </div><!-- .col-md-4 end -->
           </div>
-          <p class="post-meta">
-            <time datetime="<?php echo $art['waktu'];?>" pubdate=""><?php echo $art['waktu'];?></time>
-          </p>
-          <h2>
-            <a href="<?php echo $this->baseUrl();?>/article/detail/p/<?php echo $art['id_artikel']?>" title="<?php echo $art['judul'];?>"><?php echo $art['judul'];?></a>
-          </h2>
-          <p>
-            Pada anggaran 2016 ini kembali dibuka kesempatan Pendidikan dan Pelatihan...
-          </p>
         </div>
-      <?php }?>
     </div>
-    <div class="cleaner">&nbsp;</div>
-
-  </div>
-
-
-  <div class="column column-narrow column-narrow-child column-last">
-
-    <?php include("../application/views/scripts/include/sidebarhomepage.phtml"); ?>
-
-
-    <div class="cleaner">&nbsp;</div>
-  </div>
 </div>
-<div class="cleaner">&nbsp;</div>
+
+<!-- content -->
+<div class="page-content p2kgkinfo">
+    <div class="container">
+        <div class="row">
+          <?php
+            $modelberita = new Application_Model_DbTables_NewsModel();
+            $berita = $modelberita->getAllnewslimit();
+            $modelartikel = new Application_Model_DbTables_ArtikelModel();
+            $artikel = $modelartikel->getAllartikellimit();
+
+          ?>
+            <div class="col-md-4 col-sm-6">
+                <div class="custom-heading">
+                    <h3>P2KGK News</h3>
+                    <span>
+                      <a class="invert" href="<?php echo $this->baseUrl();?>/news/" rel="nofollow">view more posts</a>
+                    </span>
+                </div><!-- .custom-heading end -->
+                <ul class="pi-latest-posts clearfix">
+                  <?php foreach ($berita as $news ) {?>
+                    <li>
+                      <div class="post-media">
+                          <img src="<?php echo $this->baseUrl();?>/img/News/<?php echo $news['gambar'];?>" alt="<?php echo $news['judul'];?>"/>
+                      </div><!-- .post-media end -->
+
+                      <div class="post-details">
+                          <div class="post-date">
+                              <p>
+                                  <i class="fa fa-calendar"></i>
+                                  <?php echo $news['waktu'];?>
+                              </p>
+                          </div>
+
+                          <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>">
+                              <h4>
+                                  <?php echo $news['judul'];?>
+                              </h4>
+                          </a>
+
+                          <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" class="read-more">
+                              <span>
+                                  Read more
+                                  <i class="fa fa-chevron-right"></i>
+                              </span>
+                          </a>
+                      </div><!-- .post-details end -->
+                    </li>
+                  <?php }?>
+                </ul><!-- .pi-latest-posts end -->
+            </div><!-- .col-md-4 end -->
+
+            <div class="col-md-4 col-sm-6">
+                <div class="custom-heading">
+                    <h3>P2KGK Article</h3>
+                      <span>
+                        <a class="invert" href="<?php echo $this->baseUrl();?>/article/" rel="nofollow">view more posts</a>
+                      </span>
+                </div><!-- .custom-heading end -->
+                <ul class="pi-latest-posts clearfix">
+                  <?php foreach ($artikel as $art ) {?>
+                    <li>
+                      <div class="post-media">
+                          <img src="<?php echo $this->baseUrl();?>/img/Artikel/<?php echo $art['gambar'];?>" alt="<?php echo $art['judul'];?>"/>
+                      </div><!-- .post-media end -->
+
+                      <div class="post-details">
+                          <div class="post-date">
+                              <p>
+                                  <i class="fa fa-calendar"></i>
+                                <?php echo $art['waktu'];?>
+                              </p>
+                          </div>
+
+                          <a href="<?php echo $this->baseUrl();?>/article/detail/p/<?php echo $art['id_artikel']?>">
+                              <h4>
+                                  <?php echo $art['judul'];?>
+                              </h4>
+                          </a>
+
+                          <a href="<?php echo $this->baseUrl();?>/article/detail/p/<?php echo $art['id_artikel']?>" class="read-more">
+                              <span>
+                                  Read more
+                                  <i class="fa fa-chevron-right"></i>
+                              </span>
+                          </a>
+                      </div><!-- .post-details end -->
+                    </li>
+                    <?php }?>
+
+                </ul><!-- .pi-latest-posts end -->
+            </div><!-- .col-md-4 end -->
+
+            <div class="col-md-4 col-sm-6">
+                <div class="custom-heading">
+                    <h3>P2KGK Agenda</h3>
+                </div><!-- .custom-heading end -->
+                <ul class="pi-latest-posts clearfix">
+                    <li>
+                      <div class="post-media">
+                          <img src="img/blog/latest01.jpg" alt=""/>
+                      </div><!-- .post-media end -->
+
+                      <div class="post-details">
+                          <div class="post-date">
+                              <p>
+                                  <i class="fa fa-calendar"></i>
+                                  MAY 15, 2015
+                              </p>
+                          </div>
+
+                          <a href="news-single.html">
+                              <h4>
+                                  Trucking - Company of the Year 2014
+                              </h4>
+                          </a>
+
+                          <a href="news-single.html" class="read-more">
+                              <span>
+                                  Read more
+                                  <i class="fa fa-chevron-right"></i>
+                              </span>
+                          </a>
+                      </div><!-- .post-details end -->
+                    </li>
+
+                </ul><!-- .pi-latest-posts end -->
+            </div><!-- .col-md-4 end -->
+
+        </div><!-- .row end -->
+    </div><!-- .container end -->
+</div><!-- .page-content end -->
+
+<div class="page-content custom-bkg bkg-dark-blue dark p2kgkinfo">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+            <div class="custom-heading">
+                <h3>P2KGK Facebook</h3>
+            </div><!-- .custom-heading end -->
+            <div class="fb-page" data-href="https://www.facebook.com/P2KGK-Jakarta-Timur-204466053220728" data-width="390" data-height="291" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=126278130727907";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="custom-heading">
+                <h3>P2KGK Google+</h3>
+            </div><!-- .custom-heading end -->
+            <!-- Tempatkan tag ini di head atau tepat sebelum tag body penutup. -->
+            <script src="https://apis.google.com/js/platform.js" async defer>
+              {lang: 'id'}
+            </script>
+
+            <!-- Tempatkan tag ini di mana pun Anda ingin widget ditampilkan. -->
+            <div class="g-person" data-width="350" data-href="https://plus.google.com/110983658397925793542" data-theme="dark" data-rel="author"></div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="custom-heading">
+                <h3>P2KGK Twitter</h3>
+            </div><!-- .custom-heading end -->
+            <a class="twitter-timeline" href="https://twitter.com/p2kgkjaktim" data-widget-id="724216557786660864">Tweets by @p2kgkjaktim</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+      </div>
+    </div>
+</div><!-- .page-content end -->
+
+<!-- end content -->

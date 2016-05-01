@@ -1,0 +1,121 @@
+.page-title-style01 .breadcrumb {
+    margin: 0;
+    display: table;
+}
+.page-title-style01 {
+    padding-top:25px;
+    padding-bottom: 25px;
+    margin-bottom: 70px;
+}
+.page-title-style01 h1 {
+    color: #fff;
+    text-align: left;
+}
+.clear {
+    margin: 30px 0;
+}
+.p2kgkinfo h3 {
+    text-transform: none;
+    width: auto;
+    display: inline-block;
+    float: left;
+}
+.p2kgkinfo .custom-heading span {
+    float: right;
+}
+.p2kgkinfo .table-responsive {
+    width: 100%;
+    display: inline-block;
+}
+td.p2kgkdate {
+    font-weight: 700;
+}
+.p2kgkgallery li {
+    height: 420px!important;
+    overflow: hidden;
+}
+.p2kgkgallery iframe {
+    width: 100%;
+    height: 420px;
+}
+.p2kgktable tbody tr {
+    border-bottom: 1px solid #ccc;
+}
+.p2kgktable td {
+    text-align: left!important;
+}
+.p2kgknews .post-media {
+    height: 300px;
+}
+.p2kgknews .post-media img{
+    margin-top: -100px;
+    width: 100%;
+}
+.p2kgkregister .service-body a{
+    width: 100%;
+    display: inline-block;
+}
+.p2kgkregister .service-media{
+    height: 300px;
+}
+.kontaknya {
+    width: 100%;
+    display: inline-block;
+    margin-top: 30px;
+}
+.kontaknya .kontak {
+    width: 100%;
+    display: inline-block;
+}
+.kontaknya .kontak img {
+    float: left;
+    width: auto;
+}
+.kontaknya .kontak span {
+    float: left;
+    width: auto;
+    margin-left: 10px;
+    line-height: 30px;
+}
+.form-wide {
+    width: 48%;
+    float: left;
+}
+fieldset .required {
+    color: #ce292d!important;
+}
+.service-icon-center .icon-container {
+    overflow: hidden;
+}
+.service-icon-center .icon-container img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    left: 0%;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+.table-responsive caption {
+    text-align: left;
+    font-size: 18px;
+    color: #000;
+    padding-bottom: 10px;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width: 100%;
+    display: inline-block;
+    margin-top: 5%;
+}
+.alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+.alert-info .alert-link {
+    color: #245269;
+    font-weight: 700;
+}

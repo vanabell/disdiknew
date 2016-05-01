@@ -1,30 +1,71 @@
-<div class="column column-wide">
-  <div class="widget">
-    <!-- isi detail berita -->
-    <h1 class="post-title"><?php echo $this->data[0]['judul']?></h1>
-    <p class="post-meta">
-      By Admin / <time datetime="<?php echo $this->data[0]['waktu']?>" pubdate=""><?php echo $this->data[0]['waktu']?></time></p>
-      <div class="divider">&nbsp;</div>
-      <div class="post-content">
-
-      <img class="aligncenter wp-image-1941 size-full" src="<?php echo $this->baseUrl();?>/img/News/<?php echo $this->data[0]['gambar'];?>" alt="<?php echo $this->data[0]['judul'];?>">
-      <p><?php echo $this->data[0]['isi'];?></p>
-      <div class="divider">&nbsp;</div>
-      <div class="share-news">
-        <div class="share-text">
-            Share :
+<div class="page-title-style01 pt-bkg11">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <h1>News - <?php echo $this->data[0]['judul']?></h1>
+          <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+              <li>You are here:</li>
+              <li>
+                <a href="<?php echo $this->baseUrl() ?>/index">Home</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl() ?>/news/">News</a>
+              </li>
+              <li>
+                <?php echo $this->data[0]['judul']?>
+              </li>
+            </ul><!-- .breadcrumb end -->
+          </div><!-- .breadcrumb-container end -->
         </div>
-        <span class='st_facebook_large' displayText='Facebook'></span>
-        <span class='st_twitter_large' displayText='Tweet'></span>
-        <span class='st_googleplus_large' displayText='Google +'></span>
-        <span class='st__large' displayText=''></span>
-        <span class='st_pinterest_large' displayText='Pinterest'></span>
-        <span class='st_email_large' displayText='Email'></span>
-        <script type="text/javascript">var switchTo5x=true;</script>
-        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-        <script type="text/javascript">stLight.options({publisher: "0e28c62c-904d-4df1-bd19-5a90a01cf6eb", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
       </div>
-    </div>
   </div>
-  <div class="cleaner">&nbsp;</div>
 </div>
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 blog-posts post-single">
+                <div class="blog-post clearfix">
+                    <div class="post-media">
+                        <a href="news-single.html" class="post-img">
+                            <img src="<?php echo $this->baseUrl();?>/img/News/<?php echo $this->data[0]['gambar'];?>" alt="<?php echo $this->data[0]['judul']?>"/>
+                        </a>
+                    </div><!-- .post-media end -->
+
+                    <div class="post-date">
+                      <?php
+                        $yrdata= strtotime($this->data[0]['waktu']);
+                        $m = date('M Y', $yrdata);
+                        $d = date('d', $yrdata);
+                      ?>
+                        <p class="day"><?php echo $d; ?></p>
+                        <p class="month"><?php echo $m; ?></p>
+                    </div><!-- .post-date end -->
+
+                    <div class="post-body">
+                        <h2><?php echo $this->data[0]['judul']?></h2>
+
+                        <p>
+                            <?php echo $this->data[0]['isi'];?>
+                        </p>
+
+                        <div class="share-news">
+                          <div class="share-text">
+                              Share :
+                          </div>
+                          <span class='st_facebook_large' displayText='Facebook'></span>
+                          <span class='st_twitter_large' displayText='Tweet'></span>
+                          <span class='st_googleplus_large' displayText='Google +'></span>
+                          <span class='st__large' displayText=''></span>
+                          <span class='st_pinterest_large' displayText='Pinterest'></span>
+                          <span class='st_email_large' displayText='Email'></span>
+                          <script type="text/javascript">var switchTo5x=true;</script>
+                          <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+                          <script type="text/javascript">stLight.options({publisher: "0e28c62c-904d-4df1-bd19-5a90a01cf6eb", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+                        </div>
+                    </div><!-- .post-body end -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
