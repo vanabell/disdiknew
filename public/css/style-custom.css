@@ -1,3 +1,45 @@
+.page-content.parallax {
+    padding-top: 50px;
+}
+.header-style03 .logo-info-container {
+    padding: 8px 0 5px;
+}
+.parallax01 {
+    background-image: url('../img/parallax1.jpg');
+}
+.custom-bkg.bkg-dark-blue.p2kgkinfo{
+    background-color: #27b9c6;
+}
+.custom-heading::after, .custom-heading02:after, .team-details:after {
+    background-color: #a79235;
+}
+#header .logo-info-container .col-md-6 {
+    display: inline-block;
+    width: 70%;
+}
+#header .logo-info-container .col-md-6.last {
+    margin-top: 35px;
+    width: 30%;
+    float: right;
+}
+#header .logo-info-container .col-md-6 .logo {
+    width: 28%;
+    float: left;
+}
+.row.link-footer .col-md-6 img {
+    width: 100%;
+}
+.text-head {
+    float: left;
+    width: 60%;
+    margin: 3% 0 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+.text-head span {
+    width: 100%;
+    display: inline-block;
+}
 .page-title-style01 .breadcrumb {
     margin: 0;
     display: table;
@@ -57,6 +99,33 @@ td.p2kgkdate {
 }
 .p2kgkregister .service-media{
     height: 300px;
+}
+.p2kgkfooter .title h3 {
+    color: #ffffff;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.p2kgkfooter .col-md-3 img {
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+.p2kgkfooter .col-md-3 img:hover {
+    opacity: 0.8;
+}
+#footer-wrapper .widget {
+    margin-bottom: 0px;
+}
+#footer .row {
+    margin-bottom: 0px;
+}
+#footer .row.p2kgkfooter {
+    margin-bottom: 25px;
 }
 .kontaknya {
     width: 100%;
@@ -118,4 +187,40 @@ fieldset .required {
 .alert-info .alert-link {
     color: #245269;
     font-weight: 700;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  #header .logo-info-container .col-sm-12, #header .logo-info-container .col-sm-12.last {
+    width: 100%;
+  }
+  #header .logo-info-container .col-md-6 .logo {
+      width: 40%;
+      float: left;
+  }
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  #header .logo-info-container .col-xs-12, #header .logo-info-container .col-xs-12.last {
+    width: 100%;
+  }
+  #header .logo-info-container .col-xs-12 .logo {
+    width: 100%;
+    float: left;
+  }
+  #header .logo-info-container .col-md-6 .logo {
+      width: 100%;
+      float: left;
+  }
+  .text-head {
+      width: 100%;
+  }
+}
+@media only screen and (max-width: 479px) and (min-width: 320px) {
+  .header-style03 .info-container #search {
+      width: 100%;
+      min-height: 40px;
+      padding-right: 0;
+      margin-left: 0;
+      padding-left: 0;
+  }
+  #m_search{ width: 100%;}
 }
