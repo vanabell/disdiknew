@@ -1,5 +1,16 @@
 (jQuery)(function ($) {
 
+    //HEADER LOGO ANIMATE
+    var $imgs = $("#header .logo").find("img"),
+    i = 0;
+
+    function changeImage(){
+        var next = (++i % $imgs.length);
+        $($imgs.get(next - 1)).fadeOut(1000);
+        $($imgs.get(next)).fadeIn(1000);
+    }
+    var interval = setInterval(changeImage, 2000);
+
     // MAIN NAVIGATION
     $('.nav .dropdown').hover(function () {
         $(this).find('> .dropdown-menu').slideDown(200);
@@ -278,6 +289,6 @@
 
     });
 
-    
+
 
 });

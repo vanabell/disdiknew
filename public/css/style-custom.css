@@ -13,6 +13,18 @@
 .custom-heading::after, .custom-heading02:after, .team-details:after {
     background-color: #a79235;
 }
+#header .logo {
+    position: relative;
+}
+#header .logo a {
+    display: inline-block;
+}
+#header .logo a > img {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 #header .logo-info-container .col-md-6 {
     display: inline-block;
     width: 70%;
@@ -188,6 +200,13 @@ fieldset .required {
     color: #245269;
     font-weight: 700;
 }
+.p2kgkinfo .custom-heading a.invert, .table-responsive a {
+    color: #27b9c6;
+    font-weight: 700;
+}
+.p2kgkinfo .custom-heading a.invert:hover, .table-responsive a:hover {
+    color: #a79235;
+}
 
 @media (min-width: 768px) and (max-width: 1024px) {
   #header .logo-info-container .col-sm-12, #header .logo-info-container .col-sm-12.last {
@@ -223,4 +242,11 @@ fieldset .required {
       padding-left: 0;
   }
   #m_search{ width: 100%;}
+  .p2kgknews .post-media {
+      height: auto;
+  }
+  .p2kgknews .post-media img {
+       margin-top: 0px;
+       width: 100%;
+  }
 }

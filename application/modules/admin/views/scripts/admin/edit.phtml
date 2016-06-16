@@ -1,6 +1,6 @@
 <html>
 <div class="panel panel-info">
-<div class="panel-heading"><i class="glyphicon glyphicon-dashboard"></i><b>EDIT ADMIN DETAIL</b></center></div>
+<div class="panel-heading"><i class="glyphicon glyphicon-dashboard"></i> <b>EDIT ADMIN DETAIL</b></center></div>
 </br>
 <form class="form-horizontal" role="form" method="post">
 <?php
@@ -38,7 +38,7 @@
   	<div class="form-group">
 	    <label for="inputEmail3" class="col-sm-2 control-label">Akses</label>
 	    <div class="col-sm-10">
-	     <select name="akses">
+	     <select name="akses" class="form-control">
 		  <option value="staff" <?php if ($this->det[0]['ua_akses'] == "staff") echo "selected"; ?> >Admin</option>
 		  <option value="merchant" <?php if ($this->det[0]['ua_akses'] == "merchant") echo "selected"; ?> >Lembaga</option>
 		</select>
