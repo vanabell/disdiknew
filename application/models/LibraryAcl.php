@@ -2,17 +2,19 @@
 class Application_Model_LibraryAcl extends Zend_Acl {
 	Public function __construct() {
 	//privelege roles
-	$this->add(new Zend_Acl_Resource('loginadmin'));	
+	$this->add(new Zend_Acl_Resource('loginadmin'));
 	$this->add(new Zend_Acl_Resource('admin'));
 	$this->add(new Zend_Acl_Resource('add'),'admin');
 	$this->add(new Zend_Acl_Resource('edit'),'admin');
 	$this->add(new Zend_Acl_Resource('delete'),'admin');
 	$this->add(new Zend_Acl_Resource('index'),'admin');
-	
+
 	$this->add(new Zend_Acl_Resource('artikel'));
 	$this->add(new Zend_Acl_Resource('lembaga'));
 	$this->add(new Zend_Acl_Resource('news'));
 	$this->add(new Zend_Acl_Resource('profile'));
+	$this->add(new Zend_Acl_Resource('fasilitas'));
+	$this->add(new Zend_Acl_Resource('master'));
 	/*$this->add(new Zend_Acl_Resource('order'));
 	$this->add(new Zend_Acl_Resource('partner'));
 	$this->add(new Zend_Acl_Resource('topup'));
@@ -21,13 +23,13 @@ class Application_Model_LibraryAcl extends Zend_Acl {
 	$this->add(new Zend_Acl_Resource('reportpayment'));
 	$this->add(new Zend_Acl_Resource('content'));
 	$this->add(new Zend_Acl_Resource('conv'));*/
-			
-		
+
+
 	$this->addRole(new Zend_Acl_Role('merchant'));
 	$this->addRole(new Zend_Acl_Role('staff'), 'merchant');
 	$this->addRole(new Zend_Acl_Role('administrator'), 'staff');
-	
-	
+
+
 	$this->allow('merchant','loginadmin');
 	//$this->allow('staff','loginadmin');
 	//admin
@@ -44,6 +46,12 @@ class Application_Model_LibraryAcl extends Zend_Acl {
 
 	$this->allow('staff','profile');
 	$this->deny('merchant','profile');
+
+	$this->allow('staff','fasilitas');
+	$this->deny('merchant','fasilitas');
+
+	$this->allow('staff','master');
+	$this->deny('merchant','master');
 
 	//costumer
 	/*$this->allow('staff','customer');
@@ -72,9 +80,9 @@ class Application_Model_LibraryAcl extends Zend_Acl {
 	$this->deny('staff','conv');
 	$this->deny('merchant','conv');
 	$this->allow('administrator','conv');*/
-	
-	
-	
-	
-	}	
+
+
+
+
+	}
 }
