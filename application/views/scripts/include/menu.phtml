@@ -97,12 +97,34 @@
 
                       <?php include("../application/views/scripts/include/menu-responsive.phtml"); ?>
 
-
+                        <?php 
+                          $sessionuser = Zend_Registry::get('session_user');
+                          echo $sessionuser->status;
+                        ?>
+                      <?php if ($sessionuser->status==null) {?>
                       <a class="btn btn-medium" href="<?php echo $this->baseUrl();?>/login/">
                           <span>
                               Login
                           </span>
                       </a>
+                      <?php } else { ?>
+                      <?php if($sessionuser->status=='Guru') {?>
+                      <a href="<?php echo $this->baseUrl();?>/user/3e72758f0fc77cdad787f58b41e9985f">My Account</a>
+                      <a class="btn btn-medium" href="<?php echo $this->baseUrl();?>/login/logout">
+                          <span>
+                              Logout
+                          </span>
+                      </a>
+                      <?php } else {?>
+                        <a href="<?php echo $this->baseUrl();?>/user/5ba558debcf53a3582648898037e76e6">My Account</a>
+                      <a class="btn btn-medium" href="<?php echo $this->baseUrl();?>/login/logout">
+                          <span>
+                              Logout
+                          </span>
+                      </a>
+                      <?php
+                          }                       
+                        } ?>
                   </div><!-- MAIN NAVIGATION END -->
               </nav><!-- .navbar.navbar-default end -->
           </div><!-- .col-md-12 end -->

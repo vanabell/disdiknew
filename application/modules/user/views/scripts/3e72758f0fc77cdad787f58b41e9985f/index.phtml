@@ -1,0 +1,17 @@
+<div class="page-content">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="custom-heading">
+          <?php 
+            $sessionuser = Zend_Registry::get('session_user');
+          ?>
+              <h2>Welcome, <?php echo $sessionuser->user_id;?>!</h2>
+          </div><!-- .custom-heading end -->
+          <p>
+            <h3>Anda Login Sebagai <?php echo $sessionuser->status;?></h3>
+          </p>
+        </div>
+      </div>
+  </div>
+</div>

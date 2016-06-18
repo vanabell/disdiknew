@@ -14,7 +14,7 @@
                     <ul class="breadcrumb">
                       <li>You are here:</li>
                       <li>
-                        <a href="<?php echo $this->baseUrl() ?>/index">Home</a>
+                        <a href="<?php echo $this->baseUrl() ?>/user/3e72758f0fc77cdad787f58b41e9985f">Home</a>
                       </li>
                       <li>
                         My Account
@@ -27,7 +27,15 @@
         </div>
         <div class="container">
           <div class="row">
-            <?php include("../application/views/scripts/include/sidebar3.phtml"); ?>
+          <?php 
+            $sessionuser = Zend_Registry::get('session_user');
+            echo $sessionuser->status;
+            if($sessionuser->status=='Guru') {
+            include("../application/views/scripts/include/sidebar3.phtml"); 
+            } else if($sessionuser->status=='Siswa') {
+            include("../application/views/scripts/include/sidebar4.phtml");   
+            }
+            ?>
             <?php echo $this->layout()->content; ?>
           </div>
         </div>

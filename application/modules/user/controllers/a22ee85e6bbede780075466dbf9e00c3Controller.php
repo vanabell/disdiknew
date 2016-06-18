@@ -13,7 +13,7 @@ class User_a22ee85e6bbede780075466dbf9e00c3Controller extends Zend_Controller_Ac
 			$data = $model->getAccount($user);
 			$datasiswa= $model->getAccountSiswa($user);
 			$passencrypt = md5($user.$pwd);
-			//Zend_Debug::dump($data);die();
+			Zend_Debug::dump($data);die();
 			if(count($data)!=0){
 				//
 				$password = $data[0]['password'];
@@ -21,6 +21,7 @@ class User_a22ee85e6bbede780075466dbf9e00c3Controller extends Zend_Controller_Ac
 					$sessionuser = Zend_Registry::get('session_user');
 					$sessionuser->user_id = $data[0]['nama_lengkap'];
 					$sessionuser->noreg = $data[0]['nip'];
+					$sessionuser->status = 'guru';
 					$this->_helper->redirector('index','3e72758f0fc77cdad787f58b41e9985f','user');
 				} else {
 					$this->view->message = 'Wrong Password or Email, Please Try Again..';
@@ -32,6 +33,7 @@ class User_a22ee85e6bbede780075466dbf9e00c3Controller extends Zend_Controller_Ac
 					$sessionuser = Zend_Registry::get('session_user');
 					$sessionuser->user_id = $datasiswa[0]['nama_lengkap'];
 					$sessionuser->noreg = $datasiswa[0]['nis'];
+					$sessionuser->status = 'siswa';
 					$this->_helper->redirector('index','5ba558debcf53a3582648898037e76e6','user');
 				} else {
 					$this->view->message = 'Wrong Password or Email, Please Try Again..';
