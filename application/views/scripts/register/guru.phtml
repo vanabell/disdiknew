@@ -24,6 +24,11 @@
   <div class="container">
     <div class="custom-heading">
         <h2>Pendaftaran Guru</h2>
+        <?php 
+            if($this->message != '') {
+              echo $this->message;
+            } 
+        ?>
     </div><!-- .custom-heading end -->
     <form class="login-form wpcf7" action="#" method="post">
       <div class="row">
