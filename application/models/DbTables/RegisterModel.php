@@ -104,4 +104,15 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 			return $e->getMessage();
 		}
 	}
+
+	/*ini dicontoh*/
+	public function loadKecamatan() {
+		try {
+			$select="SELECT * FROM kecamatan order by nama_kec asc";
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
 }
