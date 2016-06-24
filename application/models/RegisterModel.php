@@ -31,4 +31,17 @@ class Application_Model_RegisterModel {
 		}
 		return $result;
 	}
+
+	/*iki jak dicontoh*/
+	public function loadKecamatan() {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->loadKecamatan();
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
 }

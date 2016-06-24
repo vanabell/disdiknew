@@ -1,3 +1,9 @@
+<?php
+/*modelnya diload sekali aja*/
+$model = new Application_Model_RegisterModel();
+$kecamatan = $model->loadKecamatan();
+
+?>
 <div class="page-title-style01 pt-bkg11">
   <div class="container">
       <div class="row">
@@ -65,6 +71,7 @@
           </fieldset> -->
           <fieldset>
             <label for="kec">Kecamatan <span class="required">*</span></label>
+            <!--
             <select name="kec" class="input-text wpcf7-select">
               <option value="">-- Pilih Kecamatan --</option>
               <option value="6408">Cakung</option>
@@ -77,6 +84,14 @@
               <option value="6410">Matraman</option>
               <option value="6401">Pasar Rebo</option>
               <option value="6409">Pulo Gadung</option>
+            </select>
+            -->
+            <!-- iki yo jak -->
+            <select name="kec" class="input-text wpcf7-select">
+              <option value="">-- Pilih Kecamatan --</option>
+              <?php foreach ($kecamatan as $kec) {?>
+              <option value="<?php echo $kec['id_kec'];?>"><?php echo $kec['nama_kec'];?></option>
+              <?php } ?>
             </select>
           </fieldset>
           <fieldset>
