@@ -3,7 +3,7 @@ class User_a22ee85e6bbede780075466dbf9e00c3Controller extends Zend_Controller_Ac
 	public function indexAction() {
 		//$this->_helper->layout->disableLayout();
 		$this->view->title = "Login User";
-		
+
 		if ($this->_request->isPost()) {
 			$dataform = $this->_request->getPost();
 			$user = $dataform['email'];
@@ -13,7 +13,7 @@ class User_a22ee85e6bbede780075466dbf9e00c3Controller extends Zend_Controller_Ac
 			$data = $model->getAccount($user);
 			$datasiswa= $model->getAccountSiswa($user);
 			$passencrypt = md5($user.$pwd);
-			Zend_Debug::dump($data);die();
+			// Zend_Debug::dump($data);die();
 			if(count($data)!=0){
 				//
 				$password = $data[0]['password'];
@@ -39,13 +39,13 @@ class User_a22ee85e6bbede780075466dbf9e00c3Controller extends Zend_Controller_Ac
 					$this->view->message = 'Wrong Password or Email, Please Try Again..';
 				}
 			}
-			
-			
+
+
 		}
 	}
-	
+
 	public function logoutAction() {
 	  Zend_Session::destroy(true);
-      $this->_helper->redirector('index','a22ee85e6bbede780075466dbf9e00c3','user');	
+      $this->_helper->redirector('index','a22ee85e6bbede780075466dbf9e00c3','user');
 	}
 }

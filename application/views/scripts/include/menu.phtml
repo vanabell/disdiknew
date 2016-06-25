@@ -97,9 +97,9 @@
 
                       <?php include("../application/views/scripts/include/menu-responsive.phtml"); ?>
 
-                        <?php 
+                        <?php
                           $sessionuser = Zend_Registry::get('session_user');
-                          echo $sessionuser->status;
+                          //echo $sessionuser->status;
                         ?>
                       <?php if ($sessionuser->status==null) {?>
                       <a class="btn btn-medium" href="<?php echo $this->baseUrl();?>/login/">
@@ -109,21 +109,38 @@
                       </a>
                       <?php } else { ?>
                       <?php if($sessionuser->status=='Guru') {?>
-                      <a href="<?php echo $this->baseUrl();?>/user/3e72758f0fc77cdad787f58b41e9985f">My Account</a>
-                      <a class="btn btn-medium" href="<?php echo $this->baseUrl();?>/login/logout">
-                          <span>
-                              Logout
-                          </span>
-                      </a>
+                      <ul class="nav navbar-nav pull-right responsive">
+                        <li class="dropdown">
+                          <a href="#" data-toggle="dropdown" class="dropdown-toggle">My Account</a>
+                          <ul class="dropdown-menu">
+                            <li>
+                              <a href="<?php echo $this->baseUrl();?>/user/3e72758f0fc77cdad787f58b41e9985f">My Profile</a>
+                            </li>
+                            <li>
+                              <a href="<?php echo $this->baseUrl();?>/login/logout">
+                                  Logout
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
                       <?php } else {?>
-                        <a href="<?php echo $this->baseUrl();?>/user/5ba558debcf53a3582648898037e76e6">My Account</a>
-                      <a class="btn btn-medium" href="<?php echo $this->baseUrl();?>/login/logout">
-                          <span>
-                              Logout
-                          </span>
-                      </a>
+                      <ul class="nav navbar-nav pull-right responsive">
+                        <li class="dropdown">
+                          <a href="#" data-toggle="dropdown" class="dropdown-toggle">My Account</a>
+                          <ul class="dropdown-menu">
+                            <li>
+                              <a href="<?php echo $this->baseUrl();?>/user/5ba558debcf53a3582648898037e76e6">My Profile</a>
+                            </li>
+                            <li>
+                              <a href="<?php echo $this->baseUrl();?>/login/logout">Logout
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
                       <?php
-                          }                       
+                          }
                         } ?>
                   </div><!-- MAIN NAVIGATION END -->
               </nav><!-- .navbar.navbar-default end -->
