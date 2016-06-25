@@ -207,7 +207,25 @@ fieldset .required {
 .p2kgkinfo .custom-heading a.invert:hover, .table-responsive a:hover {
     color: #a79235;
 }
-
+@media only screen and (max-width: 991px) and (min-width: 768px){
+  #dl-menu2 {
+      display: block;
+      max-width: 30%;
+  }
+  #dl-menu2.dl-menuwrapper{
+      float: right;
+  }
+  #dl-menu2.dl-menuwrapper button {
+      background: #27b9c6;
+      padding-left: 25px;
+  }
+  #dl-menu2.dl-menuwrapper button:after {
+      content: none;
+  }
+  #dl-menu2.dl-menuwrapper button i {
+      margin-right: 10px;
+  }
+}
 @media (min-width: 768px) and (max-width: 1024px) {
   #header .logo-info-container .col-sm-12, #header .logo-info-container .col-sm-12.last {
     width: 100%;
@@ -251,5 +269,21 @@ fieldset .required {
   .p2kgknews .post-media img {
        margin-top: 0px;
        width: 100%;
+  }
+  #dl-menu2 {
+      display: block;
+      max-width: 100%;
+      margin-top: 6px;
+      z-index: 0;
+  }
+  #dl-menu2.dl-menuwrapper button {
+      background: #27b9c6;
+      padding-left: 25px;
+  }
+  #dl-menu2.dl-menuwrapper button:after {
+      content: none;
+  }
+  #dl-menu2.dl-menuwrapper button i {
+      margin-right: 10px;
   }
 }

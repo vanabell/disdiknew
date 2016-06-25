@@ -27,6 +27,12 @@
                 classout: 'dl-animate-out-2'
             }
         });
+        $('#dl-menu2').dlmenu({
+            animationClasses: {
+                classin: 'dl-animate-in-2',
+                classout: 'dl-animate-out-2'
+            }
+        });
     });
 
 
