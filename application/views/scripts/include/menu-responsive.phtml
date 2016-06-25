@@ -85,3 +85,32 @@
         </li>
     </ul><!-- .dl-menu end -->
 </div><!-- #dl-menu end -->
+
+<?php
+  $sessionuser2 = Zend_Registry::get('session_user');
+  //echo $sessionuser->status;
+ if ($sessionuser2->status==null) {
+   echo "";
+?>
+<?php } else { ?>
+<div id="dl-menu2" class="dl-menuwrapper">
+    <button class="dl-trigger">
+      <i class="fa fa-user fa-2x"></i> My Account</button>
+    <ul class="dl-menu">
+      <?php if($sessionuser2->status=='Guru') { ?>
+        <li>
+          <a href="<?php echo $this->baseUrl();?>/user/3e72758f0fc77cdad787f58b41e9985f">My Profile</a>
+        </li>
+        <?php } else { ?>
+          <li>
+            <a href="<?php echo $this->baseUrl();?>/user/5ba558debcf53a3582648898037e76e6">My Profile</a>
+          </li>
+        <?php }?>
+        <li>
+          <a href="<?php echo $this->baseUrl();?>/login/logout">
+              Logout
+          </a>
+        </li>
+    </ul><!-- .dl-menu end -->
+</div><!-- #dl-menu end -->
+<?php }?>
