@@ -32,7 +32,6 @@ class Application_Model_RegisterModel {
 		return $result;
 	}
 
-	/*iki jak dicontoh*/
 	public function loadKecamatan() {
 		$productTable = $this->_dbTableProduct;
 		try {
@@ -44,4 +43,80 @@ class Application_Model_RegisterModel {
 		return $result;
 	}
 
+	public function loadMapel() {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->loadMapel();
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function loadSekolah() {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->loadSekolah();
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function loadJabatan() {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->loadJabatan();
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function loadGolongan() {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->loadGolongan();
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function loadRuang() {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->loadRuang();
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function loadStatpeg() {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->loadStatpeg();
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function loadIjazah() {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->loadIjazah();
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
 }

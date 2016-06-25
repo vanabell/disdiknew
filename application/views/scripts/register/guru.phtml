@@ -1,7 +1,13 @@
 <?php
-/*modelnya diload sekali aja*/
 $model = new Application_Model_RegisterModel();
 $kecamatan = $model->loadKecamatan();
+$mapel = $model->loadMapel();
+$sekolah = $model->loadSekolah();
+$jabatan = $model->loadJabatan();
+$golongan = $model->loadGolongan();
+$ruang = $model->loadRuang();
+$statpeg = $model->loadStatpeg();
+$ijazah = $model->loadIjazah();
 
 ?>
 <div class="page-title-style01 pt-bkg11">
@@ -30,10 +36,10 @@ $kecamatan = $model->loadKecamatan();
   <div class="container">
     <div class="custom-heading">
         <h2>Pendaftaran Guru</h2>
-        <?php 
+        <?php
             if($this->message != '') {
               echo $this->message;
-            } 
+            }
         ?>
     </div><!-- .custom-heading end -->
     <form class="login-form wpcf7" action="#" method="post">
@@ -71,26 +77,12 @@ $kecamatan = $model->loadKecamatan();
           </fieldset> -->
           <fieldset>
             <label for="kec">Kecamatan <span class="required">*</span></label>
-            <!--
-            <select name="kec" class="input-text wpcf7-select">
-              <option value="">-- Pilih Kecamatan --</option>
-              <option value="6408">Cakung</option>
-              <option value="6403">Cipayung</option>
-              <option value="6402">Ciracas</option>
-              <option value="6407">Duren Sawit</option>
-              <option value="6406">Jatinegara</option>
-              <option value="6405">Kramat Jati</option>
-              <option value="6404">Makasar</option>
-              <option value="6410">Matraman</option>
-              <option value="6401">Pasar Rebo</option>
-              <option value="6409">Pulo Gadung</option>
-            </select>
-            -->
-            <!-- iki yo jak -->
             <select name="kec" class="input-text wpcf7-select">
               <option value="">-- Pilih Kecamatan --</option>
               <?php foreach ($kecamatan as $kec) {?>
-              <option value="<?php echo $kec['id_kec'];?>"><?php echo $kec['nama_kec'];?></option>
+              <option value="<?php echo $kec['id_kec'];?>">
+                <?php echo $kec['nama_kec'];?>
+              </option>
               <?php } ?>
             </select>
           </fieldset>
@@ -108,7 +100,12 @@ $kecamatan = $model->loadKecamatan();
           <fieldset>
             <label for="nama_sekolah">Nama Sekolah <span class="required">*</span></label>
             <select name="nama_sekolah" class="input-text wpcf7-select" id="nama_sekolah">
-              <option value="">-- Pilih Tingkat Sekolah Dahulu--</option>
+              <option value="">-- Pilih Tingkat Sekolah dan Kecamata Dahulu--</option>
+              <?php foreach ($sekolah as $sklh) {?>
+              <option value="<?php echo $sklh['induk_sekolah'];?>">
+                <?php echo $sklh['nama_sekolah'];?>
+              </option>
+              <?php } ?>
             </select>
           </fieldset>
           <fieldset>
@@ -133,6 +130,11 @@ $kecamatan = $model->loadKecamatan();
             <label for="mapel">Mata Pelajaran <span class="required">*</span></label>
             <select name="mapel" class="input-text wpcf7-select" id="mapel">
               <option value="">-- Pilih --</option>
+              <?php foreach ($mapel as $mapels) {?>
+              <option value="<?php echo $mapels['id_mapel'];?>">
+                <?php echo $mapels['nama_mapel'];?>
+              </option>
+              <?php } ?>
             </select>
           </fieldset>
           <fieldset>
@@ -147,18 +149,11 @@ $kecamatan = $model->loadKecamatan();
             <label for="stat_peg">Status Kepegawaian <span class="required">*</span></label>
             <select name="stat_peg" class="input-text wpcf7-select" id="stat_peg">
               <option value="">-- Pilih --</option>
-              <option value="G01">PNS</option>
-              <option value="G00">CPNS</option>
-              <option value="G04">Honor K-1 / PTT</option>
-              <option value="G13">Honor K-2</option>
-              <option value="G03">Honor Murni Negeri 2005+</option>
-              <option value="G06">PHL (K-2)</option>
-              <option value="G07">PHL (Honor Murni)</option>
-              <option value="G05">Guru Bantu</option>
-              <option value="G11">Guru DPK</option>
-              <option value="G12">Guru Depag</option>
-              <option value="G02">Guru Tetap Yayasan</option>
-              <option value="G14">Guru Tidak Tetap Yayasan</option>
+              <?php foreach ($statpeg as $sp) {?>
+              <option value="<?php echo $sp['id_statuspeg'];?>">
+                <?php echo $sp['nama_statuspeg'];?>
+              </option>
+              <?php } ?>
             </select>
           </fieldset>
           <fieldset>
@@ -166,21 +161,22 @@ $kecamatan = $model->loadKecamatan();
               <label for="gol_ruang">Golongan <span class="required">*</span></label>
               <select name="gol_ruang" class="input-text wpcf7-select" id="gol_ruang">
                 <option value="">-- Pilih --</option>
-                <option value="01">Gol I</option>
-                <option value="02">Gol II</option>
-                <option value="03">Gol III</option>
-                <option value="04">Gol IV</option>
+                <?php foreach ($golongan as $gol) {?>
+                <option value="<?php echo $gol['id_golongan'];?>">
+                  <?php echo $gol['nama_golongan'];?>
+                </option>
+                <?php } ?>
               </select>
             </div>
             <div class="form-wide">
               <label for="ruang">Ruang <span class="required">*</span></label>
               <select name="ruang" class="input-text wpcf7-select" id="ruang">
                 <option value="">-- Pilih --</option>
-                <option value="a">a</option>
-                <option value="b">b</option>
-                <option value="c">c</option>
-                <option value="d">d</option>
-                <option value="e">e</option>
+                <?php foreach ($ruang as $ru) {?>
+                <option value="<?php echo $ru['id_ruang'];?>">
+                  <?php echo $ru['nama_ruang'];?>
+                </option>
+                <?php } ?>
               </select>
             </div>
           </fieldset>
@@ -188,6 +184,11 @@ $kecamatan = $model->loadKecamatan();
             <label for="jabatan">Jabatan <span class="required">*</span></label>
             <select name="jabatan" class="input-text wpcf7-select" id="jabatan">
               <option value="">-- Pilih Jabatan --</option>
+              <?php foreach ($jabatan as $jab) {?>
+              <option value="<?php echo $jab['id_jabatan'];?>">
+                <?php echo $jab['nama_jabatan'];?>
+              </option>
+              <?php } ?>
             </select>
           </fieldset>
           <fieldset>
@@ -209,13 +210,11 @@ $kecamatan = $model->loadKecamatan();
                 <label for="pendidikan">Ijazah Terakhir <span class="required">*</span></label>
                 <select name="pendidikan" id="pendidikan" class="input-text wpcf7-select">
                   <option value="">-- Pilih --</option>
-                  <option value="S13">SLTA</option>
-                  <option value="S21">PGSLP/D-1</option>
-                  <option value="S22">PGSLA/D-2</option>
-                  <option value="S23">Sarmud/D-3</option>
-                  <option value="S31">Sarjana/S-1</option>
-                  <option value="S32">Pasca Sarjana/S-2</option>
-                  <option value="S33">Doktor/S-3</option>
+                  <?php foreach ($ijazah as $ij) {?>
+                  <option value="<?php echo $ij['id_ijazah'];?>">
+                    <?php echo $ij['nama_ijazah'];?>
+                  </option>
+                  <?php } ?>
                 </select>
               </div>
               <div class="form-wide">

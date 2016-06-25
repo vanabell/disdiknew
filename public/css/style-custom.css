@@ -234,6 +234,9 @@ fieldset .required {
   }
 }
 @media only screen and (max-width: 479px) and (min-width: 320px) {
+  #header .logo-info-container .text-head {
+      margin-top: 150px;
+  }
   .header-style03 .info-container #search {
       width: 100%;
       min-height: 40px;
