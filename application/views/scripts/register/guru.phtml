@@ -89,18 +89,18 @@ $ijazah = $model->loadIjazah();
           <fieldset>
             <label for="tingkat_sekolah">Tingkat Sekolah <span class="required">*</span></label>
             <select name="tingkat_sekolah" class="input-text wpcf7-select" id="tingkat_sekolah">
-              <option value="">-- Pilih Tingkat Sekolah --</option>
-              <option value="">TK</option>
-              <option value="">SD</option>
-              <option value="">SMP</option>
-              <option value="">SMA</option>
-              <option value="">SMK</option>
+              <option value="0">-- Pilih Tingkat Sekolah --</option>
+              <option value="TK">TK</option>
+              <option value="SD">SD</option>
+              <option value="SMP">SMP</option>
+              <option value="SMA">SMA</option>
+              <option value="SMK">SMK</option>
             </select>
           </fieldset>
           <fieldset>
             <label for="nama_sekolah">Nama Sekolah <span class="required">*</span></label>
             <select name="nama_sekolah" class="input-text wpcf7-select" id="nama_sekolah">
-              <option value="">-- Pilih Tingkat Sekolah dan Kecamata Dahulu--</option>
+              <option value="">-- Pilih Tingkat Sekolah dan Kecamatan Dahulu--</option>
               <?php foreach ($sekolah as $sklh) {?>
               <option value="<?php echo $sklh['induk_sekolah'];?>">
                 <?php echo $sklh['nama_sekolah'];?>
@@ -121,7 +121,7 @@ $ijazah = $model->loadIjazah();
           <fieldset>
             <label for="jkelamin">Jenis Kelamin <span class="required">*</span></label>
             <select name="jkelamin" class="input-text wpcf7-select" id="jkelamin">
-              <option value="">-- Pilih --</option>
+              <option value="0">-- Pilih --</option>
               <option value="L">Laki-laki</option>
               <option value="P">Perempuan</option>
              </select>
@@ -140,7 +140,7 @@ $ijazah = $model->loadIjazah();
           <fieldset>
             <label for="status">Status Sekolah <span class="required">*</span></label>
             <select name="status" class="input-text wpcf7-select" id="status">
-              <option value="">-- Pilih --</option>
+              <option value="0">-- Pilih --</option>
               <option value="1">Negeri</option>
               <option value="2">Swasta</option>
             </select>
@@ -160,7 +160,7 @@ $ijazah = $model->loadIjazah();
             <div class="form-wide" style="margin-right:10px;">
               <label for="gol_ruang">Golongan <span class="required">*</span></label>
               <select name="gol_ruang" class="input-text wpcf7-select" id="gol_ruang">
-                <option value="">-- Pilih --</option>
+                <option value="0">-- Pilih --</option>
                 <?php foreach ($golongan as $gol) {?>
                 <option value="<?php echo $gol['id_golongan'];?>">
                   <?php echo $gol['nama_golongan'];?>
@@ -171,7 +171,7 @@ $ijazah = $model->loadIjazah();
             <div class="form-wide">
               <label for="ruang">Ruang <span class="required">*</span></label>
               <select name="ruang" class="input-text wpcf7-select" id="ruang">
-                <option value="">-- Pilih --</option>
+                <option value="0">-- Pilih --</option>
                 <?php foreach ($ruang as $ru) {?>
                 <option value="<?php echo $ru['id_ruang'];?>">
                   <?php echo $ru['nama_ruang'];?>
@@ -183,7 +183,7 @@ $ijazah = $model->loadIjazah();
           <fieldset>
             <label for="jabatan">Jabatan <span class="required">*</span></label>
             <select name="jabatan" class="input-text wpcf7-select" id="jabatan">
-              <option value="">-- Pilih Jabatan --</option>
+              <option value="0">-- Pilih Jabatan --</option>
               <?php foreach ($jabatan as $jab) {?>
               <option value="<?php echo $jab['id_jabatan'];?>">
                 <?php echo $jab['nama_jabatan'];?>
@@ -195,9 +195,9 @@ $ijazah = $model->loadIjazah();
             <div class="form-wide" style="margin-right:10px;">
               <label for="sertifikasi">Sertifikasi <span class="required">*</span></label>
               <select name="sertifikasi" class="input-text wpcf7-select" id="sertifikasi">
-                <option value="">-- Pilih --</option>
+                <option value="0">-- Pilih --</option>
                 <option value="1">Ya</option>
-                <option value="0">Tidak</option>
+                <option value="2">Tidak</option>
               </select>
              </div>
              <div class="form-wide">
@@ -209,7 +209,7 @@ $ijazah = $model->loadIjazah();
             <div class="form-wide" style="margin-right:10px;">
                 <label for="pendidikan">Ijazah Terakhir <span class="required">*</span></label>
                 <select name="pendidikan" id="pendidikan" class="input-text wpcf7-select">
-                  <option value="">-- Pilih --</option>
+                  <option value="0">-- Pilih --</option>
                   <?php foreach ($ijazah as $ij) {?>
                   <option value="<?php echo $ij['id_ijazah'];?>">
                     <?php echo $ij['nama_ijazah'];?>
@@ -225,9 +225,9 @@ $ijazah = $model->loadIjazah();
           <fieldset>
             <label for="domisili">Domisili Sekarang <span class="required">*</span></label>
             <select name="domisili" id="domisili" class="input-text wpcf7-select">
-              <option value="">-- Pilih --</option>
-              <option value="0">DKI Jakarta</option>
-              <option value="1">Luar DKI Jakarta</option>
+              <option value="0">-- Pilih --</option>
+              <option value="1">DKI Jakarta</option>
+              <option value="2">Luar DKI Jakarta</option>
             </select>
           </fieldset>
         </div>

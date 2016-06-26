@@ -123,24 +123,112 @@ class Admin_MasterController extends Zend_Controller_Action {
     /* Mapel CRUD */
     public function mapelAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
+      $model = new Admin_Model_MasterModel();
+  		$listmapel = $model->getMapellist();
+  		$this->view->detail = $listmapel;
   	}
     public function addmapelAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
+      if ($this->_request->isPost()) {
+  			$model = new Admin_Model_MasterModel();
+  			$Dataform = $this->_request->getPost();
+
+  			if($Dataform['nama']==null && $Dataform['tingkat']==null) {
+  				$this->view->message = 'Please Fill out The Form First!';
+  			} else {
+  				$cek_mapel = $model->cekMapel($Dataform['nama'],$Dataform['tingkat']);
+  				//Zend_Debug::dump(count($cekemail));die();
+  				if(count($cek_mapel)==0) {
+  					$insert = $model->insertMapel($Dataform);
+  					if($insert===true) {
+  						//zend_debug::dump($insert);die();
+  						$this->view->msg = 'Insert Success';
+  					} else {
+  						$this->view->message = 'Insert Failed';
+  					}
+  				} else {
+  					$this->view->message = 'Nama Mata Pelajaran is Already Use';
+  				}
+
+  			}
+  		}
   	}
     public function editmapelAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
-  	}
-    public function delmapelAction() {
+      $model = new Admin_Model_MasterModel();
+  		$req = $this->getRequest();
+  		$id = $req->getParam('p');
 
+  		$det = $model->getMapeldet($id);
+  		$this->view->det = $det;
+  		if ($this->_request->isPost()) {
+  			$Dataform = $this->_request->getPost();
+  			/*Zend_Debug::dump($Dataform);die();*/
+  			if($Dataform['nama']==null && $Dataform['tingkat']==null) {
+  				$this->view->message = 'Please Fill out The Form First!';
+  			} else {
+  				//Zend_Debug::dump($Dataform);die();
+  				$insert = $model->updateMapel($Dataform);
+  			}
+
+  			if($insert===true) {
+  				$this->view->msg = 'Insert Success';
+  			} else {
+  				$this->view->message = 'Insert Failed';
+  			}
+
+  		}
+  		$id = $req->getParam('p');
+  		if($id!='') {
+  			$det = $model->getMapeldet($id);
+  			$this->view->det = $det;
+  		}
+    }
+    public function delmapelAction() {
+      $model = new Admin_Model_MasterModel();
+      $req = $this->getRequest();
+      $id = $req->getParam('key');
+      $delete = $model->delMapel($id);
+      return $this->_helper->json(
+          array(
+              'edit' => $delete,
+          )
+      );
   	}
     /* End Mapel CRUD */
 
     /* Jabatan CRUD */
     public function jabatanAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
+      $model = new Admin_Model_MasterModel();
+  		$listjabatan = $model->getJabatanlist();
+  		$this->view->detail = $listjabatan;
   	}
     public function addjabatanAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
+      if ($this->_request->isPost()) {
+  			$model = new Admin_Model_MasterModel();
+  			$Dataform = $this->_request->getPost();
+
+  			if($Dataform['nama']==null) {
+  				$this->view->message = 'Please Fill out The Form First!';
+  			} else {
+  				$cek_jabatan = $model->cekJabatan($Dataform['nama']);
+  				//Zend_Debug::dump(count($cekemail));die();
+  				if(count($cek_jabatan)==0) {
+  					$insert = $model->insertJabatan($Dataform);
+  					if($insert===true) {
+  						//zend_debug::dump($insert);die();
+  						$this->view->msg = 'Insert Success';
+  					} else {
+  						$this->view->message = 'Insert Failed';
+  					}
+  				} else {
+  					$this->view->message = 'Nama Jabatan is Already Use';
+  				}
+
+  			}
+  		}
   	}
     public function editjabatanAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
@@ -153,15 +241,77 @@ class Admin_MasterController extends Zend_Controller_Action {
     /* Status Pegawai CRUD */
     public function statuspegAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
+      $model = new Admin_Model_MasterModel();
+  		$listStat = $model->getStatuspeglist();
+  		$this->view->detail = $listStat;
   	}
     public function addstatuspegAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
+      if ($this->_request->isPost()) {
+  			$model = new Admin_Model_MasterModel();
+  			$Dataform = $this->_request->getPost();
+
+  			if($Dataform['nama']==null) {
+  				$this->view->message = 'Please Fill out The Form First!';
+  			} else {
+  				$cek_stat = $model->cekStatpeg($Dataform['nama']);
+  				//Zend_Debug::dump(count($cekemail));die();
+  				if(count($cek_stat)==0) {
+  					$insert = $model->insertStatpeg($Dataform);
+  					if($insert===true) {
+  						//zend_debug::dump($insert);die();
+  						$this->view->msg = 'Insert Success';
+  					} else {
+  						$this->view->message = 'Insert Failed';
+  					}
+  				} else {
+  					$this->view->message = 'Nama Status Pegawai is Already Use';
+  				}
+
+  			}
+  		}
   	}
     public function editstatuspegAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
+      $model = new Admin_Model_MasterModel();
+  		$req = $this->getRequest();
+  		$id = $req->getParam('p');
+
+  		$det = $model->getStatpegdet($id);
+  		$this->view->det = $det;
+  		if ($this->_request->isPost()) {
+  			$Dataform = $this->_request->getPost();
+  			/*Zend_Debug::dump($Dataform);die();*/
+  			if($Dataform['nama']==null) {
+  				$this->view->message = 'Please Fill out The Form First!';
+  			} else {
+  				//Zend_Debug::dump($Dataform);die();
+  				$insert = $model->updateStatpeg($Dataform);
+  			}
+
+  			if($insert===true) {
+  				$this->view->msg = 'Insert Success';
+  			} else {
+  				$this->view->message = 'Insert Failed';
+  			}
+
+  		}
+  		$id = $req->getParam('p');
+  		if($id!='') {
+  			$det = $model->getStatpegdet($id);
+  			$this->view->det = $det;
+  		}
   	}
     public function delstatuspegAction() {
-
+      $model = new Admin_Model_MasterModel();
+      $req = $this->getRequest();
+      $id = $req->getParam('key');
+      $delete = $model->delStatpeg($id);
+      return $this->_helper->json(
+          array(
+              'edit' => $delete,
+          )
+      );
   	}
     /* End Status Pegawai CRUD */
 }
