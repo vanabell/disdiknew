@@ -77,7 +77,7 @@ $ijazah = $model->loadIjazah();
           </fieldset> -->
           <fieldset>
             <label for="kec">Kecamatan <span class="required">*</span></label>
-            <select name="kec" class="input-text wpcf7-select">
+            <select name="kec" class="input-text wpcf7-select kecamatan">
               <option value="">-- Pilih Kecamatan --</option>
               <?php foreach ($kecamatan as $kec) {?>
               <option value="<?php echo $kec['id_kec'];?>">
@@ -86,9 +86,9 @@ $ijazah = $model->loadIjazah();
               <?php } ?>
             </select>
           </fieldset>
-          <fieldset>
+          <fieldset id="tingkat" style="display:none;">
             <label for="tingkat_sekolah">Tingkat Sekolah <span class="required">*</span></label>
-            <select name="tingkat_sekolah" class="input-text wpcf7-select" id="tingkat_sekolah">
+            <select name="tingkat_sekolah" class="input-text wpcf7-select" id="tingkat_sekolah" >
               <option value="0">-- Pilih Tingkat Sekolah --</option>
               <option value="TK">TK</option>
               <option value="SD">SD</option>
@@ -101,11 +101,11 @@ $ijazah = $model->loadIjazah();
             <label for="nama_sekolah">Nama Sekolah <span class="required">*</span></label>
             <select name="nama_sekolah" class="input-text wpcf7-select" id="nama_sekolah">
               <option value="">-- Pilih Tingkat Sekolah dan Kecamatan Dahulu--</option>
-              <?php foreach ($sekolah as $sklh) {?>
-              <option value="<?php echo $sklh['induk_sekolah'];?>">
+              <?php //foreach ($sekolah as $sklh) {?>
+              <!-- <option value="<?php echo $sklh['induk_sekolah'];?>">
                 <?php echo $sklh['nama_sekolah'];?>
-              </option>
-              <?php } ?>
+              </option> -->
+              <?php //} ?>
             </select>
           </fieldset>
           <fieldset>
@@ -278,3 +278,31 @@ $ijazah = $model->loadIjazah();
     </form>
   </div>
 </div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.kecamatan').change(function() {
+      $('#tingkat').show();
+    });
+    $('#tingkat_sekolah').change(function() {
+      var tingkat = $(this).val();
+      var kec = $('.kecamatan').val();
+      $.ajax({
+          type: "POST",
+          data: {
+              'id_kec' : kec,
+              'tingkat' : tingkat,
+          },
+          url: <?php echo $this->baseUrl() ?>+"register/ajaxsekolah",
+          beforeSend: function(){
+              // jQuery('body').append('<div class="fastAddLoading fancybox-overlay fancybox-overlay-fixed" style="width: auto; height: auto; display: block;"></div><div id="fancybox-loading" class="fastAddLoading "><div></div></div>');
+          },
+          success: function(response){
+            var results = $.parseJSON(response);
+            $(results).each(function(key, val) {
+              $('#nama_sekolah').html("<option value='"+val.induk_sekolah+"'> "+val.nama_sekolah+"</option>");
+            });
+          }
+      });
+    });
+  });
+</script>
