@@ -125,9 +125,9 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 		}
 	}
 
-	public function loadSekolah()	{
+	public function loadSekolah($kecamatan,$tksekolah)	{
 		try {
-			$select="SELECT * FROM master_sekolah order by nama_sekolah asc";
+			$select='SELECT * FROM master_sekolah where tingkat ='.$tksekolah.' and id_kecamatan = '.$kecamatan.' order by nama_sekolah asc';
 			$rows=$this->_db->fetchAll($select);
 			return $rows;
 		} catch (Zend_Exception $e) {
