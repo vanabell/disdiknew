@@ -1,3 +1,7 @@
+<?php
+$model = new Application_Model_RegisterModel();
+$kecamatan = $model->loadKecamatan();
+?>
 <div class="page-title-style01 pt-bkg11">
   <div class="container">
       <div class="row">
@@ -70,29 +74,24 @@
           </fieldset>
           <fieldset>
             <label for="kec">Kecamatan <span class="required">*</span></label>
-            <select name="kec" class="input-text wpcf7-select">
+            <select name="kec" class="input-text wpcf7-select kecamatan">
               <option value="">-- Pilih Kecamatan --</option>
-              <option value="6408">Cakung</option>
-              <option value="6403">Cipayung</option>
-              <option value="6402">Ciracas</option>
-              <option value="6407">Duren Sawit</option>
-              <option value="6406">Jatinegara</option>
-              <option value="6405">Kramat Jati</option>
-              <option value="6404">Makasar</option>
-              <option value="6410">Matraman</option>
-              <option value="6401">Pasar Rebo</option>
-              <option value="6409">Pulo Gadung</option>
+              <?php foreach ($kecamatan as $kec) {?>
+              <option value="<?php echo $kec['id_kec'];?>">
+                <?php echo $kec['nama_kec'];?>
+              </option>
+              <?php } ?>
             </select>
           </fieldset>
           <fieldset>
             <label for="tingkat_sekolah">Tingkat Sekolah <span class="required">*</span></label>
             <select name="tingkat_sekolah" class="input-text wpcf7-select" id="tingkat_sekolah">
-              <option value="">-- Pilih Tingkat Sekolah --</option>
-              <option value="">TK</option>
-              <option value="">SD</option>
-              <option value="">SMP</option>
-              <option value="">SMA</option>
-              <option value="">SMK</option>
+              <option value="0">-- Pilih Tingkat Sekolah --</option>
+              <option value="TK">TK</option>
+              <option value="SD">SD</option>
+              <option value="SMP">SMP</option>
+              <option value="SMA">SMA</option>
+              <option value="SMK">SMK</option>
             </select>
           </fieldset>
           <fieldset>
@@ -112,3 +111,28 @@
     </form>
   </div>
 </div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.kecamatan, #tingkat_sekolah').change(function() {
+      var tingkat = $('#tingkat_sekolah').val();
+      var kec = $('.kecamatan').val();
+      var base_url = "<?php echo $this->baseUrl() ?>";
+      $.ajax({
+          type: "POST",
+          data: {
+              'id_kec' : kec,
+              'tingkat' : tingkat,
+          },
+          url: base_url+"/register/ajaxsekolah",
+          success: function(data){
+            var b = '';
+            for(j=0; j < data.data.length;j++){
+               b+='<option value='+data.data[j]['induk_sekolah']+'>'+data.data[j]['nama_sekolah']+'</option>';
+             }
+             $('#nama_sekolah').html(b);
+
+          }
+      });
+    });
+  });
+</script>

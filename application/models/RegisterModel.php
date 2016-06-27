@@ -43,10 +43,10 @@ class Application_Model_RegisterModel {
 		return $result;
 	}
 
-	public function loadMapel() {
+	public function loadMapel($tksekolah) {
 		$productTable = $this->_dbTableProduct;
 		try {
-			$result = $productTable->loadMapel();
+			$result = $productTable->loadMapel($tksekolah);
 
 		} catch (Zend_Exception $e) {
 			return $e->getMessage();
@@ -65,10 +65,10 @@ class Application_Model_RegisterModel {
 		return $result;
 	}
 
-	public function loadJabatan() {
+	public function loadJabatan($tksekolah) {
 		$productTable = $this->_dbTableProduct;
 		try {
-			$result = $productTable->loadJabatan();
+			$result = $productTable->loadJabatan($tksekolah);
 
 		} catch (Zend_Exception $e) {
 			return $e->getMessage();

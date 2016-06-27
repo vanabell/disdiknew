@@ -37,22 +37,40 @@ class RegisterController extends Zend_Controller_Action
 
     public function ajaxsekolahAction() {
         $request = $this->getRequest();
-        $kecamatan = $request->getParam('key');
-        $tksekolah = $request->getParam('key1');
-        
+        $kecamatan = $request->getParam('id_kec');
+        $tksekolah = $request->getParam('tingkat');
         $model = new Application_Model_RegisterModel();
-         
         $data = $model->loadSekolah($kecamatan,$tksekolah);
-         
-         
         return $this->_helper->json(
                 array(
                         'data' => $data,
                 )
-        
         );
     }
-    
+
+    public function ajaxmapelAction() {
+        $request = $this->getRequest();
+        $tksekolah = $request->getParam('tingkat');
+        $model = new Application_Model_RegisterModel();
+        $data = $model->loadMapel($tksekolah);
+        return $this->_helper->json(
+                array(
+                        'data' => $data,
+                )
+        );
+    }
+
+    public function ajaxjabatanAction() {
+        $request = $this->getRequest();
+        $tksekolah = $request->getParam('tingkat');
+        $model = new Application_Model_RegisterModel();
+        $data = $model->loadJabatan($tksekolah);
+        return $this->_helper->json(
+                array(
+                        'data' => $data,
+                )
+        );
+    }
 
     public function siswaAction()
     {
