@@ -22,6 +22,7 @@ class User_a22ee85e6bbede780075466dbf9e00c3Controller extends Zend_Controller_Ac
 					$sessionuser->user_id = $data[0]['nama_lengkap'];
 					$sessionuser->noreg = $data[0]['nip'];
 					$sessionuser->status = 'guru';
+					$sessionuser->tingkat = $datasiswa[0]['tingkat_sekolah'];
 					$this->_helper->redirector('index','3e72758f0fc77cdad787f58b41e9985f','user');
 				} else {
 					$this->view->message = 'Wrong Password or Email, Please Try Again..';
@@ -29,7 +30,6 @@ class User_a22ee85e6bbede780075466dbf9e00c3Controller extends Zend_Controller_Ac
 			} else {
 				$passwordsiswa = $datasiswa[0]['password'];
 				if($passwordsiswa==$passencrypt && count($datasiswa)!=0) {
-					//Zend_Debug::dump($datasiswa);die();
 					$sessionuser = Zend_Registry::get('session_user');
 					$sessionuser->user_id = $datasiswa[0]['nama_lengkap'];
 					$sessionuser->noreg = $datasiswa[0]['nis'];
