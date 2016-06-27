@@ -88,7 +88,7 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 			$stmt->bindParam(':thn_pendidikan', $data['thn_pendidikan']);
 			$stmt->bindParam(':domisili', $data['domisili']);
 			$a = $stmt->execute();
-	
+
 			return true;
 		} catch (Zend_Exception $e) {
 			return $e->getMessage();
@@ -98,6 +98,86 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 	public function cekEmailGuru($data,$nip) {
 		try {
 			$select="SELECT * FROM master_guru where email='".$data."' or nip='".$nip."'";
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
+	public function loadKecamatan() {
+		try {
+			$select="SELECT * FROM kecamatan order by nama_kec asc";
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
+	public function loadMapel()	{
+		try {
+			$select="SELECT * FROM mapel order by nama_mapel asc";
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
+	public function loadSekolah($kecamatan,$tksekolah)	{
+		try {
+			$select='SELECT * FROM master_sekolah where tingkat ='.$tksekolah.' and id_kecamatan = '.$kecamatan.' order by nama_sekolah asc';
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
+	public function loadIjazah()	{
+		try {
+			$select="SELECT * FROM ijazah order by id_ijazah asc";
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
+	public function loadJabatan()	{
+		try {
+			$select="SELECT * FROM jabatan order by nama_jabatan asc";
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
+	public function loadGolongan()	{
+		try {
+			$select="SELECT * FROM golongan order by nama_golongan asc";
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
+	public function loadRuang()	{
+		try {
+			$select="SELECT * FROM ruang order by nama_ruang asc";
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
+	public function loadStatpeg()	{
+		try {
+			$select="SELECT * FROM status_kepegawaian order by nama_statuspeg asc";
 			$rows=$this->_db->fetchAll($select);
 			return $rows;
 		} catch (Zend_Exception $e) {
