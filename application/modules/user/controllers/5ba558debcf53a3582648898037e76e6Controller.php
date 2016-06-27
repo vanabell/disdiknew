@@ -1,4 +1,4 @@
-<?php
+x<?php
 class User_5ba558debcf53a3582648898037e76e6Controller extends Zend_Controller_Action {
 	public function init()
     {
@@ -26,6 +26,11 @@ class User_5ba558debcf53a3582648898037e76e6Controller extends Zend_Controller_Ac
     public function certificationAction()
     {
         $this->_helper->layout->setLayout('layoutuser2');
+        $sessionuser = Zend_Registry::get('session_user');
+        $model = new User_Model_SiswaModel();
+        $data = $model->getPelatihan($sessionuser->tingkat);
+       // var_dump($sessionuser->tingkat);die();
+        $this->view->data = $data;
         // action body
     }
 
