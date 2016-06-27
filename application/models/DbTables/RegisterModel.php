@@ -105,6 +105,70 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 		}
 	}
 
+	public function insertSiswa($data, $password) {
+		try {
+			$stmt=$this->_db->prepare("INSERT INTO master_siswa
+													(
+														nis,
+														nama_lengkap,
+														no_tlp,
+														alamat,
+														email,
+														password,
+														foto,
+														kec,
+														tingkat_sekolah,
+														nama_sekolah,
+														jkelamin,
+														status_sek	
+													)
+													VALUES
+													(
+														:nis,
+														:nama_lengkap,
+														:no_tlp,
+														:alamat,
+														:email,
+														:password,
+														:foto,
+														:kec,
+														:tingkat_sekolah,
+														:nama_sekolah,
+														:jkelamin,
+														:status_sek
+													)
+													"
+			);
+			$stmt->bindParam(':nis', $data['nis']);
+			$stmt->bindParam(':nama_lengkap', $data['nama']);
+			$stmt->bindParam(':no_tlp', $data['tlp']);
+			$stmt->bindParam(':alamat', $data['alamat']);
+			$stmt->bindParam(':email', $data['email']);
+			$stmt->bindParam(':password', $password);
+			$stmt->bindParam(':foto', $data['foto']);
+			$stmt->bindParam(':kec', $data['kec']);
+			$stmt->bindParam(':tingkat_sekolah', $data['tingkat_sekolah']);
+			$stmt->bindParam(':nama_sekolah', $data['nama_sekolah']);
+			$stmt->bindParam(':jkelamin', $data['jkelamin']);
+			$stmt->bindParam(':status_sek', $data['status']);
+			$a = $stmt->execute();
+
+			return true;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
+	public function cekEmailSiswa($data,$nis) {
+		try {
+			$select="SELECT * FROM master_siswa where email='".$data."' or nis='".$nis."'";
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
 	public function loadKecamatan() {
 		try {
 			$select="SELECT * FROM kecamatan order by nama_kec asc";

@@ -74,7 +74,27 @@ class RegisterController extends Zend_Controller_Action
 
     public function siswaAction()
     {
-        // action body
+        if ($this->_request->isPost()) {
+            $model = new Application_Model_RegisterModel();
+            $Dataform = $this->_request->getPost();
+
+            $cekemail = $model->cekEmailSiswa($Dataform['email'], $Dataform['nis']);
+
+                //Zend_Debug::dump($cekemail);die();
+                if(count($cekemail)==0) {
+                    $password = md5($Dataform['email'].$Dataform['password']);
+
+                    $insert = $model->insertSiswa($Dataform, $password);
+                    if($insert===true) {
+                        //zend_debug::dump($insert);die();
+                        $this->view->message = 'Insert Success';
+                    } else {
+                        $this->view->message = 'Insert Failed';
+                    }
+                } else {
+                    $this->view->message = 'Data Sudah Ada';
+                }
+        }
     }
 
 }

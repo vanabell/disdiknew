@@ -32,6 +32,28 @@ class Application_Model_RegisterModel {
 		return $result;
 	}
 
+	public function insertSiswa($data, $password) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->insertSiswa($data, $password);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function cekEmailSiswa($data,$nis) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->cekEmailSiswa($data,$nis);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
 	public function loadKecamatan() {
 		$productTable = $this->_dbTableProduct;
 		try {
