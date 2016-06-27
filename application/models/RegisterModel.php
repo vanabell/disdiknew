@@ -54,10 +54,10 @@ class Application_Model_RegisterModel {
 		return $result;
 	}
 
-	public function loadSekolah() {
+	public function loadSekolah($kecamatan,$tksekolah) {
 		$productTable = $this->_dbTableProduct;
 		try {
-			$result = $productTable->loadSekolah();
+			$result = $productTable->loadSekolah($kecamatan,$tksekolah);
 
 		} catch (Zend_Exception $e) {
 			return $e->getMessage();
