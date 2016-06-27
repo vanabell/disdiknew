@@ -115,9 +115,9 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 		}
 	}
 
-	public function loadMapel()	{
+	public function loadMapel($tksekolah)	{
 		try {
-			$select="SELECT * FROM mapel order by nama_mapel asc";
+			$select="SELECT * FROM mapel where jenis_sekolah='".$tksekolah."' order by nama_mapel asc";
 			$rows=$this->_db->fetchAll($select);
 			return $rows;
 		} catch (Zend_Exception $e) {
@@ -127,7 +127,7 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 
 	public function loadSekolah($kecamatan,$tksekolah)	{
 		try {
-			$select='SELECT * FROM master_sekolah where tingkat ='.$tksekolah.' and id_kecamatan = '.$kecamatan.' order by nama_sekolah asc';
+			$select='SELECT * FROM master_sekolah where tingkat ="'.$tksekolah.'" and id_kecamatan = '.$kecamatan.' order by nama_sekolah asc';
 			$rows=$this->_db->fetchAll($select);
 			return $rows;
 		} catch (Zend_Exception $e) {
@@ -145,9 +145,20 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 		}
 	}
 
-	public function loadJabatan()	{
+	public function loadJabatan($tksekolah)	{
 		try {
-			$select="SELECT * FROM jabatan order by nama_jabatan asc";
+			if($tksekolah =='TK') {
+				$select="SELECT * FROM jabatan where tk=1 order by nama_jabatan asc";
+			} else if ($tksekolah == "SD") {
+				$select="SELECT * FROM jabatan where sd=1 order by nama_jabatan asc";
+			} else if ($tksekolah == "SMP") {
+				$select="SELECT * FROM jabatan where smp=1 order by nama_jabatan asc";
+			} else if ($tksekolah == "SMA") {
+				$select="SELECT * FROM jabatan where sma=1 order by nama_jabatan asc";
+			} else {
+				$select="SELECT * FROM jabatan where smk=1 order by nama_jabatan asc";
+			}
+			
 			$rows=$this->_db->fetchAll($select);
 			return $rows;
 		} catch (Zend_Exception $e) {
