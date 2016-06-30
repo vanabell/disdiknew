@@ -1,4 +1,4 @@
-x<?php
+<?php
 class User_5ba558debcf53a3582648898037e76e6Controller extends Zend_Controller_Action {
 	public function init()
     {
@@ -7,25 +7,25 @@ class User_5ba558debcf53a3582648898037e76e6Controller extends Zend_Controller_Ac
 
     public function indexAction()
     {
-        $this->_helper->layout->setLayout('layoutuser2');
+        $this->_helper->layout->setLayout('layoutuser');
         // action body
     }
 
     public function editAction()
     {
-        $this->_helper->layout->setLayout('layoutuser2');
+        $this->_helper->layout->setLayout('layoutuser');
         // action body
     }
 
     public function trainingAction()
     {
-        $this->_helper->layout->setLayout('layoutuser2');
+        $this->_helper->layout->setLayout('layoutuser');
         // action body
     }
 
     public function certificationAction()
     {
-        $this->_helper->layout->setLayout('layoutuser2');
+        $this->_helper->layout->setLayout('layoutuser');
         $sessionuser = Zend_Registry::get('session_user');
         $model = new User_Model_SiswaModel();
         $data = $model->getPelatihan($sessionuser->tingkat);
@@ -36,13 +36,13 @@ class User_5ba558debcf53a3582648898037e76e6Controller extends Zend_Controller_Ac
 
     public function nilaiAction()
     {
-        $this->_helper->layout->setLayout('layoutuser2');
+        $this->_helper->layout->setLayout('layoutuser');
         // action body
     }
 
     public function historyAction()
     {
-        $this->_helper->layout->setLayout('layoutuser2');
+        $this->_helper->layout->setLayout('layoutuser');
         // action body
     }
 }

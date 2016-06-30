@@ -85,8 +85,8 @@ class RegisterController extends Zend_Controller_Action
                     $password = md5($Dataform['email'].$Dataform['password']);
 
                     $insert = $model->insertSiswa($Dataform, $password);
+                    // Zend_Debug::dump($insert);die();
                     if($insert===true) {
-                        //zend_debug::dump($insert);die();
                         $this->view->message = 'Insert Success';
                     } else {
                         $this->view->message = 'Insert Failed';
