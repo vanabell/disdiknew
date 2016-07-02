@@ -17,46 +17,38 @@
       </div>
   </div>
 </div>
-<?php
-  //Zend_Debug::dump($this->data);die();
-  // if ($this->data!=null) {
-  //   echo '<h1>'.$this->data[0]['nama_profil'].'</h1>';
-  // 	if($this->data[0]['gambar']!='') {
-  // 		/* disini kalo mo ngasih style jak buat picturenya...src nya $this->baseUrl()/img/Profile/thisdatanya */
-  // 		echo '<img src="'.$this->baseUrl().'/img/Profile/'.$this->data[0]['gambar'].'"/>';
-  // 	}
-  // 	echo $this->data[0]['konten'];
-  // } else {
-  // 	echo 'content empty!';
-  // }
-?>
 <div class="page-content">
     <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <div class="custom-heading">
-                <h2>Fasilitas Sarana dan Prasarana di P2KGK</h2>
-            </div><!-- .custom-heading end -->
-            <p>
-              <ol>
-              	<li>Gedung yang beralamat di Jl. Sawah Barat Duren Sawit Jakarta Timur</li>
-              	<li>Peralatan mesin penunjang untuk jurusan :
-              	<ul>
-              		<li>Tekhnik Otomotof</li>
-              		<li>Teknik Permesinan</li>
-              		<li>Teknik Informatika</li>
-              		<li>Teknik Kelistrikan</li>
-              		<li>Teknik Elektronika</li>
-              		<li>Bisnis Manajeman</li>
-              	</ul>
-              	</li>
-              </ol>
 
-              <ol>
-              	<li value="3">Gedung baru dalam proses penyelesaian, kondisi 85 %</li>
-              </ol>
-            </p>
-          </div>
-        </div>
-    </div>
-</div>
+          <?php
+          //Zend_Debug::dump($this->data);die();
+          if ($this->data!=null) {
+
+          ?>
+          <?php if(($this->data[0]['gambar']) == null ) {
+            echo '<div class="col-md-12">';
+          } else  {?>
+            <div class="col-md-6">
+              <?php }?>
+                <div class="custom-heading">
+                    <h2><?php echo $this->data[0]['nama_profil'] ?></h2>
+                </div><!-- .custom-heading end -->
+
+                <p>
+                  <?php echo $this->data[0]['konten'] ?>
+                </p>
+            </div><!-- .col-md-6 end -->
+            <?php if(($this->data[0]['gambar']) == null ) {
+              echo "";
+            } else  {?>
+            <div class="col-md-6 animated triggerAnimation" data-animate="zoomIn">
+                <img src="<?php echo $this->baseUrl() ?>/img/Profile/<?php echo $this->data[0]['gambar']; ?>" alt="<?php echo $this->data[0]['nama_profil'] ?>"/>
+            </div><!-- .col-md-6 end -->
+            <?php } 	} else {
+                echo 'content empty!';
+              }
+            ?>
+        </div><!-- .row end -->
+    </div><!-- .container end -->
+</div><!-- .page-content end -->

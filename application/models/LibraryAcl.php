@@ -13,7 +13,6 @@ class Application_Model_LibraryAcl extends Zend_Acl {
 	$this->add(new Zend_Acl_Resource('lembaga'));
 	$this->add(new Zend_Acl_Resource('news'));
 	$this->add(new Zend_Acl_Resource('profile'));
-	$this->add(new Zend_Acl_Resource('fasilitas'));
 	$this->add(new Zend_Acl_Resource('master'));
 	$this->add(new Zend_Acl_Resource('agenda'));
 	$this->add(new Zend_Acl_Resource('galeri'));
@@ -48,9 +47,6 @@ class Application_Model_LibraryAcl extends Zend_Acl {
 
 	$this->allow('staff','profile');
 	$this->deny('merchant','profile');
-
-	$this->allow('staff','fasilitas');
-	$this->deny('merchant','fasilitas');
 
 	$this->allow('staff','master');
 	$this->deny('merchant','master');

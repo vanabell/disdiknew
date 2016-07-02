@@ -17,175 +17,38 @@
       </div>
   </div>
 </div>
-<?php
-  //Zend_Debug::dump($this->data);die();
-  // if ($this->data!=null) {
-  //   echo '<h1>'.$this->data[0]['nama_profil'].'</h1>';
-  // 	if($this->data[0]['gambar']!='') {
-  // 		/* disini kalo mo ngasih style jak buat picturenya...src nya $this->baseUrl()/img/Profile/thisdatanya */
-  // 		echo '<img src="'.$this->baseUrl().'/img/Profile/'.$this->data[0]['gambar'].'"/>';
-  // 	}
-  // 	echo $this->data[0]['konten'];
-  // } else {
-  // 	echo 'content empty!';
-  // }
-?>
 <div class="page-content">
     <div class="container">
         <div class="row">
-          <div class="col-md-12">
-            <div class="custom-heading">
-                <h2>Aset</h2>
-            </div><!-- .custom-heading end -->
-            <p>
-              <div class="table-responsive">
 
-              <table class="table p2kgktable">
-                <thead>
-                 <tr>
-                   <th>NO</th>
-                   <th>Nama Barang</th>
-                   <th>Spesifikasi</th>
-                   <th>Volume</th>
-                   <th>Keterangan</th>
-                 </tr>
-               </thead>
-                 <tbody>
-                 <tr>
-                   <td>1</td>
-                   <td>Immobilizer, Ignition Control Sistim</td>
-                   <td>Ecu, Injector (4Ea0)</td>
-                   <td>2 (unit)</td>
-                   <td>Di Bengkel Automotip (EFI)</td>
-                 </tr>
-                 <tr>
-                   <td>2</td>
-                   <td>Peralatan Paraga (Training ) Air &ndash; Bag Otomatis Pada Mobil</td>
-                   <td>
-                   <p>System Control (1 Ea)</p>
-                   Selenoid Valve Timer ( 2 Ea)</td>
-                   <td>1 (unit)</td>
-                   <td>Di Bengkel Automotip (EFI)</td>
-                 </tr>
-                 <tr>
-                   <td>3</td>
-                   <td>CNC Milling Machine</td>
-                   <td>Contol : Siemen &ndash; sinumerik 808d</td>
-                   <td>3 (unit)</td>
-                   <td>Laboratorium Mesin CNC</td>
-                 </tr>
-                 <tr>
-                   <td>4</td>
-                   <td>Cylindrical Grinding Machine</td>
-                   <td>
-                   <p>Max Distance Betwen Center 600mm</p>
+          <?php
+          //Zend_Debug::dump($this->data);die();
+          if ($this->data!=null) {
 
-                   <p>Max Swivel Over Table 320 Mm</p>
+          ?>
+          <?php if(($this->data[0]['gambar']) == null ) {
+            echo '<div class="col-md-12">';
+          } else  {?>
+            <div class="col-md-6">
+              <?php }?>
+                <div class="custom-heading">
+                    <h2><?php echo $this->data[0]['nama_profil'] ?></h2>
+                </div><!-- .custom-heading end -->
 
-                   <p>Max of Center 100 (kg)</p>
-                   Max External Grinding 300Mm</td>
-                   <td>1 (unit)</td>
-                   <td>Laboratorium Mesin CNC</td>
-                 </tr>
-                 <tr>
-                   <td>5</td>
-                   <td>AC ( Air Conditioner ) Trainer</td>
-                   <td>
-                   <p>Compresor ; 12 Volt Dc</p>
-
-                   <p>Motor : 1 phase 2 Hp</p>
-                   Dimensi : 100x70x100cm</td>
-                   <td>2 (unit)</td>
-                   <td>Di Bengkel Automotip (EFI)</td>
-                 </tr>
-                 <tr>
-                   <td>6</td>
-                   <td>Car Training Toyota Innova</td>
-                   <td>
-                   <p>Dimensi : 300x180x150cm</p>
-
-                   <p>Systim Bahan Bakar : EFI , Djet Tronik</p>
-                   Type : ITR 2000cc. Vvti, DOHC</td>
-                   <td>5 (unit)</td>
-                   <td>Di Bengkel Automotip (EFI)</td>
-                 </tr>
-                 <tr>
-                   <td>7</td>
-                   <td>Central Lock, Alarm and Power Window Trainer</td>
-                   <td>
-                   <p>2 Buah Pintu Simulator , Banana Jack</p>
-                   1 Set (2Ea) Motor Power Window</td>
-                   <td>2 (unit)</td>
-                   <td>Di Bengkel Automotip (EFI)</td>
-                 </tr>
-                 <tr>
-                   <td>8</td>
-                   <td>Tool Kit</td>
-                   <td>Moult Blow Plastic Case</td>
-                   <td>5 (set)</td>
-                   <td>Di Bengkel Automotip (EFI)</td>
-                 </tr>
-                 <tr>
-                   <td>9</td>
-                   <td>Handy Talkie / Motorola GP-338v136</td>
-                   <td>SH: 749TQU 3340,3348,3211,3186</td>
-                   <td>4 (set)</td>
-                   <td>Di Pos Keamanan</td>
-                 </tr>
-                 <tr>
-                   <td>10</td>
-                   <td>Ac Floor Standing 4dk Dalkin</td>
-                   <td>Rr 100 Dsxy. 14FVRN 100AXV 14</td>
-                   <td>2 (unit)</td>
-                   <td>Di Lantai 4 &amp; Lobby</td>
-                 </tr>
-                 <tr>
-                   <td>11</td>
-                   <td>Mesin Potong Rumput</td>
-                   <td>Honda Q 435 H</td>
-                   <td>1 (unit)</td>
-                   <td>Di Ruang Cleaning</td>
-                 </tr>
-                 <tr>
-                   <td>12</td>
-                   <td>Vertical Blind , Horden Susun</td>
-                   <td>-</td>
-                   <td>150 M</td>
-                   <td>Di Gedung Blok A</td>
-                 </tr>
-                 <tr>
-                   <td>13</td>
-                   <td>Alat Olahraga / Fitnes</td>
-                   <td>Sepeda Statis</td>
-                   <td>2 (unit)</td>
-                   <td>Di Lobby</td>
-                 </tr>
-                 <tr>
-                   <td>14</td>
-                   <td>Kursi Rapat</td>
-                   <td>Primer</td>
-                   <td>300 ( buah)</td>
-                   <td>Di Ruang Aula</td>
-                 </tr>
-                 <tr>
-                   <td>15</td>
-                   <td>Kursi &frac12; Biro</td>
-                   <td>Unos</td>
-                   <td>15 (buah)</td>
-                   <td>Di TU ( Kursi Kerja)</td>
-                 </tr>
-                 <tr>
-                   <td>16</td>
-                   <td>CCTV</td>
-                   <td>-</td>
-                   <td>8 (unit)</td>
-                   <td>Di Lobby &amp; Luar Gedung Blok A dan B</td>
-                 </tr>
-               </tbody>
-              </table>
-            </div>
-
-            </p>
-          </div>
-        </div>
-    </div>
+                <p>
+                  <?php echo $this->data[0]['konten'] ?>
+                </p>
+            </div><!-- .col-md-6 end -->
+            <?php if(($this->data[0]['gambar']) == null ) {
+              echo "";
+            } else  {?>
+            <div class="col-md-6 animated triggerAnimation" data-animate="zoomIn">
+                <img src="<?php echo $this->baseUrl() ?>/img/Profile/<?php echo $this->data[0]['gambar']; ?>" alt="<?php echo $this->data[0]['nama_profil'] ?>"/>
+            </div><!-- .col-md-6 end -->
+            <?php } 	} else {
+                echo 'content empty!';
+              }
+            ?>
+        </div><!-- .row end -->
+    </div><!-- .container end -->
+</div><!-- .page-content end -->

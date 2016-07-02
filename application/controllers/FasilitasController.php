@@ -15,22 +15,30 @@ class FasilitasController extends Zend_Controller_Action
 
     public function programAction()
     {
-        // action body
+        $model = new Application_Model_ProfileModel();
+        $data = $model->getAllProfileDet(7);
+        $this->view->data = $data;
     }
 
     public function saranaAction()
     {
-        // action body
+        $model = new Application_Model_ProfileModel();
+        $data = $model->getAllProfileDet(8);
+        $this->view->data = $data;
     }
 
     public function mitraAction()
     {
-        // action body
+        $model = new Application_Model_ProfileModel();
+        $data = $model->getAllProfileDet(9);
+        $this->view->data = $data;
     }
 
     public function asetAction()
     {
-        // action body
+        $model = new Application_Model_ProfileModel();
+        $data = $model->getAllProfileDet(10);
+        $this->view->data = $data;
     }
 
 }
