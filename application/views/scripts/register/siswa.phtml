@@ -34,7 +34,7 @@ $kecamatan = $model->loadKecamatan();
             }
         ?>
     </div><!-- .custom-heading end -->
-    <form class="login-form wpcf7" action="#" method="post">
+    <form class="login-form wpcf7" action="" method="post">
       <div class="row">
         <div class="col-md-6 custom-bkg bkg-dark-blue dark">
           <fieldset>
@@ -92,7 +92,7 @@ $kecamatan = $model->loadKecamatan();
             <label for="tingkat_sekolah">Tingkat Sekolah <span class="required">*</span></label>
             <select name="tingkat_sekolah" class="input-text wpcf7-select" id="tingkat_sekolah">
               <option value="0">-- Pilih Tingkat Sekolah --</option>
-              <option value="TK">TK</option>
+              <!-- <option value="TK">TK</option> -->
               <option value="SD">SD</option>
               <option value="SMP">SMP</option>
               <option value="SMA">SMA</option>
@@ -130,22 +130,24 @@ $kecamatan = $model->loadKecamatan();
       var tingkat = $('#tingkat_sekolah').val();
       var kec = $('.kecamatan').val();
       var base_url = "<?php echo $this->baseUrl() ?>";
-      $.ajax({
-          type: "POST",
-          data: {
-              'id_kec' : kec,
-              'tingkat' : tingkat,
-          },
-          url: base_url+"/register/ajaxsekolah",
-          success: function(data){
-            var b = '';
-            for(j=0; j < data.data.length;j++){
-               b+='<option value='+data.data[j]['induk_sekolah']+'>'+data.data[j]['nama_sekolah']+'</option>';
-             }
-             $('#nama_sekolah').html(b);
+      if(tingkat != 0 && kec != 0) {
+        $.ajax({
+            type: "POST",
+            data: {
+                'id_kec' : kec,
+                'tingkat' : tingkat,
+            },
+            url: base_url+"/register/ajaxsekolah",
+            success: function(data){
+              var sekolah = '';
+              for(j=0; j < data.data.length;j++){
+                 sekolah+='<option value='+data.data[j]['induk_sekolah']+'>'+data.data[j]['nama_sekolah']+'</option>';
+               }
+               $('#nama_sekolah').html(sekolah);
 
-          }
-      });
+             }
+        });
+      }
     });
   });
 </script>
