@@ -35,20 +35,15 @@
     <div class="container">
         <div class="row">
             <ul class="vehicle-gallery clearfix p2kgkgallery">
+              <?php foreach ($this->data as $video) { ?>
                 <li class="col-md-3">
                     <figure class="gallery-item-container">
                         <div class="gallery-item">
-                            <iframe src="https://www.youtube.com/embed/HtdoyXLgb-Q" frameborder="0" allowfullscreen></iframe>
+                            <?php echo $video['video']; ?>
                         </div><!-- .service-item end -->
                     </figure><!-- .gallery-item-container end -->
                 </li><!-- .gallery-item end -->
-                <li class="col-md-3">
-                    <figure class="gallery-item-container">
-                        <div class="gallery-item">
-                            <iframe src="https://www.youtube.com/embed/_qPf2P_CsdI" frameborder="0" allowfullscreen></iframe>
-                        </div><!-- .service-item end -->
-                    </figure><!-- .gallery-item-container end -->
-                </li><!-- .gallery-item end -->
+              <?php } ?>
             </ul>
           </div>
     </div>
