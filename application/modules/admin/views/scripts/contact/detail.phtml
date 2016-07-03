@@ -1,0 +1,36 @@
+<style type="text/css">
+  .col-sm-offset-1 {
+      margin-left: 0px!important;
+  }
+  dd {
+      margin-bottom: 10px;
+  }
+  dt.tgl {
+      margin-bottom: 10px;
+  }
+</style>
+<div class="panel panel-info">
+<div class="panel-heading"><i class="glyphicon glyphicon-dashboard"></i><b> DETAIL KOMENTAR</b></center></div>
+</br>
+	<div style="width:800px;margin-left: auto;margin-right: auto;text-align: left; display:inline-block;">
+  <div class="col-sm-offset-1 col-sm-10">
+    <dl>
+      <dt class="tgl">Tanggal <?php echo $this->det[0]['tgl']?></dt>
+      <dt>Nama Lengkap</dt>
+      <dd><?php echo $this->det[0]['nama']?></dd>
+      <dt>Email</dt>
+      <dd><?php echo $this->det[0]['email']?></dd>
+      <dt>Telepon</dt>
+      <dd><?php echo $this->det[0]['tlp']?></dd>
+      <dt>Deskripsi</dt>
+      <dd><?php echo $this->det[0]['deskripsi']?></dd>
+    </dl>
+  </div>
+
+  	<div class="form-group">
+	    <div class="col-sm-offset-1 col-sm-10">
+	       <button type="reset" class="btn btn-default" onclick="window.location='<?php echo $this->baseUrl();?>/admin/contact/index'">Back</button>
+	    </div>
+  	</div>
+</div>
+</div>

@@ -60,37 +60,38 @@
 
             <div class="col-md-6 clearfix">
                 <!-- .contact form start -->
-                <form class="wpcf7">
+                <?php
+                    if($this->message != '') {
+                      echo $this->message;
+                    }
+                ?>
+                <form class="wpcf7" method="post">
                     <fieldset>
-                        <label>
-                            <span class="required">*</span> First Name:
+                        <label for="contact-name">
+                            <span class="required">*</span> Full Name:
                         </label>
-
-                        <input type="text" class="wpcf7-text" id="contact-name">
+                        <input type="text" name="nama" class="wpcf7-text" id="contact-name">
                     </fieldset>
 
                     <fieldset>
-                        <label>
-                            <span class="required">*</span> Last Name:
+                        <label for="contact-tlp">
+                            <span class="required">*</span> Phone:
                         </label>
-
-                        <input type="text" class="wpcf7-text" id="contact-last-name">
+                        <input type="text" name="tlp" class="wpcf7-text" id="contact-tlp">
                     </fieldset>
 
                     <fieldset>
-                        <label>
+                        <label for="contact-email">
                             <span class="required">*</span> Email:
                         </label>
-
-                        <input type="url" class="wpcf7-text" id="contact-email">
+                        <input type="text" name="email" class="wpcf7-text" id="contact-email">
                     </fieldset>
 
                     <fieldset>
-                        <label>
+                        <label for="contact-message">
                             <span class="required">*</span> Message:
                         </label>
-
-                        <textarea rows="8" class="wpcf7-textarea" id="contact-message"></textarea>
+                        <textarea rows="8" name="desc" class="wpcf7-textarea" id="contact-message"></textarea>
                     </fieldset>
 
                     <input type="submit" class="wpcf7-submit" value="send" />
