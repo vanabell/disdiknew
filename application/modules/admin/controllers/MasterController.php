@@ -84,9 +84,40 @@ class Admin_MasterController extends Zend_Controller_Action {
     /* Guru RUD */
     public function guruAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
+      $model = new Admin_Model_MasterModel();
+  		$listguru = $model->getGurulist();
+  		$this->view->detail = $listguru;
   	}
     public function editguruAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
+      $model = new Admin_Model_MasterModel();
+  		$req = $this->getRequest();
+  		$id = $req->getParam('p');
+
+  		$det = $model->getGurudet($id);
+  		$this->view->det = $det;
+  		if ($this->_request->isPost()) {
+  			$Dataform = $this->_request->getPost();
+  			/*Zend_Debug::dump($Dataform);die();*/
+  			if($Dataform['nama']==null) {
+  				$this->view->message = 'Please Fill out The Form First!';
+  			} else {
+  				//Zend_Debug::dump($Dataform);die();
+  				$insert = $model->updateGuru($Dataform);
+  			}
+
+  			if($insert===true) {
+  				$this->view->msg = 'Insert Success';
+  			} else {
+  				$this->view->message = 'Insert Failed';
+  			}
+
+  		}
+  		$id = $req->getParam('p');
+  		if($id!='') {
+  			$det = $model->getGurudet($id);
+  			$this->view->det = $det;
+  		}
   	}
     public function delguruAction() {
 
@@ -96,9 +127,40 @@ class Admin_MasterController extends Zend_Controller_Action {
     /* Siswa RUD */
     public function siswaAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
+      $model = new Admin_Model_MasterModel();
+  		$listsiswa = $model->getSiswalist();
+  		$this->view->detail = $listsiswa;
   	}
     public function editsiswaAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
+      $model = new Admin_Model_MasterModel();
+  		$req = $this->getRequest();
+  		$id = $req->getParam('p');
+
+  		$det = $model->getSiswadet($id);
+  		$this->view->det = $det;
+  		if ($this->_request->isPost()) {
+  			$Dataform = $this->_request->getPost();
+  			/*Zend_Debug::dump($Dataform);die();*/
+  			if($Dataform['nama']==null) {
+  				$this->view->message = 'Please Fill out The Form First!';
+  			} else {
+  				//Zend_Debug::dump($Dataform);die();
+  				$insert = $model->updateSiswa($Dataform);
+  			}
+
+  			if($insert===true) {
+  				$this->view->msg = 'Insert Success';
+  			} else {
+  				$this->view->message = 'Insert Failed';
+  			}
+
+  		}
+  		$id = $req->getParam('p');
+  		if($id!='') {
+  			$det = $model->getSiswadet($id);
+  			$this->view->det = $det;
+  		}
   	}
     public function delsiswaAction() {
 
