@@ -7,85 +7,65 @@
           </div><!-- .custom-heading end -->
           <form class="login-form wpcf7" action="#" method="post">
             <div class="row">
-              <div class="col-md-12 custom-bkg bkg-dark-blue dark">
+              <div class="col-md-6 custom-bkg bkg-dark-blue dark">
                 <fieldset>
                   <label for="jenis_sek">Jenis Sekolah <span class="required">*</span></label>
                   <select name="jenis_sek" id="jenis_sek" class="input-text wpcf7-select">
-                    <option value="1">Reguler</option>
-                    <option value="3">Paket</option>
+                    <option value="1" <?php if ($this->det[0]['jenis_sekolah'] == "1") echo "selected"; ?>>Reguler</option>
+                    <option value="2" <?php if ($this->det[0]['jkelamin'] == "2") echo "selected"; ?>>Paket</option>
                   </select>
                 </fieldset>
                 <fieldset>
                   <label for="jenis_peg">Kelompok Pegawai <span class="required">*</span></label>
                   <select name="jenis_peg" class="input-text wpcf7-select">
-                    <option value="G">Tenaga Pendidik</option>
-                    <option value="P">Tenaga Kependidikan</option>
+                    <option value="1" <?php if ($this->det[0]['jenis_peg'] == "1") echo "selected"; ?>>Tenaga Pendidik</option>
+                    <option value="2"> <?php if ($this->det[0]['jenis_peg'] == "2") echo "selected"; ?>Tenaga Kependidikan</option>
                   </select>
                 </fieldset>
                 <fieldset>
-                  <label for="keyword">Kata Kunci</label>
-                  <div class="keyword-content" style="width:100%;display:inline-block;">
-                    <input type="text" name="keyword" value="" class="input-text wpcf7-text" style="width:45%; margin-right:10px;">
-                    <select name="berdasarkan" class="input-text wpcf7-select" style="width:45%;">
-                      <option value="">-- Pilih Kriteria --</option>
-                      <option value="nama">Nama</option>
-                      <option value="nip">NIP</option>
-                      <option value="nik">NIK</option>
-                      <option value="nip">NRK</option>
-                      <option value="nip">NIGB</option>
-                      <option value="nuptk">NUPTK</option>
-                    </select>
-                  </div>
-                </fieldset>
-                <fieldset>
                   <label for="kec">Kecamatan <span class="required">*</span></label>
-                  <select name="kec" class="input-text wpcf7-select">
-                    <option value="">-- Pilih Kecamatan --</option>
-                    <option value="6408">Cakung</option>
-                    <option value="6403">Cipayung</option>
-                    <option value="6402">Ciracas</option>
-                    <option value="6407">Duren Sawit</option>
-                    <option value="6406">Jatinegara</option>
-                    <option value="6405">Kramat Jati</option>
-                    <option value="6404">Makasar</option>
-                    <option value="6410">Matraman</option>
-                    <option value="6401">Pasar Rebo</option>
-                    <option value="6409">Pulo Gadung</option>
+                  <select name="kec" class="input-text wpcf7-select kecamatan">
+                    <?php
+          					$listkec = new User_Model_GuruModel();
+          					$kecamatan = $listkec->getKecamatanlist();
+          					foreach ($kecamatan as $kec ) {
+          					?>
+                    <option value="<?php echo $kec['id_kec']?>" <?php if ($this->det[0]['kec'] == $kec['id_kec']) echo "selected"; ?>><?php echo $kec['nama_kec']?></option>
+          					<?php } ?>
                   </select>
                 </fieldset>
                 <fieldset>
                   <label for="tingkat_sekolah">Tingkat Sekolah <span class="required">*</span></label>
                   <select name="tingkat_sekolah" class="input-text wpcf7-select" id="tingkat_sekolah">
-                    <option value="">-- Pilih Tingkat Sekolah --</option>
-                    <option value="">TK</option>
-                    <option value="">SD</option>
-                    <option value="">SMP</option>
-                    <option value="">SMA</option>
-                    <option value="">SMK</option>
+                    <option value="TK" <?php if ($this->det[0]['tingkat_sekolah'] == "TK") echo "selected"; ?>>TK</option>
+          					<option value="SD" <?php if ($this->det[0]['tingkat_sekolah'] == "SD") echo "selected"; ?>>SD</option>
+          					<option value="SMP" <?php if ($this->det[0]['tingkat_sekolah'] == "SMP") echo "selected"; ?>>SMP</option>
+          					<option value="SMA" <?php if ($this->det[0]['tingkat_sekolah'] == "SMA") echo "selected"; ?>>SMA</option>
+          					<option value="SMK" <?php if ($this->det[0]['tingkat_sekolah'] == "SMK") echo "selected"; ?>>SMK</option>
                   </select>
                 </fieldset>
                 <fieldset>
                   <label for="nama_sekolah">Nama Sekolah <span class="required">*</span></label>
-                  <select name="nama_sekolah" class="input-text wpcf7-select" id="nama_sekolah">
+                  <select name="nama_sekolah" class="input-text wpcf7-select namasklh" id="nama_sekolah">
                     <option value="">-- Pilih Tingkat Sekolah Dahulu--</option>
                   </select>
                 </fieldset>
                 <fieldset>
                   <div class="form-wide" style="margin-right:10px;">
                     <label for="umur">Umur <span class="required">*</span></label>
-                    <input type="text" name="umur" id="umur" value="" class="input-text wpcf7-text">
+                    <input type="text" name="umur" id="umur" value="<?php echo $this->det[0]['umur'];?>" class="input-text wpcf7-text">
                   </div>
                   <div class="form-wide">
                     <label for="masa_kerja">Masa Kerja <span class="required">*</span></label>
-                    <input type="text" name="masa_kerja" id="masa_kerja" value="" class="input-text wpcf7-text">
+                    <input type="text" name="masa_kerja" id="masa_kerja" value="<?php echo $this->det[0]['masa_kerja'];?>" class="input-text wpcf7-text">
                   </div>
                 </fieldset>
                 <fieldset>
                   <label for="jkelamin">Jenis Kelamin <span class="required">*</span></label>
                   <select name="jkelamin" class="input-text wpcf7-select" id="jkelamin">
                     <option value="">-- Pilih --</option>
-                    <option value="L">Laki-laki</option>
-                    <option value="P">Perempuan</option>
+                    <option value="L" <?php if ($this->det[0]['jkelamin'] == "L") echo "selected"; ?>>Laki-laki</option>
+          					<option value="P" <?php if ($this->det[0]['jkelamin'] == "P") echo "selected"; ?>>Perempuan</option>
                    </select>
                 </fieldset>
                 <fieldset>
@@ -98,26 +78,22 @@
                   <label for="status">Status Sekolah <span class="required">*</span></label>
                   <select name="status" class="input-text wpcf7-select" id="status">
                     <option value="">-- Pilih --</option>
-                    <option value="1">Negeri</option>
-                    <option value="2">Swasta</option>
+                    <option value="1" <?php if ($this->det[0]['status_sek'] == "1") echo "selected"; ?>>Negeri</option>
+                    <option value="2" <?php if ($this->det[0]['status_sek'] == "2") echo "selected"; ?>>Swasta</option>
                   </select>
                 </fieldset>
                 <fieldset>
                   <label for="stat_peg">Status Kepegawaian <span class="required">*</span></label>
                   <select name="stat_peg" class="input-text wpcf7-select" id="stat_peg">
                     <option value="">-- Pilih --</option>
-                    <option value="G01">PNS</option>
-                    <option value="G00">CPNS</option>
-                    <option value="G04">Honor K-1 / PTT</option>
-                    <option value="G13">Honor K-2</option>
-                    <option value="G03">Honor Murni Negeri 2005+</option>
-                    <option value="G06">PHL (K-2)</option>
-                    <option value="G07">PHL (Honor Murni)</option>
-                    <option value="G05">Guru Bantu</option>
-                    <option value="G11">Guru DPK</option>
-                    <option value="G12">Guru Depag</option>
-                    <option value="G02">Guru Tetap Yayasan</option>
-                    <option value="G14">Guru Tidak Tetap Yayasan</option>
+                    <?php
+          					$listpeg = new User_Model_GuruModel();
+          					$statpeg = $listpeg->getStatuspeglist();
+          					foreach ($statpeg as $sp) {?>
+          					<option value="<?php echo $sp['id_statuspeg'];?>" <?php if ($this->det[0]['stat_peg'] == $sp['id_statuspeg']) echo "selected"; ?>>
+          						<?php echo $sp['nama_statuspeg'];?>
+          					</option>
+          					<?php } ?>
                   </select>
                 </fieldset>
                 <fieldset>
@@ -125,21 +101,32 @@
                     <label for="gol_ruang">Golongan <span class="required">*</span></label>
                     <select name="gol_ruang" class="input-text wpcf7-select" id="gol_ruang">
                       <option value="">-- Pilih --</option>
-                      <option value="01">Gol I</option>
-                      <option value="02">Gol II</option>
-                      <option value="03">Gol III</option>
-                      <option value="04">Gol IV</option>
+                      <?php
+            					$listgol = new User_Model_GuruModel();
+            					$golongan = $listgol->loadGolongan();
+            					foreach ($golongan as $gol) {
+            						$gols = substr($this->det[0]['golruang'], 0,1);
+            						?>
+            					<option value="<?php echo $gol['id_golongan'];?>" <?php if ($gols == $gol['id_golongan']) echo "selected"; ?>>
+            						<?php echo $gol['nama_golongan'];?>
+            					</option>
+            					<?php } ?>
                     </select>
                   </div>
                   <div class="form-wide">
                     <label for="ruang">Ruang <span class="required">*</span></label>
                     <select name="ruang" class="input-text wpcf7-select" id="ruang">
                       <option value="">-- Pilih --</option>
-                      <option value="a">a</option>
-                      <option value="b">b</option>
-                      <option value="c">c</option>
-                      <option value="d">d</option>
-                      <option value="e">e</option>
+                      <?php
+            					$listruang = new User_Model_GuruModel();
+            					$ruang = $listruang->loadRuang();
+            					foreach ($ruang as $ru) {
+            						$rus = substr($this->det[0]['golruang'], 1);
+            						?>
+            					<option value="<?php echo $ru['id_ruang'];?>" <?php if ($rus == $ru['id_ruang']) echo "selected"; ?>>
+            						<?php echo $ru['nama_ruang'];?>
+            					</option>
+            					<?php } ?>
                     </select>
                   </div>
                 </fieldset>
@@ -154,13 +141,13 @@
                     <label for="sertifikasi">Sertifikasi <span class="required">*</span></label>
                     <select name="sertifikasi" class="input-text wpcf7-select" id="sertifikasi">
                       <option value="">-- Pilih --</option>
-                      <option value="1">Ya</option>
-                      <option value="0">Tidak</option>
+                      <option value="1" <?php if ($this->det[0]['sertifikasi'] == "1") echo "selected"; ?>>Ya</option>
+            					<option value="2" <?php if ($this->det[0]['sertifikasi'] == "2") echo "selected"; ?>>Tidak</option>
                     </select>
                    </div>
                    <div class="form-wide">
                      <label for="thn_sertifikasi">Tahun <span class="required">*</span></label>
-                     <input type="text" name="thn_sertifikasi" id="thn_sertifikasi" value="" class="input-text wpcf7-text">
+                     <input type="text" name="thn_sertifikasi" id="thn_sertifikasi" value="<?php echo $this->det[0]['thn_sertifikasi'];?>" class="input-text wpcf7-text">
                    </div>
                 </fieldset>
                 <fieldset>
@@ -168,48 +155,50 @@
                       <label for="pendidikan">Ijazah Terakhir <span class="required">*</span></label>
                       <select name="pendidikan" id="pendidikan" class="input-text wpcf7-select">
                         <option value="">-- Pilih --</option>
-                        <option value="S13">SLTA</option>
-                        <option value="S21">PGSLP/D-1</option>
-                        <option value="S22">PGSLA/D-2</option>
-                        <option value="S23">Sarmud/D-3</option>
-                        <option value="S31">Sarjana/S-1</option>
-                        <option value="S32">Pasca Sarjana/S-2</option>
-                        <option value="S33">Doktor/S-3</option>
+                        <?php
+                        $listijazah = new User_Model_GuruModel();
+                        $ijazah = $listijazah->loadIjazah();
+                        foreach ($ijazah as $ij) {?>
+                        <option value="<?php echo $ij['id_ijazah'];?>" <?php if ($this->det[0]['pendidikan'] == $ij['id_ijazah']) echo "selected"; ?>>
+                          <?php echo $ij['nama_ijazah'];?>
+                        </option>
+                        <?php } ?>
                       </select>
                     </div>
                     <div class="form-wide">
                       <label for="thn_pendidikan">Tahun <span class="required">*</span></label>
-                      <input type="text" name="thn_pendidikan" id="thn_pendidikan" value="" class="input-text wpcf7-text">
+                      <input type="text" name="thn_pendidikan" id="thn_pendidikan" value="<?php echo $this->det[0]['thn_pendidikan'];?>" class="input-text wpcf7-text">
                     </div>
                 </fieldset>
                 <fieldset>
                   <label for="domisili">Domisili Sekarang <span class="required">*</span></label>
                   <select name="domisili" id="domisili" class="input-text wpcf7-select">
                     <option value="">-- Pilih --</option>
-                    <option value="0">DKI Jakarta</option>
-                    <option value="1">Luar DKI Jakarta</option>
+                    <option value="1" <?php if ($this->det[0]['domisili'] == "1") echo "selected"; ?>>DKI Jakarta</option>
+          					<option value="2" <?php if ($this->det[0]['domisili'] == "2") echo "selected"; ?>>Luar DKI Jakarta</option>
                   </select>
                 </fieldset>
-
+              </div>
+              <div class="col-md-6 custom-bkg bkg-dark-blue dark">
                 <fieldset>
                   <label for="nip">NIP <span class="required">*</span></label>
-                  <input type="text" name="nip" id="nip" value="" class="input-text wpcf7-text">
+                  <input type="text" name="nip" readonly="readonly" id="nip" value="<?php echo $this->det[0]['nip'];?>" class="input-text wpcf7-text">
                 </fieldset>
                 <fieldset>
                   <label for="nama">Nama Lengkap <span class="required">*</span></label>
-                  <input type="text" name="nama" id="nama" value="" class="input-text wpcf7-text">
+                  <input type="text" name="nama" id="nama" value="<?php echo $this->det[0]['nama_lengkap'];?>" class="input-text wpcf7-text">
                 </fieldset>
                 <fieldset>
                   <label for="tlp">No Telepon/Handphone <span class="required">*</span></label>
-                  <input type="text" name="tlp" id="tlp" value="" class="input-text wpcf7-text">
+                  <input type="text" name="tlp" id="tlp" value="<?php echo $this->det[0]['no_tlp'];?>" class="input-text wpcf7-text">
                 </fieldset>
                 <fieldset>
                   <label for="alamat">Alamat <span class="required">*</span></label>
-                  <textarea name="alamat" rows="8" cols="40" class="input-text  wpcf7-textarea"></textarea>
+                  <textarea name="alamat" rows="8" cols="40" class="input-text  wpcf7-textarea"><?php echo $this->det[0]['alamat'];?></textarea>
                 </fieldset>
                 <fieldset>
                   <label for="email">Email <span class="required">*</span></label>
-                  <input type="text" name="email" id="email" value="" class="input-text wpcf7-text">
+                  <input type="text" name="email" id="email" value="<?php echo $this->det[0]['email'];?>" class="input-text wpcf7-text">
                 </fieldset>
                 <fieldset>
                   <label for="password">Password <span class="required">*</span></label>
@@ -232,3 +221,117 @@
       </div>
   </div>
 </div>
+<script type="text/javascript">
+$( window ).load(function() {
+	var tingkat = $('#tingkat_sekolah').val();
+	var kec = $('.kecamatan').val();
+	var base_url = "<?php echo $this->baseUrl() ?>";
+	if(tingkat != 0 && kec != 0) {
+		$.ajax({
+				type: "POST",
+				data: {
+						'id_kec' : kec,
+						'tingkat' : tingkat,
+				},
+				url: base_url+"/register/ajaxsekolah",
+				success: function(data){
+					var sekolah = '';
+					for(j=0; j < data.data.length;j++){
+						 sekolah+='<option value='+data.data[j]['induk_sekolah']+'>'+data.data[j]['nama_sekolah']+'</option>';
+					 }
+					 $('.namasklh').html(sekolah);
+					 $(".namasklh option[value=<?php echo $this->det[0]['nama_sekolah'];?>]").attr('selected','selected');
+
+				}
+		});
+	}
+
+	$.ajax({
+			type: "POST",
+			data: {
+					'tingkat' : tingkat,
+			},
+			url: base_url+"/register/ajaxmapel",
+			success: function(data){
+				var mapel = '';
+				for(j=0; j < data.data.length;j++){
+					 mapel+='<option value='+data.data[j]['id_mapel']+'>'+data.data[j]['nama_mapel']+'</option>';
+				 }
+				 $('#mapel').html(mapel);
+				 $("#mapel option[value=<?php echo $this->det[0]['mapel'];?>]").attr('selected','selected');
+
+			}
+	});
+
+	$.ajax({
+			type: "POST",
+			data: {
+					'tingkat' : tingkat,
+			},
+			url: base_url+"/register/ajaxjabatan",
+			success: function(data){
+				var jabatan = '';
+				for(j=0; j < data.data.length;j++){
+					 jabatan+='<option value='+data.data[j]['id_jabatan']+'>'+data.data[j]['nama_jabatan']+'</option>';
+				 }
+				 $('#jabatan').html(jabatan);
+				 $("#jabatan option[value=<?php echo $this->det[0]['jabatan'];?>]").attr('selected','selected');
+
+			}
+	});
+
+	/* for change value */
+	$('.kecamatan, #tingkat_sekolah').change(function() {
+		if(tingkat != 0 && kec != 0) {
+			$.ajax({
+					type: "POST",
+					data: {
+							'id_kec' : kec,
+							'tingkat' : tingkat,
+					},
+					url: base_url+"/register/ajaxsekolah",
+					success: function(data){
+						var sekolah = '';
+						for(j=0; j < data.data.length;j++){
+							 sekolah+='<option value='+data.data[j]['induk_sekolah']+'>'+data.data[j]['nama_sekolah']+'</option>';
+						 }
+						 $('#nama_sekolah').html(sekolah);
+
+					}
+			});
+		}
+
+		$.ajax({
+				type: "POST",
+				data: {
+						'tingkat' : tingkat,
+				},
+				url: base_url+"/register/ajaxmapel",
+				success: function(data){
+					var mapel = '';
+					for(j=0; j < data.data.length;j++){
+						 mapel+='<option value='+data.data[j]['id_mapel']+'>'+data.data[j]['nama_mapel']+'</option>';
+					 }
+					 $('#mapel').html(mapel);
+
+				}
+		});
+
+		$.ajax({
+				type: "POST",
+				data: {
+						'tingkat' : tingkat,
+				},
+				url: base_url+"/register/ajaxjabatan",
+				success: function(data){
+					var jabatan = '';
+					for(j=0; j < data.data.length;j++){
+						 jabatan+='<option value='+data.data[j]['id_jabatan']+'>'+data.data[j]['nama_jabatan']+'</option>';
+					 }
+					 $('#jabatan').html(jabatan);
+
+				}
+		});
+	});
+});
+</script>

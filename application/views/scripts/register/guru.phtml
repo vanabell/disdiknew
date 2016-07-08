@@ -50,31 +50,16 @@ $ijazah = $model->loadIjazah();
             <label for="jenis_sek">Jenis Sekolah <span class="required">*</span></label>
             <select name="jenis_sek" id="jenis_sek" class="input-text wpcf7-select">
               <option value="1">Reguler</option>
-              <option value="3">Paket</option>
+              <option value="2">Paket</option>
             </select>
           </fieldset>
           <fieldset>
             <label for="jenis_peg">Kelompok Pegawai <span class="required">*</span></label>
             <select name="jenis_peg" class="input-text wpcf7-select">
-              <option value="G">Tenaga Pendidik</option>
-              <option value="P">Tenaga Kependidikan</option>
+              <option value="1">Tenaga Pendidik</option>
+              <option value="2">Tenaga Kependidikan</option>
             </select>
           </fieldset>
-          <!-- <fieldset>
-            <label for="keyword">Kata Kunci</label>
-            <div class="keyword-content" style="width:100%;display:inline-block;">
-              <input type="text" name="keyword" value="" class="input-text wpcf7-text" style="width:45%; margin-right:10px;">
-              <select name="berdasarkan" class="input-text wpcf7-select" style="width:45%;">
-                <option value="">-- Pilih Kriteria --</option>
-                <option value="nama">Nama</option>
-                <option value="nip">NIP</option>
-                <option value="nik">NIK</option>
-                <option value="nip">NRK</option>
-                <option value="nip">NIGB</option>
-                <option value="nuptk">NUPTK</option>
-              </select>
-            </div>
-          </fieldset> -->
           <fieldset>
             <label for="kec">Kecamatan <span class="required">*</span></label>
             <select name="kec" class="input-text wpcf7-select kecamatan">
@@ -100,7 +85,7 @@ $ijazah = $model->loadIjazah();
           <fieldset>
             <label for="nama_sekolah">Nama Sekolah <span class="required">*</span></label>
             <select name="nama_sekolah" class="input-text wpcf7-select" id="nama_sekolah">
-              <option value="">-- Pilih Tingkat Sekolah dan Kecamatan Dahulu--</option>
+              <option value="0">-- Pilih Tingkat Sekolah dan Kecamatan Dahulu--</option>
             </select>
           </fieldset>
           <fieldset>
@@ -124,7 +109,7 @@ $ijazah = $model->loadIjazah();
           <fieldset>
             <label for="mapel">Mata Pelajaran <span class="required">*</span></label>
             <select name="mapel" class="input-text wpcf7-select" id="mapel">
-              <option value="">-- Pilih --</option>
+              <option value="0">-- Pilih --</option>
             </select>
           </fieldset>
           <fieldset>
