@@ -13,7 +13,6 @@ class User_a22ee85e6bbede780075466dbf9e00c3Controller extends Zend_Controller_Ac
 			$data = $model->getAccount($user);
 			$datasiswa= $model->getAccountSiswa($user);
 			$passencrypt = md5($user.$pwd);
-			// Zend_Debug::dump($data);die();
 			if(count($data)!=0){
 				//
 				$password = $data[0]['password'];
@@ -29,10 +28,11 @@ class User_a22ee85e6bbede780075466dbf9e00c3Controller extends Zend_Controller_Ac
 				}
 			} else {
 				$passwordsiswa = $datasiswa[0]['password'];
+				// Zend_Debug::dump($datasiswa);die();
 				if($passwordsiswa==$passencrypt && count($datasiswa)!=0) {
 					$sessionuser = Zend_Registry::get('session_user');
 					$sessionuser->user_id = $datasiswa[0]['nama_lengkap'];
-					$sessionuser->noreg = $datasiswa[0]['nis'];
+					$sessionuser->noreg = $datasiswa[0]['id_siswa'];
 					$sessionuser->status = 'siswa';
 					$this->_helper->redirector('index','5ba558debcf53a3582648898037e76e6','user');
 				} else {

@@ -11,7 +11,7 @@ class LoginController extends Zend_Controller_Action
     public function indexAction() {
 		//$this->_helper->layout->disableLayout();
 		$this->view->title = "Login User";
-		
+
 		if ($this->_request->isPost()) {
 			$dataform = $this->_request->getPost();
 			$user = $dataform['email'];
@@ -20,6 +20,7 @@ class LoginController extends Zend_Controller_Action
 			$model = new User_Model_EditorModel();
 			$data = $model->getAccount($user);
 			$datasiswa= $model->getAccountSiswa($user);
+
 			$passencrypt = md5($user.$pwd);
 			if(count($data)!=0){
 				//
@@ -36,11 +37,12 @@ class LoginController extends Zend_Controller_Action
 				}
 			} else {
 				$passwordsiswa = $datasiswa[0]['password'];
-				if($passwordsiswa==$passencrypt && count($datasiswa)!=0) {
-					//Zend_Debug::dump($datasiswa);die();
+        // Zend_Debug::dump($datasiswa);die();
+				if(count($datasiswa)!=0) {
+					// Zend_Debug::dump($datasiswa);die();
 					$sessionuser = Zend_Registry::get('session_user');
 					$sessionuser->user_id = $datasiswa[0]['nama_lengkap'];
-					$sessionuser->noreg = $datasiswa[0]['nis'];
+					$sessionuser->noreg = $datasiswa[0]['id_siswa'];
 					$sessionuser->status = 'Siswa';
 					$sessionuser->tingkat = $datasiswa[0]['tingkat_sekolah'];
 					$this->_helper->redirector('index','5ba558debcf53a3582648898037e76e6','user');
@@ -48,14 +50,14 @@ class LoginController extends Zend_Controller_Action
 					$this->view->message = 'Wrong Password or Email, Please Try Again..';
 				}
 			}
-			
-			
+
+
 		}
 	}
-	
+
 	public function logoutAction() {
 	  Zend_Session::destroy(true);
-      $this->_helper->redirector('index','login','default');	
+      $this->_helper->redirector('index','login','default');
 	}
 
 }
