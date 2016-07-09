@@ -1,30 +1,66 @@
-<div class="column column-wide">
-  <div class="widget">
-    <h1 class="post-title">Berita</h1>
-    <div class="divider">&nbsp;</div>
-    <ul class="posts-archive archives-columns-one">
-      <?php foreach ($this->data as $news) { ?>
-      <li class="loop-post-single">
-        <div class="post-cover">
-          <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" title="<?php echo $news['judul'];?>">
-            <img src="<?php echo $this->baseUrl();?>/img/News/<?php echo $news['gambar'];?>" alt="<?php echo $news['judul'];?>" width="210" height="100">
-          </a>
+<div class="page-title-style01 pt-bkg11">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <h1>P2KGK - News</h1>
+          <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+              <li>You are here:</li>
+              <li>
+                <a href="<?php echo $this->baseUrl() ?>/index">Home</a>
+              </li>
+              <li>
+                News
+              </li>
+            </ul><!-- .breadcrumb end -->
+          </div><!-- .breadcrumb-container end -->
         </div>
-        <div class="post-excerpt">
-          <p class="post-meta">
-            <time datetime="<?php echo $news['waktu'];?>" pubdate=""><?php echo $news['waktu'];?></time>
-          </p>
-        <h2>
-          <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" title="<?php echo $news['judul'];?>"><?php echo $news['judul'];?></a>
-        </h2>
-        <p><?php echo $news['isi'];  ?></p>
       </div>
-      <div class="cleaner">&nbsp;</div>
-    </li>
-    <li class="divider">&nbsp;</li>
-    <?php } ?>
-
-  </ul>
   </div>
-  <div class="cleaner">&nbsp;</div>
+</div>
+<div class="page-content p2kgknews">
+    <div class="container">
+        <div class="row">
+            <ul class="col-md-9 blog-posts post-list">
+              <?php foreach ($this->data as $news) { ?>
+
+                <li class="blog-post clearfix">
+                    <div class="post-media">
+                        <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" class="post-img">
+                            <img src="<?php echo $this->baseUrl();?>/img/News/<?php echo $news['gambar'];?>" alt="<?php echo $news['judul'];?>"/>
+                        </a>
+                    </div><!-- .post-media end -->
+
+                    <div class="post-date">
+                      <?php
+                        $yrdata= strtotime($news['waktu']);
+                        $m = date('M Y', $yrdata);
+                        $d = date('d', $yrdata);
+                      ?>
+                        <p class="day"><?php echo $d; ?></p>
+                        <p class="month"><?php echo $m; ?></p>
+                    </div><!-- .post-date end -->
+
+                    <div class="post-body">
+                        <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>">
+                            <h3><?php echo $news['judul'];?></h3>
+                        </a>
+
+                        <p>
+                            <?php echo $news['isi'];  ?>
+                        </p>
+
+                        <a href="<?php echo $this->baseUrl();?>/news/detail/p/<?php echo $news['id_berita']?>" class="read-more">
+                            <span>
+                                Read more
+                                <i class="fa fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div><!-- .post-body end -->
+                </li><!-- .blog-post end -->
+                <?php } ?>
+
+              </ul>
+          </div>
+      </div>
 </div>

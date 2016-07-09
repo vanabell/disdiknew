@@ -1,33 +1,53 @@
-<div class="column column-wide">
-  <div class="widget">
-    <h2>Login</h2>
-      <form class="login-form" action="#" method="post">
-        <fieldset style="width:55%;">
-          <div class="input-form">
-              <label for="email">Email <em>*</em></label>
-              <input type="text" name="email" id="email" value="" class="input-text">
-          </div>
-          <div class="input-form">
-              <label for="password">Password <em>*</em></label>
-              <input type="password" name="password" id="password" value="" class="input-text">
-          </div>
-          <div class="input-form">
-              <div class="required">
-                  * Wajib Di isi!
-              </div>
-          </div>
-          <div class="button-set">
-              <input type="submit" name="submit" value="Login" class="button gold">
-          </div>
-      </fieldset>
-      </form>
-  </div>
-  <div class="widget">
-      <div class="link-regis">
-          <div class="text-link">
-              Belum punya akun?  <a href="<?php echo $this->baseUrl();?>/register/" class="link-daftar">Daftar Disini!</a>
-          </div>
+<div class="page-title-style01 pt-bkg11">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+              <li>You are here:</li>
+              <li>
+                <a href="<?php echo $this->baseUrl() ?>/index">Home</a>
+              </li>
+              <li>
+                Login Page
+              </li>
+            </ul><!-- .breadcrumb end -->
+          </div><!-- .breadcrumb-container end -->
+        </div>
       </div>
   </div>
-  <div class="cleaner">&nbsp;</div>
+</div>
+<div class="page-content">
+    <div class="container">
+      <div class="custom-heading">
+          <h2>Login</h2>
+      </div><!-- .custom-heading end -->
+        <div class="row">
+          <div class="col-md-6">
+            <form class="form-horizontal wpcf7" method="post" action="">
+              <fieldset>
+                  <label for="inputEmail">
+                      <span class="required">*</span> Email
+                  </label>
+                  <input type="email" name="email" class="form-control wpcf7-text" id="inputEmail" placeholder="Email">
+              </fieldset>
+              <fieldset>
+                  <label for="inputPassword">
+                      <span class="required">*</span> Password
+                  </label>
+                  <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+              </fieldset>
+              <fieldset style="width:auto; display:inline-block;">
+                  <div class="required">
+                      * Wajib Di isi!
+                  </div>
+              </fieldset>
+              <input type="submit" class="wpcf7-submit" value="Sign in" />
+            </form>
+            <div class="alert alert-info" role="alert">
+              Belum punya akun? <a href="<?php echo $this->baseUrl();?>/register/" class="alert-link">Daftar Disini!</a>
+            </div>
+          </div>
+        </div>
+    </div>
 </div>

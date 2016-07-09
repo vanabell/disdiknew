@@ -1,11 +1,50 @@
-<div class="column column-wide">
-  <div class="widget">
-    <!-- isi service -->
-    <h1 class="post-title">Gallery Video</h1>
-    <div class="divider">&nbsp;</div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/HtdoyXLgb-Q" frameborder="0" allowfullscreen></iframe>
-
-    <iframe width="420" height="315" src="https://www.youtube.com/embed/_qPf2P_CsdI" frameborder="0" allowfullscreen></iframe>
+<div class="page-title-style01 pt-bkg11">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+              <li>You are here:</li>
+              <li>
+                <a href="<?php echo $this->baseUrl() ?>/index">Home</a>
+              </li>
+              <li>
+                Gallery Video
+              </li>
+            </ul><!-- .breadcrumb end -->
+          </div><!-- .breadcrumb-container end -->
+        </div>
+      </div>
   </div>
-  <div class="cleaner">&nbsp;</div>
+</div>
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="custom-heading02">
+                    <h2>Gallery Video</h2>
+                    <p>
+                        Kumpulan dokumentasi video kegiatan P2KGK Jaktim
+                    </p>
+                </div><!-- .custom-heading02 end -->
+            </div><!-- .col-md-12 end -->
+        </div><!-- .row end -->
+    </div><!-- .container end -->
+</div><!-- .page-content end -->
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+            <ul class="vehicle-gallery clearfix p2kgkgallery">
+              <?php foreach ($this->data as $video) { ?>
+                <li class="col-md-3">
+                    <figure class="gallery-item-container">
+                        <div class="gallery-item">
+                            <?php echo $video['video']; ?>
+                        </div><!-- .service-item end -->
+                    </figure><!-- .gallery-item-container end -->
+                </li><!-- .gallery-item end -->
+              <?php } ?>
+            </ul>
+          </div>
+    </div>
 </div>

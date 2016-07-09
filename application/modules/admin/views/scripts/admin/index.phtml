@@ -11,10 +11,10 @@
 
 </script>
 	<body>
-	<?php 
+	<?php
 		if($this->msg!=''){ ?>
 			<div class="alert alert-success"><?php echo $this->msg;?></div>
-	<?php 
+	<?php
 		}
 	?>
 		<div class="panel panel-info">
@@ -63,31 +63,52 @@
 		         	<td><?php echo $this->detail[$a]['ua_firstname'];?></td>
 		         	<td><?php echo $this->detail[$a]['ua_lastname'];?></td>
 		         	<td><?php echo $this->detail[$a]['ua_email'];?></td>
-		         	<td><?php if($this->detail[$a]['ua_akses']!=null){echo $this->detail[$a]['ua_akses'];}else{echo '-';}?></td>
-		         	<td width="50px"><a class="btn btn-default btn-lg active" href="<?php echo $this->baseUrl();?>/admin/admin/edit/p/<?php echo $this->detail[$a]['ua_admin_id']?>" style="cursor: pointer;"><span class="glyphicon glyphicon-edit">Edit</span></a></td>
-		         	<td width="50px"> <a class="btn btn-default btn-lg active" style="cursor: pointer;" onclick="hps('<?php echo $this->detail[$a]['ua_admin_id']?>')"><span class="glyphicon glyphicon-remove-circle">Delete</span></a></td>
+		         	<td>
+								<?php
+										if($this->detail[$a]['ua_akses']!=null){
+											if($this->detail[$a]['ua_akses']=='merchant') {
+												echo 'LEMBAGA';
+											} else if ($this->detail[$a]['ua_akses']=='staff') {
+												echo 'ADMIN';
+											}
+										}else{
+											echo '-';
+										}
+									?>
+							</td>
+		         	<td width="50px">
+								<a class="btn btn-default btn-lg active" href="<?php echo $this->baseUrl();?>/admin/admin/edit/p/<?php echo $this->detail[$a]['ua_admin_id']?>" style="cursor: pointer;">
+									<span class="glyphicon glyphicon-edit">
+										Edit</span>
+									</a>
+							</td>
+		         	<td width="50px"> <a class="btn btn-default btn-lg active" style="cursor: pointer;" onclick="hps('<?php echo $this->detail[$a]['ua_admin_id']?>')">
+								<span class="glyphicon glyphicon-remove-circle">
+									Delete</span>
+								</a>
+							</td>
 		         </tr>
 		         <?php }?>
 		        </tbody>
 		        <tfoot>
 		        </tfoot>
 		      </table>
-		      
+
 		      </form>
 		</div>
-		
+
 		<script>
-		          
+
 		function hps(id){
 			$.post('<?php echo $this->baseUrl()."/admin/admin/delete/id"?>',{key: id}, function(data){
 		          if(data.edit==true) {
 					alert('Data Clear');
 					parent.location.href = "<?php echo $this->baseUrl()?>/admin/admin/index";
 			      } else {
-			    	  alert('Failed Clear Data');  
+			    	  alert('Failed Clear Data');
 			      }
 		      });
-			
+
 		}
 		</script>
 	</body>

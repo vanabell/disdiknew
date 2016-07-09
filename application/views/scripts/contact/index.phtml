@@ -1,47 +1,176 @@
-<div class="column column-wide">
-  <div class="widget">
-    <h1 class="post-title">Kontak</h1>
-    <div class="divider">&nbsp;</div>
-    <p>
-      <strong>P2KGK - PUSAT PENGEMBANGAN KOMPETENSI GURU DAN KEJURUAN</strong>
-      <address class="">
-        Jl Sawah Barat - Duren Sawit, Jakarta Timur, DKI Jakarta
-      </address>
-      <div class="kontaknya">
-        <div class="kontak">
-          <img src="<?php echo $this->baseUrl();?>/images/social/tlp.png" alt="telepon" />
-          <span>Tlp : (021) 8611975, Hp : 081808953694</span>
+<!-- .page-title start -->
+<div class="page-title-map page-title-negative-top">
+    <!-- .container start -->
+    <div class="container-fluid">
+        <div class="row">
+            <div id="map"></div>
         </div>
-        <div class="kontak">
-          <img src="<?php echo $this->baseUrl();?>/images/social/email.png" alt="telepon" />
-          <span>E-mail : jaktimp2kgk@gmail.com, p2kgk.jaktim@gmail.com</span>
-        </div>
-        <div class="kontak">
-          <img src="<?php echo $this->baseUrl();?>/images/social/fb.png" alt="facebook" />
-          <span><a href="https://www.facebook.com/P2KGK-Jakarta-Timur-204466053220728/" title="facebook" target="_blank">Facebook</a></span>
-        </div>
-        <div class="kontak">
-          <img src="<?php echo $this->baseUrl();?>/images/social/twitter.png" alt="twitter" />
-          <span><a href="https://twitter.com/p2kgkjaktim" title="twitter" target="_blank">Twitter</a></span>
-        </div>
-        <div class="kontak">
-          <img src="<?php echo $this->baseUrl();?>/images/social/gplus.png" alt="googleplus" />
-          <span><a href="https://plus.google.com/110983658397925793542?prsrc=5" title="googleplus" target="_blank">Google +</a></span>
-        </div>
-        <div class="kontak">
-          <img src="<?php echo $this->baseUrl();?>/images/social/ig.png" alt="instagram" />
-          <span><a href="https://www.instagram.com/p2kgkjaktim/" title="instagram" target="_blank">Instagram</a></span>
-        </div>
-        <div class="kontak">
-          <img src="<?php echo $this->baseUrl();?>/images/social/line.png" alt="Line" />
-          <span>LINE : p2kgkJaktim</span>
-        </div>
-        <div class="kontak">
-          <img src="<?php echo $this->baseUrl();?>/images/social/path.png" alt="Path" />
-          <span>PATH: p2kgk Jakarta Timur</span>
-        </div>
-      </div>
-    </p>
-  </div>
-  <div class="cleaner">&nbsp;</div>
-</div>
+    </div><!-- .container end -->
+</div><!-- .page-title-style01.page-title-negative-top end -->
+
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <br />
+
+                <div class="custom-heading">
+                    <h4>P2KGK - PUSAT PENGEMBANGAN KOMPETENSI GURU DAN KEJURUAN</h4>
+                </div><!-- .custom-heading end -->
+
+                <address>
+                    Jl Sawah Barat - Duren Sawit, Jakarta Timur, DKI Jakarta
+                </address>
+
+                <div class="kontaknya">
+                  <div class="kontak">
+                    <img src="<?php echo $this->baseUrl();?>/img/social/tlp.png" alt="telepon" />
+                    <span>Tlp : (021) 8611975, Hp : 081808953694</span>
+                  </div>
+                  <div class="kontak">
+                    <img src="<?php echo $this->baseUrl();?>/img/social/email.png" alt="telepon" />
+                    <span>E-mail : jaktimp2kgk@gmail.com, p2kgk.jaktim@gmail.com</span>
+                  </div>
+                  <div class="kontak">
+                    <img src="<?php echo $this->baseUrl();?>/img/social/fb.png" alt="facebook" />
+                    <span><a href="https://www.facebook.com/P2KGK-Jakarta-Timur-204466053220728/" title="facebook" target="_blank">Facebook</a></span>
+                  </div>
+                  <div class="kontak">
+                    <img src="<?php echo $this->baseUrl();?>/img/social/twitter.png" alt="twitter" />
+                    <span><a href="https://twitter.com/p2kgkjaktim" title="twitter" target="_blank">Twitter</a></span>
+                  </div>
+                  <div class="kontak">
+                    <img src="<?php echo $this->baseUrl();?>/img/social/gplus.png" alt="googleplus" />
+                    <span><a href="https://plus.google.com/110983658397925793542?prsrc=5" title="googleplus" target="_blank">Google +</a></span>
+                  </div>
+                  <div class="kontak">
+                    <img src="<?php echo $this->baseUrl();?>/img/social/ig.png" alt="instagram" />
+                    <span><a href="https://www.instagram.com/p2kgkjaktim/" title="instagram" target="_blank">Instagram</a></span>
+                  </div>
+                  <div class="kontak">
+                    <img src="<?php echo $this->baseUrl();?>/img/social/line.png" alt="Line" />
+                    <span>LINE : p2kgkJaktim</span>
+                  </div>
+                  <div class="kontak">
+                    <img src="<?php echo $this->baseUrl();?>/img/social/path.png" alt="Path" />
+                    <span>PATH: p2kgk Jakarta Timur</span>
+                  </div>
+                </div>
+            </div><!-- .col-md-6 end -->
+
+            <div class="col-md-6 clearfix">
+                <!-- .contact form start -->
+                <?php
+                    if($this->message != '') {
+                      echo $this->message;
+                    }
+                ?>
+                <form class="wpcf7" method="post">
+                    <fieldset>
+                        <label for="contact-name">
+                            <span class="required">*</span> Full Name:
+                        </label>
+                        <input type="text" name="nama" class="wpcf7-text" id="contact-name">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="contact-tlp">
+                            <span class="required">*</span> Phone:
+                        </label>
+                        <input type="text" name="tlp" class="wpcf7-text" id="contact-tlp">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="contact-email">
+                            <span class="required">*</span> Email:
+                        </label>
+                        <input type="text" name="email" class="wpcf7-text" id="contact-email">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="contact-message">
+                            <span class="required">*</span> Message:
+                        </label>
+                        <textarea rows="8" name="desc" class="wpcf7-textarea" id="contact-message"></textarea>
+                    </fieldset>
+
+                    <input type="submit" class="wpcf7-submit" value="send" />
+                </form><!-- .wpcf7 end -->
+            </div><!-- .col-md-6 end -->
+        </div><!-- .row end -->
+    </div><!-- .container end -->
+</div><!-- .page-content end -->
+<script type="text/javascript">
+/*
+ * MAP
+ */
+ var locations = [
+     ['P2KGK JAKTIM', -6.232827, 106.909836, 5],
+ ];
+
+ var style = [
+     {"featureType": "road",
+         "elementType":
+                 "labels.icon",
+         "stylers": [
+             {"saturation": 1},
+             {"gamma": 1},
+             {"visibility": "on"},
+             {"hue": "#e6ff00"}
+         ]
+     },
+     {"elementType": "geometry", "stylers": [
+             {"saturation": -85}
+         ]
+     }
+ ];
+
+ var map = new google.maps.Map(document.getElementById('map'), {
+     // SET THE CENTER
+     center: new google.maps.LatLng(-6.232827, 106.909836),
+     // SET THE MAP STYLE & ZOOM LEVEL
+     mapTypeId: google.maps.MapTypeId.ROADMAP,
+     zoom: 18,
+     // SET THE BACKGROUND COLOUR
+     backgroundColor: "#eeeeee",
+     // REMOVE ALL THE CONTROLS EXCEPT ZOOM
+     panControl: true,
+     zoomControl: true,
+     mapTypeControl: true,
+     scaleControl: true,
+     streetViewControl: true,
+     overviewMapControl: true,
+     scrollwheel: false,
+     zoomControlOptions: {
+         style: google.maps.ZoomControlStyle.SMALL
+     }
+ });
+
+ var mapType = new google.maps.StyledMapType(style, {name: "Grayscale"});
+ map.mapTypes.set('grey', mapType);
+ map.setMapTypeId('grey');
+
+ var infowindow = new google.maps.InfoWindow();
+
+ //CREATE A CUSTOM PIN ICON
+ var marker_image = '../img/pin.png';
+ var pinIcon = new google.maps.MarkerImage(marker_image, null, null, null, new google.maps.Size(21, 34));
+
+ var marker, i;
+
+ for (i = 0; i < locations.length; i++) {
+     marker = new google.maps.Marker({
+         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+         map: map,
+         icon: pinIcon
+     });
+
+     google.maps.event.addListener(marker, 'click', (function (marker, i) {
+         return function () {
+             infowindow.setContent(locations[i][0]);
+             infowindow.open(map, marker);
+         };
+     })(marker, i));
+ }
+ ;
+</script>

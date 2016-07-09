@@ -1,0 +1,116 @@
+<!-- RESPONSIVE MENU -->
+<div id="dl-menu" class="dl-menuwrapper">
+    <button class="dl-trigger">Open Menu</button>
+    <ul class="dl-menu">
+        <li>
+            <a href="<?php echo $this->baseUrl();?>/index">Home</a>
+        </li>
+
+        <li>
+            <a href="#">Profil</a>
+            <ul class="dl-submenu">
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/profile/">Profil Singkat</a></li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/profile/history/">Sejarah</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/profile/jobdesk/">Tugas dan Fungsi</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/profile/visimisi/">Visi, Misi dan Motto</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/profile/structure/">Struktur Organisasi</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/profile/institution/">Aparatur</a>
+              </li>
+            </ul><!-- dl-submenu end -->
+        </li>
+
+        <li>
+            <a href="#">Layanan</a>
+            <ul class="dl-submenu">
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/service/training/">Pelatihan</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/service/certification/">Pelatihan dan Sertifikasi</a>
+              </li>
+            </ul><!-- dl-submenu end -->
+        </li>
+
+        <li>
+            <a href="#">Fasilitas</a>
+            <ul class="dl-submenu">
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/fasilitas/program/">Program Pelatihan</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/fasilitas/sarana/">Sarana dan Prasarana</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/fasilitas/mitra/">Kemitraan</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/fasilitas/aset/">Aset</a>
+              </li>
+            </ul><!-- .dl-submenu end -->
+        </li>
+        <li><a href="<?php echo $this->baseUrl();?>/agenda/">Agenda</a></li>
+        <li><a href="<?php echo $this->baseUrl();?>/news/">News</a></li>
+        <li><a href="<?php echo $this->baseUrl();?>/article/">Artikel</a></li>
+        <li>
+            <a href="#">Media</a>
+            <ul class="dl-submenu">
+              <li><a href="<?php echo $this->baseUrl();?>/gallery/photo/">Photo</a></li>
+              <li><a href="<?php echo $this->baseUrl();?>/gallery/video/">Video</a></li>
+            </ul><!-- .dl-submenu end -->
+        </li>
+
+        <li>
+            <a href="#">Download</a>
+            <ul class="dl-submenu">
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/report/training/">Laporan Pelatihan</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/report/certificate/">Laporan Sertifikat</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl();?>/report/certification/">Laporan Sertifikasi</a>
+              </li>
+            </ul><!-- .dl-submenu end -->
+        </li>
+    </ul><!-- .dl-menu end -->
+</div><!-- #dl-menu end -->
+
+<?php
+  $sessionuser2 = Zend_Registry::get('session_user');
+  //echo $sessionuser->status;
+ if ($sessionuser2->status==null) {
+   echo "";
+?>
+<?php } else { ?>
+<div id="dl-menu2" class="dl-menuwrapper">
+    <button class="dl-trigger">
+      <i class="fa fa-user fa-2x"></i> My Account</button>
+    <ul class="dl-menu">
+      <?php if($sessionuser2->status=='Guru') { ?>
+        <li>
+          <a href="<?php echo $this->baseUrl();?>/user/3e72758f0fc77cdad787f58b41e9985f">My Profile</a>
+        </li>
+        <?php } else { ?>
+          <li>
+            <a href="<?php echo $this->baseUrl();?>/user/5ba558debcf53a3582648898037e76e6">My Profile</a>
+          </li>
+        <?php }?>
+        <li>
+          <a href="<?php echo $this->baseUrl();?>/login/logout">
+              Logout
+          </a>
+        </li>
+    </ul><!-- .dl-menu end -->
+</div><!-- #dl-menu end -->
+<?php }?>

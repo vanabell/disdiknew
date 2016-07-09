@@ -1,45 +1,51 @@
-<header>
-  <div class="wrapper">
-    <div id="logo">
-      <a href="<?php echo $this->baseUrl();?>/index" title="">
-        <img src="<?php echo $this->baseUrl();?>/images/logo.png" alt="BPPTIK">
-      </a>
-    </div>
-    <nav id="top-menu">
-      <ul>
-        <li class="menu-item">
-          <a href="<?php echo $this->baseUrl();?>/contact/">Kontak</a>
-        </li>
-        <li class="menu-item ">
-          <a href="<?php echo $this->baseUrl();?>/contact/location/">Lokasi</a>
-        </li>
-        <li class="social-icons">
-          <a href="mailto:p2kgk.jaktim@gmail.com" rel="nofollow">
-            <img src="<?php echo $this->baseUrl();?>/images/social/email_small.png" width="16" height="16" alt="">
-          </a>
-          <a href="https://www.facebook.com/P2KGK-Jakarta-Timur-204466053220728/" rel="nofollow">
-            <img src="<?php echo $this->baseUrl();?>/images/social/facebook_small.png" width="16" height="16" alt="">
-          </a>
-          <a href="https://twitter.com/p2kgkjaktim" rel="nofollow">
-            <img src="<?php echo $this->baseUrl();?>/images/social/twitter_small.png" width="16" height="16" alt="">
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <div id="header-helpful">
-      <div class="search-form">
-        <form method="get" id="searchform" action="#">
-          <fieldset>
-            <input type="text" onblur="if (this.value == '') {this.value = 'Search';}" onfocus="if (this.value == 'Search') {this.value = '';}" value="Search" name="s" id="setop">
-            <input type="submit" id="searchsubmit" value="Search">
-          </fieldset>
-        </form>
-      </div>
-      <span class="action">
-        <span class="value">
-        </span>
-      </span>
-    </div>
-    <div class="cleaner">&nbsp;</div>
-  </div>
-</header>
+<div class="header-wrapper style03">
+  <!-- .header.header-style02 start -->
+  <header id="header"  class="header-style03">
+      <div class="logo-info-container">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                      <div class="logo">
+                          <a href="<?php echo $this->baseUrl();?>/index">
+                              <img style="display: block;" src="<?php echo $this->baseUrl();?>/images/logo.png" alt="P2KGK - PUSAT PENGEMBANGAN KOMPETENSI GURU DAN KEJURUAN"/>
+                              <img src="<?php echo $this->baseUrl();?>/images/logo2.png" alt="P2KGK - PUSAT PENGEMBANGAN KOMPETENSI GURU DAN KEJURUAN"/>
+                          </a>
+                      </div><!-- .logo end -->
+                      <div class="text-head">
+                        <span>Pusat Pengembangan Kompetensi Guru dan Kejuruan (P2KGK)</span>
+                        <span>Kota Administrasi Jakarta Timur</span>
+                        <span>Dinas Pendidikan Provinsi DKI Jakarta</span>
+                      </div>
+                  </div><!-- .col-md-6 end -->
+
+                  <div class="col-md-6 col-sm-12 col-xs-12 last">
+                      <div class="info-container">
+                          <ul id="quick-links" class="clearfix">
+                              <li>
+                                  <i class="fa fa-phone"></i>
+                                  <span>(021) 8611975</span>
+                              </li>
+
+                              <li>
+                                  <i class="fa fa-envelope"></i>
+                                  <a href="<?php echo $this->baseUrl();?>/contact/">Contact us</a>
+                              </li>
+                          </ul><!-- .quick links end -->
+
+                          <!-- #search start -->
+                          <div id="search">
+                              <form action="#" method="get">
+                                  <input class="search-submit" type="submit" />
+                                  <input id="m_search" name="s" type="text" placeholder="Type and hit enter..." />
+                              </form>
+                          </div><!-- #search end -->
+                      </div><!-- .info-container end -->
+                  </div><!-- .col-md-6 end -->
+              </div><!-- .row end -->
+          </div><!-- .container end -->
+      </div><!-- .logo-info-container end -->
+
+      <?php include("../application/views/scripts/include/menu.phtml"); ?>
+
+  </header><!-- .header.header-style02 -->
+</div><!-- .header-wrapper end -->

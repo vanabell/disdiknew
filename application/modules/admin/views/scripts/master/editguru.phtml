@@ -1,0 +1,371 @@
+<html>
+<div class="panel panel-info">
+<div class="panel-heading"><i class="glyphicon glyphicon-dashboard"></i> <b>EDIT GURU</b></center></div>
+</br>
+<form class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+<?php
+		if($this->message!=''){ ?>
+			<div class="alert alert-danger"><?php echo $this->message;?></div>
+	<?php
+		}
+	?>
+	<?php
+		if($this->msg!=''){ ?>
+			<div class="alert alert-success"><?php echo $this->msg;?></div>
+	<?php
+		}
+	?>
+	<div style="width:800px;margin-left: auto;margin-right: auto;text-align: left;">
+    <div class="form-group">
+	    <label for="nip" class="col-sm-2 control-label">NIP</label>
+	    <div class="col-sm-10">
+        <input type="text" name="nip" id="nip" class="input-text form-control" value="<?php echo $this->det[0]['nip'];?>" readonly="readonly">
+	    </div>
+  	</div>
+		<div class="form-group">
+	    <label for="nip" class="col-sm-2 control-label">Photo</label>
+	    <div class="col-sm-5">
+        <img src="" alt="" />
+	    </div>
+  	</div>
+    <div class="form-group">
+	    <label for="nama" class="col-sm-2 control-label">Nama Lengkap</label>
+	    <div class="col-sm-10">
+        <input type="text" name="nama" id="nama" class="input-text form-control" value="<?php echo $this->det[0]['nama_lengkap'];?>">
+	    </div>
+  	</div>
+    <div class="form-group">
+	    <label for="tlp" class="col-sm-2 control-label">No Tlp</label>
+	    <div class="col-sm-10">
+        <input type="text" name="tlp" id="tlp" class="input-text form-control" value="<?php echo $this->det[0]['no_tlp'];?>">
+	    </div>
+  	</div>
+    <div class="form-group">
+	    <label for="email" class="col-sm-2 control-label">Email</label>
+	    <div class="col-sm-10">
+        <input type="text" name="email" id="email" class="input-text form-control" value="<?php echo $this->det[0]['email'];?>">
+	    </div>
+  	</div>
+    <div class="form-group">
+      <label for="alamat" class="col-sm-2 control-label">Alamat</label>
+      <div class="col-sm-10">
+        <textarea name="alamat" id="alamat" rows="8" cols="40" class="input-text form-control"><?php echo $this->det[0]['alamat'];?></textarea>
+      </div>
+    </div>
+		<div class="form-group">
+			<label for="jkelamin" class="col-sm-2 control-label">Jenis Kelamin</label>
+			<div class="col-sm-10">
+				<select name="jkelamin" class="input-text form-control" id="jkelamin">
+					<option value="0">-- Pilih --</option>
+					<option value="L" <?php if ($this->det[0]['jkelamin'] == "L") echo "selected"; ?>>Laki-laki</option>
+					<option value="P" <?php if ($this->det[0]['jkelamin'] == "P") echo "selected"; ?>>Perempuan</option>
+				 </select>
+		 	</div>
+		</div>
+    <div class="form-group">
+	    <label for="jenis_sek" class="col-sm-2 control-label">Jenis Sekolah</label>
+	    <div class="col-sm-10">
+        <select name="jenis_sek" id="jenis_sek" class="input-text form-control">
+          <option value="1" <?php if ($this->det[0]['jenis_sekolah'] == "1") echo "selected"; ?>>Reguler</option>
+          <option value="2" <?php if ($this->det[0]['jkelamin'] == "2") echo "selected"; ?>>Paket</option>
+        </select>
+	    </div>
+  	</div>
+    <div class="form-group">
+	    <label for="jenis_peg" class="col-sm-2 control-label">Kelompok Pegawai</label>
+	    <div class="col-sm-10">
+        <select name="jenis_peg" id="jenis_peg" class="input-text form-control">
+          <option value="1" <?php if ($this->det[0]['jenis_peg'] == "1") echo "selected"; ?>>Tenaga Pendidik</option>
+          <option value="2"> <?php if ($this->det[0]['jenis_peg'] == "2") echo "selected"; ?>Tenaga Kependidikan</option>
+        </select>
+	    </div>
+  	</div>
+    <div class="form-group">
+	    <label for="kec" class="col-sm-2 control-label">Kecamatan</label>
+	    <div class="col-sm-10">
+        <select name="kec" id="kec" class="input-text form-control kecamatan">
+					<?php
+					$listkec = new Admin_Model_MasterModel();
+					$kecamatan = $listkec->getKecamatanlist();
+					foreach ($kecamatan as $kec ) {
+					?>
+          <option value="<?php echo $kec['id_kec']?>" <?php if ($this->det[0]['kec'] == $kec['id_kec']) echo "selected"; ?>><?php echo $kec['nama_kec']?></option>
+					<?php } ?>
+        </select>
+	    </div>
+  	</div>
+		<div class="form-group">
+	    <label for="tingkat_sekolah" class="col-sm-2 control-label">Tingkat Sekolah</label>
+	    <div class="col-sm-10">
+				<select name="tingkat_sekolah" class="input-text form-control" id="tingkat_sekolah" >
+					<option value="TK" <?php if ($this->det[0]['tingkat_sekolah'] == "TK") echo "selected"; ?>>TK</option>
+					<option value="SD" <?php if ($this->det[0]['tingkat_sekolah'] == "SD") echo "selected"; ?>>SD</option>
+					<option value="SMP" <?php if ($this->det[0]['tingkat_sekolah'] == "SMP") echo "selected"; ?>>SMP</option>
+					<option value="SMA" <?php if ($this->det[0]['tingkat_sekolah'] == "SMA") echo "selected"; ?>>SMA</option>
+					<option value="SMK" <?php if ($this->det[0]['tingkat_sekolah'] == "SMK") echo "selected"; ?>>SMK</option>
+				</select>
+	    </div>
+  	</div>
+		<div class="form-group">
+	    <label for="nama_sekolah" class="col-sm-2 control-label">Nama Sekolah</label>
+	    <div class="col-sm-10">
+				<select name="nama_sekolah" class="input-text form-control namasklh" id="nama_sekolah">
+					<option value="0">-- Pilih Tingkat Sekolah dan Kecamatan Dahulu--</option>
+				</select>
+	    </div>
+  	</div>
+		<div class="form-group">
+	    <label for="umur" class="col-sm-2 control-label">Umur</label>
+	    <div class="col-sm-3">
+				<input type="text" name="umur" id="umur" value="<?php echo $this->det[0]['umur'];?>" class="input-text form-control">
+	    </div>
+			<div class="col-sm-7">
+				<label for="masa_kerja" class="col-sm-5 control-label">Masa Kerja</label>
+				<input type="text" name="masa_kerja" id="masa_kerja" value="<?php echo $this->det[0]['masa_kerja'];?>" class="input-text form-control" style="width:auto;" >
+	    </div>
+  	</div>
+		<div class="form-group">
+	    <label for="mapel" class="col-sm-2 control-label">Mata Pelajaran</label>
+	    <div class="col-sm-10">
+				<select name="mapel" class="input-text form-control" id="mapel">
+					<option value="0">-- Pilih --</option>
+				</select>
+	    </div>
+  	</div>
+		<div class="form-group">
+	    <label for="stat_peg" class="col-sm-2 control-label">Status Kepegawaian</label>
+	    <div class="col-sm-10">
+				<select name="stat_peg" class="input-text form-control" id="stat_peg">
+					<option value="">-- Pilih --</option>
+					<?php
+					$listpeg = new Admin_Model_MasterModel();
+					$statpeg = $listpeg->getStatuspeglist();
+					foreach ($statpeg as $sp) {?>
+					<option value="<?php echo $sp['id_statuspeg'];?>" <?php if ($this->det[0]['stat_peg'] == $sp['id_statuspeg']) echo "selected"; ?>>
+						<?php echo $sp['nama_statuspeg'];?>
+					</option>
+					<?php } ?>
+				</select>
+	    </div>
+  	</div>
+		<div class="form-group">
+	    <label for="status" class="col-sm-2 control-label">Status Sekolah</label>
+	    <div class="col-sm-10">
+				<select name="status" class="input-text form-control" id="status">
+					<option value="0">-- Pilih --</option>
+					<option value="1" <?php if ($this->det[0]['status_sek'] == "1") echo "selected"; ?>>Negeri</option>
+					<option value="2" <?php if ($this->det[0]['status_sek'] == "2") echo "selected"; ?>>Swasta</option>
+				</select>
+	    </div>
+  	</div>
+		<div class="form-group">
+	    <label for="gol_ruang" class="col-sm-2 control-label">Golongan</label>
+	    <div class="col-sm-3">
+				<select name="gol_ruang" class="input-text form-control" id="gol_ruang" style="width:auto;" >
+					<option value="0">-- Pilih --</option>
+					<?php
+					$listgol = new Admin_Model_MasterModel();
+					$golongan = $listgol->loadGolongan();
+					foreach ($golongan as $gol) {
+						$gols = substr($this->det[0]['golruang'], 0,1);
+						?>
+					<option value="<?php echo $gol['id_golongan'];?>" <?php if ($gols == $gol['id_golongan']) echo "selected"; ?>>
+						<?php echo $gol['nama_golongan'];?>
+					</option>
+					<?php } ?>
+				</select>
+	    </div>
+			<div class="col-sm-3">
+				<label for="ruang" class="col-sm-5 control-label">Ruang</label>
+				<select name="ruang" class="input-text form-control" id="ruang" style="width:auto;">
+					<option value="0">-- Pilih --</option>
+					<?php
+					$listruang = new Admin_Model_MasterModel();
+					$ruang = $listruang->loadRuang();
+					foreach ($ruang as $ru) {
+						$rus = substr($this->det[0]['golruang'], 1);
+						?>
+					<option value="<?php echo $ru['id_ruang'];?>" <?php if ($rus == $ru['id_ruang']) echo "selected"; ?>>
+						<?php echo $ru['nama_ruang'];?>
+					</option>
+					<?php } ?>
+				</select>
+	    </div>
+  	</div>
+		<div class="form-group">
+	    <label for="jabatan" class="col-sm-2 control-label">Jabatan</label>
+	    <div class="col-sm-10">
+				<select name="jabatan" class="input-text form-control" id="jabatan">
+					<option value="0">-- Pilih Jabatan --</option>
+				</select>
+	    </div>
+  	</div>
+		<div class="form-group">
+	    <label for="sertifikasi" class="col-sm-2 control-label">Sertifikasi</label>
+	    <div class="col-sm-5">
+				<select name="sertifikasi" class="input-text form-control" id="sertifikasi" >
+					<option value="0">-- Pilih --</option>
+					<option value="1" <?php if ($this->det[0]['sertifikasi'] == "1") echo "selected"; ?>>Ya</option>
+					<option value="2" <?php if ($this->det[0]['sertifikasi'] == "2") echo "selected"; ?>>Tidak</option>
+				</select>
+	    </div>
+			<div class="col-sm-5">
+				<label for="thn_sertifikasi" class="col-sm-3 control-label">Tahun</label>
+				<input type="text" name="thn_sertifikasi" id="thn_sertifikasi" value="<?php echo $this->det[0]['thn_sertifikasi'];?>" class="input-text form-control" style="width:auto;" >
+	    </div>
+  	</div>
+		<div class="form-group">
+	    <label for="pendidikan" class="col-sm-2 control-label">Ijazah Terakhir</label>
+	    <div class="col-sm-5">
+				<select name="pendidikan" id="pendidikan" class="input-text form-control">
+					<option value="0">-- Pilih --</option>
+					<?php
+					$listijazah = new Admin_Model_MasterModel();
+					$ijazah = $listijazah->loadIjazah();
+					foreach ($ijazah as $ij) {?>
+					<option value="<?php echo $ij['id_ijazah'];?>" <?php if ($this->det[0]['pendidikan'] == $ij['id_ijazah']) echo "selected"; ?>>
+						<?php echo $ij['nama_ijazah'];?>
+					</option>
+					<?php } ?>
+				</select>
+	    </div>
+			<div class="col-sm-5">
+				<label for="thn_pendidikan" class="col-sm-3 control-label">Tahun</label>
+				<input type="text" name="thn_pendidikan" id="thn_pendidikan" value="<?php echo $this->det[0]['thn_pendidikan'];?>" class="input-text form-control" style="width:auto;" >
+	    </div>
+  	</div>
+		<div class="form-group">
+			<label for="domisili" class="col-sm-2 control-label">Domisili Sekarang</label>
+			<div class="col-sm-10">
+				<select name="domisili" class="input-text form-control" id="domisili">
+					<option value="0">-- Pilih --</option>
+					<option value="1" <?php if ($this->det[0]['domisili'] == "1") echo "selected"; ?>>DKI Jakarta</option>
+					<option value="2" <?php if ($this->det[0]['domisili'] == "2") echo "selected"; ?>>Luar DKI Jakarta</option>
+				 </select>
+		 	</div>
+		</div>
+
+  	<div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	       <button type="submit" class="btn btn-default">Save</button>
+	       <button type="reset" class="btn btn-default" onclick="window.location='<?php echo $this->baseUrl();?>/admin/master/guru'">Cancel</button>
+	    </div>
+  	</div>
+</div>
+</form>
+</div>
+</html>
+<script type="text/javascript">
+$( window ).load(function() {
+	var tingkat = $('#tingkat_sekolah').val();
+	var kec = $('.kecamatan').val();
+	var base_url = "<?php echo $this->baseUrl() ?>";
+	if(tingkat != 0 && kec != 0) {
+		$.ajax({
+				type: "POST",
+				data: {
+						'id_kec' : kec,
+						'tingkat' : tingkat,
+				},
+				url: base_url+"/register/ajaxsekolah",
+				success: function(data){
+					var sekolah = '';
+					for(j=0; j < data.data.length;j++){
+						 sekolah+='<option value='+data.data[j]['induk_sekolah']+'>'+data.data[j]['nama_sekolah']+'</option>';
+					 }
+					 $('.namasklh').html(sekolah);
+					 $(".namasklh option[value=<?php echo $this->det[0]['nama_sekolah'];?>]").attr('selected','selected');
+
+				}
+		});
+	}
+
+	$.ajax({
+			type: "POST",
+			data: {
+					'tingkat' : tingkat,
+			},
+			url: base_url+"/register/ajaxmapel",
+			success: function(data){
+				var mapel = '';
+				for(j=0; j < data.data.length;j++){
+					 mapel+='<option value='+data.data[j]['id_mapel']+'>'+data.data[j]['nama_mapel']+'</option>';
+				 }
+				 $('#mapel').html(mapel);
+				 $("#mapel option[value=<?php echo $this->det[0]['mapel'];?>]").attr('selected','selected');
+
+			}
+	});
+
+	$.ajax({
+			type: "POST",
+			data: {
+					'tingkat' : tingkat,
+			},
+			url: base_url+"/register/ajaxjabatan",
+			success: function(data){
+				var jabatan = '';
+				for(j=0; j < data.data.length;j++){
+					 jabatan+='<option value='+data.data[j]['id_jabatan']+'>'+data.data[j]['nama_jabatan']+'</option>';
+				 }
+				 $('#jabatan').html(jabatan);
+				 $("#jabatan option[value=<?php echo $this->det[0]['jabatan'];?>]").attr('selected','selected');
+
+			}
+	});
+
+	/* for change value */
+	$('.kecamatan, #tingkat_sekolah').change(function() {
+		if(tingkat != 0 && kec != 0) {
+			$.ajax({
+					type: "POST",
+					data: {
+							'id_kec' : kec,
+							'tingkat' : tingkat,
+					},
+					url: base_url+"/register/ajaxsekolah",
+					success: function(data){
+						var sekolah = '';
+						for(j=0; j < data.data.length;j++){
+							 sekolah+='<option value='+data.data[j]['induk_sekolah']+'>'+data.data[j]['nama_sekolah']+'</option>';
+						 }
+						 $('#nama_sekolah').html(sekolah);
+
+					}
+			});
+		}
+
+		$.ajax({
+				type: "POST",
+				data: {
+						'tingkat' : tingkat,
+				},
+				url: base_url+"/register/ajaxmapel",
+				success: function(data){
+					var mapel = '';
+					for(j=0; j < data.data.length;j++){
+						 mapel+='<option value='+data.data[j]['id_mapel']+'>'+data.data[j]['nama_mapel']+'</option>';
+					 }
+					 $('#mapel').html(mapel);
+
+				}
+		});
+
+		$.ajax({
+				type: "POST",
+				data: {
+						'tingkat' : tingkat,
+				},
+				url: base_url+"/register/ajaxjabatan",
+				success: function(data){
+					var jabatan = '';
+					for(j=0; j < data.data.length;j++){
+						 jabatan+='<option value='+data.data[j]['id_jabatan']+'>'+data.data[j]['nama_jabatan']+'</option>';
+					 }
+					 $('#jabatan').html(jabatan);
+
+				}
+		});
+	});
+});
+</script>
