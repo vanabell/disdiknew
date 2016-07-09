@@ -142,6 +142,17 @@ class Admin_Model_MasterModel {
 		}
 		return $result;
 	}
+
+	public function delGuru($id) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->delGuru($id);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
 	/* MASTER SISWA */
 	public function getSiswalist() {
 		$productTable = $this->_dbTableProduct;
@@ -153,11 +164,22 @@ class Admin_Model_MasterModel {
 		}
 		return $result;
 	}
-	
+
 	public function getSiswadet($id) {
 		$productTable = $this->_dbTableProduct;
 		try {
 			$result = $productTable->getSiswadet($id);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function delSiswa($id) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->delSiswa($id);
 
 		} catch (Zend_Exception $e) {
 			return $e->getMessage();
@@ -326,6 +348,97 @@ class Admin_Model_MasterModel {
 		$productTable = $this->_dbTableProduct;
 		try {
 			$result = $productTable->delStatpeg($id);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	/* MASTER SEKOLAH */
+	public function getSekolahlist() {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->getSekolahlist();
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function cekSekolah($nama,$tingkat) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->cekSekolah($nama,$tingkat);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function cekStatsek($id) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->cekStatsek($id);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function insertSekolah($data,$id) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->insertSekolah($data,$id);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function getSekolahdet($id) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->getSekolahdet($id);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function updateSekolah($data) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->updateSekolah($data);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function delSekolah($id) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->delSekolah($id);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function search($kategori, $kunci) {
+		$productTable = $this->_dbTableProduct;
+		try {
+
+			$result = $productTable->search($kategori, $kunci);
+
 
 		} catch (Zend_Exception $e) {
 			return $e->getMessage();
