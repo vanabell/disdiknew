@@ -1,5 +1,35 @@
 <?php
 class Admin_MasterController extends Zend_Controller_Action {
+    private function pagenumber($totpage,$curpage){
+    for($int=$curpage;$int<$totpage;$int++)
+    {
+      if(empty($a))
+      {
+        $a=1;
+        $paging['lnum'][$a] = $int+1;
+        $a++;
+      }else if($a == 2)
+      { 
+        $paging['lnum'][$a] = $int+1;
+        $a++;
+        $int = $totpage;
+      }
+    }
+    if($curpage > 2)
+    {
+      $paging['fnum'][0] = $curpage - 1;
+      $paging['fnum'][1] = $curpage - 2;
+      
+    } else if($curpage > 1) 
+    {
+      
+      $paging['fnum'][0] = $curpage - 1;
+    }
+  
+    return $paging;
+  
+  }
+
     public function indexAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
   	}
@@ -188,7 +218,27 @@ class Admin_MasterController extends Zend_Controller_Action {
   		$this->_helper->layout->setLayout('layoutadmin');
       $model = new Admin_Model_MasterModel();
   		$listsekolah = $model->getSekolahlist();
-  		$this->view->detail = $listsekolah;
+  		//$this->view->detail = $listsekolah;
+
+      $req = $this->getRequest();
+      //$page=$this->_getParam('page',1);
+      $curpage = 1;
+      if($req->getParam('page'))
+      {
+        $curpage = $req->getParam('page');
+      }
+      $totpage = ceil(count($listsekolah)/10);
+      if($totpage > 1) {
+      $paginator = Zend_Paginator::factory($listsekolah);
+      $paginator->setItemCountPerPage(10);
+      $paginator->setCurrentPageNumber($curpage);
+      $this->view->paginator=$paginator;
+      $this->view->curpage = $curpage;
+      $this->view->pagenum = $this->pagenumber($totpage,$curpage);
+      } else {
+        $this->view->paginator=$listsekolah;
+      }
+
 
       if ($this->_request->isPost()) {
   			$Dataform = $this->_request->getPost();

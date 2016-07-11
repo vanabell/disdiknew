@@ -54,29 +54,62 @@
 		          </tr>
 		        </thead>
 		        <tbody>
-		         <?php for($a=0;$a < count($this->detail);$a++){
-		         	$b = $a+1;
-		         		?>
+		         <?php 
+                $a=0;
+                foreach($this->paginator as $item){
+                $b=$a+1;
+		         	?>
 		         <tr>
 		         	<td><?php echo $b;?></td>
-              <td><?php echo $this->detail[$a]['induk_sekolah'];?></td>
-              <td><?php echo $this->detail[$a]['nama_sekolah'];?></td>
-              <td><?php echo $this->detail[$a]['alamat'];?></td>
-              <td><?php echo $this->detail[$a]['kelurahan'];?></td>
-              <td><?php echo $this->detail[$a]['nama_kec'];?></td>
-		         	<td><?php echo $this->detail[$a]['tingkat'];?></td>
+              <td><?php echo $item['induk_sekolah'];?></td>
+              <td><?php echo $item['nama_sekolah'];?></td>
+              <td><?php echo $item['alamat'];?></td>
+              <td><?php echo $item['kelurahan'];?></td>
+              <td><?php echo $item['nama_kec'];?></td>
+		         	<td><?php echo $item['tingkat'];?></td>
 		         	<td width="50px">
-                <a class="btn btn-default btn-lg active" href="<?php echo $this->baseUrl();?>/admin/master/editsekolah/p/<?php echo $this->detail[$a]['induk_sekolah']?>" style="cursor: pointer;">
+                <a class="btn btn-default btn-lg active" href="<?php echo $this->baseUrl();?>/admin/master/editsekolah/p/<?php echo $item['induk_sekolah']?>" style="cursor: pointer;">
                   <span class="glyphicon glyphicon-edit"> Edit</span>
                 </a>
               </td>
 		         	<td width="50px">
-                <a class="btn btn-default btn-lg active" style="cursor: pointer;" onclick="hps('<?php echo $this->detail[$a]['induk_sekolah']?>')">
+                <a class="btn btn-default btn-lg active" style="cursor: pointer;" onclick="hps('<?php echo $item['induk_sekolah']?>')">
                   <span class="glyphicon glyphicon-remove-circle"> Delete</span>
                 </a>
               </td>
 		         </tr>
-		         <?php }?>
+		         <?php $a++; }?>
+             <tr>
+              <td colspan=8>
+              <?php
+                $link = '<a href="'.$this->baseUrl().'/admin/master/sekolah/page/' ;
+                $link2 = $this->pageval.'" class="btn btn-success pull-right">';
+              //  $link3 = $this->pageval;
+              
+                if(!empty($this->pagenum['lnum'][2]))
+                {
+                  echo $link.$this->pagenum['lnum'][2].$link2.$this->pagenum['lnum'][2]."</a>&nbsp; ";
+                }
+                if(!empty($this->pagenum['lnum'][1]))
+                {
+                  echo $link.$this->pagenum['lnum'][1].$link2.$this->pagenum['lnum'][1]."</a>&nbsp;";
+                }
+              
+                  echo "<div class='btn btn-alert pull-right'>".$this->curpage."</div>&nbsp;";
+                
+                
+                if(!empty($this->pagenum['fnum'][0]))
+                {
+                  echo $link.$this->pagenum['fnum'][0].$link2.$this->pagenum['fnum'][0]."</a>&nbsp; ";
+                }
+                if(!empty($this->pagenum['fnum'][1]))
+                {
+                  echo $link.$this->pagenum['fnum'][1].$link2.$this->pagenum['fnum'][1]."</a>&nbsp;";
+                } 
+              ?>
+              
+              </td>
+            </tr>
 		        </tbody>
 		        <tfoot>
 		        </tfoot>
