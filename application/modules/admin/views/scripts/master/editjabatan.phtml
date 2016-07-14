@@ -19,38 +19,46 @@
   <div class="form-group">
 	    <label for="nama" class="col-sm-2 control-label">Nama Jabatan</label>
 	    <div class="col-sm-10">
-	      <input type="text" class="form-control" id="nama" name="nama">
+	      <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $this->det[0]['nama_jabatan'];?>">
 	    </div>
   </div>
   <div class="form-group">
 	    <label for="tingkat" class="col-sm-2 control-label">Tingkat Sekolah</label>
-	    <div class="col-sm-10">
+			<div class="col-sm-10">
+				<input type="hidden" class="form-control" id="id" name="id" value="<?php echo $this->det[0]['id_jabatan'];?>">
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="TK" name="tingkat[]">TK
+            <input type="checkbox" value="1" name="tingkat[]" class="tk" <?php if ($this->det[0]['tk'] == "1") echo "checked"; ?>>TK
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="SD" name="tingkat[]">SD
+            <input type="checkbox" value="1" name="tingkat[]" class="sd" <?php if ($this->det[0]['sd'] == "1") echo "checked"; ?>>SD
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="SMP" name="tingkat[]">SMP
+            <input type="checkbox" value="1" name="tingkat[]" class="smp" <?php if ($this->det[0]['smp'] == "1") echo "checked"; ?>>SMP
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="SMA" name="tingkat[]">SMA
+            <input type="checkbox" value="1" name="tingkat[]" class="sma" <?php if ($this->det[0]['sma'] == "1") echo "checked"; ?>>SMA
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="SMK" name="tingkat[]">SMK
+            <input type="checkbox" value="1" name="tingkat[]" class="smk" <?php if ($this->det[0]['smk'] == "1") echo "checked"; ?>>SMK
           </label>
         </div>
 	    </div>
+			<div style="display:none;">
+				<input type="text" name="tk" value="<?php if ($this->det[0]['tk'] == "1") { echo "1"; } else { echo "0";}?>" class="tk">
+				<input type="text" name="sd" value="<?php if ($this->det[0]['sd'] == "1") { echo "1"; } else { echo "0";}?>" class="sd">
+				<input type="text" name="smp" value="<?php if ($this->det[0]['smp'] == "1") { echo "1"; } else { echo "0";}?>" class="smp">
+				<input type="text" name="sma" value="<?php if ($this->det[0]['sma'] == "1") { echo "1"; } else { echo "0";}?>" class="sma">
+				<input type="text" name="smk" value="<?php if ($this->det[0]['smk'] == "1") { echo "1"; } else { echo "0";}?>" class="smk">
+			</div>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
@@ -62,3 +70,16 @@
 </form>
 </div>
 </html>
+<script type="text/javascript">
+	$(document).ready(function () {
+    $(":checkbox").on('click', function() {
+				var val_attr = $(this).attr('class');
+        var string = $(this).val();
+				if($(':text.'+val_attr).val() == 0){
+					$(':text.'+val_attr).val(string);
+				} else {
+					$(':text.'+val_attr).val('0');
+				}
+    });
+	});
+</script>

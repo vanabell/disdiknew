@@ -276,6 +276,16 @@ class Admin_Model_DbTables_MasterModel extends Zend_Db_Table_Abstract {
     }
  }
 
+ public function getJabatandet($id) {
+  try {
+    $select="SELECT * FROM jabatan where id_jabatan='".$id."'";
+    $rows=$this->_db->fetchAll($select);
+    return $rows;
+  } catch (Zend_Exception $e) {
+    return $e->getMessage();
+  }
+}
+
  public function insertJabatan($data) {
      try {
        $stmt=$this->_db->prepare("INSERT INTO jabatan
@@ -293,13 +303,55 @@ class Admin_Model_DbTables_MasterModel extends Zend_Db_Table_Abstract {
                             :smk)");
 
        $stmt->bindParam(':nama', $data['nama']);
-       $stmt->bindParam(':tingkat', $data['tingkat']);
+       $stmt->bindParam(':tk', $data['tk']);
+       $stmt->bindParam(':sd', $data['sd']);
+       $stmt->bindParam(':smp', $data['smp']);
+       $stmt->bindParam(':sma', $data['sma']);
+       $stmt->bindParam(':smk', $data['smk']);
        $a = $stmt->execute();
 
        return true;
      } catch (Zend_Exception $e) {
        return $e->getMessage();
      }
+ }
+
+ public function updateJabatan($data) {
+     try {
+       $stmt=$this->_db->prepare("UPDATE jabatan SET
+                     nama_jabatan=:nama,
+                     tk=:tk,
+                     sd=:sd,
+                     smp=:smp,
+                     sma=:sma,
+                     smk=:smk
+                     WHERE id_jabatan=:id" );
+
+       $stmt->bindParam(':id', $data['i']);
+       $stmt->bindParam(':nama', $data['nama']);
+       $stmt->bindParam(':tk', $data['tk']);
+       $stmt->bindParam(':sd', $data['sd']);
+       $stmt->bindParam(':smp', $data['smp']);
+       $stmt->bindParam(':sma', $data['sma']);
+       $stmt->bindParam(':smk', $data['smk']);
+       $a = $stmt->execute();
+
+       return true;
+     } catch (Zend_Exception $e) {
+       return array("sts"=>false,"msg"=>$e->getMessage());
+     }
+ }
+
+ public function delJabatan($id) {
+   //Zend_Debug::dump($id);die();
+   try{
+     $stmt1 = $this->_db->prepare("DELETE FROM jabatan where id_jabatan=:id");
+     $stmt1->bindParam(':id', $id);
+     $a = $stmt1->execute();
+     return $a;
+   } catch(Zend_Db_Exception $e) {
+     return array("sts"=>false,"msg"=>$e->getMessage());
+   }
  }
 
   /* MASTER STATUS PEGAWAI */

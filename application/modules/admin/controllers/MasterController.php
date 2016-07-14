@@ -9,7 +9,7 @@ class Admin_MasterController extends Zend_Controller_Action {
         $paging['lnum'][$a] = $int+1;
         $a++;
       }else if($a == 2)
-      { 
+      {
         $paging['lnum'][$a] = $int+1;
         $a++;
         $int = $totpage;
@@ -19,15 +19,15 @@ class Admin_MasterController extends Zend_Controller_Action {
     {
       $paging['fnum'][0] = $curpage - 1;
       $paging['fnum'][1] = $curpage - 2;
-      
-    } else if($curpage > 1) 
+
+    } else if($curpage > 1)
     {
-      
+
       $paging['fnum'][0] = $curpage - 1;
     }
-  
+
     return $paging;
-  
+
   }
 
     public function indexAction() {
@@ -458,9 +458,45 @@ class Admin_MasterController extends Zend_Controller_Action {
   	}
     public function editjabatanAction() {
   		$this->_helper->layout->setLayout('layoutadmin');
+      $model = new Admin_Model_MasterModel();
+  		$req = $this->getRequest();
+  		$id = $req->getParam('p');
+
+  		$det = $model->getJabatandet($id);
+  		$this->view->det = $det;
+  		if ($this->_request->isPost()) {
+  			$Dataform = $this->_request->getPost();
+  			/*Zend_Debug::dump($Dataform);die();*/
+  			if($Dataform['nama']==null) {
+  				$this->view->message = 'Please Fill out The Form First!';
+  			} else {
+  				//Zend_Debug::dump($Dataform);die();
+  				$insert = $model->updateJabatan($Dataform);
+  			}
+
+  			if($insert===true) {
+  				$this->view->msg = 'Insert Success';
+  			} else {
+  				$this->view->message = 'Insert Failed';
+  			}
+
+  		}
+  		$id = $req->getParam('p');
+  		if($id!='') {
+  			$det = $model->getJabatandet($id);
+  			$this->view->det = $det;
+  		}
   	}
     public function deljabatanAction() {
-
+      $model = new Admin_Model_MasterModel();
+      $req = $this->getRequest();
+      $id = $req->getParam('key');
+      $delete = $model->delJabatan($id);
+      return $this->_helper->json(
+          array(
+              'edit' => $delete,
+          )
+      );
   	}
     /* End Jabatan CRUD */
 
