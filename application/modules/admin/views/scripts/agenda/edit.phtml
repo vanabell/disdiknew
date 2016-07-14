@@ -4,7 +4,7 @@
 </br>
 <script type="text/javascript">
     $(function () {
-        $('#tgl').datetimepicker();
+        $('#tgl').datetimepicker({format: 'Y-MM-DD HH:mm'});
     });
 </script>
 <form class="form-horizontal" role="form" method="post" autocomplete="off" enctype="multipart/form-data">
@@ -24,14 +24,15 @@
   <div class="form-group">
 	    <label for="nama" class="col-sm-2 control-label">Judul Agenda</label>
 	    <div class="col-sm-10">
-	      <input type="text" class="form-control" id="nama" name="nama">
+	      <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $this->det[0]['nama_agenda']?>">
+        <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $this->det[0]['id_agenda']?>">
 	    </div>
   </div>
   <div class="form-group">
 	    <label for="tgl" class="col-sm-2 control-label">Tanggal dan Waktu</label>
 	    <div class="col-sm-10">
         <div class='input-group date' id='tgl'>
-            <input type='text' name="tgl" class="form-control" />
+            <input type='text' name="tgl" class="form-control" value="<?php echo $this->det[0]['tgl']?>"/>
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
             </span>
@@ -41,7 +42,7 @@
   <div class="form-group">
     <label for="detail" class="col-sm-2 control-label">Detail Agenda</label>
      <div class="col-sm-10">
-     	<textarea id="detail" name="detail"></textarea>
+     	<textarea id="detail" name="detail"><?php echo $this->det[0]['isi']?></textarea>
 						<script type="text/javascript">
 							CKEDITOR.replace( 'detail',  {
 	allowedContent: true

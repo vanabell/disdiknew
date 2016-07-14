@@ -42,65 +42,37 @@ class Admin_AgendaController extends Zend_Controller_Action {
 
 	public function editAction() {
 		$this->_helper->layout->setLayout('layoutadmin');
-		$model = new Admin_Model_ArtikelModel();
+		$model = new Admin_Model_AgendaModel();
 		$req = $this->getRequest();
 		$id = $req->getParam('p');
 
-		$det = $model->getAllArtikelDet($id);
+		$det = $model->getDetAgenda($id) ;
 		$this->view->det = $det;
 		if ($this->_request->isPost()) {
 			$Dataform = $this->_request->getPost();
-			$upload = new Zend_File_Transfer();
-			$info = $upload->getFileInfo('file');
-			$file=$info['file']['name'];
-			$size = $info['file']['size'];
-			/*Zend_Debug::dump($Dataform);die();*/
-			if($Dataform['nama']==null || $Dataform['tos']==null) {
-				$this->view->message = 'Please Fill out The Form First!';
-			} else if($size>=600000) {
-					$this->view->message = 'Image Maximum 600Kb';
-			} else {
-				if($file!="") {
-					$filename = $Dataform['image'];
-					$path = realpath(APPLICATION_PATH . '/../public/img/Artikel/');
-					//Zend_Debug::dump($path.'/'.$filename);die();
-					if (file_exists($path.'/'.$filename)&&$filename!='')
-					{
-						unlink($path.'/'.$filename);
-						$a =  move_uploaded_file($info['file']['tmp_name'],$path.'/'.$filename);
-					} else {
-						$filename = 'Artikel-'.$Dataform['id'].'.jpg';
-						$a =  move_uploaded_file($info['file']['tmp_name'],$path.'/'.$filename);
-					}
-				} else {
-					$filename = $Dataform['image'];
-				}
-				$time = new Zend_Date();
-				$tgl = $time->get('YYYY-MM-dd HH:mm:ss');
-				$insert = $model->upArtikel($Dataform, $tgl, $filename);
-				if($insert===true) {
-					$this->view->msg = 'Insert Success';
-				} else {
-					$this->view->message = 'Insert Failed';
-				}
-			}
-
+			$insert = $model->updateAgenda($Dataform);
+			if($insert===true) {
+  				$this->view->msg = 'Insert Success';
+  			} else {
+  				$this->view->message = 'Insert Failed';
+  			}
 		}
 
 		$id = $req->getParam('p');
 		if($id!='') {
-			$det = $model->getAllArtikelDet($id);
+			$det = $model->getDetAgenda($id);
+			//Zend_Debug::dump($det);die();
 			$this->view->det = $det;
 		}
 	}
 
 
 	public function deleteAction() {
-		$model = new Admin_Model_EditorModel();
+		$model = new Admin_Model_AgendaModel();
 		$req = $this->getRequest();
 		$id = $req->getParam('key');
 
-		$delete = $model->delAdmin($id);
+		$delete = $model->delAgenda($id);
 
 		return $this->_helper->json(
 				array(
