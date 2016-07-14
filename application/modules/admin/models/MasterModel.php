@@ -277,10 +277,43 @@ class Admin_Model_MasterModel {
 		return $result;
 	}
 
+	public function getJabatandet($nama) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->getJabatandet($nama);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function updateJabatan($nama) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->updateJabatan($nama);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
 	public function insertJabatan($data) {
 		$productTable = $this->_dbTableProduct;
 		try {
 			$result = $productTable->insertJabatan($data);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function delJabatan($id) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->delJabatan($id);
 
 		} catch (Zend_Exception $e) {
 			return $e->getMessage();
