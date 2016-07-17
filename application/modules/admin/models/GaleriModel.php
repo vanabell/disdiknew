@@ -63,4 +63,60 @@ class Admin_Model_GaleriModel {
     }
     return $result;
   }
+
+  /*foto*/
+  public function addPhoto($filename, $data) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->addPhoto($filename, $data);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function getFotolist() {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->getFotolist();
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function getFotodet($id) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->getFotodet($id);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function upPhoto($filename, $data) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->upPhoto($filename, $data);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function delPhoto($id) {
+    $productTable = $this->_dbTableProduct;
+    try {
+      $result = $productTable->delPhoto($id);
+
+    } catch (Zend_Exception $e) {
+      return $e->getMessage();
+    }
+    return $result;
+  }
 }

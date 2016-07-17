@@ -17,46 +17,39 @@
                           <th>Opsi</th>
                       </tr>
                   </thead>
+                  <?php $a=0;?>
                   <tbody>
-                      <tr style="border-bottom: 1px solid #e6e6e6;">
-                          <td>1.</td>
-                          <td class="event-date p2kgkdate">
-                              25/05/2016 s.d 29/05/2016
-                          </td>
-                          <td>Gelombang 1</td>
-                          <td>
-                              <ol>
-                                <li>Pelatihan Junior Network Administration dan Sertifikasi Junior Network Administrator</li>
-                                <li>Pelatihan Junior Programmer dan Sertifikasi Junior Programmer</li>
-                              </ol>
-                          </td>
-                          <td>
-                              Pendaftaran masih buka
-                          </td>
-                          <td>
-                              <a href="#">Daftar</a>
-                          </td>
-                      </tr>
+                      <?php foreach ($this->data as $data) {
+                    $b = $a+1;
+                    ?>
 
                       <tr style="border-bottom: 1px solid #e6e6e6;">
-                          <td>2.</td>
+                          <td><?php echo $b;?></td>
                           <td class="event-date p2kgkdate">
-                              25/05/2016 s.d 29/05/2016
+                             <?php echo $data['tgl'];?>
                           </td>
-                          <td>Gelombang 1</td>
+                          <td>Gelombang <?php echo $data['gelombang'];?></td>
                           <td>
-                              <ol>
-                                <li>Pelatihan Junior Network Administration dan Sertifikasi Junior Network Administrator</li>
-                                <li>Pelatihan Junior Programmer dan Sertifikasi Junior Programmer</li>
-                              </ol>
+                              <?php echo $data['nama_pelatihan'];?>
                           </td>
                           <td>
-                              Pendaftaran masih buka
+                              <?php 
+                                if($data['status_pendaftaran']==1){
+                                  echo 'Pendaftaran Masih Di Buka';
+                                } else {
+                                  echo 'Pendaftaran Tutup';
+                                }
+                              ?>
                           </td>
+                          <?php if ($data['status_pendaftaran']==1) {?>
                           <td>
                               <a href="#">Daftar</a>
                           </td>
+                          <?php }?>
                       </tr>
+                  <?php
+                    $a++; 
+                      } ?>
                   </tbody>
               </table><!-- .events-table end -->
             </div>

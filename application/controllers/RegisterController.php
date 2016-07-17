@@ -85,7 +85,7 @@ class RegisterController extends Zend_Controller_Action
 
             $cekemail = $model->cekEmailSiswa($Dataform['email'], $Dataform['nis']);
             if($Dataform['email'] != "" && $Dataform['nis'] != "") {
-                //Zend_Debug::dump($cekemail);die();
+               // Zend_Debug::dump($cekemail);die();
                 if(count($cekemail)==0) {
                     $password = md5($Dataform['email'].$Dataform['password']);
 

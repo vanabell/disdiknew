@@ -38,7 +38,7 @@ class LoginController extends Zend_Controller_Action
 			} else {
 				$passwordsiswa = $datasiswa[0]['password'];
         // Zend_Debug::dump($datasiswa);die();
-				if(count($datasiswa)!=0) {
+				if($passwordsiswa==$passencrypt && count($datasiswa)!=0) {
 					// Zend_Debug::dump($datasiswa);die();
 					$sessionuser = Zend_Registry::get('session_user');
 					$sessionuser->user_id = $datasiswa[0]['nama_lengkap'];
