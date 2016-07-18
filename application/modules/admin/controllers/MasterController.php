@@ -227,10 +227,10 @@ class Admin_MasterController extends Zend_Controller_Action {
       {
         $curpage = $req->getParam('page');
       }
-      $totpage = ceil(count($listsekolah)/10);
+      $totpage = ceil(count($listsekolah)/20);
       if($totpage > 1) {
       $paginator = Zend_Paginator::factory($listsekolah);
-      $paginator->setItemCountPerPage(10);
+      $paginator->setItemCountPerPage(20);
       $paginator->setCurrentPageNumber($curpage);
       $this->view->paginator=$paginator;
       $this->view->curpage = $curpage;
@@ -249,7 +249,25 @@ class Admin_MasterController extends Zend_Controller_Action {
   				$this->view->msg = 'Inputan tidak boleh kosong';
   			} else {
   				$data = $model->search($kategori, $kunci);
-  				$this->view->detail = $data;
+  				//$this->view->detail = $data;
+          $req = $this->getRequest();
+          //$page=$this->_getParam('page',1);
+          $curpage = 1;
+          if($req->getParam('page'))
+          {
+            $curpage = $req->getParam('page');
+          }
+          $totpage = ceil(count($data)/20);
+          if($totpage > 1) {
+          $paginator = Zend_Paginator::factory($data);
+          $paginator->setItemCountPerPage(20);
+          $paginator->setCurrentPageNumber($curpage);
+          $this->view->paginator=$paginator;
+          $this->view->curpage = $curpage;
+          $this->view->pagenum = $this->pagenumber($totpage,$curpage);
+          } else {
+            $this->view->paginator=$data;
+          }
   			}
   		}
   	}
