@@ -62,12 +62,6 @@ class User_3e72758f0fc77cdad787f58b41e9985fController extends Zend_Controller_Ac
         // action body
     }
 
-		public function detailAction()
-    {
-        $this->_helper->layout->setLayout('layoutuser');
-        // action body
-    }
-
     public function nilaiAction()
     {
         $this->_helper->layout->setLayout('layoutuser');
@@ -83,9 +77,10 @@ class User_3e72758f0fc77cdad787f58b41e9985fController extends Zend_Controller_Ac
     public function daftarAction() {
         $model = new User_Model_GuruModel();
         $req = $this->getRequest();
-        $id_peserta = $req->getParam('key');
-        $id_pelatihan = $req->getParam('key2');
-      //  Zend_Debug::dump($id_peserta.' '.$id_latih);die();
+				$sessionuser = Zend_Registry::get('session_user');
+				$id_peserta = $sessionuser->noreg;
+        $id_pelatihan = $req->getParam('key');
+      //  Zend_Debug::dump($id_peserta.' '.$id_pelatihan);die();
         $daftar = $model->daftar($id_peserta, $id_pelatihan);
 
         return $this->_helper->json(

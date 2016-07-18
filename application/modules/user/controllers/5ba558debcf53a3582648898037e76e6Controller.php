@@ -72,4 +72,20 @@ class User_5ba558debcf53a3582648898037e76e6Controller extends Zend_Controller_Ac
         $this->_helper->layout->setLayout('layoutuser');
         // action body
     }
+		public function daftarAction() {
+        $model = new User_Model_SiswaModel();
+        $req = $this->getRequest();
+				$sessionuser = Zend_Registry::get('session_user');
+				$id_peserta = $sessionuser->noreg;
+        $id_pelatihan = $req->getParam('key');
+      //  Zend_Debug::dump($id_peserta.' '.$id_pelatihan);die();
+        $daftar = $model->daftar($id_peserta, $id_pelatihan);
+
+        return $this->_helper->json(
+                array(
+                        'edit' => $daftar,
+                )
+        );
+    }
+}
 }

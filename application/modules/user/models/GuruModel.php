@@ -87,24 +87,24 @@ class User_Model_GuruModel {
   	}
 
     public function getPelatihan($status) {
-    $productTable = $this->_dbTableProduct;
-    try {
-      $result = $productTable->getPelatihan($status);
+	    $productTable = $this->_dbTableProduct;
+	    try {
+	      $result = $productTable->getPelatihan($status);
 
-    } catch (Zend_Exception $e) {
-      return $e->getMessage();
-    }
-    return $result;
-  }
+	    } catch (Zend_Exception $e) {
+	      return $e->getMessage();
+	    }
+	    return $result;
+	  }
 
   public function daftar($id_peserta, $id_latih) {
-    $productTable = $this->_dbTableProduct;
-    try {
-      $result = $productTable->daftar($id_peserta, $id_latih);
+	    $productTable = $this->_dbTableProduct;
+	    try {
+	      $result = $productTable->daftar($id_peserta, $id_latih);
 
-    } catch (Zend_Exception $e) {
-      return $e->getMessage();
-    }
-    return $result;
+	    } catch (Zend_Exception $e) {
+	      return $e->getMessage();
+	    }
+	    return $result;
   }
 }

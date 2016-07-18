@@ -46,4 +46,39 @@ class User_Model_DbTables_SiswaModel extends Zend_Db_Table_Abstract {
 			 return array("sts"=>false,"msg"=>$e->getMessage());
 		 }
 	}
+
+	public function getPelatihan($tk) {
+		try {
+			$select="SELECT * FROM  pelatihan
+					 WHERE  status_peserta!=1 and (tingkat_peserta='".$tk."' or tingkat_peserta='ALL')";
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+	
+	public function daftar($id_peserta, $id_latih) {
+		try {
+			$stmt=$this->_db->prepare("INSERT INTO pendaftaran
+													(
+														id_peserta,
+														id_pelatihan
+													)
+													VALUES
+													(
+														:id,
+														:name
+													)
+													"
+			);
+			$stmt->bindParam(':id', $id_peserta);
+			$stmt->bindParam(':name', $id_latih);
+			$a = $stmt->execute();
+			return true;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
 }
