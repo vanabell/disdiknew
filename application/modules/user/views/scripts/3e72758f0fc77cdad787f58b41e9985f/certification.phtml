@@ -33,7 +33,7 @@
                               <?php echo $data['nama_pelatihan'];?>
                           </td>
                           <td>
-                              <?php 
+                              <?php
                                 if($data['status_pendaftaran']==1){
                                   echo 'Pendaftaran Masih Di Buka';
                                 } else {
@@ -44,11 +44,17 @@
                           <?php if ($data['status_pendaftaran']==1) {?>
                           <td>
                               <a href="#">Daftar</a>
+                              <span class="separator">|</span>
+                              <a href="<?php echo $this->baseUrl();?>/user/3e72758f0fc77cdad787f58b41e9985f/detail/p/<?php echo $data['id_pelatihan'];?>"> Detail</a>
                           </td>
+                          <?php } else { ?>
+                            <td>
+                              <a href="#"> Detail</a>
+                            </td>
                           <?php }?>
                       </tr>
                   <?php
-                    $a++; 
+                    $a++;
                       } ?>
                   </tbody>
               </table><!-- .events-table end -->
