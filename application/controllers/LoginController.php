@@ -33,7 +33,7 @@ class LoginController extends Zend_Controller_Action
 					$sessionuser->tingkat = $data[0]['tingkat_sekolah'];
 					$this->_helper->redirector('index','3e72758f0fc77cdad787f58b41e9985f','user');
 				} else {
-					$this->view->message = 'Wrong Password or Email, Please Try Again..';
+					$this->view->message = '<div class="alert alert-danger saved">Email atau Password salah, Coba lagi..</div>';
 				}
 			} else {
 				$passwordsiswa = $datasiswa[0]['password'];
@@ -47,7 +47,7 @@ class LoginController extends Zend_Controller_Action
 					$sessionuser->tingkat = $datasiswa[0]['tingkat_sekolah'];
 					$this->_helper->redirector('index','5ba558debcf53a3582648898037e76e6','user');
 				} else {
-					$this->view->message = 'Wrong Password or Email, Please Try Again..';
+					$this->view->message = '<div class="alert alert-danger saved">Email atau Password salah, Coba lagi..</div>';
 				}
 			}
 
