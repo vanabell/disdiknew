@@ -24,6 +24,11 @@
       </div><!-- .custom-heading end -->
         <div class="row">
           <div class="col-md-6">
+            <?php
+            if($this->message != '') {
+              echo $this->message;
+            }
+            ?>
             <form class="form-horizontal wpcf7" method="post" action="">
               <fieldset>
                   <label for="inputEmail">
