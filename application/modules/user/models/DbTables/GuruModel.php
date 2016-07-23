@@ -42,11 +42,89 @@ class User_Model_DbTables_GuruModel extends Zend_Db_Table_Abstract {
 
     public function updateGuru($data) {
        try {
+        $gol = $data['gol_ruang'].$data['ruang'];
          $stmt=$this->_db->prepare("UPDATE master_guru SET
-                       nama_kec=:nama    										    									   WHERE nip=:id" );
+                                    jenis_sekolah=:js, jenis_peg=:jp,
+                                    kec=:kc, tingkat_sekolah=:ts, 
+                                    nama_sekolah=:ns, umur=:umur,
+                                    masa_kerja=:mk, jkelamin=:jk,
+                                    mapel=:map, status_sek=:sk,
+                                    stat_peg=:sp, golruang=:gol,
+                                    jabatan=:jab, sertifikasi=:sert,
+                                    thn_sertifikasi=:thn_sert, pendidikan=:pnd,
+                                    thn_pendidikan=:thnpend, domisili=:dom,
+                                    nama_lengkap=:nama, no_tlp=:tlp, alamat=:almt
+                                     WHERE nip=:id" );
 
-         $stmt->bindParam(':id', $data['id']);
+         $stmt->bindParam(':id', $data['nip']);
+         $stmt->bindParam(':js', $data['jenis_sek']);
+         $stmt->bindParam(':jp', $data['jenis_peg']);
+         $stmt->bindParam(':kc', $data['kec']);
+         $stmt->bindParam(':ts', $data['tingkat_sekolah']);
+         $stmt->bindParam(':ns', $data['nama_sekolah']);
+         $stmt->bindParam(':umur', $data['umur']);
+         $stmt->bindParam(':mk', $data['masa_kerja']);
+         $stmt->bindParam(':jk', $data['jkelamin']);
+         $stmt->bindParam(':map', $data['mapel']);
+         $stmt->bindParam(':sk', $data['status']);
+         $stmt->bindParam(':sp', $data['stat_peg']);
+         $stmt->bindParam(':gol', $gol);
+         $stmt->bindParam(':jab', $data['jabatan']);
+         $stmt->bindParam(':sert', $data['sertifikasi']);
+         $stmt->bindParam(':thn_sert', $data['thn_sertifikasi']);
+         $stmt->bindParam(':thnpend', $data['thn_pendidikan']);
+         $stmt->bindParam(':pnd', $data['pendidikan']);
+         $stmt->bindParam(':dom', $data['domisili']);
          $stmt->bindParam(':nama', $data['nama']);
+         $stmt->bindParam(':tlp', $data['tlp']);
+         $stmt->bindParam(':almt', $data['alamat']);
+         $a = $stmt->execute();
+
+         return true;
+       } catch (Zend_Exception $e) {
+         return array("sts"=>false,"msg"=>$e->getMessage());
+       }
+    }
+
+    public function updateGuruPhoto($data, $file) {
+       try {
+        $gol = $data['gol_ruang'].$data['ruang'];
+         $stmt=$this->_db->prepare("UPDATE master_guru SET
+                                    jenis_sekolah=:js, jenis_peg=:jp,
+                                    kec=:kc, tingkat_sekolah=:ts, 
+                                    nama_sekolah=:ns, umur=:umur,
+                                    masa_kerja=:mk, jkelamin=:jk,
+                                    mapel=:map, status_sek=:sk,
+                                    stat_peg=:sp, golruang=:gol,
+                                    jabatan=:jab, sertifikasi=:sert,
+                                    thn_sertifikasi=:thn_sert, pendidikan=:pnd,
+                                    thn_pendidikan=:thnpend, domisili=:dom,
+                                    nama_lengkap=:nama, no_tlp=:tlp, alamat=:almt, foto=:foto
+                                     WHERE nip=:id" );
+
+         $stmt->bindParam(':id', $data['nip']);
+         $stmt->bindParam(':js', $data['jenis_sek']);
+         $stmt->bindParam(':jp', $data['jenis_peg']);
+         $stmt->bindParam(':kc', $data['kec']);
+         $stmt->bindParam(':ts', $data['tingkat_sekolah']);
+         $stmt->bindParam(':ns', $data['nama_sekolah']);
+         $stmt->bindParam(':umur', $data['umur']);
+         $stmt->bindParam(':mk', $data['masa_kerja']);
+         $stmt->bindParam(':jk', $data['jkelamin']);
+         $stmt->bindParam(':map', $data['mapel']);
+         $stmt->bindParam(':sk', $data['status']);
+         $stmt->bindParam(':sp', $data['stat_peg']);
+         $stmt->bindParam(':gol', $gol);
+         $stmt->bindParam(':jab', $data['jabatan']);
+         $stmt->bindParam(':sert', $data['sertifikasi']);
+         $stmt->bindParam(':thn_sert', $data['thn_sertifikasi']);
+         $stmt->bindParam(':thnpend', $data['thn_pendidikan']);
+         $stmt->bindParam(':pnd', $data['pendidikan']);
+         $stmt->bindParam(':dom', $data['domisili']);
+         $stmt->bindParam(':nama', $data['nama']);
+         $stmt->bindParam(':tlp', $data['tlp']);
+         $stmt->bindParam(':almt', $data['alamat']);
+         $stmt->bindParam(':foto', $file);
          $a = $stmt->execute();
 
          return true;

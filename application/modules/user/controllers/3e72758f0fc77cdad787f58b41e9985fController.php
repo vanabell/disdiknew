@@ -22,22 +22,45 @@ class User_3e72758f0fc77cdad787f58b41e9985fController extends Zend_Controller_Ac
 	  		$this->view->det = $det;
 	  		if ($this->_request->isPost()) {
 	  			$Dataform = $this->_request->getPost();
-	  			/*Zend_Debug::dump($Dataform);die();*/
-	  			if($Dataform['nama']==null) {
-	  				$this->view->message = 'Please Fill out The Form First!';
-	  			} else {
-	  				//Zend_Debug::dump($Dataform);die();
-	  				$insert = $model->updateGuru($Dataform);
-	  			}
+                $upload = new Zend_File_Transfer();
+                $info = $upload->getFileInfo('file');
+                $size = $info['file']['size'];
+	  			/*Zend_Debug::dump($Dataform);die();*/    
+	  			if($Dataform['nip']==null) {
+                      $this->view->message = 'Please Fill out The Form First!';
+                    } else if($size>=655360) {
+                      $this->view->message = 'Image Maximum 600Kb';
+                    } else {
+                      $filename=$info['file']['name'];
+                     
+                      if($filename!="") {
+                        $extension=end(explode(".", $filename));
+                        $newfilename= $Dataform['nip'].".".$extension;
+                        $path = realpath(APPLICATION_PATH . '/../public/images/profilguru/');
+                        //var_dump($path);die();
+                        unlink($path.'/'.$newfilename);
+                          $a =  move_uploaded_file($info['file']['tmp_name'],$path.'/'.$newfilename);
+                          $up = $model->updateGuruPhoto($Dataform,$newfilename);
+                          Zend_Debug::dump($up);die();
+                          if($up==true){
+                           $this->view->msg = 'Insert Sukses';
+                          } else {
+                             $this->view->massage = 'Insert Gagal';
+                          }
+                      } else {
 
-	  			if($insert===true) {
-	  				$this->view->msg = 'Insert Success';
-	  			} else {
-	  				$this->view->message = 'Insert Failed';
-	  			}
-
+                         $up = $model->updateGuru($Dataform);
+                         //Zend_Debug::dump($up);die();
+                           //
+                          if($up==true){
+                           $this->view->msg = 'Insert Sukses';
+                          } else {
+                             $this->view->massage = 'Insert Gagal';
+                          }
+                      }
+                  }
 	  		}
-				$id = $sessionuser->noreg;
+			$id = $sessionuser->noreg;
 	  		if($id!='') {
 	  			$det = $model->getGurudet($id);
 	  			$this->view->det = $det;

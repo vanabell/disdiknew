@@ -5,7 +5,7 @@
           <div class="custom-heading">
               <h2>Edit My Account</h2>
           </div><!-- .custom-heading end -->
-          <form class="login-form wpcf7" action="#" method="post">
+          <form class="login-form wpcf7" action="#" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-md-6 custom-bkg bkg-dark-blue dark">
                 <fieldset>
@@ -196,6 +196,7 @@
                   <label for="alamat">Alamat <span class="required">*</span></label>
                   <textarea name="alamat" rows="8" cols="40" class="input-text  wpcf7-textarea"><?php echo $this->det[0]['alamat'];?></textarea>
                 </fieldset>
+                <!--
                 <fieldset>
                   <label for="email">Email <span class="required">*</span></label>
                   <input type="text" name="email" id="email" value="<?php echo $this->det[0]['email'];?>" class="input-text wpcf7-text">
@@ -208,9 +209,10 @@
                   <label for="confirm">Confrim Password <span class="required">*</span></label>
                   <input type="password" name="confirm" id="confirm" value="" class="input-text wpcf7-text">
                 </fieldset>
+                -->
                 <fieldset>
                   <label for="foto">Upload Foto <span class="required">*</span></label>
-                  <input type="file" name="foto" id="foto" class="input-text">
+                  <input type="file" name="file" id="file" class="input-text">
                 </fieldset>
                 <input type="submit" class="wpcf7-submit" value="Edit" />
               </div>
