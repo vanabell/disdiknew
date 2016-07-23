@@ -32,6 +32,17 @@ class Application_Model_RegisterModel {
 		return $result;
 	}
 
+	public function loadAllEmail($data,$akses) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->loadAllEmail($data,$akses);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
 	public function insertSiswa($data, $password) {
 		$productTable = $this->_dbTableProduct;
 		try {

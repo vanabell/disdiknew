@@ -120,7 +120,7 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 														tingkat_sekolah,
 														nama_sekolah,
 														jkelamin,
-														status_sek	
+														status_sek
 													)
 													VALUES
 													(
@@ -154,6 +154,21 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 			$a = $stmt->execute();
 
 			return true;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+
+	public function loadAllEmail($data,$akses) {
+		try {
+			if($akses == "guru") {
+				$tb = "master_guru";
+			} else if ($akses == "siswa") {
+				$tb = "master_siswa";
+			}
+			$select="SELECT * FROM $tb where email='".$data."'";
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
 		} catch (Zend_Exception $e) {
 			return $e->getMessage();
 		}
@@ -222,7 +237,7 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 			} else {
 				$select="SELECT * FROM jabatan where smk=1 order by nama_jabatan asc";
 			}
-			
+
 			$rows=$this->_db->fetchAll($select);
 			return $rows;
 		} catch (Zend_Exception $e) {
