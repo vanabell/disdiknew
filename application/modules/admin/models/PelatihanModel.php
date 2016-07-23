@@ -20,4 +20,17 @@ class Admin_Model_PelatihanModel {
 		return $result;
 	}
 
+	public function insertPelatihan($data) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->insertPelatihan($data);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	
+
 }

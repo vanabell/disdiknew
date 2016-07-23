@@ -42,20 +42,21 @@ class User_Model_SiswaModel {
 		return $result;
 	}
 
-	public function updateSiswa($data) {
+	public function upProfil($data) {
 		$productTable = $this->_dbTableProduct;
 		try {
-			$result = $productTable->updateSiswa($data);
+			$result = $productTable->upProfil($data);
 
 		} catch (Zend_Exception $e) {
 			return $e->getMessage();
 		}
 		return $result;
 	}
-	public function getPelatihan($status) {
+
+	public function upProfilPhoto($data,$file) {
 		$productTable = $this->_dbTableProduct;
 		try {
-			$result = $productTable->getPelatihan($status);
+			$result = $productTable->upProfilPhoto($data,$file);
 
 		} catch (Zend_Exception $e) {
 			return $e->getMessage();
@@ -73,4 +74,28 @@ class User_Model_SiswaModel {
 		}
 		return $result;
 	}
+
+	public function getDetSekolah($id) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->getDetSekolah($id);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function getDetKecamatan($id) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->getDetKecamatan($id);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
 }
+
+
