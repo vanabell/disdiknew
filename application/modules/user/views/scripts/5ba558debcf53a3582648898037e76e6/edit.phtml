@@ -10,7 +10,7 @@
               <div class="col-md-12 custom-bkg bkg-dark-blue dark">
                 <fieldset>
                   <label for="nis">NIS <span class="required">*</span></label>
-                  <input type="text" name="nis" id="nis" value="<?php echo $this->det[0]['nis'];?>" class="input-text wpcf7-text">
+                  <input type="text" name="nis" id="nis" value="<?php echo $this->det[0]['nis'];?>" class="input-text wpcf7-text" readonly>
                 </fieldset>
                 <fieldset>
                   <label for="nama">Nama Lengkap <span class="required">*</span></label>
@@ -57,12 +57,12 @@
                     $model = new User_Model_SiswaModel();
                     $kec = $model->getDetKecamatan($this->det[0]['kec']);
                   ?>
-                  <input type="text" name='kecnama' class="input-text wpcf7-select namasklh" id="kecnama" value="<?php echo $kec[0]['nama_kec'];?>">
-                  <input type="hidden" name="kec" class="input-text wpcf7-select namasklh" id="kec" value="<?php echo $kec[0]['id_kec'];?>">
+                  <input type="text" name='kecnama' class="input-text wpcf7-select" id="kecnama" value="<?php echo $kec[0]['nama_kec'];?>" readonly>
+                  <input type="hidden" name="kec" class="input-text wpcf7-select" id="kec" value="<?php echo $kec[0]['id_kec'];?>">
                 </fieldset>
                 <fieldset>
                   <label for="tingkat_sekolah">Tingkat Sekolah <span class="required">*</span></label>
-                  <input type="text" name='tingkat_sekolah' class="input-text wpcf7-select namasklh" id="tingkat_sekolah" value="<?php echo $this->det[0]['tingkat_sekolah'];?>">
+                  <input type="text" name='tingkat_sekolah' class="input-text wpcf7-select" id="tingkat_sekolah" value="<?php echo $this->det[0]['tingkat_sekolah'];?>" readonly>
                 </fieldset>
                 <fieldset>
                   <label for="nama_sekolah">Nama Sekolah <span class="required">*</span></label>
@@ -70,8 +70,8 @@
                     $model = new User_Model_SiswaModel();
                     $namasklh = $model->getDetSekolah($this->det[0]['nama_sekolah']);
                   ?>
-                  <input type="text" name="namasekolah" class="input-text wpcf7-select namasklh" id="nama_sekolah" value="<?php echo $namasklh[0]['nama_sekolah'];?>">
-                  <input type="hidden" name="nama_sekolah" class="input-text wpcf7-select namasklh" id="nama_sekolah" value="<?php echo $namasklh[0]['induk_sekolah'];?>">
+                  <input type="text" name="namasekolah" class="input-text wpcf7-select" id="nama_sekolah" value="<?php echo $namasklh[0]['nama_sekolah'];?>" readonly>
+                  <input type="hidden" name="nama_sekolah" class="input-text wpcf7-select" id="nama_sekolah" value="<?php echo $namasklh[0]['induk_sekolah'];?>">
                 </fieldset>
                 <?php } else {?>
                 <fieldset>
@@ -102,7 +102,7 @@
                     <option value="">-- Pilih Tingkat Sekolah Dahulu--</option>
                   </select>
                 </fieldset>
-                <?php }?>
+                <?php } ?>
                 <input type="submit" class="wpcf7-submit" value="Edit" />
               </div>
             </div>

@@ -13,6 +13,28 @@ class RegisterController extends Zend_Controller_Action
         // action body
     }
 
+    public function cekallemailAction()
+    {
+      $request = $this->getRequest();
+      $email = $request->getParam('email');
+      $akses = $request->getParam('akses');
+      $model = new Application_Model_RegisterModel();
+        $data = $model->loadAllEmail($email,$akses);
+        if(count($data)==0) {
+          return $this->_helper->json(
+            array(
+              'data' => "",
+            )
+          );
+        } else {
+          return $this->_helper->json(
+            array(
+              'data' => "Data Sudah Ada!",
+            )
+          );
+        }
+    }
+
     public function guruAction()
     {
         if ($this->_request->isPost()) {
@@ -85,7 +107,7 @@ class RegisterController extends Zend_Controller_Action
 
             $cekemail = $model->cekEmailSiswa($Dataform['email'], $Dataform['nis']);
             if($Dataform['email'] != "" && $Dataform['nis'] != "") {
-               // Zend_Debug::dump($cekemail);die();
+              //  Zend_Debug::dump($cekemail);die();
                 if(count($cekemail)==0) {
                     $password = md5($Dataform['email'].$Dataform['password']);
 

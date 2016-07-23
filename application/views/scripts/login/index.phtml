@@ -34,13 +34,23 @@
                   <label for="inputEmail">
                       <span class="required">*</span> Email
                   </label>
-                  <input type="email" name="email" class="form-control wpcf7-text" id="inputEmail" placeholder="Email">
+                  <input type="email" name="email" class="form-control wpcf7-text" id="inputEmail" placeholder="Email" required="required">
               </fieldset>
               <fieldset>
                   <label for="inputPassword">
                       <span class="required">*</span> Password
                   </label>
-                  <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password">
+                  <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password" required="required">
+              </fieldset>
+              <fieldset>
+                  <label for="chooseAkses">
+                      <span class="required">*</span> Pilih Akses
+                  </label>
+                  <select class="form-control" name="akses" required="required">
+                    <option value="">-- Pilih Akses --</option>
+                    <option value="1">Guru</option>
+                    <option value="2">Siswa</option>
+                  </select>
               </fieldset>
               <fieldset style="width:auto; display:inline-block;">
                   <div class="required">
