@@ -75,6 +75,17 @@ class User_Model_GuruModel {
       return $result;
     }
 
+    public function updateGuruPhoto($data, $file) {
+      $productTable = $this->_dbTableProduct;
+      try {
+        $result = $productTable->updateGuruPhoto($data, $file);
+
+      } catch (Zend_Exception $e) {
+        return $e->getMessage();
+      }
+      return $result;
+    }
+
     public function getStatuspeglist() {
   		$productTable = $this->_dbTableProduct;
   		try {
