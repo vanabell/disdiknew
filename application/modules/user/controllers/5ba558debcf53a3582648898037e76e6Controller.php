@@ -22,19 +22,41 @@ class User_5ba558debcf53a3582648898037e76e6Controller extends Zend_Controller_Ac
 				$this->view->det = $det;
 				if ($this->_request->isPost()) {
 					$Dataform = $this->_request->getPost();
-					/*Zend_Debug::dump($Dataform);die();*/
-					if($Dataform['nama']==null) {
-						$this->view->message = 'Please Fill out The Form First!';
-					} else {
-						//Zend_Debug::dump($Dataform);die();
-						$insert = $model->updateSiswa($Dataform);
-					}
-
-					if($insert===true) {
-						$this->view->msg = 'Insert Success';
-					} else {
-						$this->view->message = 'Insert Failed';
-					}
+                    $upload = new Zend_File_Transfer();
+                    $info = $upload->getFileInfo('file');
+                    $size = $info['file']['size'];
+					
+					if($Dataform['nis']==null) {
+                      $this->view->message = 'Please Fill out The Form First!';
+                    } else if($size>=655360) {
+                      $this->view->message = 'Image Maximum 600Kb';
+                    } else {
+                      $filename=$info['file']['name'];
+                     
+                      if($filename!="") {
+                        $extension=end(explode(".", $filename));
+                        $newfilename= $Dataform['nis'].".".$extension;
+                        $path = realpath(APPLICATION_PATH . '/../public/images/profil/');
+                        //var_dump($path);die();
+                        unlink($path.'/'.$newfilename);
+                          $a =  move_uploaded_file($info['file']['tmp_name'],$path.'/'.$newfilename);
+                          $up = $model->upProfilPhoto($Dataform,$newfilename);
+                          //Zend_Debug::dump($up);die();
+                          if($up==true){
+                           $this->view->msg = 'Insert Sukses';
+                          } else {
+                             $this->view->massage = 'Insert Gagal';
+                          }
+                      } else {
+                         $up = $model->upProfil($Dataform);
+                           //Zend_Debug::dump($up);die();
+                          if($up==true){
+                           $this->view->msg = 'Insert Sukses';
+                          } else {
+                             $this->view->massage = 'Insert Gagal';
+                          }
+                      }
+                    }
 
 				}
 				$id = $sessionuser->noreg;
@@ -88,4 +110,4 @@ class User_5ba558debcf53a3582648898037e76e6Controller extends Zend_Controller_Ac
         );
     }
 }
-}
+
