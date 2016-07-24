@@ -1,6 +1,53 @@
-<div class="column column-wide">
-  <div class="widget">
-    <!-- isi detail berita -->
+<div class="page-title-style01 pt-bkg11">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <h1>Agenda - <?php echo $this->data[0]['nama_agenda']?></h1>
+          <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+              <li>You are here:</li>
+              <li>
+                <a href="<?php echo $this->baseUrl() ?>/index">Home</a>
+              </li>
+              <li>
+                <a href="<?php echo $this->baseUrl() ?>/agenda/">Agenda</a>
+              </li>
+              <li>
+                <?php echo $this->data[0]['nama_agenda']?>
+              </li>
+            </ul><!-- .breadcrumb end -->
+          </div><!-- .breadcrumb-container end -->
+        </div>
+      </div>
   </div>
-  <div class="cleaner">&nbsp;</div>
 </div>
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 blog-posts post-single">
+                <div class="blog-post clearfix">
+                    <div class="post-date">
+                      <?php
+                        $yrdata= strtotime($this->data[0]['tgl']);
+                        $m = date('M Y', $yrdata);
+                        $d = date('d', $yrdata);
+                        $t = date('H:i', $yrdata);
+                      ?>
+                        <p class="day"><?php echo $d; ?></p>
+                        <p class="month"><?php echo $m; ?></p>
+                        <p class="time"><i class="fa fa-clock-o"></i> <?php echo $t; ?></p>
+                    </div><!-- .post-date end -->
+
+                    <div class="post-body">
+                        <h2><?php echo $this->data[0]['nama_agenda']?></h2>
+
+                        <p>
+                            <?php echo $this->data[0]['isi'];?>
+                        </p>
+
+                    </div><!-- .post-body end -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
