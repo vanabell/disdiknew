@@ -64,6 +64,28 @@ class User_Model_GuruModel {
       return $result;
     }
 
+		public function getPass($id) {
+			$productTable = $this->_dbTableProduct;
+			try {
+				$result = $productTable->getPass($id);
+
+			} catch (Zend_Exception $e) {
+				return $e->getMessage();
+			}
+			return $result;
+		}
+
+		public function upPass($id,$data) {
+			$productTable = $this->_dbTableProduct;
+			try {
+				$result = $productTable->upPass($id,$data);
+
+			} catch (Zend_Exception $e) {
+				return $e->getMessage();
+			}
+			return $result;
+		}
+
     public function updateGuru($data) {
       $productTable = $this->_dbTableProduct;
       try {
@@ -112,6 +134,17 @@ class User_Model_GuruModel {
 	    $productTable = $this->_dbTableProduct;
 	    try {
 	      $result = $productTable->daftar($id_peserta, $id_latih);
+
+	    } catch (Zend_Exception $e) {
+	      return $e->getMessage();
+	    }
+	    return $result;
+  }
+
+	public function cekdaftar($id_peserta, $id_latih) {
+	    $productTable = $this->_dbTableProduct;
+	    try {
+	      $result = $productTable->cekdaftar($id_peserta, $id_latih);
 
 	    } catch (Zend_Exception $e) {
 	      return $e->getMessage();
