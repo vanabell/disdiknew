@@ -4,7 +4,13 @@
         <div class="col-md-9">
           <div class="custom-heading">
               <h2>Edit My Account</h2>
+              <?php
+                  if($this->message != '') {
+                    echo $this->message;
+                  }
+              ?>
           </div><!-- .custom-heading end -->
+
           <form class="login-form wpcf7" action="#" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-md-12 custom-bkg bkg-dark-blue dark">
@@ -32,25 +38,12 @@
                   <label for="alamat">Alamat <span class="required">*</span></label>
                   <textarea name="alamat" rows="8" cols="40" class="input-text wpcf7-textarea"><?php echo $this->det[0]['alamat'];?></textarea>
                 </fieldset>
-                <!--
+
                 <fieldset>
-                  <label for="email">Email <span class="required">*</span></label>
-                  <input type="text" name="email" id="email" value="<?php echo $this->det[0]['email'];?>" class="input-text wpcf7-text">
-                </fieldset>
-                <fieldset>
-                  <label for="password">Password <span class="required">*</span></label>
-                  <input type="password" name="password" id="password" value="" class="input-text wpcf7-text">
-                </fieldset>
-                <fieldset>
-                  <label for="confirm">Confrim Password <span class="required">*</span></label>
-                  <input type="password" name="confirm" id="confirm" value="" class="input-text wpcf7-text">
-                </fieldset>
-                <fieldset>
-                -->
-                  <label for="foto">Upload Foto <span class="required">*</span></label>
+                  <label for="foto">Upload Foto (Upload Image max 600kb)<span class="required">*</span></label>
                   <input type="file" name="file" id="file" class="input-text">
                 </fieldset>
-                 <?php if($this->det[0]['nama_sekolah'] != null ) {?>
+                 <?php if($this->det[0]['nama_sekolah'] != null ) { ?>
                  <fieldset>
                   <label for="kecamatan">Kecamatan <span class="required">*</span></label>
                    <?php
@@ -73,7 +66,7 @@
                   <input type="text" name="namasekolah" class="input-text wpcf7-select" id="nama_sekolah" value="<?php echo $namasklh[0]['nama_sekolah'];?>" readonly>
                   <input type="hidden" name="nama_sekolah" class="input-text wpcf7-select" id="nama_sekolah" value="<?php echo $namasklh[0]['induk_sekolah'];?>">
                 </fieldset>
-                <?php } else {?>
+                <?php } else { ?>
                 <fieldset>
                   <label for="kec">Kecamatan <span class="required">*</span></label>
                   <select name="kec" class="input-text wpcf7-select kecamatan">

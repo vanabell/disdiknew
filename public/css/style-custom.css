@@ -69,7 +69,7 @@
     color: #fff;
     text-align: left;
 }
-input[disabled] {
+input[disabled], input[readonly] {
     background: #ccc;
 }
 .alert-email, .alert-con-pass {

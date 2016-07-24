@@ -26,7 +26,9 @@ class LoginController extends Zend_Controller_Action
   				if($password==$passencrypt && count($data)!=0) {
   					$sessionuser = Zend_Registry::get('session_user');
   					$sessionuser->user_id = $data[0]['nama_lengkap'];
-  					$sessionuser->noreg = $data[0]['nip'];
+            $sessionuser->noreg = $data[0]['nip'];
+  					$sessionuser->email = $data[0]['email'];
+            $sessionuser->foto = $data[0]['foto'];
   					$sessionuser->status = 'Guru';
   					$sessionuser->tingkat = $data[0]['tingkat_sekolah'];
   					$this->_helper->redirector('index','3e72758f0fc77cdad787f58b41e9985f','user');
@@ -43,6 +45,8 @@ class LoginController extends Zend_Controller_Action
   					$sessionuser = Zend_Registry::get('session_user');
   					$sessionuser->user_id = $datasiswa[0]['nama_lengkap'];
   					$sessionuser->noreg = $datasiswa[0]['id_siswa'];
+            $sessionuser->email = $datasiswa[0]['email'];
+            $sessionuser->foto = $datasiswa[0]['foto'];
   					$sessionuser->status = 'Siswa';
   					$sessionuser->tingkat = $datasiswa[0]['tingkat_sekolah'];
   					$this->_helper->redirector('index','5ba558debcf53a3582648898037e76e6','user');

@@ -32,6 +32,30 @@ class User_Model_DbTables_SiswaModel extends Zend_Db_Table_Abstract {
 		 }
 	}
 
+	public function getPass($id) {
+		 try {
+			 $select="SELECT password FROM master_siswa where id_siswa='".$id."'";
+			 $rows=$this->_db->fetchAll($select);
+			 return $rows;
+		 } catch (Zend_Exception $e) {
+			 return $e->getMessage();
+		 }
+	}
+
+	public function upPass($id,$data) {
+		try {
+			$stmt=$this->_db->prepare("UPDATE master_siswa SET
+										password=:pass WHERE id_siswa=:id" );
+
+			$stmt->bindParam(':id', $id);
+			$stmt->bindParam(':pass', $data);
+			$a = $stmt->execute();
+		return true;
+		} catch (Zend_Exception $e) {
+			return array("sts"=>false,"msg"=>$e->getMessage());
+		}
+	}
+
 	public function upProfil($data) {
 		 try {
 			 $stmt=$this->_db->prepare("UPDATE master_siswa SET
@@ -54,6 +78,15 @@ class User_Model_DbTables_SiswaModel extends Zend_Db_Table_Abstract {
 		 } catch (Zend_Exception $e) {
 			 return array("sts"=>false,"msg"=>$e->getMessage());
 		 }
+	}
+	public function cekdaftar($id_peserta, $id_latih) {
+		try {
+			$select="SELECT * FROM pendaftaran where id_peserta='".$id_peserta."' AND id_pelatihan='".$id_latih."'";
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
 	}
 
 	public function upProfilPhoto($data,$file) {
@@ -80,7 +113,7 @@ class User_Model_DbTables_SiswaModel extends Zend_Db_Table_Abstract {
 			 return array("sts"=>false,"msg"=>$e->getMessage());
 		 }
 	}
-	
+
 	public function daftar($id_peserta, $id_latih) {
 		try {
 			$stmt=$this->_db->prepare("INSERT INTO pendaftaran

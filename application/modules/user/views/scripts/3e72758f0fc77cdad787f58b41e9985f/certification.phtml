@@ -110,10 +110,10 @@
 function daftar(id){
   $.post('<?php echo $this->baseUrl()."/user/3e72758f0fc77cdad787f58b41e9985f/daftar/"?>',{key: id}, function(data){
       if(data.edit==true) {
-        alert('Anda sudah mendaftar');
+        alert('Anda Sudah Mendaftar');
         parent.location.href = "<?php echo $this->baseUrl()?>/user/3e72758f0fc77cdad787f58b41e9985f/certification";
       } else {
-          alert('Gagal mendaftar');
+          alert('Anda Tidak Bisa Mendaftar Kembali');
       }
   });
 
