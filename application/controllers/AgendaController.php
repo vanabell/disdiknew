@@ -11,24 +11,35 @@ class AgendaController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
-    	//$this->_helper->layout->disableLayout();
-    	// $model = new Application_Model_AgendaModel();
-    	// $getallagenda = $model->getAllAgenda();
-    	// $this->view->data = $getallagenda;
+    	$model = new Application_Model_AgendaModel();
+    	$getallagenda = $model->getAllAgenda();
+      foreach ($getallagenda as $agenda) {
+          $truncated = $this->truncateIfNecessary($agenda['isi'],150);
+          $agenadata[] =  array('id_agenda' => $agenda['id_agenda'],'judul'=>$agenda['nama_agenda'], 'isi'=>$truncated,'waktu'=>$agenda['tgl']);
+      }
+      $this->view->data = $agenadata;
     }
 
     public function detailAction()
     {
     	// action body
-    	//$this->_helper->layout->disableLayout();
-    	// $model = new Application_Model_AgendaModel();
-    	// $req = $this->getRequest();
-    	// $id = $req->getParam('p');
-    	// $getagenda = $model->getAllAgendaDet($id);
-    	// $this->view->data = $getagenda;
+    	$model = new Application_Model_AgendaModel();
+    	$req = $this->getRequest();
+    	$id = $req->getParam('p');
+    	$getagenda = $model->getAllAgendaDet($id);
+    	$this->view->data = $getagenda;
     }
 
+    function truncateIfNecessary($string, $length) {
+       if(strlen($string) > $length) {
+           $string = html_entity_decode(strip_tags($string));
+           $string = substr($string, 0, $length).'...';
+           $string = htmlentities($string);
+           return $string;
+       } else {
+           return strip_tags($string);
+       }
+    }
 
 
 }

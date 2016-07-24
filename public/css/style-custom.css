@@ -13,6 +13,15 @@
 .custom-heading::after, .custom-heading02:after, .team-details:after {
     background-color: #a79235;
 }
+.post-list .blog-post .post-date .time,
+.post-single .blog-post .post-date .time {
+    background: #ccc;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+}
 #header .logo {
     position: relative;
 }

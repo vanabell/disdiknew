@@ -48,9 +48,9 @@ class RegisterController extends Zend_Controller_Action
                     $insert = $model->insertGuru($Dataform, $password);
                     if($insert===true) {
                         //zend_debug::dump($insert);die();
-                        $this->view->message = '<div class="alert alert-success saved">Insert Success</div>';
+                        $this->view->message = '<div class="alert alert-success saved">Terima Kasih Anda Telah Mendaftar, Silahkan Login!</div>';
                     } else {
-                        $this->view->message = '<div class="alert alert-danger saved">Insert Failed</div>';
+                        $this->view->message = '<div class="alert alert-danger saved">Maaf, Anda Gagal Mendaftar!</div>';
                     }
                 } else {
                     $this->view->message = '<div class="alert alert-danger saved">Data Sudah Ada!</div>';
@@ -114,9 +114,9 @@ class RegisterController extends Zend_Controller_Action
                     $insert = $model->insertSiswa($Dataform, $password);
                     // Zend_Debug::dump($insert);die();
                     if($insert===true) {
-                        $this->view->message = '<div class="alert alert-success saved">Insert Success</div>';
+                        $this->view->message = '<div class="alert alert-success saved">Terima Kasih Anda Telah Mendaftar, Silahkan Login!</div>';
                     } else {
-                        $this->view->message = '<div class="alert alert-danger saved">Insert Failed</div>';
+                        $this->view->message = '<div class="alert alert-danger saved">Maaf, Anda Gagal Mendaftar!</div>';
                     }
                 } else {
                     $this->view->message = '<div class="alert alert-danger saved">Data Sudah Ada</div>';

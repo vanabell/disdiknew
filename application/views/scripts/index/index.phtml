@@ -255,7 +255,8 @@
             $berita = $modelberita->getAllnewslimit();
             $modelartikel = new Application_Model_DbTables_ArtikelModel();
             $artikel = $modelartikel->getAllartikellimit();
-
+            $modelagenda = new Application_Model_DbTables_AgendaModel();
+            $agenda = $modelagenda->getAllagendalimit();
           ?>
             <div class="col-md-4 col-sm-6">
                 <div class="custom-heading">
@@ -341,28 +342,32 @@
             <div class="col-md-4 col-sm-6">
                 <div class="custom-heading">
                     <h3>P2KGK Agenda</h3>
+                    <span>
+                      <a class="invert" href="<?php echo $this->baseUrl();?>/agenda/" rel="nofollow">view more posts</a>
+                    </span>
                 </div><!-- .custom-heading end -->
                 <ul class="pi-latest-posts clearfix">
+                  <?php foreach ($agenda as $age ) {?>
+
                     <li>
                       <div class="post-media">
-                          <img src="img/blog/latest01.jpg" alt=""/>
+                          <img src="<?php echo $this->baseUrl();?>/img/nivo-events@2x.png" alt="<?php echo $age['nama_agenda'];?>" style="width:auto; margin:0 auto;"/>
                       </div><!-- .post-media end -->
-
                       <div class="post-details">
                           <div class="post-date">
                               <p>
                                   <i class="fa fa-calendar"></i>
-                                  MAY 15, 2015
+                                  <?php echo $age['tgl']?>
                               </p>
                           </div>
 
-                          <a href="news-single.html">
+                          <a href="<?php echo $this->baseUrl();?>/agenda/detail/p/<?php echo $age['id_agenda']?>">
                               <h4>
-                                  Trucking - Company of the Year 2014
+                                  <?php echo $age['nama_agenda']?>
                               </h4>
                           </a>
 
-                          <a href="news-single.html" class="read-more">
+                          <a href="<?php echo $this->baseUrl();?>/agenda/detail/p/<?php echo $age['id_agenda']?>" class="read-more">
                               <span>
                                   Read more
                                   <i class="fa fa-chevron-right"></i>
@@ -370,7 +375,7 @@
                           </a>
                       </div><!-- .post-details end -->
                     </li>
-
+                    <?php } ?>
                 </ul><!-- .pi-latest-posts end -->
             </div><!-- .col-md-4 end -->
 
