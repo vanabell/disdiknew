@@ -1,3 +1,7 @@
+.header-wrapper {
+    position: relative;
+}
+#main {margin-top: 0!important;}
 .page-content.parallax {
     padding-top: 50px;
 }
@@ -215,6 +219,12 @@ fieldset .required {
     display: inline-block;
     margin-top: 5%;
 }
+.alert.alert-datatugas {
+    border-color: #fff;
+}
+.alert strong {
+    font-weight: 700;
+}
 .alert-info {
     color: #31708f;
     background-color: #d9edf7;
@@ -259,6 +269,18 @@ fieldset .required {
 }
 .p2kgkinfo .custom-heading a.invert:hover, .table-responsive a:hover {
     color: #a79235;
+}
+.icon-container.p2kgk-imgs {
+    overflow: hidden;
+}
+.service-list-big-icons-details li .icon-container.p2kgk-imgs img {
+    width: 85%;
+    height: auto;
+    margin: 8px auto;
+}
+.service-list-big-icons-details li .service-details strong {
+    color: #27b9c6;
+    font-weight: 700;
 }
 @media only screen and (max-width: 991px) and (min-width: 768px){
   #dl-menu2 {

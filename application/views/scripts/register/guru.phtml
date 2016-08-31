@@ -10,6 +10,8 @@ $statpeg = $model->loadStatpeg();
 $ijazah = $model->loadIjazah();
 
 ?>
+<link rel="stylesheet" href="<?php echo $this->baseUrl();?>/datepicker-custom/css/base/jquery-ui-1.9.2.custom.css"/><!-- bootstrap grid -->
+<script src="<?php echo $this->baseUrl();?>/datepicker-custom/js/jquery-ui-1.9.2.custom.js"></script>
 <div class="page-title-style01 pt-bkg11">
   <div class="container">
       <div class="row">
@@ -21,7 +23,7 @@ $ijazah = $model->loadIjazah();
                 <a href="<?php echo $this->baseUrl() ?>/index">Home</a>
               </li>
               <li>
-                <a href="<?php echo $this->baseUrl() ?>/register">Register</a>
+                <a href="<?php echo $this->baseUrl() ?>/login">Login</a>
               </li>
               <li>
                 Pendaftaran Guru
@@ -45,23 +47,29 @@ $ijazah = $model->loadIjazah();
     <form class="login-form wpcf7" action="" method="post">
       <div class="row">
         <div class="col-md-6 custom-bkg bkg-dark-blue dark">
-          <h3>Register I</h3>
+          <h3>Register I (Data Pekerjaan)</h3>
           <!-- <fieldset>
             <label for="jenis_sek">Jenis Sekolah <span class="required">*</span></label>
             <select name="jenis_sek" id="jenis_sek" class="input-text wpcf7-select">
               <option value="1">Reguler</option>
               <option value="2">Paket</option>
             </select>
-          </fieldset> -->
+          </fieldset>
           <fieldset>
-            <label for="jenis_peg">Kelompok Pegawai <span class="required">*</span></label>
-            <select name="jenis_peg" class="input-text wpcf7-select" required="required">
+              <label for="jenis_peg">Kelompok Pegawai <span class="required">*</span></label>
+              <select name="jenis_peg" class="input-text wpcf7-select" required="required">
               <option value="1">Tenaga Pendidik</option>
               <option value="2">Tenaga Kependidikan</option>
             </select>
-          </fieldset>
+          </fieldset> -->
           <fieldset>
-            <label for="kec">Kecamatan <span class="required">*</span></label>
+            <label for="nip">NIP <span class="required">*</span></label>
+            <input type="text" name="nip" id="nip" value="" class="input-text wpcf7-text" required="required">
+          </fieldset>
+          <div class="alert alert-datatugas">
+          <fieldset>
+            <h5>Data Tempat Tugas</h5>
+            <label for="kec">Kecamatan Tempat Bertugas<span class="required">*</span></label>
             <select name="kec" class="input-text wpcf7-select kecamatan" required="required">
               <option value="">-- Pilih Kecamatan --</option>
               <?php foreach ($kecamatan as $kec) {?>
@@ -72,7 +80,7 @@ $ijazah = $model->loadIjazah();
             </select>
           </fieldset>
           <fieldset id="tingkat">
-            <label for="tingkat_sekolah">Tingkat Sekolah <span class="required">*</span></label>
+            <label for="tingkat_sekolah">Tingkat Sekolah Tempat Bertugas<span class="required">*</span></label>
             <select name="tingkat_sekolah" class="input-text wpcf7-select" id="tingkat_sekolah" required="required">
               <option value="">-- Pilih Tingkat Sekolah --</option>
               <option value="TK">TK</option>
@@ -83,43 +91,31 @@ $ijazah = $model->loadIjazah();
             </select>
           </fieldset>
           <fieldset>
-            <label for="nama_sekolah">Nama Sekolah <span class="required">*</span></label>
+            <label for="nama_sekolah">Nama Sekolah Tempat Bertugas<span class="required">*</span></label>
             <select name="nama_sekolah" class="input-text wpcf7-select" id="nama_sekolah" required="required">
               <option value="">-- Pilih Tingkat Sekolah dan Kecamatan Dahulu--</option>
             </select>
           </fieldset>
           <fieldset>
-            <div class="form-wide" style="margin-right:10px;">
-              <label for="umur">Umur (Harus Angka)<span class="required">*</span></label>
-              <input type="text" name="umur" id="umur" value="" class="input-text wpcf7-text" required="required">
-            </div>
-            <div class="form-wide">
-              <label for="masa_kerja">Masa Kerja (Harus Angka)<span class="required">*</span></label>
-              <input type="text" name="masa_kerja" id="masa_kerja" value="" class="input-text wpcf7-text" required="required">
-            </div>
+            <label for="alamat_tugas">Alamat Tempat Tugas<span class="required">*</span></label>
+            <textarea name="alamat_tugas" rows="8" cols="40" class="input-text  wpcf7-textarea" id="alamat_tugas" required="required"></textarea>
           </fieldset>
           <fieldset>
-            <label for="jkelamin">Jenis Kelamin <span class="required">*</span></label>
-            <select name="jkelamin" class="input-text wpcf7-select" id="jkelamin" required="required">
-              <option value="">-- Pilih --</option>
-              <option value="L">Laki-laki</option>
-              <option value="P">Perempuan</option>
-             </select>
-          </fieldset>
-          <fieldset>
-            <label for="mapel">Mata Pelajaran <span class="required">*</span></label>
+            <label for="mapel">Mata Pelajaran yang diampu<span class="required">*</span></label>
             <select name="mapel" class="input-text wpcf7-select" id="mapel" required="required">
               <option value="">-- Pilih --</option>
             </select>
           </fieldset>
           <fieldset>
-            <label for="status">Status Sekolah <span class="required">*</span></label>
+            <label for="status">Status Sekolah Tempat Bertugas<span class="required">*</span></label>
             <select name="status" class="input-text wpcf7-select" id="status" required="required">
               <option value="">-- Pilih --</option>
               <option value="1">Negeri</option>
               <option value="2">Swasta</option>
             </select>
           </fieldset>
+        </div>
+
           <fieldset>
             <label for="stat_peg">Status Kepegawaian <span class="required">*</span></label>
             <select name="stat_peg" class="input-text wpcf7-select" id="stat_peg" required="required">
@@ -131,6 +127,7 @@ $ijazah = $model->loadIjazah();
               <?php } ?>
             </select>
           </fieldset>
+
           <fieldset>
             <div class="form-wide" style="margin-right:10px;">
               <label for="gol_ruang">Golongan <span class="required">*</span></label>
@@ -161,7 +158,7 @@ $ijazah = $model->loadIjazah();
               <option value="">-- Pilih Jabatan --</option>
             </select>
           </fieldset>
-          <fieldset>
+          <!-- <fieldset>
             <div class="form-wide" style="margin-right:10px;">
               <label for="sertifikasi">Sertifikasi <span class="required">*</span></label>
               <select name="sertifikasi" class="input-text wpcf7-select" id="sertifikasi" required="required">
@@ -174,10 +171,10 @@ $ijazah = $model->loadIjazah();
                <label for="thn_sertifikasi">Tahun <span class="required">*</span></label>
                <input type="text" name="thn_sertifikasi" id="thn_sertifikasi" value="" class="input-text wpcf7-text">
              </div>
-          </fieldset>
+          </fieldset> -->
           <fieldset>
             <div class="form-wide" style="margin-right:10px;">
-                <label for="pendidikan">Ijazah Terakhir <span class="required">*</span></label>
+                <label for="pendidikan">Pendidikan Terakhir <span class="required">*</span></label>
                 <select name="pendidikan" id="pendidikan" class="input-text wpcf7-select" required="required">
                   <option value="">-- Pilih --</option>
                   <?php foreach ($ijazah as $ij) {?>
@@ -188,36 +185,67 @@ $ijazah = $model->loadIjazah();
                 </select>
               </div>
               <div class="form-wide">
-                <label for="thn_pendidikan">Tahun <span class="required">*</span></label>
+                <label for="thn_pendidikan">Tahun </label>
                 <input type="text" name="thn_pendidikan" id="thn_pendidikan" value="" class="input-text wpcf7-text" required="required">
               </div>
           </fieldset>
-          <fieldset>
+          <!-- <fieldset>
             <label for="domisili">Domisili Sekarang <span class="required">*</span></label>
             <select name="domisili" id="domisili" class="input-text wpcf7-select" required="required">
               <option value="">-- Pilih --</option>
               <option value="1">DKI Jakarta</option>
               <option value="2">Luar DKI Jakarta</option>
             </select>
-          </fieldset>
+          </fieldset> -->
         </div>
 
         <div class="col-md-6 custom-bkg bkg-dark-blue dark">
-          <h3>Register II</h3>
-          <fieldset>
-            <label for="nip">NIP <span class="required">*</span></label>
-            <input type="text" name="nip" id="nip" value="" class="input-text wpcf7-text" required="required">
-          </fieldset>
+          <h3>Register II (Data Pribadi)</h3>
+
           <fieldset>
             <label for="nama">Nama Lengkap <span class="required">*</span></label>
             <input type="text" name="nama" id="nama" value="" class="input-text wpcf7-text" required="required">
+          </fieldset>
+          <fieldset>
+            <label for="jkelamin">Jenis Kelamin <span class="required">*</span></label>
+            <select name="jkelamin" class="input-text wpcf7-select" id="jkelamin" required="required">
+              <option value="">-- Pilih --</option>
+              <option value="L">Laki-laki</option>
+              <option value="P">Perempuan</option>
+             </select>
+          </fieldset>
+          <fieldset>
+            <div class="form-wide" style="margin-right:10px;">
+              <label for="tl">Tempat Lahir<span class="required">*</span></label>
+              <input type="text" name="tl" id="tl" value="" class="input-text wpcf7-text" required="required">
+            </div>
+            <div class="form-wide" style="margin-right:10px;">
+              <label for="tgllahir">Tanggal Lahir<span class="required">*</span></label>
+              <input type="text" name="tgllahir" id="tgllahir" value="" class="input-text wpcf7-text" required="required">
+            </div>
+            <!-- <div class="form-wide">
+              <label for="masa_kerja">Masa Kerja (Harus Angka)<span class="required">*</span></label>
+              <input type="text" name="masa_kerja" id="masa_kerja" value="" class="input-text wpcf7-text" required="required">
+            </div> -->
+          </fieldset>
+          <fieldset>
+            <label for="agama">Agama <span class="required">*</span></label>
+            <select name="agama" class="input-text wpcf7-select" id="agama" required="required">
+              <option value="">-- Pilih --</option>
+              <option value="islam">Islam</option>
+              <option value="katholik">Kristen Katholik</option>
+              <option value="protestan">Kristen Protestan</option>
+              <option value="hindu">Hindu</option>
+              <option value="budha">Budha</option>
+              <option value="konghucu">Konghucu</option>
+             </select>
           </fieldset>
           <fieldset>
             <label for="tlp">No Telepon/Handphone <span class="required">*</span></label>
             <input type="text" name="tlp" id="tlp" value="" class="input-text wpcf7-text" required="required">
           </fieldset>
           <fieldset>
-            <label for="alamat">Alamat <span class="required">*</span></label>
+            <label for="alamat">Alamat Rumah<span class="required">*</span></label>
             <textarea name="alamat" rows="8" cols="40" class="input-text  wpcf7-textarea" required="required"></textarea>
           </fieldset>
           <fieldset>
@@ -244,7 +272,7 @@ $ijazah = $model->loadIjazah();
             </div>
           </fieldset>
           <div class="alert alert-info">
-            Harap mengecek kembali data yang di masukkan sebelum di submit!
+            Harap mengecek kembali data yang di masukkan sebelum klik daftar!
           </div>
           <input id="submits" type="submit" class="wpcf7-submit" value="Daftar" />
         </div>
@@ -254,6 +282,12 @@ $ijazah = $model->loadIjazah();
   </div>
 </div>
 <script type="text/javascript">
+  $('#tgllahir').datepicker({
+    changeYear: true,
+    changeMonth:true,
+    dateFormat: 'yy-mm-dd',
+    yearRange : "-70:+0"
+  });
   function isEmail(email) {
     var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return regex.test(email);

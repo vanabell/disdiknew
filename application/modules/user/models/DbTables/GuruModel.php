@@ -69,40 +69,46 @@ class User_Model_DbTables_GuruModel extends Zend_Db_Table_Abstract {
        try {
         $gol = $data['gol_ruang'].$data['ruang'];
          $stmt=$this->_db->prepare("UPDATE master_guru SET
-                                    jenis_sekolah=:js, jenis_peg=:jp,
-                                    kec=:kc, tingkat_sekolah=:ts,
-                                    nama_sekolah=:ns, umur=:umur,
-                                    masa_kerja=:mk, jkelamin=:jk,
-                                    mapel=:map, status_sek=:sk,
-                                    stat_peg=:sp, golruang=:gol,
-                                    jabatan=:jab, sertifikasi=:sert,
-                                    thn_sertifikasi=:thn_sert, pendidikan=:pnd,
-                                    thn_pendidikan=:thnpend, domisili=:dom,
-                                    nama_lengkap=:nama, no_tlp=:tlp, alamat=:almt
+                                    kec=:kc,
+                                    tingkat_sekolah=:ts,
+                                    nama_sekolah=:ns,
+                                    jkelamin=:jk,
+                                    mapel=:map,
+                                    status_sek=:sk,
+                                    stat_peg=:sp,
+                                    golruang=:gol,
+                                    jabatan=:jab,
+                                    pendidikan=:pnd,
+                                    thn_pendidikan=:thnpend,
+                                    nama_lengkap=:nama,
+                                    no_tlp=:tlp,
+                                    alamat=:almt,
+                                    alamat_tugas=:alamat_tugas,
+                                    tgl_lahir=:tgllahir,
+                                    tempat_lahir=:tl,
+                                    agama=:agama
                                      WHERE nip=:id" );
 
          $stmt->bindParam(':id', $data['nip']);
-         $stmt->bindParam(':js', $data['jenis_sek']);
-         $stmt->bindParam(':jp', $data['jenis_peg']);
          $stmt->bindParam(':kc', $data['kec']);
          $stmt->bindParam(':ts', $data['tingkat_sekolah']);
          $stmt->bindParam(':ns', $data['nama_sekolah']);
-         $stmt->bindParam(':umur', $data['umur']);
-         $stmt->bindParam(':mk', $data['masa_kerja']);
          $stmt->bindParam(':jk', $data['jkelamin']);
          $stmt->bindParam(':map', $data['mapel']);
          $stmt->bindParam(':sk', $data['status']);
          $stmt->bindParam(':sp', $data['stat_peg']);
          $stmt->bindParam(':gol', $gol);
          $stmt->bindParam(':jab', $data['jabatan']);
-         $stmt->bindParam(':sert', $data['sertifikasi']);
-         $stmt->bindParam(':thn_sert', $data['thn_sertifikasi']);
          $stmt->bindParam(':thnpend', $data['thn_pendidikan']);
          $stmt->bindParam(':pnd', $data['pendidikan']);
-         $stmt->bindParam(':dom', $data['domisili']);
          $stmt->bindParam(':nama', $data['nama']);
          $stmt->bindParam(':tlp', $data['tlp']);
          $stmt->bindParam(':almt', $data['alamat']);
+         $stmt->bindParam(':alamat_tugas', $data['alamat_tugas']);
+         $stmt->bindParam(':agama', $data['agama']);
+         $stmt->bindParam(':tl', $data['tl']);
+         $stmt->bindParam(':tgllahir', $data['tgllahir']);
+
          $a = $stmt->execute();
 
          return true;
@@ -115,40 +121,46 @@ class User_Model_DbTables_GuruModel extends Zend_Db_Table_Abstract {
        try {
         $gol = $data['gol_ruang'].$data['ruang'];
          $stmt=$this->_db->prepare("UPDATE master_guru SET
-                                    jenis_sekolah=:js, jenis_peg=:jp,
-                                    kec=:kc, tingkat_sekolah=:ts,
-                                    nama_sekolah=:ns, umur=:umur,
-                                    masa_kerja=:mk, jkelamin=:jk,
-                                    mapel=:map, status_sek=:sk,
-                                    stat_peg=:sp, golruang=:gol,
-                                    jabatan=:jab, sertifikasi=:sert,
-                                    thn_sertifikasi=:thn_sert, pendidikan=:pnd,
-                                    thn_pendidikan=:thnpend, domisili=:dom,
-                                    nama_lengkap=:nama, no_tlp=:tlp, alamat=:almt, foto=:foto
+                                     kec=:kc,
+                                     tingkat_sekolah=:ts,
+                                     nama_sekolah=:ns,
+                                     jkelamin=:jk,
+                                     mapel=:map,
+                                     status_sek=:sk,
+                                     stat_peg=:sp,
+                                     golruang=:gol,
+                                     jabatan=:jab,
+                                     pendidikan=:pnd,
+                                     thn_pendidikan=:thnpend,
+                                     nama_lengkap=:nama,
+                                     no_tlp=:tlp,
+                                     alamat=:almt,
+                                     alamat_tugas=:alamat_tugas,
+                                     tgl_lahir=:tgllahir,
+                                     tempat_lahir=:tl,
+                                     agama=:agama,
+                                     foto=:foto
                                      WHERE nip=:id" );
 
          $stmt->bindParam(':id', $data['nip']);
-         $stmt->bindParam(':js', $data['jenis_sek']);
-         $stmt->bindParam(':jp', $data['jenis_peg']);
          $stmt->bindParam(':kc', $data['kec']);
          $stmt->bindParam(':ts', $data['tingkat_sekolah']);
          $stmt->bindParam(':ns', $data['nama_sekolah']);
-         $stmt->bindParam(':umur', $data['umur']);
-         $stmt->bindParam(':mk', $data['masa_kerja']);
          $stmt->bindParam(':jk', $data['jkelamin']);
          $stmt->bindParam(':map', $data['mapel']);
          $stmt->bindParam(':sk', $data['status']);
          $stmt->bindParam(':sp', $data['stat_peg']);
          $stmt->bindParam(':gol', $gol);
          $stmt->bindParam(':jab', $data['jabatan']);
-         $stmt->bindParam(':sert', $data['sertifikasi']);
-         $stmt->bindParam(':thn_sert', $data['thn_sertifikasi']);
          $stmt->bindParam(':thnpend', $data['thn_pendidikan']);
          $stmt->bindParam(':pnd', $data['pendidikan']);
-         $stmt->bindParam(':dom', $data['domisili']);
          $stmt->bindParam(':nama', $data['nama']);
          $stmt->bindParam(':tlp', $data['tlp']);
          $stmt->bindParam(':almt', $data['alamat']);
+         $stmt->bindParam(':alamat_tugas', $data['alamat_tugas']);
+         $stmt->bindParam(':agama', $data['agama']);
+         $stmt->bindParam(':tl', $data['tl']);
+         $stmt->bindParam(':tgllahir', $data['tgllahir']);
          $stmt->bindParam(':foto', $file);
          $a = $stmt->execute();
 
@@ -213,17 +225,20 @@ class User_Model_DbTables_GuruModel extends Zend_Db_Table_Abstract {
       $stmt=$this->_db->prepare("INSERT INTO pendaftaran
                           (
                             id_peserta,
-                            id_pelatihan
+                            id_pelatihan,
+                            status_daftar
                           )
                           VALUES
                           (
                             :id,
-                            :name
+                            :name,
+                            :status
                           )
                           "
       );
       $stmt->bindParam(':id', $id_peserta);
       $stmt->bindParam(':name', $id_latih);
+      $stmt->bindParam(':status', 'guru');
       $a = $stmt->execute();
       return true;
     } catch (Zend_Exception $e) {

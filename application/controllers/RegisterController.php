@@ -46,8 +46,8 @@ class RegisterController extends Zend_Controller_Action
                 if(count($cekemail)==0) {
                     $password = md5($Dataform['email'].$Dataform['password']);
                     $insert = $model->insertGuru($Dataform, $password);
+                    // Zend_Debug::dump($insert);die();
                     if($insert===true) {
-                        //zend_debug::dump($insert);die();
                         $this->view->message = '<div class="alert alert-success saved">Terima Kasih Anda Telah Mendaftar, Silahkan Login!</div>';
                     } else {
                         $this->view->message = '<div class="alert alert-danger saved">Maaf, Anda Gagal Mendaftar!</div>';

@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="<?php echo $this->baseUrl();?>/datepicker-custom/css/base/jquery-ui-1.9.2.custom.css"/><!-- bootstrap grid -->
+<script src="<?php echo $this->baseUrl();?>/datepicker-custom/js/jquery-ui-1.9.2.custom.js"></script>
 <div class="page-content">
   <div class="container">
       <div class="row">
@@ -13,14 +15,98 @@
 
           <form class="login-form wpcf7" action="#" method="post" enctype="multipart/form-data">
             <div class="row">
-              <div class="col-md-12 custom-bkg bkg-dark-blue dark">
+              <div class="col-md-6 custom-bkg bkg-dark-blue dark">
+                <h3>Data Sekolah</h3>
                 <fieldset>
                   <label for="nis">NIS <span class="required">*</span></label>
                   <input type="text" name="nis" id="nis" value="<?php echo $this->det[0]['nis'];?>" class="input-text wpcf7-text" readonly>
                 </fieldset>
+                <?php if($this->det[0]['nama_sekolah'] != null ) { ?>
+                <fieldset>
+                 <label for="kecamatan">Kecamatan <span class="required">*</span></label>
+                  <?php
+                   $model = new User_Model_SiswaModel();
+                   $kec = $model->getDetKecamatan($this->det[0]['kec']);
+                 ?>
+                 <input type="text" name='kecnama' class="input-text wpcf7-select" id="kecnama" value="<?php echo $kec[0]['nama_kec'];?>" readonly>
+                 <input type="hidden" name="kec" class="input-text wpcf7-select" id="kec" value="<?php echo $kec[0]['id_kec'];?>">
+               </fieldset>
+               <fieldset>
+                 <label for="tingkat_sekolah">Tingkat Sekolah <span class="required">*</span></label>
+                 <input type="text" name='tingkat_sekolah' class="input-text wpcf7-select" id="tingkat_sekolah" value="<?php echo $this->det[0]['tingkat_sekolah'];?>" readonly>
+               </fieldset>
+               <fieldset>
+                 <label for="nama_sekolah">Nama Sekolah <span class="required">*</span></label>
+                 <?php
+                   $model = new User_Model_SiswaModel();
+                   $namasklh = $model->getDetSekolah($this->det[0]['nama_sekolah']);
+                 ?>
+                 <input type="text" name="namasekolah" class="input-text wpcf7-select" id="nama_sekolah" value="<?php echo $namasklh[0]['nama_sekolah'];?>" readonly>
+                 <input type="hidden" name="nama_sekolah" class="input-text wpcf7-select" id="nama_sekolah" value="<?php echo $namasklh[0]['induk_sekolah'];?>">
+               </fieldset>
+               <?php } else { ?>
+               <fieldset>
+                 <label for="kec">Kecamatan <span class="required">*</span></label>
+                 <select name="kec" class="input-text wpcf7-select kecamatan">
+                   <option value="">-- Pilih Kecamatan --</option>
+                   <?php
+                   $listkec = new User_Model_SiswaModel();
+                   $kecamatan = $listkec->getKecamatanlist();
+                   foreach ($kecamatan as $kec ) {
+                   ?>
+                   <option value="<?php echo $kec['id_kec']?>" <?php if ($this->det[0]['kec'] == $kec['id_kec']) echo "selected"; ?>><?php echo $kec['nama_kec']?></option>
+                   <?php } ?>
+                 </select>
+               </fieldset>
+               <fieldset>
+                 <label for="tingkat_sekolah">Tingkat Sekolah <span class="required">*</span></label>
+                 <select name="tingkat_sekolah" class="input-text wpcf7-select" id="tingkat_sekolah">
+                   <option value="SD" <?php if ($this->det[0]['tingkat_sekolah'] == "SD") echo "selected"; ?>>SD</option>
+                   <option value="SMP" <?php if ($this->det[0]['tingkat_sekolah'] == "SMP") echo "selected"; ?>>SMP</option>
+                   <option value="SMA" <?php if ($this->det[0]['tingkat_sekolah'] == "SMA") echo "selected"; ?>>SMA</option>
+                   <option value="SMK" <?php if ($this->det[0]['tingkat_sekolah'] == "SMK") echo "selected"; ?>>SMK</option>
+                 </select>
+               </fieldset>
+               <fieldset>
+                 <label for="nama_sekolah">Nama Sekolah <span class="required">*</span></label>
+                 <select name="nama_sekolah" class="input-text wpcf7-select namasklh" id="nama_sekolah">
+                   <option value="">-- Pilih Tingkat Sekolah Dahulu--</option>
+                 </select>
+               </fieldset>
+               <?php } ?>
+               <fieldset>
+                 <label for="alamat_sekolah">Alamat Sekolah<span class="required">*</span></label>
+                 <textarea name="alamat_sekolah" rows="8" cols="40" class="input-text wpcf7-textarea" id="alamat_sekolah" required="required"><?php echo $this->det[0]['alamat_sekolah'];?></textarea>
+               </fieldset>
+              </div>
+
+              <div class="col-md-6 custom-bkg bkg-dark-blue dark">
+                <h3>Data Pribadi</h3>
                 <fieldset>
                   <label for="nama">Nama Lengkap <span class="required">*</span></label>
                   <input type="text" name="nama" id="nama" value="<?php echo $this->det[0]['nama_lengkap'];?>" class="input-text wpcf7-text">
+                </fieldset>
+                <fieldset>
+                  <div class="form-wide" style="margin-right:10px;">
+                    <label for="tl">Tempat Lahir<span class="required">*</span></label>
+                    <input type="text" name="tl" id="tl" value="<?php echo $this->det[0]['tempat_lahir'];?>" class="input-text wpcf7-text" required="required">
+                  </div>
+                  <div class="form-wide">
+                    <label for="tgllahir">Tanggal Lahir<span class="required">*</span></label>
+                    <input type="text" name="tgllahir" id="tgllahir" value="<?php echo $this->det[0]['tgl_lahir'];?>" class="input-text wpcf7-text" required="required">
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <label for="agama">Agama <span class="required">*</span></label>
+                  <select name="agama" class="input-text wpcf7-select" id="agama" required="required">
+                    <option value="">-- Pilih --</option>
+                    <option value="islam" <?php if ($this->det[0]['agama'] == "islam") echo "selected"; ?>>Islam</option>
+                    <option value="katholik" <?php if ($this->det[0]['agama'] == "katholik") echo "selected"; ?>>Kristen Katholik</option>
+                    <option value="protestan" <?php if ($this->det[0]['agama'] == "protestan") echo "selected"; ?>>Kristen Protestan</option>
+                    <option value="hindu" <?php if ($this->det[0]['agama'] == "hindu") echo "selected"; ?>>Hindu</option>
+                    <option value="budha" <?php if ($this->det[0]['agama'] == "budha") echo "selected"; ?>>Budha</option>
+                    <option value="konghucu" <?php if ($this->det[0]['agama'] == "konghucu") echo "selected"; ?>>Konghucu</option>
+                   </select>
                 </fieldset>
                 <fieldset>
                   <label for="jkelamin">Jenis Kelamin <span class="required">*</span></label>
@@ -35,68 +121,17 @@
                   <input type="text" name="tlp" id="tlp" value="<?php echo $this->det[0]['no_tlp'];?>" class="input-text wpcf7-text">
                 </fieldset>
                 <fieldset>
-                  <label for="alamat">Alamat <span class="required">*</span></label>
+                  <label for="alamat">Alamat Rumah<span class="required">*</span></label>
                   <textarea name="alamat" rows="8" cols="40" class="input-text wpcf7-textarea"><?php echo $this->det[0]['alamat'];?></textarea>
                 </fieldset>
 
                 <fieldset>
-                  <label for="foto">Upload Foto (Upload Image max 600kb)<span class="required">*</span></label>
-                  <input type="file" name="file" id="file" class="input-text">
+                  <label for="foto">Upload Foto (Upload Image max 600kb)</label>
+                  <input type="file" name="file" id="file" class="input-text" style="color:#fff;">
                 </fieldset>
-                 <?php if($this->det[0]['nama_sekolah'] != null ) { ?>
-                 <fieldset>
-                  <label for="kecamatan">Kecamatan <span class="required">*</span></label>
-                   <?php
-                    $model = new User_Model_SiswaModel();
-                    $kec = $model->getDetKecamatan($this->det[0]['kec']);
-                  ?>
-                  <input type="text" name='kecnama' class="input-text wpcf7-select" id="kecnama" value="<?php echo $kec[0]['nama_kec'];?>" readonly>
-                  <input type="hidden" name="kec" class="input-text wpcf7-select" id="kec" value="<?php echo $kec[0]['id_kec'];?>">
-                </fieldset>
-                <fieldset>
-                  <label for="tingkat_sekolah">Tingkat Sekolah <span class="required">*</span></label>
-                  <input type="text" name='tingkat_sekolah' class="input-text wpcf7-select" id="tingkat_sekolah" value="<?php echo $this->det[0]['tingkat_sekolah'];?>" readonly>
-                </fieldset>
-                <fieldset>
-                  <label for="nama_sekolah">Nama Sekolah <span class="required">*</span></label>
-                  <?php
-                    $model = new User_Model_SiswaModel();
-                    $namasklh = $model->getDetSekolah($this->det[0]['nama_sekolah']);
-                  ?>
-                  <input type="text" name="namasekolah" class="input-text wpcf7-select" id="nama_sekolah" value="<?php echo $namasklh[0]['nama_sekolah'];?>" readonly>
-                  <input type="hidden" name="nama_sekolah" class="input-text wpcf7-select" id="nama_sekolah" value="<?php echo $namasklh[0]['induk_sekolah'];?>">
-                </fieldset>
-                <?php } else { ?>
-                <fieldset>
-                  <label for="kec">Kecamatan <span class="required">*</span></label>
-                  <select name="kec" class="input-text wpcf7-select kecamatan">
-                    <option value="">-- Pilih Kecamatan --</option>
-                    <?php
-                    $listkec = new User_Model_SiswaModel();
-                    $kecamatan = $listkec->getKecamatanlist();
-                    foreach ($kecamatan as $kec ) {
-                    ?>
-                    <option value="<?php echo $kec['id_kec']?>" <?php if ($this->det[0]['kec'] == $kec['id_kec']) echo "selected"; ?>><?php echo $kec['nama_kec']?></option>
-                    <?php } ?>
-                  </select>
-                </fieldset>
-                <fieldset>
-                  <label for="tingkat_sekolah">Tingkat Sekolah <span class="required">*</span></label>
-                  <select name="tingkat_sekolah" class="input-text wpcf7-select" id="tingkat_sekolah">
-          					<option value="SD" <?php if ($this->det[0]['tingkat_sekolah'] == "SD") echo "selected"; ?>>SD</option>
-          					<option value="SMP" <?php if ($this->det[0]['tingkat_sekolah'] == "SMP") echo "selected"; ?>>SMP</option>
-          					<option value="SMA" <?php if ($this->det[0]['tingkat_sekolah'] == "SMA") echo "selected"; ?>>SMA</option>
-          					<option value="SMK" <?php if ($this->det[0]['tingkat_sekolah'] == "SMK") echo "selected"; ?>>SMK</option>
-                  </select>
-                </fieldset>
-                <fieldset>
-                  <label for="nama_sekolah">Nama Sekolah <span class="required">*</span></label>
-                  <select name="nama_sekolah" class="input-text wpcf7-select namasklh" id="nama_sekolah">
-                    <option value="">-- Pilih Tingkat Sekolah Dahulu--</option>
-                  </select>
-                </fieldset>
-                <?php } ?>
                 <input type="submit" class="wpcf7-submit" value="Edit" />
+              </div>
+
               </div>
             </div>
           </form>
@@ -105,6 +140,12 @@
   </div>
 </div>
 <script type="text/javascript">
+$('#tgllahir').datepicker({
+  changeYear: true,
+  changeMonth:true,
+  dateFormat: 'yy-mm-dd',
+  yearRange : "-70:+0"
+});
 $( window ).load(function() {
   var tingkat = $('#tingkat_sekolah').val();
   var kec = $('.kecamatan').val();
