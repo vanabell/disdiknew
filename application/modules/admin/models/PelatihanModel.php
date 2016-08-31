@@ -31,6 +31,39 @@ class Admin_Model_PelatihanModel {
 		return $result;
 	}
 
-	
+	public function getAllPelatihan() {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->getAllPelatihan();
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function getAllPeserta($idpel) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->getAllPeserta($idpel);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function delPeserta($id) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->delPeserta($id);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+
 
 }

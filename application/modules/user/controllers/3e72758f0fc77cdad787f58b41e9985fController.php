@@ -50,8 +50,8 @@ class User_3e72758f0fc77cdad787f58b41e9985fController extends Zend_Controller_Ac
                       } else {
 
                          $up = $model->updateGuru($Dataform);
-                         //Zend_Debug::dump($up);die();
-                           //
+                        //  Zend_Debug::dump($up);die();
+
                           if($up==true){
                            $this->view->message = '<div class="alert alert-success saved">Ubah Data Sukses</div>';
                           } else {

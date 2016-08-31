@@ -59,10 +59,18 @@ class User_Model_DbTables_SiswaModel extends Zend_Db_Table_Abstract {
 	public function upProfil($data) {
 		 try {
 			 $stmt=$this->_db->prepare("UPDATE master_siswa SET
-										 nama_lengkap=:nama, no_tlp=:tlp,
-										 alamat=:alamat,jkelamin=:jk,
-										 nama_sekolah=:ns, tingkat_sekolah=:ts,
-										 kec=:kec WHERE nis=:id" );
+										 nama_lengkap=:nama,
+										 no_tlp=:tlp,
+										 alamat=:alamat,
+										 jkelamin=:jk,
+										 nama_sekolah=:ns,
+										 tingkat_sekolah=:ts,
+										 kec=:kec,
+										 agama=:agama,
+										 tempat_lahir=:tempat_lahir,
+										 tgl_lahir=:tgl_lahir,
+										 alamat_sekolah=:alamat_sekolah
+										 WHERE nis=:id" );
 
 			 $stmt->bindParam(':id', $data['nis']);
 			 $stmt->bindParam(':nama', $data['nama']);
@@ -70,8 +78,12 @@ class User_Model_DbTables_SiswaModel extends Zend_Db_Table_Abstract {
 			 $stmt->bindParam(':alamat', $data['alamat']);
 			 $stmt->bindParam(':jk', $data['jkelamin']);
 			 $stmt->bindParam(':ns', $data['nama_sekolah']);
+			 $stmt->bindParam(':alamat_sekolah', $data['alamat_sekolah']);
 			 $stmt->bindParam(':ts', $data['tingkat_sekolah']);
 			 $stmt->bindParam(':kec', $data['kec']);
+			 $stmt->bindParam(':agama', $data['agama']);
+			 $stmt->bindParam(':tempat_lahir', $data['tl']);
+			 $stmt->bindParam(':tgl_lahir', $data['tgllahir']);
 			 $a = $stmt->execute();
 
 			 return true;
@@ -92,10 +104,19 @@ class User_Model_DbTables_SiswaModel extends Zend_Db_Table_Abstract {
 	public function upProfilPhoto($data,$file) {
 		 try {
 			 $stmt=$this->_db->prepare("UPDATE master_siswa SET
-										 nama_lengkap=:nama, no_tlp=:tlp,
-										 alamat=:alamat,jkelamin=:jk,
-										 nama_sekolah=:ns, tingkat_sekolah=:ts,
-										 kec=:kec,foto=:foto WHERE nis=:id" );
+										 nama_lengkap=:nama,
+										 no_tlp=:tlp,
+										 alamat=:alamat,
+										 jkelamin=:jk,
+										 nama_sekolah=:ns,
+										 tingkat_sekolah=:ts,
+										 kec=:kec,
+										 agama=:agama,
+										 tempat_lahir=:tempat_lahir,
+										 tgl_lahir=:tgl_lahir,
+										 alamat_sekolah=:alamat_sekolah,
+										 foto=:foto
+										 WHERE nis=:id" );
 
 			 $stmt->bindParam(':id', $data['nis']);
 			 $stmt->bindParam(':nama', $data['nama']);
@@ -103,8 +124,12 @@ class User_Model_DbTables_SiswaModel extends Zend_Db_Table_Abstract {
 			 $stmt->bindParam(':alamat', $data['alamat']);
 			 $stmt->bindParam(':jk', $data['jkelamin']);
 			 $stmt->bindParam(':ns', $data['nama_sekolah']);
+			 $stmt->bindParam(':alamat_sekolah', $data['alamat_sekolah']);
 			 $stmt->bindParam(':ts', $data['tingkat_sekolah']);
 			 $stmt->bindParam(':kec', $data['kec']);
+			 $stmt->bindParam(':agama', $data['agama']);
+			 $stmt->bindParam(':tempat_lahir', $data['tl']);
+			 $stmt->bindParam(':tgl_lahir', $data['tgllahir']);
 			 $stmt->bindParam(':foto', $file);
 			 $a = $stmt->execute();
 
@@ -119,17 +144,20 @@ class User_Model_DbTables_SiswaModel extends Zend_Db_Table_Abstract {
 			$stmt=$this->_db->prepare("INSERT INTO pendaftaran
 													(
 														id_peserta,
-														id_pelatihan
+														id_pelatihan,
+														status_daftar
 													)
 													VALUES
 													(
 														:id,
-														:name
+														:name,
+														:status
 													)
 													"
 			);
 			$stmt->bindParam(':id', $id_peserta);
 			$stmt->bindParam(':name', $id_latih);
+			$stmt->bindParam(':status', 'siswa');
 			$a = $stmt->execute();
 			return true;
 		} catch (Zend_Exception $e) {

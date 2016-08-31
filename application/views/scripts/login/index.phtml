@@ -19,16 +19,20 @@
 </div>
 <div class="page-content">
     <div class="container">
-      <div class="custom-heading">
-          <h2>Login</h2>
-      </div><!-- .custom-heading end -->
         <div class="row">
           <div class="col-md-6">
+            <div class="custom-heading">
+              <h2>Login</h2>
+            </div><!-- .custom-heading end -->
             <?php
             if($this->message != '') {
               echo $this->message;
             }
             ?>
+            <div class="alert alert-warning" role="alert">
+              Bila ingin mendaftar pelatihan dan ujian kompetensi atau melihat hasil ujian online harap melakukan login!<br/>
+              Bagi yang belum memiliki akun untuk login, harap melakukan <strong>registrasi/daftar</strong> di samping.
+            </div>
             <form class="form-horizontal wpcf7" method="post" action="">
               <fieldset>
                   <label for="inputEmail">
@@ -59,9 +63,43 @@
               </fieldset>
               <input type="submit" class="wpcf7-submit" value="Sign in" />
             </form>
-            <div class="alert alert-info" role="alert">
+            <!-- <div class="alert alert-info" role="alert">
               Belum punya akun? <a href="<?php echo $this->baseUrl();?>/register/" class="alert-link">Daftar Disini!</a>
+            </div> -->
+          </div>
+
+          <div class="col-md-6">
+            <div class="custom-heading">
+              <h2>Daftar</h2>
+            </div><!-- .custom-heading end -->
+            <div class="alert alert-warning" role="alert">
+              Silahkan melakukan registrasi sesuai pekerjaan masing-masing pendaftar pada kolom di bawah agar bisa melakukan login.<br/>
+              Apabila sudah memiliki akun, silahkan <strong>Login</strong> di samping.
             </div>
+            <ul class="service-list-big-icons-details">
+              <li>
+                <div class="icon-container p2kgk-imgs">
+                  <img src="<?php echo $this->baseUrl();?>/img/guru.png" alt="" />
+                </div>
+                <div class="service-details">
+                  <h4>Registrasi Sebagai Guru</h4>
+                  <p>
+                      Klik <a href="<?php echo $this->baseUrl();?>/register/guru/"><strong>disini</strong></a> untuk mendaftar
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div class="icon-container p2kgk-imgs">
+                  <img src="<?php echo $this->baseUrl();?>/img/murid.png" alt="" />
+                </div>
+                <div class="service-details">
+                  <h4>Registrasi Sebagai Siswa</h4>
+                  <p>
+                      Klik <a href="<?php echo $this->baseUrl();?>/register/siswa/"><strong>disini</strong></a> untuk mendaftar
+                  </p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
     </div>

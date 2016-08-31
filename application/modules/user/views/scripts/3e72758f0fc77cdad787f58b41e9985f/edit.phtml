@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="<?php echo $this->baseUrl();?>/datepicker-custom/css/base/jquery-ui-1.9.2.custom.css"/><!-- bootstrap grid -->
+<script src="<?php echo $this->baseUrl();?>/datepicker-custom/js/jquery-ui-1.9.2.custom.js"></script>
 <div class="page-content">
   <div class="container">
       <div class="row">
@@ -13,19 +15,17 @@
           <form class="login-form wpcf7" action="#" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-md-6 custom-bkg bkg-dark-blue dark">
-                <fieldset>
-                  <label for="jenis_sek">Jenis Sekolah <span class="required">*</span></label>
-                  <select name="jenis_sek" id="jenis_sek" class="input-text wpcf7-select">
-                    <option value="1" <?php if ($this->det[0]['jenis_sekolah'] == "1") echo "selected"; ?>>Reguler</option>
-                    <option value="2" <?php if ($this->det[0]['jkelamin'] == "2") echo "selected"; ?>>Paket</option>
-                  </select>
-                </fieldset>
-                <fieldset>
+                <h3>Data Pekerjaan</h3>
+                <!-- <fieldset>
                   <label for="jenis_peg">Kelompok Pegawai <span class="required">*</span></label>
                   <select name="jenis_peg" class="input-text wpcf7-select">
                     <option value="1" <?php if ($this->det[0]['jenis_peg'] == "1") echo "selected"; ?>>Tenaga Pendidik</option>
                     <option value="2"> <?php if ($this->det[0]['jenis_peg'] == "2") echo "selected"; ?>Tenaga Kependidikan</option>
                   </select>
+                </fieldset> -->
+                <fieldset>
+                  <label for="nip">NIP <span class="required">*</span></label>
+                  <input type="text" name="nip" readonly="readonly" id="nip" value="<?php echo $this->det[0]['nip'];?>" class="input-text wpcf7-text">
                 </fieldset>
                 <fieldset>
                   <label for="tingkat_sekolah">Tingkat Sekolah <span class="required">*</span></label>
@@ -57,7 +57,7 @@
                     <option value="">-- Pilih Tingkat Sekolah Dahulu--</option>
                   </select>
                 </fieldset>
-                <fieldset>
+                <!-- <fieldset>
                   <div class="form-wide" style="margin-right:10px;">
                     <label for="umur">Umur <span class="required">*</span></label>
                     <input type="text" name="umur" id="umur" value="<?php echo $this->det[0]['umur'];?>" class="input-text wpcf7-text">
@@ -66,15 +66,12 @@
                     <label for="masa_kerja">Masa Kerja <span class="required">*</span></label>
                     <input type="text" name="masa_kerja" id="masa_kerja" value="<?php echo $this->det[0]['masa_kerja'];?>" class="input-text wpcf7-text">
                   </div>
-                </fieldset>
+                </fieldset> -->
                 <fieldset>
-                  <label for="jkelamin">Jenis Kelamin <span class="required">*</span></label>
-                  <select name="jkelamin" class="input-text wpcf7-select" id="jkelamin">
-                    <option value="">-- Pilih --</option>
-                    <option value="L" <?php if ($this->det[0]['jkelamin'] == "L") echo "selected"; ?>>Laki-laki</option>
-          					<option value="P" <?php if ($this->det[0]['jkelamin'] == "P") echo "selected"; ?>>Perempuan</option>
-                   </select>
+                  <label for="alamat_tugas">Alamat Tempat Tugas<span class="required">*</span></label>
+                  <textarea name="alamat_tugas" rows="8" cols="40" class="input-text  wpcf7-textarea" id="alamat_tugas" required="required"><?php echo $this->det[0]['alamat_tugas'];?></textarea>
                 </fieldset>
+
                 <fieldset>
                   <label for="mapel">Mata Pelajaran <span class="required">*</span></label>
                   <select name="mapel" class="input-text wpcf7-select" id="mapel">
@@ -143,7 +140,7 @@
                     <option value="">-- Pilih Jabatan --</option>
                   </select>
                 </fieldset>
-                <fieldset>
+                <!-- <fieldset>
                   <div class="form-wide" style="margin-right:10px;">
                     <label for="sertifikasi">Sertifikasi <span class="required">*</span></label>
                     <select name="sertifikasi" class="input-text wpcf7-select" id="sertifikasi">
@@ -156,10 +153,10 @@
                      <label for="thn_sertifikasi">Tahun <span class="required">*</span></label>
                      <input type="text" name="thn_sertifikasi" id="thn_sertifikasi" value="<?php echo $this->det[0]['thn_sertifikasi'];?>" class="input-text wpcf7-text">
                    </div>
-                </fieldset>
+                </fieldset> -->
                 <fieldset>
                   <div class="form-wide" style="margin-right:10px;">
-                      <label for="pendidikan">Ijazah Terakhir <span class="required">*</span></label>
+                      <label for="pendidikan">Pendidikan Terakhir <span class="required">*</span></label>
                       <select name="pendidikan" id="pendidikan" class="input-text wpcf7-select">
                         <option value="">-- Pilih --</option>
                         <?php
@@ -173,40 +170,67 @@
                       </select>
                     </div>
                     <div class="form-wide">
-                      <label for="thn_pendidikan">Tahun <span class="required">*</span></label>
+                      <label for="thn_pendidikan">Tahun </label>
                       <input type="text" name="thn_pendidikan" id="thn_pendidikan" value="<?php echo $this->det[0]['thn_pendidikan'];?>" class="input-text wpcf7-text">
                     </div>
                 </fieldset>
-                <fieldset>
+                <!-- <fieldset>
                   <label for="domisili">Domisili Sekarang <span class="required">*</span></label>
                   <select name="domisili" id="domisili" class="input-text wpcf7-select">
                     <option value="">-- Pilih --</option>
                     <option value="1" <?php if ($this->det[0]['domisili'] == "1") echo "selected"; ?>>DKI Jakarta</option>
           					<option value="2" <?php if ($this->det[0]['domisili'] == "2") echo "selected"; ?>>Luar DKI Jakarta</option>
                   </select>
-                </fieldset>
+                </fieldset> -->
               </div>
               <div class="col-md-6 custom-bkg bkg-dark-blue dark">
-                <fieldset>
-                  <label for="nip">NIP <span class="required">*</span></label>
-                  <input type="text" name="nip" readonly="readonly" id="nip" value="<?php echo $this->det[0]['nip'];?>" class="input-text wpcf7-text">
-                </fieldset>
+                <h3>Data Pribadi</h3>
                 <fieldset>
                   <label for="nama">Nama Lengkap <span class="required">*</span></label>
                   <input type="text" name="nama" id="nama" value="<?php echo $this->det[0]['nama_lengkap'];?>" class="input-text wpcf7-text">
+                </fieldset>
+                <fieldset>
+                  <label for="jkelamin">Jenis Kelamin <span class="required">*</span></label>
+                  <select name="jkelamin" class="input-text wpcf7-select" id="jkelamin">
+                    <option value="">-- Pilih --</option>
+                    <option value="L" <?php if ($this->det[0]['jkelamin'] == "L") echo "selected"; ?>>Laki-laki</option>
+          					<option value="P" <?php if ($this->det[0]['jkelamin'] == "P") echo "selected"; ?>>Perempuan</option>
+                   </select>
+                </fieldset>
+                <fieldset>
+                  <div class="form-wide" style="margin-right:10px;">
+                    <label for="tl">Tempat Lahir<span class="required">*</span></label>
+                    <input type="text" name="tl" id="tl" value="<?php echo $this->det[0]['tempat_lahir'];?>" class="input-text wpcf7-text" required="required">
+                  </div>
+                  <div class="form-wide" >
+                    <label for="tgllahir">Tanggal Lahir<span class="required">*</span></label>
+                    <input type="text" name="tgllahir" id="tgllahir" value="<?php echo $this->det[0]['tgl_lahir'];?>" class="input-text wpcf7-text" required="required">
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <label for="agama">Agama <span class="required">*</span></label>
+                  <select name="agama" class="input-text wpcf7-select" id="agama" required="required">
+                    <option value="">-- Pilih --</option>
+                    <option value="islam" <?php if ($this->det[0]['agama'] == "islam") echo "selected"; ?>>Islam</option>
+                    <option value="katholik" <?php if ($this->det[0]['agama'] == "katholik") echo "selected"; ?>>Kristen Katholik</option>
+                    <option value="protestan" <?php if ($this->det[0]['agama'] == "protestan") echo "selected"; ?>>Kristen Protestan</option>
+                    <option value="hindu" <?php if ($this->det[0]['agama'] == "hindu") echo "selected"; ?>>Hindu</option>
+                    <option value="budha" <?php if ($this->det[0]['agama'] == "budha") echo "selected"; ?>>Budha</option>
+                    <option value="konghucu" <?php if ($this->det[0]['agama'] == "konghucu") echo "selected"; ?>>Konghucu</option>
+                   </select>
                 </fieldset>
                 <fieldset>
                   <label for="tlp">No Telepon/Handphone <span class="required">*</span></label>
                   <input type="text" name="tlp" id="tlp" value="<?php echo $this->det[0]['no_tlp'];?>" class="input-text wpcf7-text">
                 </fieldset>
                 <fieldset>
-                  <label for="alamat">Alamat <span class="required">*</span></label>
+                  <label for="alamat">Alamat Rumah<span class="required">*</span></label>
                   <textarea name="alamat" rows="8" cols="40" class="input-text  wpcf7-textarea"><?php echo $this->det[0]['alamat'];?></textarea>
                 </fieldset>
 
                 <fieldset>
-                  <label for="foto">Upload Foto (Upload Image max 600kb)<span class="required">*</span></label>
-                  <input type="file" name="file" id="file" class="input-text">
+                  <label for="foto">Upload Foto (Upload Image max 600kb)</label>
+                  <input type="file" name="file" id="file" class="input-text" style="color:#fff;">
                 </fieldset>
                 <input type="submit" class="wpcf7-submit" value="Edit" />
               </div>
@@ -218,6 +242,12 @@
   </div>
 </div>
 <script type="text/javascript">
+$('#tgllahir').datepicker({
+  changeYear: true,
+  changeMonth:true,
+  dateFormat: 'yy-mm-dd',
+  yearRange : "-70:+0"
+});
 $( window ).load(function() {
 	var tingkat = $('#tingkat_sekolah').val();
 	var kec = $('.kecamatan').val();

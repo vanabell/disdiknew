@@ -1,7 +1,16 @@
 <aside class="col-md-3 aside aside-left">
   <div class="service-icon-center">
     <div class="icon-container">
-        <img src="<?php echo $this->baseUrl();?>/images/profil/<?php echo $sessionuser->foto; ?>" alt="" width="100" height="100"/>
+      <?php
+        $id = $sessionuser->noreg;
+        $model = new User_Model_SiswaModel();
+        $data = $model->getSiswadet($id);
+        if($data[0]['foto']!=''){
+      ?>
+        <img src="<?php echo $this->baseUrl();?>/images/profil/<?php echo $data[0]['foto']; ?>" alt="" width="100" height="100"/>
+        <?php } else { ?>
+          <img src="<?php echo $this->baseUrl();?>/images/profil.jpg" alt="" width="100" height="100"/>
+        <?php }  ?>
     </div>
   </div>
     <ul class="aside-widgets">

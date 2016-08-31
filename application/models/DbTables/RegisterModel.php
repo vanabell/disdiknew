@@ -10,27 +10,24 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 														nama_lengkap,
 														no_tlp,
 														alamat,
+														agama,
+														tempat_lahir,
+														tgl_lahir,
 														email,
 														password,
 														foto,
-														jenis_sekolah,
-														jenis_peg,
 														kec,
 														tingkat_sekolah,
 														nama_sekolah,
-														umur,
-														masa_kerja,
 														jkelamin,
 														mapel,
+														alamat_tugas,
 														status_sek,
 														stat_peg,
 														golruang,
 														jabatan,
-														sertifikasi,
-														thn_sertifikasi,
 														pendidikan,
-														thn_pendidikan,
-														domisili
+														thn_pendidikan
 													)
 													VALUES
 													(
@@ -38,27 +35,24 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 														:nama_lengkap,
 														:no_tlp,
 														:alamat,
+														:agama,
+														:tempat_lahir,
+														:tgl_lahir,
 														:email,
 														:password,
 														:foto,
-														:jenis_sekolah,
-														:jenis_peg,
 														:kec,
 														:tingkat_sekolah,
 														:nama_sekolah,
-														:umur,
-														:masa_kerja,
 														:jkelamin,
 														:mapel,
+														:alamat_tugas,
 														:status_sek,
 														:stat_peg,
 														:golruang,
 														:jabatan,
-														:sertifikasi,
-														:thn_sertifikasi,
 														:pendidikan,
-														:thn_pendidikan,
-														:domisili
+														:thn_pendidikan
 													)
 													"
 			);
@@ -66,27 +60,24 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 			$stmt->bindParam(':nama_lengkap', $data['nama']);
 			$stmt->bindParam(':no_tlp', $data['tlp']);
 			$stmt->bindParam(':alamat', $data['alamat']);
+			$stmt->bindParam(':agama', $data['agama']);
+			$stmt->bindParam(':tempat_lahir', $data['tl']);
+			$stmt->bindParam(':tgl_lahir', $data['tgllahir']);
 			$stmt->bindParam(':email', $data['email']);
 			$stmt->bindParam(':password', $password);
 			$stmt->bindParam(':foto', $data['foto']);
-			$stmt->bindParam(':jenis_sekolah', $data['jenis_sek']);
-			$stmt->bindParam(':jenis_peg', $data['jenis_peg']);
 			$stmt->bindParam(':kec', $data['kec']);
 			$stmt->bindParam(':tingkat_sekolah', $data['tingkat_sekolah']);
 			$stmt->bindParam(':nama_sekolah', $data['nama_sekolah']);
-			$stmt->bindParam(':umur', $data['umur']);
-			$stmt->bindParam(':masa_kerja', $data['masa_kerja']);
 			$stmt->bindParam(':jkelamin', $data['jkelamin']);
 			$stmt->bindParam(':mapel', $data['mapel']);
+			$stmt->bindParam(':alamat_tugas', $data['alamat_tugas']);
 			$stmt->bindParam(':status_sek', $data['status']);
 			$stmt->bindParam(':stat_peg', $data['stat_peg']);
 			$stmt->bindParam(':golruang', $golruang);
 			$stmt->bindParam(':jabatan', $data['jabatan']);
-			$stmt->bindParam(':sertifikasi', $data['sertifikasi']);
-			$stmt->bindParam(':thn_sertifikasi', $data['thn_sertifikasi']);
 			$stmt->bindParam(':pendidikan', $data['pendidikan']);
 			$stmt->bindParam(':thn_pendidikan', $data['thn_pendidikan']);
-			$stmt->bindParam(':domisili', $data['domisili']);
 			$a = $stmt->execute();
 
 			return true;
@@ -113,12 +104,16 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 														nama_lengkap,
 														no_tlp,
 														alamat,
+														agama,
+														tempat_lahir,
+														tgl_lahir,
 														email,
 														password,
 														foto,
 														kec,
 														tingkat_sekolah,
 														nama_sekolah,
+														alamat_sekolah,
 														jkelamin,
 														status_sek
 													)
@@ -128,12 +123,16 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 														:nama_lengkap,
 														:no_tlp,
 														:alamat,
+														:agama,
+														:tempat_lahir,
+														:tgl_lahir,
 														:email,
 														:password,
 														:foto,
 														:kec,
 														:tingkat_sekolah,
 														:nama_sekolah,
+														:alamat_sekolah,
 														:jkelamin,
 														:status_sek
 													)
@@ -143,12 +142,16 @@ class Application_Model_DbTables_RegisterModel extends Zend_Db_Table_Abstract {
 			$stmt->bindParam(':nama_lengkap', $data['nama']);
 			$stmt->bindParam(':no_tlp', $data['tlp']);
 			$stmt->bindParam(':alamat', $data['alamat']);
+			$stmt->bindParam(':agama', $data['agama']);
+			$stmt->bindParam(':tempat_lahir', $data['tl']);
+			$stmt->bindParam(':tgl_lahir', $data['tgllahir']);
 			$stmt->bindParam(':email', $data['email']);
 			$stmt->bindParam(':password', $password);
 			$stmt->bindParam(':foto', $data['foto']);
 			$stmt->bindParam(':kec', $data['kec']);
 			$stmt->bindParam(':tingkat_sekolah', $data['tingkat_sekolah']);
 			$stmt->bindParam(':nama_sekolah', $data['nama_sekolah']);
+			$stmt->bindParam(':alamat_sekolah', $data['alamat_sekolah']);
 			$stmt->bindParam(':jkelamin', $data['jkelamin']);
 			$stmt->bindParam(':status_sek', $data['status']);
 			$a = $stmt->execute();
