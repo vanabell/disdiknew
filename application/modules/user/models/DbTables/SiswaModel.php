@@ -141,6 +141,7 @@ class User_Model_DbTables_SiswaModel extends Zend_Db_Table_Abstract {
 
 	public function daftar($id_peserta, $id_latih) {
 		try {
+			$hardcode = 'siswa';
 			$stmt=$this->_db->prepare("INSERT INTO pendaftaran
 													(
 														id_peserta,
@@ -157,7 +158,7 @@ class User_Model_DbTables_SiswaModel extends Zend_Db_Table_Abstract {
 			);
 			$stmt->bindParam(':id', $id_peserta);
 			$stmt->bindParam(':name', $id_latih);
-			$stmt->bindParam(':status', 'siswa');
+			$stmt->bindParam(':status', $hardcode);
 			$a = $stmt->execute();
 			return true;
 		} catch (Zend_Exception $e) {

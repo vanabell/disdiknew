@@ -222,6 +222,7 @@ class User_Model_DbTables_GuruModel extends Zend_Db_Table_Abstract {
 
   public function daftar($id_peserta, $id_latih) {
     try {
+      $hardcode = 'guru';
       $stmt=$this->_db->prepare("INSERT INTO pendaftaran
                           (
                             id_peserta,
@@ -232,13 +233,13 @@ class User_Model_DbTables_GuruModel extends Zend_Db_Table_Abstract {
                           (
                             :id,
                             :name,
-                            :status
+                            :status_daftar
                           )
                           "
       );
       $stmt->bindParam(':id', $id_peserta);
       $stmt->bindParam(':name', $id_latih);
-      $stmt->bindParam(':status', 'guru');
+      $stmt->bindParam(':status_daftar', $hardcode);
       $a = $stmt->execute();
       return true;
     } catch (Zend_Exception $e) {
