@@ -168,47 +168,51 @@
                     <thead>
                         <tr>
                             <th>tanggal</th>
-                            <th>program</th>
+                            <th>nama pelatihan</th>
                             <th>peserta</th>
+                            <th>jenis pelatihan</th>
                             <th>status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style="border-bottom: 1px solid #e6e6e6;">
-                            <td class="event-date p2kgkdate">
-                              25/05/2016 s.d 29/05/2016
-                            </td>
-                            <td>
-                                <ol>
-                                  <li>Pelatihan Junior Network Administration dan Sertifikasi Junior Network Administrator</li>
-                                  <li>Pelatihan Junior Programmer dan Sertifikasi Junior Programmer</li>
-                                </ol>
-                            </td>
-                            <td>
-                                Guru TIK SMA
-                            </td>
-                            <td>
-                                Pendaftaran masih buka
-                            </td>
-                        </tr>
+            <?php
+              $modelpel = new Application_Model_DbTables_PelatihanModel();
+              $pelat = $modelpel->getAllpellimit();
 
+              foreach ($pelat as $pelats ) {?>
                         <tr style="border-bottom: 1px solid #e6e6e6;">
                             <td class="event-date p2kgkdate">
-                                25/05/2016 s.d 29/05/2016
+                              <?php echo $pelats['tgl']?>
                             </td>
                             <td>
-                                <ol>
-                                  <li>Pelatihan Junior Network Administration dan Sertifikasi Junior Network Administrator</li>
-                                  <li>Pelatihan Junior Programmer dan Sertifikasi Junior Programmer</li>
-                                </ol>
+                                <?php echo $pelats['nama_pelatihan']?>
                             </td>
                             <td>
-                                Guru TIK SMA
+                              <?php echo $pelats['tingkat_peserta']?>
                             </td>
                             <td>
-                                Pendaftaran masih buka
+                              <?php
+                                if($pelats['jenis_pelatihan']==1) {
+                                  echo "Pelatihan";
+                                } elseif($pelats['jenis_pelatihan']==2) {
+                                  echo "Sertifikasi";
+                                } else {
+                                  echo "Pelatihan & Sertifikasi";
+                                }
+                              ?>
+                            </td>
+                            <td>
+                              <?php
+                              if($pelats['status_pendaftaran']==1) {
+                                echo "Pendaftaran masih buka";
+                              } else {
+                                echo "<span style='color:#f00;'>Pendaftaran sudah tutup</span>";
+                              }
+                              ?>
                             </td>
                         </tr>
+                        <?php } ?>
+
                     </tbody>
                 </table><!-- .events-table end -->
               </div>

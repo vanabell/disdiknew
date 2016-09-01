@@ -30,11 +30,12 @@ class Admin_PelatihanController extends Zend_Controller_Action {
     $this->_helper->layout->setLayout('layoutadmin');
     $model = new Admin_Model_PelatihanModel();
     $req = $this->getRequest();
-		$id = $req->getParam('p');
+    $id = $req->getParam('p');
+    $pel = $req->getParam('k');
     $data = $model->getAllPeserta($id);
     $this->view->data = $data;
     $this->view->id = $id;
-
+    $this->view->pel= $pel;
   }
 
   public function deletepesertaAction() {

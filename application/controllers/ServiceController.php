@@ -15,12 +15,24 @@ class ServiceController extends Zend_Controller_Action
 
     public function trainingAction()
     {
-        // action body
+        $model = new Application_Model_PelatihanModel();
+        $data = $model->getAllpelatihan();
+        $this->view->data = $data;
+
     }
 
     public function certificationAction()
     {
-        // action body
+        $model = new Application_Model_PelatihanModel();
+        $data = $model->getAllsertifikasi();
+        $this->view->data = $data;
+    }
+
+    public function traincerfAction()
+    {
+        $model = new Application_Model_PelatihanModel();
+        $data = $model->getAllpelserf();
+        $this->view->data = $data;
     }
 
 }
