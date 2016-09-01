@@ -136,10 +136,10 @@ class User_3e72758f0fc77cdad787f58b41e9985fController extends Zend_Controller_Ac
 				$sessionuser = Zend_Registry::get('session_user');
 				$id_peserta = $sessionuser->noreg;
         $id_pelatihan = $req->getParam('key');
-      //  Zend_Debug::dump($id_peserta.' '.$id_pelatihan);die();
 				$cek = $model->cekdaftar($id_peserta, $id_pelatihan);
 				if(count($cek)==0) {
 					$daftar = $model->daftar($id_peserta, $id_pelatihan);
+					// Zend_Debug::dump($daftar);die();
 					return $this->_helper->json(
 						array(
 							'edit' => $daftar,
