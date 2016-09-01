@@ -9,7 +9,7 @@
                 <a href="<?php echo $this->baseUrl() ?>/index">Home</a>
               </li>
               <li>
-                Pelatihan dan Sertifikasi
+                Sertifikasi
               </li>
             </ul><!-- .breadcrumb end -->
           </div><!-- .breadcrumb-container end -->
@@ -22,7 +22,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="custom-heading">
-                <h2>Jadwal Pelatihan dan Sertifikasi P2KGK di Tahun 2016</h2>
+                <h2>Jadwal Sertifikasi P2KGK di Tahun 2016</h2>
             </div><!-- .custom-heading end -->
             <div class="table-responsive">
                 <table class="events-table">
@@ -31,51 +31,42 @@
                             <th>No</th>
                             <th>Tanggal</th>
                             <th>Gelombang</th>
+                            <th>Nama Pelatihan</th>
                             <th>Program</th>
                             <th>Peserta</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
+                      <?php
+                      $no=1;
+                      foreach ($this->data as $pel) { ?>
                         <tr style="border-bottom: 1px solid #e6e6e6;">
-                            <td>1.</td>
+                            <td><?php echo $no;?></td>
                             <td class="event-date p2kgkdate">
-                                25/05/2016 s.d 29/05/2016
+                                <?php echo $pel['tgl'];?>
                             </td>
-                            <td>Gelombang 1</td>
+                            <td>Gelombang <?php echo $pel['gelombang'];?></td>
                             <td>
-                                <ol>
-                                  <li>Pelatihan Junior Network Administration dan Sertifikasi Junior Network Administrator</li>
-                                  <li>Pelatihan Junior Programmer dan Sertifikasi Junior Programmer</li>
-                                </ol>
+                                <?php echo $pel['nama_pelatihan'];?>
                             </td>
                             <td>
-                                Guru TIK SMA
+                                <?php echo $pel['deskripsi'];?>
                             </td>
                             <td>
-                                Pendaftaran masih buka
+                                  <?php echo $pel['tingkat_peserta'];?>
+                            </td>
+                            <td>
+                                <?php
+                                if($pel['status_pendaftaran']==1) {
+                                  echo "Pendaftaran masih buka";
+                                } else {
+                                  echo "<span style='color:#f00;'>Pendaftaran sudah tutup</span>";
+                                }
+                                ?>
                             </td>
                         </tr>
-
-                        <tr style="border-bottom: 1px solid #e6e6e6;">
-                            <td>2.</td>
-                            <td class="event-date p2kgkdate">
-                                25/05/2016 s.d 29/05/2016
-                            </td>
-                            <td>Gelombang 1</td>
-                            <td>
-                                <ol>
-                                  <li>Pelatihan Junior Network Administration dan Sertifikasi Junior Network Administrator</li>
-                                  <li>Pelatihan Junior Programmer dan Sertifikasi Junior Programmer</li>
-                                </ol>
-                            </td>
-                            <td>
-                                Guru TIK SMA
-                            </td>
-                            <td>
-                                Pendaftaran masih buka
-                            </td>
-                        </tr>
+                        <?php $no++;} ?>
                     </tbody>
                 </table><!-- .events-table end -->
               </div>
