@@ -53,4 +53,18 @@ class Admin_PelatihanController extends Zend_Controller_Action {
 
 	}
 
+  public function excelAction() {
+    set_time_limit( 0 );
+    $model = new Admin_Model_PelatihanModel();
+    $req = $this->getRequest();
+    $id = $req->getParam('key');
+
+    $data = $model->getAllPeserta($id);
+    $this->view->data = $data;
+    $this->_helper->layout->disableLayout();
+    header('Content-Type: application/vnd.ms-excel; charset=UTF-8');
+    header('Content-Disposition: attachment; filename="Laporan.xls"');
+
+  }
+
 }

@@ -1,0 +1,40 @@
+<table class="table">
+		        <thead>
+		          <tr align="center">
+		          	<th width="100">No</th>
+		            <th>ID Peserta (NIK/NIS)</th>
+								<th>Nama Peserta</th>
+								<th>Status Peserta</th>
+		            <th>Nilai Peserta</th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		         <?php for($a=0;$a < count($this->data);$a++){
+		         	$b = $a+1;
+		         		?>
+		         <tr>
+               <td><?php echo $b;?></td>
+							 <?php if($this->data[$a]['status_daftar']=='guru') {
+								 $model = new User_Model_DbTables_GuruModel();
+								 $guru = $model->getGurudet($this->data[$a]['id_peserta']);
+								 $nama = $guru[0]['nama_lengkap'];
+								 $nik = $guru[0]['nip'];
+							 } else {
+								 $model = new User_Model_DbTables_SiswaModel();
+								 $siswa = $model->getSiswadet($this->data[$a]['id_peserta']);
+								 $nama = $siswa[0]['nama_lengkap'];
+								 $nik = $siswa[0]['nis'];
+							 }
+							 ?>
+               <td><?php echo $nik;?></td>
+							 <td><?php echo $nama;?></td>
+               <td><?php echo strtoupper($this->data[$a]['status_daftar']);?></td>
+							 <td>
+							 	<?php echo $this->data[$a]['nilai'] ?>
+							 </td>
+		         </tr>
+		         <?php }?>
+		        </tbody>
+		        <tfoot>
+		        </tfoot>
+		      </table>

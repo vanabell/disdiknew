@@ -21,7 +21,7 @@
 		<span class="glyphicon glyphicon-arrow-left">
 			Back</span>
 	</a>
-	<a class="btn btn-default btn-lg active" href="<?php echo $this->baseUrl();?>/admin/pelatihan/excel" style="cursor: pointer;">
+	<a class="btn btn-default btn-lg active" onclick="donlod('<?php echo $this->id; ?>')" style="cursor: pointer;">
 		<span class="glyphicon filetypes-xls">
 			Export ke Excel</span>
 	</a>
@@ -95,6 +95,11 @@
 			      }
 		      });
 
+		}
+
+		function donlod(id){
+			var a = id;
+			document.location = '<?php echo $this->baseUrl()?>/admin/pelatihan/excel/key/'+a;
 		}
 		</script>
 	</body>
