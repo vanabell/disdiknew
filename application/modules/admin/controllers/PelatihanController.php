@@ -68,4 +68,20 @@ class Admin_PelatihanController extends Zend_Controller_Action {
 
   }
 
+  public function updateAction() {
+
+    $model = new Admin_Model_PelatihanModel();
+    $req = $this->getRequest();
+    $id = $req->getParam('key');
+    $nilai = $req->getParam('key2');
+    $data = $model->update($id,$nilai);
+    return $this->_helper->json(
+        array(
+            'edit' => $data,
+        )
+    );
+
+  }
+
+
 }

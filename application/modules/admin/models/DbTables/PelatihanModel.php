@@ -94,4 +94,19 @@ class Admin_Model_DbTables_PelatihanModel extends Zend_Db_Table_Abstract {
     }
   }
 
+	public function update($id, $nilai) {
+		try {
+			$stmt=$this->_db->prepare("UPDATE pendaftaran SET
+										nilai=:nilai
+									   WHERE id_daftar=:id" );
+
+			$stmt->bindParam(':id', $id);
+			$stmt->bindParam(':nilai', $nilai);
+			$a = $stmt->execute();
+			return true;
+		} catch (Zend_Exception $e) {
+			return array("sts"=>false,"msg"=>$e->getMessage());
+		}
+	}
+
 }
