@@ -138,13 +138,25 @@ class User_3e72758f0fc77cdad787f58b41e9985fController extends Zend_Controller_Ac
         $id_pelatihan = $req->getParam('key');
 				$cek = $model->cekdaftar($id_peserta, $id_pelatihan);
 				if(count($cek)==0) {
-					$daftar = $model->daftar($id_peserta, $id_pelatihan);
+					$modeladmin = new Admin_Model_PelatihanModel();
+					$datapelatihan = $modeladmin->getDetPelatihan($id_pelatihan);
+					$kuota = $datapelatihan[0]['kuota'];
+					if($kuota!=0) {
+						$daftar = $model->daftar($id_peserta, $id_pelatihan, $kuota);
+						return $this->_helper->json(
+							array(
+								'edit' => $daftar,
+							)
+						);
+					} else {
+						return $this->_helper->json(
+							array(
+								'edit' => 'penuh',
+							)
+						);
+					}
 					// Zend_Debug::dump($daftar);die();
-					return $this->_helper->json(
-						array(
-							'edit' => $daftar,
-						)
-					);
+
 				} else {
 					return $this->_helper->json(
 						array(

@@ -42,6 +42,17 @@ class Admin_Model_PelatihanModel {
 		return $result;
 	}
 
+	public function getDetPelatihan($idpel) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->getDetPelatihan($idpel);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
 	public function getAllPeserta($idpel) {
 		$productTable = $this->_dbTableProduct;
 		try {
@@ -57,6 +68,17 @@ class Admin_Model_PelatihanModel {
 		$productTable = $this->_dbTableProduct;
 		try {
 			$result = $productTable->delPeserta($id);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	public function update($id,$nilai) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->update($id,$nilai);
 
 		} catch (Zend_Exception $e) {
 			return $e->getMessage();

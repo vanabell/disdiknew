@@ -130,10 +130,12 @@ class User_Model_GuruModel {
 	    return $result;
 	  }
 
-  public function daftar($id_peserta, $id_latih) {
+  public function daftar($id_peserta, $id_latih, $kuota) {
 	    $productTable = $this->_dbTableProduct;
 	    try {
 	      $result = $productTable->daftar($id_peserta, $id_latih);
+				$sisa  = $kuota-1;
+				$updatekuota = $productTable->updateSisa($id_latih, $sisa);
 
 	    } catch (Zend_Exception $e) {
 	      return $e->getMessage();

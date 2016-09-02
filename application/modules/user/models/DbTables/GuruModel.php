@@ -247,5 +247,19 @@ class User_Model_DbTables_GuruModel extends Zend_Db_Table_Abstract {
     }
   }
 
+  public function updateSisa($id, $sisa) {
+		try {
+			$stmt=$this->_db->prepare("UPDATE pelatihan SET
+										kuota=:nilai
+									   WHERE id_pelatihan=:id" );
+
+			$stmt->bindParam(':id', $id);
+			$stmt->bindParam(':nilai', $sisa);
+			$a = $stmt->execute();
+			return true;
+		} catch (Zend_Exception $e) {
+			return array("sts"=>false,"msg"=>$e->getMessage());
+		}
+	}
 
 }
