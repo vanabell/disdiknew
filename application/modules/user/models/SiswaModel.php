@@ -100,12 +100,25 @@ class User_Model_SiswaModel {
 		$productTable = $this->_dbTableProduct;
 		try {
 			$result = $productTable->daftar($id_peserta, $id_latih);
-
+			$sisa  = $kuota-1;
+			$updatekuota = $productTable->updateSisa($id_latih, $sisa);
+			
 		} catch (Zend_Exception $e) {
 			return $e->getMessage();
 		}
 		return $result;
 	}
+
+	public function cekdaftar($id_peserta, $id_latih) {
+	    $productTable = $this->_dbTableProduct;
+	    try {
+	      $result = $productTable->cekdaftar($id_peserta, $id_latih);
+
+	    } catch (Zend_Exception $e) {
+	      return $e->getMessage();
+	    }
+	    return $result;
+  }
 
 	public function getDetSekolah($id) {
 		$productTable = $this->_dbTableProduct;
