@@ -1,6 +1,16 @@
 <script type="text/javascript">
     $(function () {
-        $('#tgl').datetimepicker({format: 'Y-MM-DD HH:mm'});
+      $('#tgl').datetimepicker({format: 'Y-MM-DD HH:mm'});
+      $('#tgl2').datetimepicker({
+          format: 'Y-MM-DD HH:mm',
+          useCurrent: false
+      });
+      $("#tgl").on("dp.change", function (e) {
+            $('#tgl2').data("DateTimePicker").minDate(e.date);
+        });
+      $("#tgl2").on("dp.change", function (e) {
+          $('#tgl').data("DateTimePicker").maxDate(e.date);
+      });
     });
 </script>
 <div class="panel panel-info">
@@ -39,9 +49,18 @@
       </div>
       <div class="form-group">
           <label for="tgl" class="col-sm-2 control-label">Tanggal dan Waktu</label>
-          <div class="col-sm-10">
+          <div class="col-sm-4">
             <div class='input-group date' id='tgl'>
                 <input type='text' name="tgl" class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+          </div>
+          <span class="col-sm-1">s/d</span>
+          <div class="col-sm-4">
+            <div class='input-group date' id='tgl2'>
+                <input type='text' name="tgl2" class="form-control" />
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>

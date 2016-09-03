@@ -1,10 +1,20 @@
 <script type="text/javascript">
     $(function () {
         $('#tgl').datetimepicker({format: 'Y-MM-DD HH:mm'});
+        $('#tgl2').datetimepicker({
+            format: 'Y-MM-DD HH:mm',
+            useCurrent: false
+        });
+        $("#tgl").on("dp.change", function (e) {
+              $('#tgl2').data("DateTimePicker").minDate(e.date);
+          });
+        $("#tgl2").on("dp.change", function (e) {
+            $('#tgl').data("DateTimePicker").maxDate(e.date);
+        });
     });
 </script>
 <div class="panel panel-info">
-<div class="panel-heading"><i class="glyphicon glyphicon-dashboard"></i> <b>ADD NEW PELATIHAN</b></center></div>
+<div class="panel-heading"><i class="glyphicon glyphicon-dashboard"></i> <b>EDIT PELATIHAN</b></center></div>
 </br>
 <form class="form-horizontal" role="form" method="post" autocomplete="off" enctype="multipart/form-data">
 	<?php
@@ -23,13 +33,14 @@
       <div class="form-group">
     	    <label for="nama" class="col-sm-2 control-label">Nama Pelatihan</label>
     	    <div class="col-sm-10">
-    	      <input type="text" class="form-control" id="nama" name="nama">
+    	      <input type="text" class="form-control" id="nama" name="nama" value="<?php echo $this->det[0]['nama_pelatihan'];?>">
+            <input type="hidden" class="form-control" id="id" name="id" value="<?php echo $this->det[0]['id_pelatihan'];?>">
     	    </div>
       </div>
       <div class="form-group">
         <label for="tos" class="col-sm-2 control-label">Deskripsi</label>
          <div class="col-sm-10">
-         	<textarea id="tos" name="tos"></textarea>
+         	<textarea id="tos" name="tos"><?php echo $this->det[0]['deskripsi'];?></textarea>
     						<script type="text/javascript">
     							CKEDITOR.replace( 'tos',  {
     	allowedContent: true
@@ -39,9 +50,18 @@
       </div>
       <div class="form-group">
           <label for="tgl" class="col-sm-2 control-label">Tanggal dan Waktu</label>
-          <div class="col-sm-10">
+          <div class="col-sm-4">
             <div class='input-group date' id='tgl'>
-                <input type='text' name="tgl" class="form-control" />
+                <input type='text' name="tgl" class="form-control" value="<?php echo $this->det[0]['tgl_mulai'];?>"/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+          </div>
+          <span class="col-sm-1">s/d</span>
+          <div class="col-sm-4">
+            <div class='input-group date' id='tgl2'>
+                <input type='text' name="tgl2" class="form-control" value="<?php echo $this->det[0]['tgl_selesai'];?>"/>
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -53,9 +73,9 @@
   	    <div class="col-sm-10">
           <select name="stat_peserta" id="stat_peserta" class="input-text form-control">
             <option value="">--Pilih Status Peserta--</option>
-            <option value="1">Guru</option>
-            <option value="2">Siswa</option>
-            <option value="3">Keduanya</option>
+            <option value="1" <?php if ($this->det[0]['status_peserta'] == "1") echo "selected"; ?>>Guru</option>
+            <option value="2" <?php if ($this->det[0]['status_peserta'] == "2") echo "selected"; ?>>Siswa</option>
+            <option value="3" <?php if ($this->det[0]['status_peserta'] == "3") echo "selected"; ?>>Keduanya</option>
           </select>
   	    </div>
     	</div>
@@ -64,12 +84,12 @@
   	    <div class="col-sm-10">
   				<select name="tingkat_peserta" class="input-text form-control" id="tingkat_peserta" >
             <option value="">--Pilih Tingkat Peserta--</option>
-            <option value="TK">TK</option>
-  					<option value="SD">SD</option>
-  					<option value="SMP">SMP</option>
-  					<option value="SMA">SMA</option>
-  					<option value="SMK">SMK</option>
-            <option value="ALL">Semuanya</option>
+  					<option value="TK" <?php if ($this->det[0]['tingkat_peserta'] == "TK") echo "selected"; ?>>TK</option>
+  					<option value="SD" <?php if ($this->det[0]['tingkat_peserta'] == "SD") echo "selected"; ?>>SD</option>
+  					<option value="SMP" <?php if ($this->det[0]['tingkat_peserta'] == "SMP") echo "selected"; ?>>SMP</option>
+  					<option value="SMA" <?php if ($this->det[0]['tingkat_peserta'] == "SMA") echo "selected"; ?>>SMA</option>
+  					<option value="SMK" <?php if ($this->det[0]['tingkat_peserta'] == "SMK") echo "selected"; ?>>SMK</option>
+            <option value="ALL" <?php if ($this->det[0]['tingkat_peserta'] == "ALL") echo "selected"; ?>>Semuanya</option>
   				</select>
   	    </div>
     	</div>
@@ -78,33 +98,38 @@
   	    <div class="col-sm-10">
           <select name="jenis_pelatihan" id="jenis_pelatihan" class="input-text form-control">
             <option value="">--Pilih Jenis Pelatihan--</option>
-            <option value="1">Pelatihan</option>
-            <option value="2">Pelatihan & Sertifikasi</option>
+            <option value="1" <?php if ($this->det[0]['jenis_pelatihan'] == "1") echo "selected"; ?>>Pelatihan</option>
+            <option value="2" <?php if ($this->det[0]['jenis_pelatihan'] == "2") echo "selected"; ?>>Sertifikasi</option>
+            <option value="3" <?php if ($this->det[0]['jenis_pelatihan'] == "3") echo "selected"; ?>>Pelatihan & Sertifikasi</option>
           </select>
   	    </div>
     	</div>
       <div class="form-group">
     	    <label for="gelombang" class="col-sm-2 control-label">Gelombang</label>
     	    <div class="col-sm-10">
-    	      <input type="text" class="form-control" id="gelombang" name="gelombang">
+    	      <input type="text" class="form-control" id="gelombang" name="gelombang" value="<?php echo $this->det[0]['gelombang'];?>">
     	    </div>
       </div>
       <div class="form-group">
     	    <label for="kuota" class="col-sm-2 control-label">Kuota Peserta</label>
     	    <div class="col-sm-10">
-    	      <input type="text" class="form-control" id="kuota" name="kuota">
+    	      <input type="text" class="form-control" id="kuota" name="kuota" value="<?php echo $this->det[0]['kuota'];?>">
     	    </div>
       </div>
       <div class="form-group">
           <label for="kkm" class="col-sm-2 control-label">KKM (Boleh Kosong)</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="kkm" name="kkm">
+            <input type="text" class="form-control" id="kkm" name="kkm" <?php echo $this->det[0]['kkm'];?>>
           </div>
       </div>
       <div class="form-group">
   	    <label for="jenis_pelatihan" class="col-sm-2 control-label">Status Pendaftaran  </label>
   	    <div class="col-sm-10">
-          BUKA/TUTUP
+          <select name="status_pendaftaran" id="status_pendaftaran" class="input-text form-control">
+            <option value="">--Pilih Status Pendaftaran--</option>
+            <option value="1" <?php if ($this->det[0]['status_pendaftaran'] == "1") echo "selected"; ?>>Buka</option>
+            <option value="2" <?php if ($this->det[0]['status_pendaftaran'] == "2") echo "selected"; ?>>Tutup</option>
+          </select>
   	    </div>
     	</div>
       <div class="form-group">
@@ -117,7 +142,7 @@
             $lembaga = $list->getAllLembaga();
             foreach ($lembaga as $l ) {
             ?>
-            <option value="<?php echo $l['ua_admin_id']?>"><?php echo $l['ua_firstname']." ".$l['ua_lastname']; ?></option>
+            <option value="<?php echo $l['ua_admin_id']?>" <?php if ($this->det[0]['id_lembaga'] == $l['ua_admin_id']) echo "selected"; ?>><?php echo $l['ua_firstname']." ".$l['ua_lastname']; ?></option>
             <?php } ?>
           </select>
   	    </div>
