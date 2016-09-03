@@ -26,6 +26,40 @@ class Admin_PelatihanController extends Zend_Controller_Action {
     }
   }
 
+  public function editAction()  {
+    $this->_helper->layout->setLayout('layoutadmin');
+    $model = new Admin_Model_PelatihanModel();
+    $req = $this->getRequest();
+    $id = $req->getParam('p');
+    $det = $model->getDetPelatihan($id);
+    $this->view->det = $det;
+
+    if ($this->_request->isPost()) {
+      $Dataform = $this->_request->getPost();
+      /*Zend_Debug::dump($Dataform);die();*/
+      if($Dataform['nama']==null) {
+        $this->view->message = 'Please Fill out The Form First!';
+      } else {
+        // Zend_Debug::dump($Dataform);die();
+        $insert = $model->updatePel($Dataform);
+        // Zend_Debug::dump($insert);die();
+
+      }
+
+      if($insert===true) {
+        $this->view->msg = 'Insert Success';
+      } else {
+        $this->view->message = 'Insert Failed';
+      }
+
+    }
+    $id = $req->getParam('p');
+    if($id!='') {
+      $det = $model->getDetPelatihan($id);
+      $this->view->det = $det;
+    }
+  }
+
   public function pesertaAction() {
     $this->_helper->layout->setLayout('layoutadmin');
     $model = new Admin_Model_PelatihanModel();

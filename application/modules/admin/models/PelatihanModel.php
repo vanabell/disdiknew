@@ -64,6 +64,17 @@ class Admin_Model_PelatihanModel {
 		return $result;
 	}
 
+	public function updatePel($data) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->updatePel($data);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
 	public function delPeserta($id) {
 		$productTable = $this->_dbTableProduct;
 		try {

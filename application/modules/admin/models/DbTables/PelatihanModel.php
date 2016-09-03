@@ -16,7 +16,8 @@ class Admin_Model_DbTables_PelatihanModel extends Zend_Db_Table_Abstract {
 			$stmt=$this->_db->prepare("INSERT INTO pelatihan
 													(
 														nama_pelatihan,
-														tgl,
+														tgl_mulai,
+														tgl_selesai,
 														status_peserta,
 														tingkat_peserta,
 														jenis_pelatihan,
@@ -30,7 +31,8 @@ class Admin_Model_DbTables_PelatihanModel extends Zend_Db_Table_Abstract {
 													VALUES
 													(
 														:nama_pelatihan,
-														:tgl,
+														:tgl_mulai,
+														:tgl_selesai,
 														:status_peserta,
 														:tingkat_peserta,
 														:jenis_pelatihan,
@@ -44,7 +46,8 @@ class Admin_Model_DbTables_PelatihanModel extends Zend_Db_Table_Abstract {
 													"
 			);
 			$stmt->bindParam(':nama_pelatihan', $data['nama']);
-			$stmt->bindParam(':tgl', $data['tgl']);
+			$stmt->bindParam(':tgl_mulai', $data['tgl']);
+			$stmt->bindParam(':tgl_selesai', $data['tgl2']);
 			$stmt->bindParam(':status_peserta', $data['stat_peserta']);
 			$stmt->bindParam(':tingkat_peserta', $data['tingkat_peserta']);
 			$stmt->bindParam(':jenis_pelatihan', $data['jenis_pelatihan']);
@@ -59,6 +62,43 @@ class Admin_Model_DbTables_PelatihanModel extends Zend_Db_Table_Abstract {
 			return true;
 		} catch (Zend_Exception $e) {
 			return $e->getMessage();
+		}
+	}
+
+	public function updatePel($data) {
+		try {
+			$stmt=$this->_db->prepare("UPDATE pelatihan SET
+										nama_pelatihan=:nama_pelatihan,
+										tgl_mulai=:tgl_mulai,
+										tgl_selesai=:tgl_selesai,
+										status_peserta=:status_peserta,
+										tingkat_peserta=:tingkat_peserta,
+										jenis_pelatihan=:jenis_pelatihan,
+										deskripsi=:deskripsi,
+										gelombang=:gelombang,
+										kkm=:kkm,
+										status_pendaftaran=:status_pendaftaran,
+										id_lembaga=:id_lembaga,
+										kuota=:kuota
+									   WHERE id_pelatihan=:id" );
+
+			$stmt->bindParam(':id', $data['id']);
+			$stmt->bindParam(':nama_pelatihan', $data['nama']);
+			$stmt->bindParam(':tgl_mulai', $data['tgl']);
+			$stmt->bindParam(':tgl_selesai', $data['tgl2']);
+			$stmt->bindParam(':status_peserta', $data['stat_peserta']);
+			$stmt->bindParam(':tingkat_peserta', $data['tingkat_peserta']);
+			$stmt->bindParam(':jenis_pelatihan', $data['jenis_pelatihan']);
+			$stmt->bindParam(':deskripsi', $data['tos']);
+			$stmt->bindParam(':gelombang', $data['gelombang']);
+			$stmt->bindParam(':status_pendaftaran', $data['status_pendaftaran']);
+			$stmt->bindParam(':id_lembaga', $data['lembaga']);
+			$stmt->bindParam(':kkm', $data['kkm']);
+			$stmt->bindParam(':kuota', $data['kuota']);
+			$a = $stmt->execute();
+			return true;
+		} catch (Zend_Exception $e) {
+			return array("sts"=>false,"msg"=>$e->getMessage());
 		}
 	}
 
