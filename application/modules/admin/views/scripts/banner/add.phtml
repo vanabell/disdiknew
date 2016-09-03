@@ -37,7 +37,9 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
+    <?php if ($this->total < 5) {?>
       <button type="submit" class="btn btn-default">Save</button>
+      <?php } ?>
        <button type="reset" class="btn btn-default" onclick="window.location='<?php echo $this->baseUrl();?>/admin/banner/index'">Cancel</button>
     </div>
   </div>

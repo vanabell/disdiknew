@@ -5,7 +5,9 @@
 		            <th style="background:#ccc;">ID Peserta (NIK/NIS)</th>
 								<th style="background:#ccc;">Nama Peserta</th>
 								<th style="background:#ccc;">Status Peserta</th>
+					<?php if($this->det[0]['jenis_pelatihan']!=1) {?>			
 		            <th style="background:#ccc;">Nilai Peserta</th>
+		            <?php } ?>
 		          </tr>
 		        </thead>
 		        <tbody>
@@ -29,9 +31,11 @@
                <td><?php echo $nik;?></td>
 							 <td><?php echo $nama;?></td>
                <td><?php echo strtoupper($this->data[$a]['status_daftar']);?></td>
+               <?php if($this->det[0]['jenis_pelatihan']!=1) {?>
 							 <td>
 							 	<?php echo $this->data[$a]['nilai'] ?>
 							 </td>
+							 <?php }?>
 		         </tr>
 		         <?php }?>
 		        </tbody>

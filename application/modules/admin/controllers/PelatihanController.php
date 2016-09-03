@@ -93,12 +93,13 @@ class Admin_PelatihanController extends Zend_Controller_Action {
     $model = new Admin_Model_PelatihanModel();
     $req = $this->getRequest();
     $id = $req->getParam('key');
-
+    $det = $model->getDetPelatihan($id);
+    $this->view->det = $det;
     $data = $model->getAllPeserta($id);
     $this->view->data = $data;
     $this->_helper->layout->disableLayout();
     header('Content-Type: application/vnd.ms-excel; charset=UTF-8');
-    header('Content-Disposition: attachment; filename="Laporan.xls"');
+    header('Content-Disposition: attachment; filename="'.$det[0]['nama_pelatihan'].'.xls"');
 
   }
 
