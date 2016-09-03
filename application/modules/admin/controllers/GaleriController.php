@@ -30,7 +30,7 @@ class Admin_GaleriController extends Zend_Controller_Action {
           if($filename!="") {
             $extension=end(explode(".", $filename));
             $newfilename= $Dataform['nama'].".".$extension;
-            $path = realpath(APPLICATION_PATH . '/../public/images/media/');
+            $path = realpath(APPLICATION_PATH . '/../public/img/pics/');
               $a =  move_uploaded_file($info['file']['tmp_name'],$path.'/'.$newfilename);
               $up = $model->addPhoto($newfilename, $Dataform);
               if($up==true){
@@ -65,7 +65,7 @@ class Admin_GaleriController extends Zend_Controller_Action {
           if($filename!="") {
             $extension=end(explode(".", $filename));
             $newfilename= $Dataform['nama'].".".$extension;
-            $path = realpath(APPLICATION_PATH . '/../public/images/media/');
+            $path = realpath(APPLICATION_PATH . '/../public/img/pics/');
             //var_dump($path);die();
             unlink($path.'/'.$newfilename);
               $a =  move_uploaded_file($info['file']['tmp_name'],$path.'/'.$newfilename);
