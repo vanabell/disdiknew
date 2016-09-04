@@ -3,7 +3,7 @@ class Admin_Model_DbTables_BannerModel extends Zend_Db_Table_Abstract {
 
   public function getAllBanner() {
 		try {
-			$select="SELECT * FROM slider";
+			$select="SELECT * FROM banner";
 			$rows=$this->_db->fetchAll($select);
 			return $rows;
 		} catch (Zend_Exception $e) {
@@ -13,22 +13,22 @@ class Admin_Model_DbTables_BannerModel extends Zend_Db_Table_Abstract {
 
   public function addPhoto($newfilename, $data) {
 		try {
-			$stmt=$this->_db->prepare("INSERT INTO slider
+			$stmt=$this->_db->prepare("INSERT INTO banner
 													(
-														nama,
-														descr,
-														gambar
+														judul,
+														deskripsi,
+														foto
 													)
 													VALUES
 													(
 														:name,
-														:title,
+														:deskripsi,
 														:image
 													)
 													"
 			);
 			$stmt->bindParam(':name', $data['nama']);
-			$stmt->bindParam(':title', $data['desc']);
+			$stmt->bindParam(':deskripsi', $data['desc']);
 			$stmt->bindParam(':image', $newfilename);
 			$a = $stmt->execute();
 
@@ -40,14 +40,14 @@ class Admin_Model_DbTables_BannerModel extends Zend_Db_Table_Abstract {
 
 	public function upPhoto($newfilename, $data) {
     		try {
-    			$stmt=$this->_db->prepare("UPDATE slider SET
-    										nama=:isi, descr=:nama,
-    										gambar=:tgl WHERE id_slide=:id" );
+    			$stmt=$this->_db->prepare("UPDATE banner SET
+    										judul=:nama, deskripsi=:isi,
+    										foto=:foto WHERE id_banner=:id" );
 
     			$stmt->bindParam(':id', $data['id']);
-          		$stmt->bindParam(':nama', $data['desc']);
-    			$stmt->bindParam(':tgl', $newfilename);
-    			$stmt->bindParam(':isi', $data['nama']);
+          		$stmt->bindParam(':nama', $data['nama']);
+    			$stmt->bindParam(':foto', $newfilename);
+    			$stmt->bindParam(':isi', $data['desc']);
     			$a = $stmt->execute();
 
     			return $a;
@@ -58,7 +58,7 @@ class Admin_Model_DbTables_BannerModel extends Zend_Db_Table_Abstract {
 
   	public function getFotodet($id) {
 		try {
-			$select="SELECT * FROM slider WHERE id_slide='".$id."'";
+			$select="SELECT * FROM banner WHERE id_banner='".$id."'";
 			$rows=$this->_db->fetchAll($select);
 			return $rows;
 		} catch (Zend_Exception $e) {
@@ -69,7 +69,7 @@ class Admin_Model_DbTables_BannerModel extends Zend_Db_Table_Abstract {
 	public function delPhoto($id) {
       //Zend_Debug::dump($id);die();
       try{
-        $stmt1 = $this->_db->prepare("DELETE FROM slider where id_slide=:id");
+        $stmt1 = $this->_db->prepare("DELETE FROM banner where id_banner=:id");
         $stmt1->bindParam(':id', $id);
         $a = $stmt1->execute();
         return $a;

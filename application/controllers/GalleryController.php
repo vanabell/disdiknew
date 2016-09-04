@@ -14,7 +14,9 @@ class GalleryController extends Zend_Controller_Action
 
     public function photoAction()
     {
-        // action body
+      $model = new Application_Model_GaleriModel();
+      $listfoto = $model->getFotolist();
+      $this->view->data = $listfoto;
     }
 
     public function videoAction()

@@ -19,4 +19,15 @@ class Application_Model_GaleriModel {
 		}
 		return $result;
 	}
+
+	public function getFotolist() {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->getFotolist();
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
 }
