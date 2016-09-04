@@ -35,117 +35,27 @@
     <div class="container">
         <div class="row">
             <ul class="vehicle-gallery clearfix p2kgkgallery">
+              <?php foreach ($this->data as $foto) { ?>
                 <li class="col-md-3">
                     <figure class="gallery-item-container">
                         <div class="gallery-item">
-                            <img src="<?php echo $this->baseUrl();?>/images/kegiatan/1.jpg" alt="" />
+                            <img src="<?php echo $this->baseUrl();?>/img/pics/<?php echo $foto['url']?>" alt="<?php echo $foto['nama']?>" />
 
                             <div class="hover-mask-container">
                                 <div class="hover-mask"></div>
                                 <div class="hover-zoom">
-                                    <a href="<?php echo $this->baseUrl();?>/images/kegiatan/1.jpg" class="triggerZoom fa fa-search"></a>
+                                    <a href="<?php echo $this->baseUrl();?>/img/pics/<?php echo $foto['url']?>" class="triggerZoom fa fa-search"></a>
                                 </div><!-- .hover-details end -->
                             </div><!-- .hover-mask-container end -->
                         </div><!-- .service-item end -->
 
                         <figcaption>
-                            <h3>MAN MEGA 13.6</h3>
+                            <h3><?php echo $foto['nama']?></h3>
                         </figcaption>
                     </figure><!-- .gallery-item-container end -->
                 </li><!-- .gallery-item end -->
-                <li class="col-md-3">
-                    <figure class="gallery-item-container">
-                        <div class="gallery-item">
-                            <img src="<?php echo $this->baseUrl();?>/images/kegiatan/2.jpg" alt="" />
-
-                            <div class="hover-mask-container">
-                                <div class="hover-mask"></div>
-                                <div class="hover-zoom">
-                                    <a href="<?php echo $this->baseUrl();?>/images/kegiatan/2.jpg" class="triggerZoom fa fa-search"></a>
-                                </div><!-- .hover-details end -->
-                            </div><!-- .hover-mask-container end -->
-                        </div><!-- .service-item end -->
-
-                        <figcaption>
-                            <h3>MAN MEGA 13.6</h3>
-                        </figcaption>
-                    </figure><!-- .gallery-item-container end -->
-                </li><!-- .gallery-item end -->
-                <li class="col-md-3">
-                    <figure class="gallery-item-container">
-                        <div class="gallery-item">
-                            <img src="<?php echo $this->baseUrl();?>/images/kegiatan/8.jpg" alt="" />
-
-                            <div class="hover-mask-container">
-                                <div class="hover-mask"></div>
-                                <div class="hover-zoom">
-                                    <a href="<?php echo $this->baseUrl();?>/images/kegiatan/8.jpg" class="triggerZoom fa fa-search"></a>
-                                </div><!-- .hover-details end -->
-                            </div><!-- .hover-mask-container end -->
-                        </div><!-- .service-item end -->
-
-                        <figcaption>
-                            <h3>MAN MEGA 13.6</h3>
-                        </figcaption>
-                    </figure><!-- .gallery-item-container end -->
-                </li><!-- .gallery-item end -->
-                <li class="col-md-3">
-                    <figure class="gallery-item-container">
-                        <div class="gallery-item">
-                            <img src="<?php echo $this->baseUrl();?>/images/kegiatan/4.jpg" alt="" />
-
-                            <div class="hover-mask-container">
-                                <div class="hover-mask"></div>
-                                <div class="hover-zoom">
-                                    <a href="<?php echo $this->baseUrl();?>/images/kegiatan/4.jpg" class="triggerZoom fa fa-search"></a>
-                                </div><!-- .hover-details end -->
-                            </div><!-- .hover-mask-container end -->
-                        </div><!-- .service-item end -->
-
-                        <figcaption>
-                            <h3>MAN MEGA 13.6</h3>
-                        </figcaption>
-                    </figure><!-- .gallery-item-container end -->
-                </li><!-- .gallery-item end -->
-                <li class="col-md-3">
-                    <figure class="gallery-item-container">
-                        <div class="gallery-item">
-                            <img src="<?php echo $this->baseUrl();?>/images/kegiatan/5.jpg" alt="" />
-
-                            <div class="hover-mask-container">
-                                <div class="hover-mask"></div>
-                                <div class="hover-zoom">
-                                    <a href="<?php echo $this->baseUrl();?>/images/kegiatan/5.jpg" class="triggerZoom fa fa-search"></a>
-                                </div><!-- .hover-details end -->
-                            </div><!-- .hover-mask-container end -->
-                        </div><!-- .service-item end -->
-
-                        <figcaption>
-                            <h3>MAN MEGA 13.6</h3>
-                        </figcaption>
-                    </figure><!-- .gallery-item-container end -->
-                </li><!-- .gallery-item end -->
+              <?php } ?>
             </ul>
         </div>
     </div>
 </div>
-
-<!-- <div class="column column-wide">
-  <div class="widget">
-    <h1 class="post-title">Gallery Foto</h1>
-    <div class="divider">&nbsp;</div>
-    <div class="gallery-content">
-      <ul class="gallery">
-        <li><img src="<?php echo $this->baseUrl();?>/images/kegiatan/1.jpg" alt="" /></li>
-        <li><img src="<?php echo $this->baseUrl();?>/images/kegiatan/2.jpg" alt="" /></li>
-        <li><img src="<?php echo $this->baseUrl();?>/images/kegiatan/11.jpg" alt="" /></li>
-        <li><img src="<?php echo $this->baseUrl();?>/images/kegiatan/4.jpg" alt="" /></li>
-        <li><img src="<?php echo $this->baseUrl();?>/images/kegiatan/5.jpg" alt="" /></li>
-        <li><img src="<?php echo $this->baseUrl();?>/images/kegiatan/8.jpg" alt="" /></li>
-        <li><img src="<?php echo $this->baseUrl();?>/images/kegiatan/12.jpg" alt="" /></li>
-        <li><img src="<?php echo $this->baseUrl();?>/images/kegiatan/14.jpg" alt="" /></li>
-      </ul>
-    </div>
-  </div>
-  <div class="cleaner">&nbsp;</div>
-</div> -->

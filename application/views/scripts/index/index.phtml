@@ -1,8 +1,14 @@
 <div id="masterslider" class="master-slider ms-skin-default mb-0">
+<?php
+$modelslider = new Application_Model_DbTables_GaleriModel();
+$banner = $modelslider->getAllBanner();
+foreach ($banner as $slider ) {
+?>
+
     <!-- first slide -->
     <div class="ms-slide">
         <!-- slide background -->
-        <img src="masterslider/blank.gif" data-src="<?php echo $this->baseUrl();?>/images/kegiatan/2.jpg" alt="Strongest distribution network"/>
+        <img src="masterslider/blank.gif" data-src="<?php echo $this->baseUrl();?>/img/slider/<?php echo $slider['foto'];?>" alt="<?php echo $slider['judul'];?>"/>
 
         <img class="ms-layer" src="masterslider/blank.gif" data-src="img/slider/slider-line.jpg" alt=""
              style="left: 30px; top: 310px;"
@@ -20,7 +26,7 @@
             data-hide-effect="fade"
             data-delay="300"
             >
-            Pelatihan komputer
+            <?php echo $slider['judul']; ?>
         </h2>
         <p class="ms-layer pi-text"
            style="left: 375px; top: 470px; font-size:25px"
@@ -30,43 +36,11 @@
            data-hide-effect="fade"
            data-delay="600"
            >
-            Pelatihan Guru SMK se jakarta timur di kantor P2KGK
+          <?php echo $slider['deskripsi']; ?>
         </p>
     </div><!-- .ms-slide end -->
+<?php  } ?>
 
-    <div class="ms-slide">
-        <!-- slide background -->
-        <img src="masterslider/blank.gif" data-src="<?php echo $this->baseUrl();?>/images/kegiatan/1.jpg" alt="Strongest distribution network"/>
-
-        <img class="ms-layer" src="masterslider/blank.gif" data-src="img/slider/slider-line.jpg" alt=""
-             style="left: 30px; top: 310px;"
-             data-type="image"
-             data-effect="left(short)"
-             data-duration="300"
-             data-hide-effect="fade"
-             data-delay="0"
-             />
-        <h2 class="ms-layer pi-caption01"
-            style="left: 30px; top: 340px; font-size:30px"
-            data-type="text"
-            data-effect="left(short)"
-            data-duration="300"
-            data-hide-effect="fade"
-            data-delay="300"
-            >
-            Pengenalan Mesin Industri
-        </h2>
-        <p class="ms-layer pi-text"
-           style="left: 375px; top: 470px; font-size:25px"
-           data-type="text"
-           data-effect="top(short)"
-           data-duration="300"
-           data-hide-effect="fade"
-           data-delay="600"
-           >
-          Pelatihan Guru SMK se jakarta timur di kantor P2KGK
-        </p>
-    </div><!-- .ms-slide end -->
 
 </div><!-- #masterslider end -->
 
