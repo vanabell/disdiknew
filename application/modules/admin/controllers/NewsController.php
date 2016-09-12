@@ -123,15 +123,15 @@ class Admin_NewsController extends Zend_Controller_Action {
 	
 	
 	public function deleteAction() {
-		$model = new Admin_Model_EditorModel();
+		$model = new Admin_Model_NewsModel();
 		$req = $this->getRequest();
 		$id = $req->getParam('key');
 	
-		$delete = $model->delAdmin($id);
-	
+		$delete = $model->delNews($id);
+	//Zend_Debug::dump($delete);die();
 		return $this->_helper->json(
 				array(
-						'edit' => $delete,
+						'edit' => true,
 				)
 		);
 	

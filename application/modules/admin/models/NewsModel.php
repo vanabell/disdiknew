@@ -42,6 +42,18 @@ class Admin_Model_NewsModel {
 		return $result;
 	}
 	
+	public function delNews($id) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->delNews($id);
+	
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
+	
 	public function upNews($data, $tgl, $filename) {
 		$productTable = $this->_dbTableProduct;
 		try {

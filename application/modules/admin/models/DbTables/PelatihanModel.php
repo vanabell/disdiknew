@@ -144,7 +144,7 @@ class Admin_Model_DbTables_PelatihanModel extends Zend_Db_Table_Abstract {
     }
   }
 
-	public function update($id, $nilai) {
+	public function updatedaftar($id, $nilai) {
 		try {
 			$stmt=$this->_db->prepare("UPDATE pendaftaran SET
 										nilai=:nilai

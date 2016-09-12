@@ -41,6 +41,16 @@ class Admin_Model_DbTables_NewsModel extends Zend_Db_Table_Abstract {
 		}
 	}
 	
+	public function delNews($id) {
+		try {
+			$select="DELETE FROM news where id_berita='".$id."'";
+			$rows=$this->_db->fetchAll($select);
+			return $rows;
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+	}
+	
 	public function insertNews($data, $filename, $newid) {
 		try {
 			$stmt=$this->_db->prepare("INSERT INTO news

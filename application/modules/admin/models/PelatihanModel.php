@@ -86,10 +86,10 @@ class Admin_Model_PelatihanModel {
 		return $result;
 	}
 
-	public function update($id,$nilai) {
+	public function updatedaftar($id,$nilai) {
 		$productTable = $this->_dbTableProduct;
 		try {
-			$result = $productTable->update($id,$nilai);
+			$result = $productTable->updatedaftar($id,$nilai);
 
 		} catch (Zend_Exception $e) {
 			return $e->getMessage();
