@@ -83,7 +83,7 @@
 		<script>
 
 		function hps(id){
-			$.post('<?php echo $this->baseUrl()."/admin/news/delete/id"?>',{key: id}, function(data){
+			$.post('<?php echo $this->baseUrl()."/admin/news/delete/"?>',{key: id}, function(data){
 		          if(data.edit==true) {
 					alert('Data Clear');
 					parent.location.href = "<?php echo $this->baseUrl()?>/admin/news/index";

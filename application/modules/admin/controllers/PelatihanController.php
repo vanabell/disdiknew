@@ -42,14 +42,14 @@ class Admin_PelatihanController extends Zend_Controller_Action {
       } else {
         // Zend_Debug::dump($Dataform);die();
         $insert = $model->updatePel($Dataform);
-        // Zend_Debug::dump($insert);die();
+         //Zend_Debug::dump($insert);die();
 
       }
 
       if($insert===true) {
-        $this->view->msg = 'Insert Success';
+        $this->view->msg = 'Update Success';
       } else {
-        $this->view->message = 'Insert Failed';
+        $this->view->message = 'Update Failed';
       }
 
     }
@@ -103,13 +103,13 @@ class Admin_PelatihanController extends Zend_Controller_Action {
 
   }
 
-  public function updateAction() {
+  public function updatedaftarAction() {
 
     $model = new Admin_Model_PelatihanModel();
     $req = $this->getRequest();
     $id = $req->getParam('key');
     $nilai = $req->getParam('key2');
-    $data = $model->update($id,$nilai);
+    $data = $model->updatedaftar($id,$nilai);
     return $this->_helper->json(
         array(
             'edit' => $data,

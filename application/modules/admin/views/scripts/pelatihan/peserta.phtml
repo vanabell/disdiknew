@@ -112,7 +112,7 @@
 			var id = $('#id').val();
 			var nilai = $('#selector').val();
 
-		    $.post('<?php echo $this->baseUrl()."/admin/pelatihan/update/id"?>',{key: id,key2: nilai}, function(data){
+		    $.post('<?php echo $this->baseUrl()."/admin/pelatihan/updatedaftar/id"?>',{key: id,key2: nilai}, function(data){
 		          if(data.edit==true) {
 					alert('Data Inserted');
 					parent.location.href = "<?php echo $this->baseUrl()?>/admin/pelatihan/peserta/p/<?php echo $this->id?>";
