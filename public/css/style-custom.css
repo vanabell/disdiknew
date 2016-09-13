@@ -282,6 +282,25 @@ fieldset .required {
     color: #27b9c6;
     font-weight: 700;
 }
+.events-table thead th {
+    text-align: center;
+    padding-left: 0;
+}
+.events-table tbody td .btn {
+    float: none;
+    display: block;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+.p2kgk-h5 {
+    margin-bottom: 10px;
+}
+.p2kgk-span {
+    font-weight: 700;
+    color: #333;
+    font-size: 16px;
+}
 @media only screen and (max-width: 991px) and (min-width: 768px){
   #dl-menu2 {
       display: block;

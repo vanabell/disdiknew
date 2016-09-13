@@ -42,4 +42,15 @@ class Application_Model_PelatihanModel {
 		return $result;
 	}
 
+	public function getAllPelDet($id) {
+		$productTable = $this->_dbTableProduct;
+		try {
+			$result = $productTable->getAllPelDet($id);
+
+		} catch (Zend_Exception $e) {
+			return $e->getMessage();
+		}
+		return $result;
+	}
+
 }

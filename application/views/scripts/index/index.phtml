@@ -138,12 +138,11 @@ foreach ($banner as $slider ) {
                 </span>
             </div><!-- .custom-heading end -->
             <div class="table-responsive">
-                <table class="events-table">
+                <table class="events-table" style="width:100%;">
                     <thead>
                         <tr>
                             <th>tanggal</th>
                             <th>nama pelatihan</th>
-                            <th>peserta</th>
                             <th>jenis pelatihan</th>
                             <th>status</th>
                         </tr>
@@ -156,14 +155,21 @@ foreach ($banner as $slider ) {
               foreach ($pelat as $pelats ) {?>
                         <tr style="border-bottom: 1px solid #e6e6e6;">
                             <td class="event-date p2kgkdate">
-                              <?php echo $pelats['tgl_mulai'];?> s/d <br/><?php echo $pelats['tgl_selesai'];?>
+                              <?php
+                                $mulai = strtotime($pelats['tgl_mulai']);
+                                echo date("d M Y", $mulai );
+                              ?>
+                                s/d
+                                <?php
+                                $done = strtotime($pelats['tgl_selesai']);
+                                echo date("d M Y", $done );?>
                             </td>
                             <td>
                                 <?php echo $pelats['nama_pelatihan']?>
                             </td>
-                            <td>
+                            <!-- <td>
                               <?php echo $pelats['tingkat_peserta']?>
-                            </td>
+                            </td> -->
                             <td>
                               <?php
                                 if($pelats['jenis_pelatihan']==1) {

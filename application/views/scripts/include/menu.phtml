@@ -95,15 +95,17 @@
                                   <a href="<?php echo $this->baseUrl();?>/report/certification/">Laporan Sertifikasi</a>
                                 </li>
                               </ul>
-                          </li><!-- .dropdown end --> 
+                          </li><!-- .dropdown end -->
                       </ul><!-- .nav.navbar-nav end -->
 
                       <?php include("../application/views/scripts/include/menu-responsive.phtml"); ?>
 
-                        <?php
-                          $sessionuser = Zend_Registry::get('session_user');
-                          //echo $sessionuser->status;
-                        ?>
+                      <div style="display:none;">
+
+                      <?php
+                        $sessionuser = Zend_Registry::get('session_user');
+                        //echo $sessionuser->status;
+                      ?>
                       <?php if ($sessionuser->status==null) {?>
                       <a class="btn btn-medium" href="<?php echo $this->baseUrl();?>/login/">
                           <span>
@@ -151,6 +153,8 @@
                       <?php
                           }
                         } ?>
+                      </div>
+                        
                   </div><!-- MAIN NAVIGATION END -->
               </nav><!-- .navbar.navbar-default end -->
           </div><!-- .col-md-12 end -->

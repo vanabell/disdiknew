@@ -1,0 +1,104 @@
+<div class="page-title-style01 pt-bkg11">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <h1>Pendaftaran Online - <?php echo $this->data[0]['nama_pelatihan']?></h1>
+          <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+              <li>You are here:</li>
+              <li>
+                <a href="<?php echo $this->baseUrl() ?>/index">Home</a>
+              </li>
+              <!-- <li>
+                <a href="<?php echo $this->baseUrl() ?>/news/">News</a>
+              </li> -->
+              <li>
+                <?php echo $this->data[0]['nama_pelatihan']?>
+              </li>
+            </ul><!-- .breadcrumb end -->
+          </div><!-- .breadcrumb-container end -->
+        </div>
+      </div>
+  </div>
+</div>
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 blog-posts post-single">
+                <div class="blog-post clearfix">
+
+                    <div class="post-body" style="padding-left:0;">
+                        <h2><?php echo $this->data[0]['nama_pelatihan']?></h2>
+                        <div class="time">
+                          <h5 class="p2kgk-h5">Tanggal : </h5>
+                          <?php
+                            $mulai = strtotime($this->data[0]['tgl_mulai']);
+                            echo date("d M Y", $mulai );
+                          ?>
+                            s/d
+                            <?php
+                            $done = strtotime($this->data[0]['tgl_selesai']);
+                            echo date("d M Y", $done );?>
+                        </div>
+                        <p>
+                          <h5 class="p2kgk-h5">Deskripsi : </h5>
+                            <?php echo $this->data[0]['deskripsi'];?>
+                            <span class="p2kgk-span">Gelombang : </span>
+                            <?php echo $this->data[0]['gelombang'];?>
+                            <br/>
+                            <span class="p2kgk-span">Tingkat Peserta : </span>
+                            <?php echo $this->data[0]['tingkat_peserta'];?>
+                            <br/>
+                            <span class="p2kgk-span">Status Pendaftaran : </span>
+                            <?php
+                            if($this->data[0]['status_pendaftaran']==1) {
+                              echo "Pendaftaran masih buka, bila ingin mengikuti silahkan isi form di bagian bawah";
+
+                            } else {
+                              echo "<span style='color:#f00;'>Pendaftaran sudah tutup</span>";
+                            }
+                            ?>
+                        </p>
+                        <?php
+                        if($this->data[0]['status_pendaftaran']==1) { ?>
+                          <div class="row" style="margin-top:5%;">
+                            <div class="col-md-8" style="padding:0;">
+                          <div class="custom-heading">
+                            <h2>Daftar Online</h2>
+                          </div><!-- .custom-heading end -->
+                          <div class="alert alert-warning" role="alert" style="margin-top:0;">
+                            Pastikan nama yang Anda masukkan sesuai dengan nama yang tertera pada sekolah Anda di website:<br/>
+<a href="http://www.datadikdki.net/" target="_blank">
+  <strong>Data Pendidikan Dinas Pendidikan Provinsi DKI Jakarta</strong></a>
+<br/>(Untuk mengecek apakah data Anda sudah ada, silahkan KLIK link berikut: <a href="http://www.datadikdki.net/" target="_blank"><strong>http://www.datadikdki.net/</strong></a>, dan cari pada Menu Sekolah atau Menu Guru )
+                          </div>
+                          <form class="form-horizontal wpcf7" method="post" action="">
+                            <fieldset>
+                                <label for="inputEmail">
+                                  Silahkan Masukkan NIP
+                                    <span class="required">*</span>
+                                </label>
+                                <input type="text" name="nip" class="form-control wpcf7-text" id="inputEmail" placeholder="NIP" required="required">
+                            </fieldset>
+                            <fieldset style="width:auto; display:inline-block;">
+                                <div class="required">
+                                    * Wajib Di isi!
+                                </div>
+                            </fieldset>
+                            <input type="submit" class="wpcf7-submit" value="Cari" />
+                          </form>
+                        <?php } else {
+                          echo "";
+                        }
+                        ?>
+
+
+                      </div>
+                    </div>
+
+                    </div><!-- .post-body end -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
