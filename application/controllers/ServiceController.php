@@ -35,4 +35,12 @@ class ServiceController extends Zend_Controller_Action
         $this->view->data = $data;
     }
 
+    public function detailAction()
+    {
+        $model = new Application_Model_PelatihanModel();
+        $req = $this->getRequest();
+        $id = $req->getParam('p');
+        $getpel = $model->getAllPelDet($id);
+        $this->view->data = $getpel;
+    }
 }

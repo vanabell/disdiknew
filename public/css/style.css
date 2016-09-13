@@ -4015,8 +4015,8 @@ blockquote{
     width: 40px;
     height: 40px;
     position: fixed;
-    bottom: 15px;
-    right: 100px;
+    bottom: 15%;
+    right: 2%;
     display: none;
     text-indent: -9999px;
     background-image: url('../img/to-top.png');

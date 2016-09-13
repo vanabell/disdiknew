@@ -25,49 +25,56 @@
                 <h2>Jadwal Pelatihan dan Sertifikasi P2KGK di Tahun 2016</h2>
             </div><!-- .custom-heading end -->
             <div class="table-responsive">
-              <table class="events-table">
-                  <thead>
-                      <tr>
-                          <th>No</th>
-                          <th>Tanggal</th>
-                          <th>Gelombang</th>
-                          <th>Nama Pelatihan</th>
-                          <th>Program</th>
-                          <th>Peserta</th>
-                          <th>Status</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                    $no=1;
-                    foreach ($this->data as $pel) { ?>
-                      <tr style="border-bottom: 1px solid #e6e6e6;">
-                          <td><?php echo $no;?></td>
-                          <td class="event-date p2kgkdate">
-                              <?php echo $pel['tgl_mulai'];?><br/> s/d <br/><?php echo $pel['tgl_selesai'];?>
-                          </td>
-                          <td>Gelombang <?php echo $pel['gelombang'];?></td>
-                          <td>
-                              <?php echo $pel['nama_pelatihan'];?>
-                          </td>
-                          <td>
-                              <?php echo $pel['deskripsi'];?>
-                          </td>
-                          <td>
-                                <?php echo $pel['tingkat_peserta'];?>
-                          </td>
-                          <td>
-                              <?php
-                              if($pel['status_pendaftaran']==1) {
-                                echo "Pendaftaran masih buka";
-                              } else {
-                                echo "<span style='color:#f00;'>Pendaftaran sudah tutup</span>";
-                              }
-                              ?>
-                          </td>
-                      </tr>
-                      <?php $no++;} ?>
-                  </tbody>
+              <table class="events-table" style="width:100%;">
+                <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Tanggal</th>
+                      <th>Gelombang</th>
+                      <th>Nama Kegiatan</th>
+                      <!-- <th>Peserta</th> -->
+                      <!-- <th>Status</th> -->
+                      <th>Daftar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  $no=1;
+                  foreach ($this->data as $pel) { ?>
+                    <tr style="border-bottom: 1px solid #e6e6e6;">
+                        <td><?php echo $no;?></td>
+                        <td class="event-date p2kgkdate">
+                          <?php
+                            $mulai = strtotime($pel['tgl_mulai']);
+                            echo date("d M Y", $mulai );
+                          ?>
+                            s/d
+                            <?php
+                            $done = strtotime($pel['tgl_selesai']);
+                            echo date("d M Y", $done );?>
+                        </td>
+                        <td>Gelombang <?php echo $pel['gelombang'];?></td>
+                        <td>
+                            <?php echo $pel['nama_pelatihan'];?>
+                        </td>
+                        <!-- <td>
+                            <?php echo $pel['tingkat_peserta'];?>
+                        </td> -->
+                        <!-- <td>
+                            <?php
+                            if($pel['status_pendaftaran']==1) {
+                              echo "Pendaftaran masih buka";
+                            } else {
+                              echo "<span style='color:#f00;'>Pendaftaran sudah tutup</span>";
+                            }
+                            ?>
+                        </td> -->
+                        <td>
+                          <a href="<?php echo $this->baseUrl();?>/service/detail/p/<?php echo $pel['id_pelatihan']?>" class="btn btn-medium"><span>Pilih</span></a>
+                        </td>
+                    </tr>
+                    <?php $no++;} ?>
+                </tbody>
               </table><!-- .events-table end -->
               </div>
           </div>
